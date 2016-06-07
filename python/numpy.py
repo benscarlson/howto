@@ -1,2 +1,9 @@
-np.savetxt('myrecarray.csv',myrecarray, fmt='%s') #save myrecarray to csv file. need to specify fmt='%s' so it saves as strings
-myrecarray.dtype.names #print headers of the recarray
+
+myrec.dtype.names #print headers of the recarray
+
+#save myrecarray to csv file. 
+# first make the header
+# fmt='%s' so it saves all fields as strings
+# comments='' so that it won't print a '#' at the beginning
+header = ','.join(myrec.dtype.names)
+np.savetxt('myrec.csv',myrec, fmt='%s', delimiter=',', header=header, comments='') 
