@@ -4,3 +4,6 @@ ps -ef | grep "<part of command name>" to find the pid #if you have exited out o
 kill -9 <pid> #to kill the process
 chown -R benc:benc data #change the user and group permissions for folder "data" to user: benc group: benc. also works on files
 
+.bash_pofile #used for login shell (i.e remote in via ssh)
+.bashrc #used for non-login shell (i.e. opening another shell after you've already logged in)
+
