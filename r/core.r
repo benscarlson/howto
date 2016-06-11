@@ -11,4 +11,10 @@ class(x) #check the class of object x
 file.choose() #open a file dialog
 read.csv(file.choose()) #use file.choose() to read in a file
 
+which(is.na(x)) #identify the index of missing values in a vector
+
+#identify which rows in a dataframe have NA values
+d = data.frame(x=c(1,NA,3,4,5), y=c(6,7,NA,9,10))
+which(!complete.cases(d)) #--> 2 3
+
 
