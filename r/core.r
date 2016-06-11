@@ -8,4 +8,7 @@ as.numeric(treat) # [1] 1 1 2 2
 
 class(x) #check the class of object x
 
+file.choose() #open a file dialog
+read.csv(file.choose()) #use file.choose() to read in a file
+
 
