@@ -7,6 +7,7 @@ treat <- as.factor(rep(c("A","B"),each=2))
 as.numeric(treat) # [1] 1 1 2 2
 
 class(x) #check the class of object x
+typeof(x) #determines the (R internal) type or storage mode of any object
 
 file.choose() #open a file dialog
 read.csv(file.choose()) #use file.choose() to read in a file
@@ -17,4 +18,11 @@ which(is.na(x)) #identify the index of missing values in a vector
 d = data.frame(x=c(1,NA,3,4,5), y=c(6,7,NA,9,10))
 which(!complete.cases(d)) #--> 2 3
 
+Reduce(sum,1:4) #--> 10. sumulatively applies function sum to each item in vector 1:4.
 
+matrix(1:6, ncol=2) #make a matrix with two columns
+
+#built in constants:
+LETTERS, letters, month.abb, month.name, pi
+
+summary(m)$sigma #standard deviation of mean regression value
