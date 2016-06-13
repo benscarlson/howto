@@ -9,5 +9,9 @@ li = [0,1,2,3,4]
 li[1:3] #returns [1,2]
 li[1:-1] #returns [1,2,3]
 
+#this gets the parent directory of the parent directory of the currently executing file, 
+# even if the file is called from a symbolicly linked file
+os.path.dirname(os.path.dirname(os.path.realpath(__file__))) 
+
 
 
