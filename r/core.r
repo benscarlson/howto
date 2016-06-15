@@ -26,3 +26,8 @@ matrix(1:6, ncol=2) #make a matrix with two columns
 LETTERS, letters, month.abb, month.name, pi
 
 summary(m)$sigma #standard deviation of mean regression value
+
+x<-5
+eval("x") # --> prints "x"
+as.symbol("x") # --> prints x
+eval(as.symbol("x")) #--> prints 5 
