@@ -7,3 +7,5 @@ chown -R benc:benc data #change the user and group permissions for folder "data"
 .bash_pofile #used for login shell (i.e remote in via ssh)
 .bashrc #used for non-login shell (i.e. opening another shell after you've already logged in)
 
+dpkg -i debfile.deb #install a .deb file
+
