@@ -3,3 +3,6 @@ reduceRegion(ee.Reducer.sum().grouped(1)) //use raster zonal area (zonal stats) 
 
 var fc = (ee.FeatureCollection('ft:1Ec8IWsP8asxN-ywSqgXWMuBaxI6pPaeh6hC64lA')
       .filter(ee.Filter().eq('ECO_NAME', 'Sonoran desert')));
+
+//add lon, lat bands to img      
+img = img.addBands(ee.Image.pixelLonLat());
