@@ -9,3 +9,8 @@ chown -R benc:benc data #change the user and group permissions for folder "data"
 
 dpkg -i debfile.deb #install a .deb file
 
+#move all files, including hidden files, to a new directory
+shopt - s dotglob
+mv dir1/* dir2
+
+
