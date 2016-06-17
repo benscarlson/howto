@@ -13,4 +13,6 @@ dpkg -i debfile.deb #install a .deb file
 shopt - s dotglob
 mv dir1/* dir2
 
+tar xvf myfile.tar.gz #unzip up myfile.tar.gz
+
 
