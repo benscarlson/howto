@@ -31,3 +31,7 @@ x<-5
 eval("x") # --> prints "x"
 as.symbol("x") # --> prints x
 eval(as.symbol("x")) #--> prints 5 
+
+t<-ToothGrowth
+tapply(t$len,list(t$dose,t$supp),mean) #make a two way table of the means of each group
+
