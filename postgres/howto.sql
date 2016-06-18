@@ -5,3 +5,5 @@ create index idx_t_geom on t using gist(geom) --create a spatial index on table 
 geometrytype(g)
 st_geometrytype(g)
 
+explain sql_statement --show the query plan for sql_statement
+
