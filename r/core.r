@@ -35,3 +35,4 @@ eval(as.symbol("x")) #--> prints 5
 t<-ToothGrowth
 tapply(t$len,list(t$dose,t$supp),mean) #make a two way table of the means of each group
 
+R CMD BATCH test.R #run file test.R from the command line
