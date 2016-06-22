@@ -8,3 +8,4 @@ mystack[[1]] #extract the first RasterLayer from the RasterStack
 names(layer) <- 'layername' #set the name of RasterLayer to 'layername'
 ncell(layer) #number of cells
 calc(layer,function(x) f(x)) #apply function f to layer
+cellStats(layer,sum) #returns the sum of all cells in layer. can also use mean, min, etc.
