@@ -10,6 +10,9 @@ explain sql_statement --show the query plan for sql_statement
 select version() --check the version 
 select postgis_full_version() --check the postgis version
 
+select n, (st_dump(g)).geom as g from t --from table t with column n, break column g which has type multi-polygon into rows of single polygons
+
+
 
 
 
