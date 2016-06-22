@@ -7,3 +7,10 @@ st_geometrytype(g)
 
 explain sql_statement --show the query plan for sql_statement
 
+select version() --check the version 
+select postgis_full_version() --check the postgis version
+
+
+
+
+
