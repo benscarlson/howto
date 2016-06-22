@@ -6,3 +6,5 @@ names(mystack) #the names of the RasterLayers in the RasterStack
 extent(mystack) #extent of the RasterLayers in the RasterStack
 mystack[[1]] #extract the first RasterLayer from the RasterStack
 names(layer) <- 'layername' #set the name of RasterLayer to 'layername'
+ncell(layer) #number of cells
+calc(layer,function(x) f(x)) #apply function f to layer
