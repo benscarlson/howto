@@ -13,5 +13,10 @@ li[1:-1] #returns [1,2,3]
 # even if the file is called from a symbolicly linked file
 os.path.dirname(os.path.dirname(os.path.realpath(__file__))) 
 
+','.join(['a','b','c']) # 'a,b,c'
+'a,b,c'.split(',') # ['a','b','c']
+'a,b,c'.split(',',1) # ['a','b,c'] the second argument tells split the number of times to split
+
+
 
 
