@@ -12,7 +12,9 @@ select postgis_full_version() --check the postgis version
 
 select n, (st_dump(g)).geom as g from t --from table t with column n, break column g which has type multi-polygon into rows of single polygons
 
-
+-- create g as coordinate system 4326 and then transform to 2163
+st_geomfromtext(POINT(-77 38),4326) as g 
+st_transform(g, 2163)
 
 
 
