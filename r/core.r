@@ -41,3 +41,6 @@ R CMD BATCH test.R #run file test.R from the command line
 d <- data.frame(a=c(1,2), b=c(3,4))
 class(d[1,]) #'data.frame'
 class(unlist(d[1,]) #'numeric'
+
+paste("a","b","c") # --> "a b c"
+
