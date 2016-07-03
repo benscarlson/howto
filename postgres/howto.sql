@@ -16,6 +16,8 @@ select n, (st_dump(g)).geom as g from t --from table t with column n, break colu
 st_geomfromtext(POINT(-77 38),4326) as g 
 st_transform(g, 2163)
 
+st_dwithin(points.geom, roads.geom, 10) --see all points within 10 meters of a road
+
 
 
 
