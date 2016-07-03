@@ -44,3 +44,11 @@ class(unlist(d[1,]) #'numeric'
 
 paste("a","b","c") # --> "a b c"
 
+paste("A", 1:3, sep = "") #"A1" "A2" "A3"
+paste("A", 1:3, sep = ":") #"A:1" "A:2" "A:3"
+
+
+
+
+
+
