@@ -10,3 +10,12 @@ ncell(layer) #number of cells
 calc(layer,function(x) f(x)) #apply function f to layer
 cellStats(layer,sum) #returns the sum of all cells in layer. can also use mean, min, etc.
 metadata(layer) <- metadata #adds metadata to layer
+
+getGDALVersionInfo()
+
+#create a SpatialPoints object. Not sure how to set the column names
+coords<-matrix(c(-45.1692940000,-23.4697250000),nrow=1)
+pts<-SpatialPoints(m, proj4string=CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'))
+
+env_tif <- raster('misc/tinamus_env.tif') #load the raster from tif
+raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of points (here, a SpatialPoints object)
