@@ -17,6 +17,11 @@ os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 'a,b,c'.split(',') # ['a','b','c']
 'a,b,c'.split(',',1) # ['a','b,c'] the second argument tells split the number of times to split
 
+#read a config file
+import ConfigParser
+config = ConfigParser.ConfigParser()
+config.read('mol-sdm.config')
+rangeAssetName = config.get('DistanceRaster', 'RangeAsset')
 
 
 
