@@ -23,5 +23,14 @@ config = ConfigParser.ConfigParser()
 config.read('mol-sdm.config')
 rangeAssetName = config.get('DistanceRaster', 'RangeAsset')
 
+#convert all values in dictionary d to float
+d = {k:float(v) for k,v in d.items()}
+
+#CSV files
+import csv
+with open('myfile.csv', 'rb') as csvfile:
+    reader = csv.DictReader(csvfile) #use a dict reader
+    firstrow = next(reader) #read first row as a dictionary
+
 
 
