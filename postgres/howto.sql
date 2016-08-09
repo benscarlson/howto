@@ -18,6 +18,8 @@ st_transform(g, 2163)
 
 st_dwithin(points.geom, roads.geom, 10) --see all points within 10 meters of a road
 
+select st_point(1,2) as mypoint --create mypoint at 1,2 
+
 
 
 
