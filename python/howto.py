@@ -1,4 +1,5 @@
 python --version #check python version
+myfunct.__doc__ #print doc string of myfunct
 
 range(8) #get a sequence of integers from 0 to 7
 range(3,7) #get a sequence of integers from 3 to 6
