@@ -47,6 +47,8 @@ paste("a","b","c") # --> "a b c"
 paste("A", 1:3, sep = "") #"A1" "A2" "A3"
 paste("A", 1:3, sep = ":") #"A:1" "A:2" "A:3"
 
+shell.exec("myfile.txt") #have the operating system open myfile.txt using the default application
+
 
 
 
