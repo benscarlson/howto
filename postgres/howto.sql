@@ -20,6 +20,9 @@ st_dwithin(points.geom, roads.geom, 10) --see all points within 10 meters of a r
 
 select st_point(1,2) as mypoint --create mypoint at 1,2 
 
+select st_geomfromtext('POINT(-77.036548 38.895108')', 4326) --create a lon/lat point from WKT, first point is lon, second is lat
+
+
 
 
 
