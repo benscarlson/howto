@@ -22,6 +22,10 @@ select st_point(1,2) as mypoint --create mypoint at 1,2
 
 select st_geomfromtext('POINT(-77.036548 38.895108')', 4326) --create a lon/lat point from WKT, first point is lon, second is lat
 
+st_astext('010100E6...') ---> POINT(-77 38) (does not include SRID)
+st_asewkt('010100E6...') ---> SRID=4326;POINT(-77 38) (includes SRID)
+
+
 
 
 
