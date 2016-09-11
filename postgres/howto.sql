@@ -25,6 +25,8 @@ select st_geomfromtext('POINT(-77.036548 38.895108')', 4326) --create a lon/lat 
 st_astext('010100E6...') ---> POINT(-77 38) (does not include SRID)
 st_asewkt('010100E6...') ---> SRID=4326;POINT(-77 38) (includes SRID)
 
+vacuum analyze t --update statistics on table t
+
 
 
 
