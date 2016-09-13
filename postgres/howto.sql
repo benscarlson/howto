@@ -27,6 +27,8 @@ st_asewkt('010100E6...') ---> SRID=4326;POINT(-77 38) (includes SRID)
 
 vacuum analyze t --update statistics on table t
 
+st_numgeometries(g) --this will tell you the number of geometries in a collection or in a muli* geometry
+
 
 
 
