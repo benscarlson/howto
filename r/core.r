@@ -52,6 +52,9 @@ shell.exec("myfile.txt") #have the operating system open myfile.txt using the de
 sort() #used for vectors
 order() #used for dataframes
 
+complete.cases(df) #check if each row of a dataframe contains any NA values. returns a vector of T/F for each row, T if the row contains no NA values.
+
+
 
 
 
