@@ -49,6 +49,8 @@ paste("A", 1:3, sep = ":") #"A:1" "A:2" "A:3"
 
 shell.exec("myfile.txt") #have the operating system open myfile.txt using the default application
 
+sort() #used for vectors
+order() #used for dataframes
 
 
 
