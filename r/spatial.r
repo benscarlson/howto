@@ -10,6 +10,7 @@ ncell(layer) #number of cells
 calc(layer,function(x) f(x)) #apply function f to layer
 cellStats(layer,sum) #returns the sum of all cells in layer. can also use mean, min, etc.
 metadata(layer) <- metadata #adds metadata to layer
+rdist_r@data@min;rdist_r@data@max #see min and max values for a rasterLayer
 
 getGDALVersionInfo()
 
