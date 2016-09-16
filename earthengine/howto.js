@@ -10,3 +10,7 @@ img = img.addBands(ee.Image.pixelLonLat());
 //paint a feature collection onto an image, color by the attribute "ID" (note: not tested)
 https://groups.google.com/d/msg/google-earth-engine-developers/_OBrauG-mQU/_tZL09nWbfwJ
 var img = ee.Image().byte().paint(fc, "ID");
+
+//masking
+.updateMask() //only masks out currenly unmasked pixels
+.unmask() // turns any currently masked pixels into a value, 0 by default. can pass a value in
