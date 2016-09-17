@@ -14,3 +14,6 @@ var img = ee.Image().byte().paint(fc, "ID");
 //masking
 .updateMask() //only masks out currenly unmasked pixels
 .unmask() // turns any currently masked pixels into a value, 0 by default. can pass a value in
+
+ic.filter(ee.Filter.listContains("system:band_names", "N")) //filter by band name. band names are not in metadata but can filter by this property
+//https://code.earthengine.google.com/8a983033d4fff873f5a647e6cfab857f
