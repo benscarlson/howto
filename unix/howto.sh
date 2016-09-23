@@ -19,6 +19,6 @@ unzip file.zip -d my_folder #unzip a zip
 # add folder 'bin' to your path: Edit .bashrc. Add the folder as below:
 export PATH=$HOME/bin:$PATH
 
-
+scp -r benc@litoria.eeb.yale.edu:/remote/path /local/path
 
 
