@@ -21,4 +21,4 @@ export PATH=$HOME/bin:$PATH
 
 scp -r benc@litoria.eeb.yale.edu:/remote/path /local/path
 
-
+grep ERROR log.txt | wc -l #count the number of lines in the file log.txt with the word ERROR in it
