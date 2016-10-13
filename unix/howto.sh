@@ -22,3 +22,10 @@ export PATH=$HOME/bin:$PATH
 scp -r benc@litoria.eeb.yale.edu:/remote/path /local/path
 
 grep ERROR log.txt | wc -l #count the number of lines in the file log.txt with the word ERROR in it
+
+### OSX ###
+sysctl -n hw.ncpu #the number of logical cores
+sysctl hw.logicalcpu #also the number of logical cores
+sysctl hw.physicalcup #the number of physical cores
+
+system_profiler SPHardwareDataType #a bunch of information about processor, ram, etc.
