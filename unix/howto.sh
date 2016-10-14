@@ -21,6 +21,8 @@ export PATH=$HOME/bin:$PATH
 
 #download directory from remote machine to local machine
 scp -r benc@litoria.eeb.yale.edu:/remote/path /local/path
+#download all files in a directory to the cwd
+scp benc@litoria.eeb.yale.edu:~/remote/path/* .
 #upload file.txt from local machine to remote machine
 scp /local/file.txt benc@litoria.eeb.yale.edu:/remote/file.txt
 
