@@ -19,7 +19,10 @@ unzip file.zip -d my_folder #unzip a zip
 # add folder 'bin' to your path: Edit .bashrc. (.bash_profile on a mac). Add the folder as below:
 export PATH=$HOME/bin:$PATH
 
+#download directory from remote machine to local machine
 scp -r benc@litoria.eeb.yale.edu:/remote/path /local/path
+#upload file.txt from local machine to remote machine
+scp /local/file.txt benc@litoria.eeb.yale.edu:/remote/file.txt
 
 grep ERROR log.txt | wc -l #count the number of lines in the file log.txt with the word ERROR in it
 
