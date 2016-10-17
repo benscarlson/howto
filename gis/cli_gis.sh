@@ -7,3 +7,5 @@ gdalinfo -stats file.tif #see the min and max pixels of a tiff file
 gdal_rasterize -burn 1 -l range -tr 0.00833333 0.00833333 range.shp range.tif
 
 listgeo -proj4 waterdistance.tif #another way to see metadata
+
+gdal_edit.py -a_srs EPSG:4326 myfile.tif #define projection when it is not set
