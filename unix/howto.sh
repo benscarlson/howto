@@ -26,11 +26,22 @@ scp benc@litoria.eeb.yale.edu:~/remote/path/* .
 #upload file.txt from local machine to remote machine
 scp /local/file.txt benc@litoria.eeb.yale.edu:/remote/file.txt
 
+#download multiple files. this will download a total of 12 files, note {1..12} syntax
+wget https://domain/CHELSA_prec_{1..12}_1979-2013_V1_1.zip
+
+#unzip all the files you downloaded
+for file in CHELSA_prec_{1..12}_1979-2013_V1_1.zip; do tar -xvf $file; done
+
 grep ERROR log.txt | wc -l #count the number of lines in the file log.txt with the word ERROR in it
 
-### OSX ###
+#----------
+#   OSX   
+#----------
 sysctl -n hw.ncpu #the number of logical cores
 sysctl hw.logicalcpu #also the number of logical cores
 sysctl hw.physicalcup #the number of physical cores
 
 system_profiler SPHardwareDataType #a bunch of information about processor, ram, etc.
+
+#can unzip a zip file on mac using tar. in some cases this is the only way to unzip zip files
+tar -xvf myfile.zip
