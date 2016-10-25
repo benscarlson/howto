@@ -45,3 +45,5 @@ system_profiler SPHardwareDataType #a bunch of information about processor, ram,
 
 #can unzip a zip file on mac using tar. in some cases this is the only way to unzip zip files
 tar -xvf myfile.zip
+
+df -H #total and available disk space, in easily readable units
