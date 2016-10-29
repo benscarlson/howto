@@ -15,10 +15,19 @@ header-includes:
   - \usepackage{subcaption}
 ---
 
-#----
-# latex
-#------
+#------------
+# latex/knitr
+#------------
 
 #change document margins
 #http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907057
 \usepackage[margin=0.5in]{geometry} #can also use pt instead of in
+
+#to rotate column headers
+\usepackage{rotating} #need to specifically include this, or else xtable will fail
+
+<<table, echo=FALSE, results='asis'>>=
+library(xtable)
+dat <- data.frame(`column name 1`=rnorm(3),`column name 2`=rnorm(3))
+print.xtable(xtable(dat),rotate.colnames=TRUE)
+@
