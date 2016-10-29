@@ -1,0 +1,16 @@
+#----------
+# rmarkdown
+#----------
+
+# to include latex in an rmarkdown file, just put the latex directly in the document
+# don't include the \begin{document} ... \end{document} tags.
+# also \usepackage needs to go in the YAML at the top:
+
+---
+title: "Bavaria Static Niche"
+output: pdf_document
+header-includes:
+  - \usepackage{graphicx}
+  - \usepackage{caption}
+  - \usepackage{subcaption}
+---
