@@ -14,3 +14,11 @@ header-includes:
   - \usepackage{caption}
   - \usepackage{subcaption}
 ---
+
+#----
+# latex
+#------
+
+#change document margins
+#http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907057
+\usepackage[margin=0.5in]{geometry}
