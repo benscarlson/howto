@@ -29,5 +29,7 @@ header-includes:
 <<table, echo=FALSE, results='asis'>>=
 library(xtable)
 dat <- data.frame(`column name 1`=rnorm(3),`column name 2`=rnorm(3))
+#make an xtable out of dat, then pass into print.xtable()
+#this function allows for a bunch of parameters, such as rotate.colnames
 print.xtable(xtable(dat),rotate.colnames=TRUE)
 @
