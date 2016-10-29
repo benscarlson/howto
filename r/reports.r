@@ -21,4 +21,4 @@ header-includes:
 
 #change document margins
 #http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907057
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.5in]{geometry} #can also use pt instead of in
