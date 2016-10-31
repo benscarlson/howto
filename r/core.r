@@ -54,7 +54,10 @@ order() #used for dataframes
 
 complete.cases(df) #check if each row of a dataframe contains any NA values. returns a vector of T/F for each row, T if the row contains no NA values.
 
-
+#make a table that summarizes each row of a dataframe      
+round(t(do.call(cbind, 
+  lapply(dat, summary ))),3) %>%
+  View()
 
 
 
