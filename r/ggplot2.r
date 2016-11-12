@@ -12,6 +12,10 @@ theme(
   legend.text = element_text(size = 8),
   legend.title = element_text(size = 10))
 
+#theme with no grey background, black lines for axes
+theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+
 #----------
 # cowplot
 #----------
