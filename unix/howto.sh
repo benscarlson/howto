@@ -48,3 +48,5 @@ system_profiler SPHardwareDataType #a bunch of information about processor, ram,
 tar -xvf myfile.zip
 
 df -H #total and available disk space, in easily readable units
+
+zcat < myfile.txt.gz|head -10 > myfile_head.txt #first 10 lines of a gzipped file
