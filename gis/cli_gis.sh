@@ -14,3 +14,5 @@ gdal_edit.py -a_srs EPSG:4326 myfile.tif #define projection when it is not set
 ogrinfo -ro -so -al myfile.shp #list important metadata
 #-al lists info on all layers, layer is not specified. to specify layer, use myfile.shp mylayer
 #-so: Summary Only: supress listing of features, show only the summary information like projection, schema, feature count and extents.
+
+ogr2ogr -f GeoJSON myfile.geojson myfile.shp #convert shp to geojson
