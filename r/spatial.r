@@ -20,3 +20,5 @@ pts<-SpatialPoints(m, proj4string=CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +
 
 env_tif <- raster('misc/tinamus_env.tif') #load the raster from tif
 raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of points (here, a SpatialPoints object)
+     
+bbox(obj) #get the bounding box of spatial object obj
