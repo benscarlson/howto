@@ -16,6 +16,9 @@ theme(
 theme(panel.border = element_blank(), panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
 
+#heatmap, plus some other cool things, like ggthemes and a good color scheme
+#http://rud.is/projects/facetedheatmaps.html
+
 #----------
 # cowplot
 #----------
