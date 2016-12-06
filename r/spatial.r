@@ -18,7 +18,9 @@ getGDALVersionInfo()
 coords<-matrix(c(-45.1692940000,-23.4697250000),nrow=1)
 pts<-SpatialPoints(m, proj4string=CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'))
 
+writeRaster(env,'misc/tinamus_env.tif','GTiff') #write a raster to tif
 env_tif <- raster('misc/tinamus_env.tif') #load the raster from tif
+
 raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of points (here, a SpatialPoints object)
      
 bbox(obj) #get the bounding box of spatial object obj
