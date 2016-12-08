@@ -35,6 +35,11 @@ for file in CHELSA_prec_{1..12}_1979-2013_V1_1.zip; do tar -xvf $file; done
 
 grep ERROR log.txt | wc -l #count the number of lines in the file log.txt with the word ERROR in it
 
+chmod 666 y.txt # -rw-rw-rw
+chmod 755 y.txt # -rwxr-xr-x
+chmod 777 y.txt # -rwxrwxrwx
+chmod 600 y.txt # -rw-------
+
 #----------
 #   OSX   
 #----------
