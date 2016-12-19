@@ -49,16 +49,12 @@ paste("A", 1:3, sep = ":") #"A:1" "A:2" "A:3"
 
 shell.exec("myfile.txt") #have the operating system open myfile.txt using the default application
 
-sort() #used for vectors
-order() #used for dataframes
-
-complete.cases(df) #check if each row of a dataframe contains any NA values. returns a vector of T/F for each row, T if the row contains no NA values.
-
 #make a table that summarizes each row of a dataframe      
 round(t(do.call(cbind, 
   lapply(dat, summary ))),3) %>%
   View()
 
+saveRDS(object,path) #save an object to an RDS file 
 
 
 
