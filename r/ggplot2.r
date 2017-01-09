@@ -13,8 +13,11 @@ theme(
   legend.title = element_text(size = 10))
 
 #theme with no grey background, black lines for axes
+theme_bw() +
 theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-  panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+  panel.grid.minor = element_blank(),
+  axis.line.x = element_line(color="black", size = 0.5),
+  axis.line.y = element_line(color="black", size = 0.5))
 
 #heatmap, plus some other cool things, like ggthemes and a good color scheme
 #http://rud.is/projects/facetedheatmaps.html
