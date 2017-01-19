@@ -56,5 +56,8 @@ round(t(do.call(cbind,
 
 saveRDS(object,path) #save an object to an RDS file 
 
+#infix operators
+`%s%` <- function(x,y) x + y
+1 %s% 2 #3
 
 
