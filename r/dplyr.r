@@ -16,3 +16,8 @@ lastLoess <- function(dat) {
 labelPoints <- sub %>% 
   group_by(Country) %>%
   do(lastLoess(.))
+
+#group dataset then apply a function to certain columns in each group
+dat1 <- dat0 %>%
+  group_by(col_a) %>%
+  mutate_each(funs(myscale),-c(col_a)) #don't apply to col_a
