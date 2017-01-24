@@ -10,3 +10,10 @@ install.packages('hypervolume',repos='http://cran.rstudio.com/') #this is probab
 #to install into a 'local' directory, these is a line like:
 R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/3.2'}
 #if the folder ~/R/x86_64-pc-linux-gnu-library/3.2 exists, then when you start R it will be the default place to install libraries
+
+#my macbook pro
+#r 3.2.3 looks like it was installed by homebrew to /usr/local/Cellar/r/3.2.3. 'Cellar' is where brew puts your 'kegs'
+brew list r
+#https://support.rstudio.com/hc/en-us/articles/200486138-Using-Different-Versions-of-R
+#I set environment variable RSTUDIO_WHICH_R to /usr/local/bin/R
+#This link was set up by homebrew and links to /usr/local/Cellar/R/3.2.3/bin/R
