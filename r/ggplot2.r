@@ -12,6 +12,9 @@ theme(
   legend.text = element_text(size = 8),
   legend.title = element_text(size = 10))
 
+#set the legend position and remove the boxes around  the legend shapes
+theme(legend.position = c(.8, .8), legend.key = element_blank()) +
+
 #theme with no grey background, black lines for axes
 theme_bw() +
 theme(panel.border = element_blank(), panel.grid.major = element_blank(),
