@@ -38,3 +38,5 @@ save_plot('~/scratch/dualplot.png', dualPlot,
           ncol = 2, nrow = 1,
           base_width=8,
           base_height=6)
+
+guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
