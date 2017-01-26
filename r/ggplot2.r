@@ -19,6 +19,18 @@ theme(panel.border = element_blank(), panel.grid.major = element_blank(),
   axis.line.x = element_line(color="black", size = 0.5),
   axis.line.y = element_line(color="black", size = 0.5))
 
+#theme that looks similar to the above theme
+plotTheme <-   theme(panel.background = element_blank(),
+                     panel.grid.major = element_blank(), 
+                     panel.grid.minor = element_blank(),
+                     axis.text=element_text(size=20),
+                     axis.title=element_text(size=20),
+                     axis.line = element_line(colour = "black"),
+                     legend.text = element_text(size=12),
+                     legend.title = element_text(size=14))
+
+guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
+
 #heatmap, plus some other cool things, like ggthemes and a good color scheme
 #http://rud.is/projects/facetedheatmaps.html
 
@@ -38,5 +50,3 @@ save_plot('~/scratch/dualplot.png', dualPlot,
           ncol = 2, nrow = 1,
           base_width=8,
           base_height=6)
-
-guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
