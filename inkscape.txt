@@ -1,1 +1,2 @@
-
+Select all items. Document Properties -> Resize page content
+Save as PDF. After picking Save, a dialog will popup. On dialog, pick 'Use documents page size'
