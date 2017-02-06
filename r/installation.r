@@ -12,6 +12,9 @@ R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/3.2'}
 #if the folder ~/R/x86_64-pc-linux-gnu-library/3.2 exists, then when you start R it will be the default place to install libraries
 
 #my macbook pro
+/Library/Frameworks/R.framework #r install from official installer
+/Library/Frameworks/R.framework/Versions/Current #points to the latest version
+
 #r 3.2.3 looks like it was installed by homebrew to /usr/local/Cellar/r/3.2.3. 'Cellar' is where brew puts your 'kegs'
 brew list r
 #https://support.rstudio.com/hc/en-us/articles/200486138-Using-Different-Versions-of-R
