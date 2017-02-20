@@ -1,3 +1,5 @@
+http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html
+
 as.data.frame(spdf) #convert SpatialPointsDataFrame spdf to a dataframe
 
 #raster package
