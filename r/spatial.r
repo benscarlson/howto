@@ -26,7 +26,8 @@ coords<-matrix(c(-45.1692940000,-23.4697250000),nrow=1)
 pts<-SpatialPoints(m, proj4string=CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'))
 coordinates(df)=~Longitude+Latitude #turn df into a SpatialPointsDataFrame. set Longitude and Latitude as coordinates
 proj4string(tracks) <- CRS('+proj=longlat +datum=WGS84') #set the crs of the spatialpointsdataframe
-     
+mydata@proj4string #see the projection
+
 zerodist(df) #find point pairs with equal spatial coordinates
      
 #raster    
