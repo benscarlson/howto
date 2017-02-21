@@ -34,3 +34,6 @@ zerodist(df) #find point pairs with equal spatial coordinates
 
      
 bbox(obj) #get the bounding box of spatial object obj
+
+### plotting polygons ###
+splancs::polymap(mymatrix) #plot a polygon for a [,2] matrix
