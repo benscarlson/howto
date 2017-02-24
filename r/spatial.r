@@ -37,3 +37,6 @@ bbox(obj) #get the bounding box of spatial object obj
 
 ### plotting polygons ###
 splancs::polymap(mymatrix) #plot a polygon for a [,2] matrix
+     
+### projections ###
+CRS("+proj=longlat +ellps=WGS84") #WGS84
