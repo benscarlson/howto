@@ -10,3 +10,8 @@ module avail
 
 #personal library
 /lustre/home/client/fas/jetz/bc447/R/x86_64-pc-linux-gnu-library/3.2/
+
+#NOT YET WORKING
+#install hypervolume package. requires RcppArmadillo, which requires gcc version >= 4.6
+module unload Libs/GCC/4.5.3
+module load Libs/GCC/5.2.0
