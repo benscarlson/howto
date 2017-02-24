@@ -60,4 +60,5 @@ saveRDS(object,path) #save an object to an RDS file
 `%s%` <- function(x,y) x + y
 1 %s% 2 #3
 
-
+### time and date ###
+as.POSIXct('2014-09-14 19:45:09', tz='UTC')
