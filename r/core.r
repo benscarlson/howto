@@ -18,6 +18,8 @@ which(is.na(x)) #identify the index of missing values in a vector
 d = data.frame(x=c(1,NA,3,4,5), y=c(6,7,NA,9,10))
 which(!complete.cases(d)) #--> 2 3
 
+df[which(!duplicated(df$timestamp)), ] #remove duplicate timestamps from df
+
 Reduce(sum,1:4) #--> 10. sumulatively applies function sum to each item in vector 1:4.
 
 matrix(1:6, ncol=2) #make a matrix with two columns
