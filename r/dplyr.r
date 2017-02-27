@@ -1,8 +1,8 @@
-filter(!val %in% c('a','b')) #not in a, b
-
-dat %>% filter(complete.cases(.)) #only keep complete cases (rows with no NA)
-
 dat %>% summarise_each(funs(sum(is.na(.)))) #see how many na values are in each row
+
+filter(!val %in% c('a','b')) #not in a, b
+dat %>% filter(complete.cases(.)) #only keep complete cases (rows with no NA)
+dat %>% distinct(x,y, .keep_all=TRUE) #remove duplicate x,y. take first unique row of x,y, keeping all other columns
 
 #operate on a dataframe from group
 lastLoess <- function(dat) {
