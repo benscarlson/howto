@@ -11,6 +11,8 @@ typeof(x) #determines the (R internal) type or storage mode of any object
 
 file.choose() #open a file dialog
 read.csv(file.choose()) #use file.choose() to read in a file
+dir.exists('my/path')
+dir.create('my/path',recursive=TRUE)
 
 which(is.na(x)) #identify the index of missing values in a vector
 
@@ -37,7 +39,8 @@ eval(as.symbol("x")) #--> prints 5
 t<-ToothGrowth
 tapply(t$len,list(t$dose,t$supp),mean) #make a two way table of the means of each group
 
-R CMD BATCH test.R #run file test.R from the command line
+R CMD BATCH test.r #run file test.R from the command line
+R --slave -f test.r #also run from the command line
 
 #unlist can turn a one row data frame into a vector
 d <- data.frame(a=c(1,2), b=c(3,4))
