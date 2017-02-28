@@ -6,6 +6,8 @@
 /gpfs/apps/hpc.rhel6/Apps/R/3.2.2-generic/lib/R/library #location of system r packages
 ~/R/x86_64-pc-linux-gnu-library/3.2 #personal library
 
+#partition 'day' seems to have max 6 cores per node
+
 #SLURM#
 srun --pty -p interactive -c 1 -t 0:30:00 --mem-per-cpu=20000 bash #start an interactive session with 20GB of memory
 sbatch myscript.sh #submit the job. parameters and script defined in myscript.sh
