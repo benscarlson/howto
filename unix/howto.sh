@@ -3,6 +3,9 @@ jobs OR jobs -l #if you are still logged into the same shell, use:
 ps -ef | grep "<part of command name>"# to find the pid #if you have exited out of the shell use this (but, which is the pid)?
 ps ax | grep "<part of command name>" #the first column is the pid
 kill -9 <pid> #to kill the process
+ps -u bc447 #see processes owned by bc447
+top -U bc447 #use top to see processed owned by bc447
+
 chown -R benc:benc data #change the user and group permissions for folder "data" to user: benc group: benc. also works on files
 
 .bash_pofile #used for login shell (i.e remote in via ssh)
