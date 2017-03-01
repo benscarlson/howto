@@ -6,7 +6,9 @@
 /gpfs/apps/hpc.rhel6/Apps/R/3.2.2-generic/lib/R/library #location of system r packages
 ~/R/x86_64-pc-linux-gnu-library/3.2 #personal library
 
-#partition 'day' seems to have max 6 cores per node
+#nodes on grace-next have 20 cores each
+#day partition: 13 nodes
+#week partition: 24 nodes
 
 #SLURM#
 srun --pty -p interactive -c 1 -t 0:30:00 --mem-per-cpu=20000 bash #start an interactive session with 20GB of memory
