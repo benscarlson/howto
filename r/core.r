@@ -67,3 +67,7 @@ saveRDS(object,path) #save an object to an RDS file
 
 ### time and date ###
 as.POSIXct('2014-09-14 19:45:09', tz='UTC')
+
+### timing ###
+ptm <- proc.time() 
+elapsed_min <- round((proc.time() - ptm)[3]/60,2) #elapsed time in minutes
