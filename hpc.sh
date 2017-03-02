@@ -14,6 +14,7 @@
 srun --pty -p interactive -c 1 -t 0:30:00 --mem-per-cpu=20000 bash #start an interactive session with 20GB of memory
 sbatch myscript.sh #submit the job. parameters and script defined in myscript.sh
 squeue -l -u bc447 #see job status
+srun --pty -p interactive -n 4 bash #equest four tasks for an hour, you could use
 
 ### omega ###
 ssh bc447@omega.hpc.yale.edu #log in to omega
