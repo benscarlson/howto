@@ -7,6 +7,7 @@
 ~/R/x86_64-pc-linux-gnu-library/3.2 #personal library
 
 #nodes on grace-next have 20 cores each
+#interactive partition: limited to 4 tasks
 #day partition: 13 nodes
 #week partition: 24 nodes
 
@@ -15,6 +16,7 @@ srun --pty -p interactive -c 1 -t 0:30:00 --mem-per-cpu=20000 bash #start an int
 sbatch myscript.sh #submit the job. parameters and script defined in myscript.sh
 squeue -l -u bc447 #see job status
 srun --pty -p interactive -n 4 bash #equest four tasks for an hour, you could use
+scancel <jobid>
 
 ### omega ###
 ssh bc447@omega.hpc.yale.edu #log in to omega
