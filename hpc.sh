@@ -18,6 +18,10 @@ squeue -l -u bc447 #see job status
 srun --pty -p interactive -n 4 bash #equest four tasks for an hour, you could use
 scancel <jobid>
 
+#test an mpi parallel script in interactive queue
+srun --pty -p interactive -n 4 bash #request four tasks in the interactive queue
+mpirun -n 4 R --slave -f myparscript.r #use mpi run to kick off the script using four parallel processes
+
 ### omega ###
 ssh bc447@omega.hpc.yale.edu #log in to omega
 qsub -q fas_devel -I #request interactive queue on fas_devel
