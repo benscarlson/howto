@@ -17,6 +17,8 @@ sbatch myscript.sh #submit the job. parameters and script defined in myscript.sh
 squeue -l -u bc447 #see job status
 srun --pty -p interactive -n 4 bash #equest four tasks for an hour, you could use
 scancel <jobid>
+sacct -j <jobid> --format=JobID,JobName,MaxRSS,Elapsed
+sacct -u <username> --format=JobID,JobName,MaxRSS,Elapsed
 
 #test an mpi parallel script in interactive queue
 srun --pty -p interactive -n 4 bash #request four tasks in the interactive queue
