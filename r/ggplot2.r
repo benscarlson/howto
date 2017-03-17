@@ -7,6 +7,9 @@ scale_color_gradient2('Legend title',low="red", mid='green', high='blue',
   breaks=c(1,2,3,4),
   labels=c('one','two','three','four'))
 
+#---- Themes ----
+theme_tufte(base_family="Helvetica") #library(ggthemes)
+
 #http://docs.ggplot2.org/dev/vignettes/themes.html
 theme_set(theme_bw()) #sets theme to theme_bw for every plot in r session
 
