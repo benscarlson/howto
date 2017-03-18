@@ -43,6 +43,14 @@ plotTheme <-   theme(panel.background = element_blank(),
 
 #Guides/legends
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
+#set labels on the 
+scale_fill_continuous(
+  labels=c(0,0.25,0.5,0.75,1))
+
+#put legend on the bottom. guide_colorbar() is for continuous, while guide_legend does discrete.
+  guides(fill=guide_colorbar(
+    title.position='top',
+    label.position='bottom'))
 
 #----------
 # cowplot
