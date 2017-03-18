@@ -41,6 +41,7 @@ plotTheme <-   theme(panel.background = element_blank(),
                      legend.text = element_text(size=12),
                      legend.title = element_text(size=14))
 
+#Guides/legends
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
 
 #----------
