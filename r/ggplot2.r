@@ -43,9 +43,6 @@ plotTheme <-   theme(panel.background = element_blank(),
 
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
 
-#heatmap, plus some other cool things, like ggthemes and a good color scheme
-#http://rud.is/projects/facetedheatmaps.html
-
 #----------
 # cowplot
 #----------
