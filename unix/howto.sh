@@ -59,3 +59,5 @@ tar -xvf myfile.zip
 df -H #total and available disk space, in easily readable units
 
 zcat < myfile.txt.gz|head -10 > myfile_head.txt #first 10 lines of a gzipped file
+
+gsplit -d -l 2 -a 2 myfile.csv myfile #if myfile has 6 lines, this makes myfile00, myfile01, myfile02. two lines each.
