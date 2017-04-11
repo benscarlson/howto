@@ -38,6 +38,7 @@ for file in CHELSA_prec_{1..12}_1979-2013_V1_1.zip; do tar -xvf $file; done
 
 grep ERROR log.txt | wc -l #count the number of lines in the file log.txt with the word ERROR in it
 
+
 #read is 4, write is 2, execute is 1
 chmod 666 y.txt # -rw-rw-rw
 chmod 755 y.txt # -rwxr-xr-x
@@ -64,3 +65,4 @@ df -H #total and available disk space, in easily readable units
 zcat < myfile.txt.gz|head -10 > myfile_head.txt #first 10 lines of a gzipped file
 
 gsplit -d -l 2 -a 2 myfile.csv myfile #if myfile has 6 lines, this makes myfile00, myfile01, myfile02. two lines each.
+gsplit -d -C 1MB -a 2 myfile.csv myfile #use -C option to limit file sizes to less than 1MB
