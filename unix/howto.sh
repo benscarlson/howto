@@ -53,6 +53,9 @@ sysctl hw.physicalcup #the number of physical cores
 
 system_profiler SPHardwareDataType #a bunch of information about processor, ram, etc.
 
+#to see details about printers:
+http://localhost:631/printers
+
 #can unzip a zip file on mac using tar. in some cases this is the only way to unzip zip files
 tar -xvf myfile.zip
 
