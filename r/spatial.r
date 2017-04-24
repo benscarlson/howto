@@ -16,7 +16,8 @@ rdist_r@data@min;rdist_r@data@max #see min and max values for a rasterLayer
 writeRaster(env,'misc/tinamus_env.tif','GTiff') #write a raster to tif
 env_tif <- raster('misc/tinamus_env.tif') #load the raster from tif
 raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of points (here, a SpatialPoints object)
-     
+
+#---- Vector Data ----
 getGDALVersionInfo()
 
 shapefile('myshapefile.shp') #part of raster package. load shapefile into a SpatialPolygonsDataFrame
@@ -24,11 +25,19 @@ shapefile('myshapefile.shp') #part of raster package. load shapefile into a Spat
 #create a SpatialPoints object. Not sure how to set the column names
 coords<-matrix(c(-45.1692940000,-23.4697250000),nrow=1)
 pts<-SpatialPoints(m, proj4string=CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'))
+     
 coordinates(df)=~Longitude+Latitude #turn df into a SpatialPointsDataFrame. set Longitude and Latitude as coordinates
-proj4string(tracks) <- CRS('+proj=longlat +datum=WGS84') #set the crs of the spatialpointsdataframe
+proj4string(df) <- CRS('+proj=longlat +datum=WGS84') #set the crs of the spatialpointsdataframe
+proj4string(df) <- CRS('+proj=longlat') #set the crs of the spatialpointsdataframe
+     
 mydata@proj4string #see the projection
 
 zerodist(df) #find point pairs with equal spatial coordinates
+
+#https://gis.stackexchange.com/questions/63577/joining-polygons-in-r
+spainportu <- subset(world,world$NAME=='Spain' | world$NAME=='Portugal')
+spainportu$ID <- 1
+dissolved <- unionSpatialPolygons(spainportu,spainportu$ID) #in maptools library
      
 #raster    
 
