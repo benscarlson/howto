@@ -38,10 +38,10 @@ zerodist(df) #find point pairs with equal spatial coordinates
 spainportu <- subset(world,world$NAME=='Spain' | world$NAME=='Portugal')
 spainportu$ID <- 1
 dissolved <- unionSpatialPolygons(spainportu,spainportu$ID) #in maptools library
+
+ptsClip <- pts[poly,] #spatial subset pts by poly (return all points that are within poly
      
 #raster    
-
-     
 bbox(obj) #get the bounding box of spatial object obj
 
 ### plotting polygons ###
