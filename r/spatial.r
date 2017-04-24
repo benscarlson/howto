@@ -48,4 +48,6 @@ bbox(obj) #get the bounding box of spatial object obj
 splancs::polymap(mymatrix) #plot a polygon for a [,2] matrix
      
 ### projections ###
+CRS("+proj=longlat") #WGS84
 CRS("+proj=longlat +ellps=WGS84") #WGS84
+CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0") #WGS84
