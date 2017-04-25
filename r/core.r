@@ -71,3 +71,8 @@ as.POSIXct('2014-09-14 19:45:09', tz='UTC')
 ### timing ###
 ptm <- proc.time() 
 elapsed_min <- round((proc.time() - ptm)[3]/60,2) #elapsed time in minutes
+      
+### *apply ###
+a<-1:3
+sapply(1:3,function(i) {a[i]}) #returns vector 1 2 3
+sapply(1:3,function(i,b) {b[i]}, b=a) #can also pass in variable and assign locally
