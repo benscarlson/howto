@@ -11,6 +11,9 @@ paste("A", 1:3, sep = ":") #"A:1" "A:2" "A:3"
 
 which(is.na(x)) #identify the index of missing values in a vector
 
+quantile(c(1,2,3,4),probs=c(0,0.5,1)) # Finds quantile values given the provided probs (i.e. bins).
+#0%: 1.0, 50%:2.5, 100%:4.0. I think this can be read as i.e. 0% of data is <= 1.0, 50% is <= 2.5, 100% is <= 4.0
+
 #---- factors ----
 #get the numeric levels for a factor
 treat <- as.factor(rep(c("A","B"),each=2))
