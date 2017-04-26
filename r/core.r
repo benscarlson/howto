@@ -1,30 +1,42 @@
-cumsum(1:3) #this computes the cumulative sum in to a vector -> (1 3 6)
-rm(tmp) #unload object tmp from memory
-missing(x) #in a function, check to see if x has been passed in as a parameter
+#---- vectors ----
+v <- c(1,2,3)
+names(v) <- c('one','two','three') #add names to vector elements. used names(v) to retrieve
 
+cumsum(1:3) #this computes the cumulative sum in to a vector -> (1 3 6)
+Reduce(sum,1:4) #--> 10. sumulatively applies function sum to each item in vector 1:4.
+
+paste("a","b","c") # --> "a b c"
+paste("A", 1:3, sep = "") #"A1" "A2" "A3"
+paste("A", 1:3, sep = ":") #"A:1" "A:2" "A:3"
+
+which(is.na(x)) #identify the index of missing values in a vector
+
+#---- factors ----
 #get the numeric levels for a factor
 treat <- as.factor(rep(c("A","B"),each=2))
 as.numeric(treat) # [1] 1 1 2 2
 
+rm(tmp) #unload object tmp from memory
+missing(x) #in a function, check to see if x has been passed in as a parameter
+
 class(x) #check the class of object x
 typeof(x) #determines the (R internal) type or storage mode of any object
 
+#---- matrices ----
+matrix(1:6, ncol=2) #make a matrix with two columns
+
+#---- file system ----
 file.choose() #open a file dialog
 read.csv(file.choose()) #use file.choose() to read in a file
 dir.exists('my/path')
 dir.create('my/path',recursive=TRUE)
 
-which(is.na(x)) #identify the index of missing values in a vector
-
+#---- data frames ----
 #identify which rows in a dataframe have NA values
-d = data.frame(x=c(1,NA,3,4,5), y=c(6,7,NA,9,10))
-which(!complete.cases(d)) #--> 2 3
+df = data.frame(x=c(1,NA,3,4,5), y=c(6,7,NA,9,10))
+which(!complete.cases(df)) #--> 2 3
 
 df[which(!duplicated(df$timestamp)), ] #remove duplicate timestamps from df
-
-Reduce(sum,1:4) #--> 10. sumulatively applies function sum to each item in vector 1:4.
-
-matrix(1:6, ncol=2) #make a matrix with two columns
 
 #built in constants:
 LETTERS, letters, month.abb, month.name, pi
@@ -36,9 +48,6 @@ eval("x") # --> prints "x"
 as.symbol("x") # --> prints x
 eval(as.symbol("x")) #--> prints 5 
 
-t<-ToothGrowth
-tapply(t$len,list(t$dose,t$supp),mean) #make a two way table of the means of each group
-
 R CMD BATCH test.r #run file test.R from the command line
 R --slave -f test.r #also run from the command line
 
@@ -46,11 +55,6 @@ R --slave -f test.r #also run from the command line
 d <- data.frame(a=c(1,2), b=c(3,4))
 class(d[1,]) #'data.frame'
 class(unlist(d[1,]) #'numeric'
-
-paste("a","b","c") # --> "a b c"
-
-paste("A", 1:3, sep = "") #"A1" "A2" "A3"
-paste("A", 1:3, sep = ":") #"A:1" "A:2" "A:3"
 
 shell.exec("myfile.txt") #have the operating system open myfile.txt using the default application
 
@@ -76,3 +80,6 @@ elapsed_min <- round((proc.time() - ptm)[3]/60,2) #elapsed time in minutes
 a<-1:3
 sapply(1:3,function(i) {a[i]}) #returns vector 1 2 3
 sapply(1:3,function(i,b) {b[i]}, b=a) #can also pass in variable and assign locally
+      
+t<-ToothGrowth
+tapply(t$len,list(t$dose,t$supp),mean) #make a two way table of the means of each group
