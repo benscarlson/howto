@@ -12,7 +12,9 @@ paste("A", 1:3, sep = ":") #"A:1" "A:2" "A:3"
 which(is.na(x)) #identify the index of missing values in a vector
 
 quantile(c(1,2,3,4),probs=c(0,0.5,1)) # Finds quantile values given the provided probs (i.e. bins).
-#0%: 1.0, 50%:2.5, 100%:4.0. I think this can be read as i.e. 0% of data is <= 1.0, 50% is <= 2.5, 100% is <= 4.0
+#0%: 1.0, 50%:2.5, 100%:4.0. I think this can be read as i.e. 0% of data is < 1.0, 50% is < 2.5, 100% is < 4.0
+cut(c(1,2),breaks=c(1,2)) #makes factor level for groups based on breaks.
+# <NA>, (1,2]. First groups is values -inf < x < 1, second group is 1 <= x <= 2. Note groups don't be consistent w/ boundary conditions!
 
 #---- factors ----
 #get the numeric levels for a factor
