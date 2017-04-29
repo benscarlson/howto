@@ -29,6 +29,12 @@ pts<-SpatialPoints(m, proj4string=CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +
 coordinates(df)=~Longitude+Latitude #turn df into a SpatialPointsDataFrame. set Longitude and Latitude as coordinates
 proj4string(df) <- CRS('+proj=longlat +datum=WGS84') #set the crs of the spatialpointsdataframe
 proj4string(df) <- CRS('+proj=longlat') #set the crs of the spatialpointsdataframe
+
+# SpatialPointsDataFrame
+spdf[,'mycol'] #this will return an spdf with just the column 'mycol'
+spdf$mycol #returns a vector
+spdf@data$mycol #also returns a vectors (seems same as spdf$)
+spdf[['mycol']]] #also returns a vector 
      
 mydata@proj4string #see the projection
 
