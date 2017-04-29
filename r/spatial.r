@@ -20,8 +20,12 @@ raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of p
 #---- Vector Data ----
 getGDALVersionInfo()
 
+# reading shapefiles
 shapefile('myshapefile.shp') #part of raster package. load shapefile into a SpatialPolygonsDataFrame
 
+#writing shapefiles
+writeOGR(obj=polys, dsn="shapefiledir", layer="shapefilename", driver="ESRI Shapefile") #polys is SpatialPolygonsDataFrame (or Points)
+     
 #create a SpatialPoints object. Not sure how to set the column names
 coords<-matrix(c(-45.1692940000,-23.4697250000),nrow=1)
 pts<-SpatialPoints(m, proj4string=CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'))
