@@ -41,6 +41,19 @@ plotTheme <-   theme(panel.background = element_blank(),
                      legend.text = element_text(size=12),
                      legend.title = element_text(size=14))
 
+# Use this theme for maps in presentations
+theme_map <- theme(
+  panel.background = element_blank(),
+  panel.grid.major = element_blank(), 
+  panel.grid.minor = element_blank(),
+  #axis.line = element_line(colour = "black"),
+  axis.ticks = element_blank(),
+  axis.text = element_text(size=18), #element_blank(),
+  axis.title = element_text(size=20), #element_blank(),
+  legend.key = element_blank(),
+  legend.text = element_text(size=16),
+  legend.title = element_text(size=18))
+
 #Guides/legends
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
 #set labels on the 
