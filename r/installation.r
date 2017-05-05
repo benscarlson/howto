@@ -1,3 +1,5 @@
+#---- package management ----
+
 #if r says something like 'not available for xyz version'
 #http://stackoverflow.com/questions/25721884/how-should-i-deal-with-package-xxx-is-not-available-for-r-version-x-y-z-wa
 # see second answer
@@ -14,6 +16,11 @@ R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/3.2'}
 #my macbook pro
 /Library/Frameworks/R.framework #r install from official installer
 /Library/Frameworks/R.framework/Versions/Current #points to the latest version
+
+old.packages() #check which packages are out of date
+install.package('mypkg') #use install.packages to update an existing package.
+
+#---- r configuration ----
 
 #r 3.2.3 looks like it was installed by homebrew to /usr/local/Cellar/r/3.2.3. 'Cellar' is where brew puts your 'kegs'
 brew list r
