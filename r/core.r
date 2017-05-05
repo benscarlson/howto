@@ -59,7 +59,7 @@ R --slave -f test.r #also run from the command line
 #unlist can turn a one row data frame into a vector
 d <- data.frame(a=c(1,2), b=c(3,4))
 class(d[1,]) #'data.frame'
-class(unlist(d[1,]) #'numeric'
+class(unlist(d[1,])) #'numeric'
 
 shell.exec("myfile.txt") #have the operating system open myfile.txt using the default application
 
@@ -94,3 +94,9 @@ sapply(1:3,function(i,b) {b[i]}, b=a) #can also pass in variable and assign loca
       
 t<-ToothGrowth
 tapply(t$len,list(t$dose,t$supp),mean) #make a two way table of the means of each group
+      
+#---- random numbers ----
+      
+#set seed will propogate downward into functions. calling myf1 will make myf2 always return the same values
+myf2 <- function() {return(sample(5))}
+myf1 <- function() {set.seed(1);return(myf2())}
