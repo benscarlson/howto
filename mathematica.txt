@@ -1,0 +1,1 @@
+solve(p ==integrate a*e^(-a*x) dx from 0 to q, q) #solve equation that involves integral.
