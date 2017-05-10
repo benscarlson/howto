@@ -100,3 +100,8 @@ tapply(t$len,list(t$dose,t$supp),mean) #make a two way table of the means of eac
 #set seed will propogate downward into functions. calling myf1 will make myf2 always return the same values
 myf2 <- function() {return(sample(5))}
 myf1 <- function() {set.seed(1);return(myf2())}
+
+#---- introspection ----
+methods(plot) #find out all commands available for generic function plot
+methods(class='data.frame') #see all methods available for a particular class
+help(data.frame) #read the section 'value' to learn about the return type from a function
