@@ -14,15 +14,23 @@
 #SLURM#
 srun --pty -p interactive -c 1 -t 0:30:00 --mem-per-cpu=20000 bash #start an interactive session with 20GB of memory
 sbatch myscript.sh #submit the job. parameters and script defined in myscript.sh
-squeue -l -u bc447 #see job status
 srun --pty -p interactive -n 4 bash #equest four tasks for an hour, you could use
-scancel <jobid>
+
+# see job status
+squeue -l -u bc447 #see job status for user bc447
+squeue -p interactive #see job status for interactive queue
+
 sacct -j <jobid> --format=JobID,JobName,MaxRSS,Elapsed
 sacct -u <username> --format=JobID,JobName,MaxRSS,Elapsed
 
+scancel <jobid>
+
 #test an mpi parallel script in interactive queue
 srun --pty -p interactive -n 4 bash #request four tasks in the interactive queue
-mpirun -n 4 R --slave -f myparscript.r #use mpi run to kick off the script using four parallel processes
+mpirun -n 4 R --slave -f myscript.r #use mpi run to kick off the script using four parallel processes
+
+# run an mpi script
+./myscript_sbatch.sh
 
 ### omega ###
 ssh bc447@omega.hpc.yale.edu #log in to omega
