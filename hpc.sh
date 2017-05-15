@@ -29,8 +29,8 @@ scancel <jobid>
 srun --pty -p interactive -n 4 bash #request four tasks in the interactive queue
 mpirun -n 4 R --slave -f myscript.r #use mpi run to kick off the script using four parallel processes
 
-# run an mpi script
-./myscript_sbatch.sh
+# submit a job
+sbatch myscript_sbatch.sh
 
 ### omega ###
 ssh bc447@omega.hpc.yale.edu #log in to omega
