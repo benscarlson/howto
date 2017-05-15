@@ -17,6 +17,12 @@ cut(c(1,2),breaks=c(1,2)) #makes factor level for groups based on breaks.
 # <NA>, (1,2]. First groups is values -inf < x < 1, second group is 1 <= x <= 2. Note groups don't be consistent w/ boundary conditions!
 
 #---- factors ----
+
+#order of factor levels defaults to alphabetical
+f <- as.factor(rep(c('A','B'),10))
+levels(f) # "A" "B"
+levels(f) <- c('B','A') #change order of factor levels
+
 #get the numeric levels for a factor
 treat <- as.factor(rep(c("A","B"),each=2))
 as.numeric(treat) # [1] 1 1 2 2
