@@ -20,8 +20,8 @@ srun --pty -p interactive -n 4 bash #equest four tasks for an hour, you could us
 squeue -l -u bc447 #see job status for user bc447
 squeue -p interactive #see job status for interactive queue
 
-sacct -j <jobid> --format=JobID,JobName,MaxRSS,Elapsed
-sacct -u <username> --format=JobID,JobName,MaxRSS,Elapsed
+sacct -j <jobid> --format=JobID,JobName,Partition,AllocCPUS,MaxRSS,Elapsed
+sacct -u <username> --format=JobID,JobName,Partition,AllocCPUS,MaxRSS,Elapsed
 
 scancel <jobid>
 
