@@ -111,3 +111,6 @@ myf1 <- function() {set.seed(1);return(myf2())}
 methods(plot) #find out all commands available for generic function plot
 methods(class='data.frame') #see all methods available for a particular class
 help(data.frame) #read the section 'value' to learn about the return type from a function
+
+#---- system information ----
+Sys.info()['user']
