@@ -1,6 +1,4 @@
-http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html
-
-
+#http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html
 
 #---- rasters ----
 env <- raster('misc/tinamus_env.tif') #read raster
@@ -12,7 +10,7 @@ extent(mystack) #extent of the RasterLayers in the RasterStack
 mystack[[1]] #extract the first RasterLayer from the RasterStack
 names(layer) <- 'layername' #set the name of RasterLayer to 'layername'
 ncell(layer) #number of cells
-calc(layer,function(x) f(x)) #apply function f to layer
+calc(layer, function(x) { f(x) }) #apply function f to layer
 cellStats(layer,sum) #returns the sum of all cells in layer. can also use mean, min, etc.
 metadata(layer) <- metadata #adds metadata to layer
 rdist_r@data@min;rdist_r@data@max #see min and max values for a rasterLayer
@@ -22,10 +20,13 @@ raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of p
 bbox(obj) #get the bounding box of spatial object obj
      
 #---- Vector Data ----
+#libraries that can read shapefiles. 'raster', 'shapefile', 'maptools' (?)
+
 getGDALVersionInfo()
 
 # reading shapefiles
 shapefile('myshapefile.shp') #part of raster package. load shapefile into a SpatialPolygonsDataFrame
+readShapePoints('myshpfile.shp') #maptools. also see readShapeLines
 
 #writing shapefiles
 writeOGR(obj=polys, dsn="shapefiledir", layer="shapefilename", driver="ESRI Shapefile") #polys is SpatialPolygonsDataFrame (or Points)
