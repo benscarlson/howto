@@ -53,6 +53,7 @@ sysctl hw.logicalcpu #also the number of logical cores
 sysctl hw.physicalcup #the number of physical cores
 
 system_profiler SPHardwareDataType #a bunch of information about processor, ram, etc.
+system_profiler SPCardReaderDataType #information about SDCard
 
 #to see details about printers:
 http://localhost:631/printers
