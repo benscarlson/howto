@@ -38,6 +38,7 @@ matrix(1:6, ncol=2) #make a matrix with two columns
 
 #---- file system ----
 file.choose() #open a file dialog
+file.path(path,to,file) #create a path out of path, to, and file
 read.csv(file.choose()) #use file.choose() to read in a file
 dir.exists('my/path')
 dir.create('my/path',recursive=TRUE)
