@@ -5,5 +5,5 @@ lines(data) #add lines to a plot
 
 plot(density(rnorm(100))) #plot smooth density of a vector
 
-#ellipse
-library(mixtools)
+image()
+countour()
