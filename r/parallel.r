@@ -1,10 +1,12 @@
 
-detectCores() #show the number of cores (parallel package)
-getDoParName() #this shows while parallel backend is registered
 
-cl <- makeCluster(4) #4 is the number of cores
-registerDoParallel(cl, outfile='mylogfile.log')
-stopCluster(cl) #need to use on.exit to stop the cluster when fn exits
+
+detectCores() #show the number of cores (parallel package)
+getDoParName() #this shows which parallel backend is registered
+
+cl <- makeCluster(4, outfile='mylogfile.log') #4 is the number of cores. part of parallel package
+registerDoParallel(cl) #part of doParallel package
+stopCluster(cl) #part of parallel package
 
 #MPI
 mpi.universe.size() #this should be the number of cores. on my laptop, it is 8
