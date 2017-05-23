@@ -7,3 +7,5 @@ plot(density(rnorm(100))) #plot smooth density of a vector
 
 image()
 countour()
+
+asp=1 #use in base plot to fix aspect ratio to 1
