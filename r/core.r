@@ -53,6 +53,17 @@ dir.create('my/path',recursive=TRUE)
 
 #---- data frames ----
 #identify which rows in a dataframe have NA values
+df <- data.frame(a=rnorm(10),b=rnorm(10))
+
+#treat df like a list. all return vector b
+df[[2]]
+df[['b']]
+df$b
+
+#treat df like a matrix. all return vector b
+df[,2]
+df[,'b']
+
 df = data.frame(x=c(1,NA,3,4,5), y=c(6,7,NA,9,10))
 which(!complete.cases(df)) #--> 2 3
 
