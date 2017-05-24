@@ -4,7 +4,7 @@
 integer, numeric, logical, character
 
 # more complex
-Date, factor
+Date, factor, matrix, list, data.frame
 
 #---- vectors ----
 v <- c(1,2,3)
