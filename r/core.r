@@ -3,6 +3,9 @@
 # atomic
 integer, numeric, logical, character
 
+# more complex
+Date, factor
+
 #---- vectors ----
 v <- c(1,2,3)
 names(v) <- c('one','two','three') #add names to vector elements. used names(v) to retrieve
