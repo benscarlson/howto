@@ -54,7 +54,7 @@ theme_map <- theme(
   legend.text = element_text(size=16),
   legend.title = element_text(size=18))
 
-#Guides/legends
+#---- Guides/legends ----
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
 #set labels on the 
 scale_fill_continuous(
@@ -65,6 +65,7 @@ scale_fill_continuous(
     title.position='top',
     label.position='bottom'))
 
+scale_color_discrete(name='My legend title') #use this if the legend variable is mapped to 'color' in aes()
 #----------
 # cowplot
 #----------
