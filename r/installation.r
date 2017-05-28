@@ -1,3 +1,6 @@
+#---- loading packages ----
+suppressPackageStartupMessages()
+
 #---- package management ----
 
 #if r says something like 'not available for xyz version'
