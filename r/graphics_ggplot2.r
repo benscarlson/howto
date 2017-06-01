@@ -10,7 +10,19 @@ scale_color_gradient2('Legend title',low="red", mid='green', high='blue',
   breaks=c(1,2,3,4),
   labels=c('one','two','three','four'))
 
+# The order that items are drawn on the plot is based on the order of the data frame. 
+#   The first item is drawn first and the last item drawn last.
+
+#---- mapping aethetics ----
+
+#to manually set mappings, use scale_*_manual(). This assumes that var1 and var2 are factors with two levels
+ggplot(data=dat, aes(x=x,y=y, alpha=var1, shape=var2)) +
+  geom_point() +
+  scale_shape_manual(values=c(3,16)) + 
+  scale_alpha_manual(values=c(0.2,1))
+    
 #---- Themes ----
+theme_classic() #this theme usually works fine
 theme_tufte(base_family="Helvetica") #library(ggthemes)
 
 #http://docs.ggplot2.org/dev/vignettes/themes.html
