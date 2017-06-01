@@ -26,6 +26,11 @@ cut(c(1,2),breaks=c(1,2)) #makes factor level for groups based on breaks.
 
 #---- factors ----
 
+#creates a factor. order of levels is based on the 'levels' attribute
+factor(c(1,2,1,1),levels=c(1,2)
+factor(c(1,2,1,1),levels=c(2,1)) #changes order of levels
+factor(c(1,2,1,1),levels=c(2,1),labels=c('two','one')) #adds labels to levels
+
 #order of factor levels defaults to alphabetical
 f <- as.factor(rep(c('A','B'),10))
 levels(f) # "A" "B"
