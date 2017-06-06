@@ -24,7 +24,18 @@ _
 
 \textless % '<' sign
 
+%---- include a figure
+\graphicspath{ {images/} }
+\begin{figure}
+  \includegraphics{McCormack2009} %figure is named McCormack2009.png
+\end{figure}
+
+\caption{My caption} % includes a figure label
+\caption*{My caption} % don't include the figure label. Requires usepackage{caption}
+
+\begin{figure}[H] % tells latex not to let the figure (or table) float on the page. I.e. place "Here". Required usepackage{float}
 %---- knitr ----
 \renewenvironment{knitrout}{\vspace{1em}}{} %add space before r chunk
 \renewenvironment{knitrout}{}{\vspace{1em}} %add space after r chunk
 \renewenvironment{knitrout}{\vspace{1em}}{\vspace{1em}} %add space before and after r chunk
+
