@@ -40,7 +40,11 @@ coordinates(df)=~Longitude+Latitude #turn df into a SpatialPointsDataFrame. set 
 proj4string(df) <- CRS('+proj=longlat +datum=WGS84') #set the crs of the spatialpointsdataframe
 proj4string(df) <- CRS('+proj=longlat') #set the crs of the spatialpointsdataframe
 
-# SpatialPointsDataFrame
+#---- Spatial*DataFrame ----
+na.omit(spdf) #remove rows with NA (not sure if this works)
+which(is.na(spdf['mycol']@data) #shows which rows contain NA
+
+#---- SpatialPointsDataFrame ----
 spdf[,'mycol'] #this will return an spdf with just the column 'mycol'
 spdf$mycol #returns a vector
 spdf@data$mycol #also returns a vectors (seems same as spdf$)
