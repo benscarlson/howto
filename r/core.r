@@ -27,7 +27,7 @@ cut(c(1,2),breaks=c(1,2)) #makes factor level for groups based on breaks.
 #---- factors ----
 
 #creates a factor. order of levels is based on the 'levels' attribute
-factor(c(1,2,1,1),levels=c(1,2)
+factor(c(1,2,1,1),levels=c(1,2))
 factor(c(1,2,1,1),levels=c(2,1)) #changes order of levels
 factor(c(1,2,1,1),levels=c(2,1),labels=c('two','one')) #adds labels to levels
 
@@ -140,3 +140,8 @@ args(plot) #find out the arguments of a plot
 
 #---- system information ----
 Sys.info()['user']
+
+#---- other stuff ----
+df <- data.frame(a=rnorm(10000),b=rnorm(10000),c=rep('x',10000))
+digest(df,algo='sha1') #make a digest. Algo can be many different things.
+       
