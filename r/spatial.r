@@ -42,7 +42,7 @@ proj4string(df) <- CRS('+proj=longlat') #set the crs of the spatialpointsdatafra
 
 #---- Spatial*DataFrame ----
 na.omit(spdf) #remove rows with NA (not sure if this works)
-which(is.na(spdf['mycol']@data) #shows which rows contain NA
+which(is.na(spdf['mycol']@data)) #shows which rows contain NA
 
 #---- SpatialPointsDataFrame ----
 spdf[,'mycol'] #this will return an spdf with just the column 'mycol'
@@ -70,4 +70,5 @@ splancs::polymap(mymatrix) #plot a polygon for a [,2] matrix
 ### projections ###
 CRS("+proj=longlat") #WGS84
 CRS("+proj=longlat +ellps=WGS84") #WGS84
+CRS("+proj=longlat +datum=WGS84") #WGS84
 CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0") #WGS84
