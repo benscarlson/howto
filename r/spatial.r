@@ -29,6 +29,7 @@ shapefile('myshapefile.shp') #part of raster package. load shapefile into a Spat
 readShapePoints('myshpfile.shp') #maptools. also see readShapeLines
 
 #writing shapefiles
+#make sure to create polys using a dataframe, not a tibble, otherwise writeOGR will give cryptic errors
 writeOGR(obj=polys, dsn="shapefiledir", layer="shapefilename", driver="ESRI Shapefile") #polys is SpatialPolygonsDataFrame (or Points)
 
 df <- as.data.frame(spdf) #convert SpatialPointsDataFrame spdf to a dataframe
