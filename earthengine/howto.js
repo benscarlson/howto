@@ -17,3 +17,9 @@ var img = ee.Image().byte().paint(fc, "ID");
 
 ic.filter(ee.Filter.listContains("system:band_names", "N")) //filter by band name. band names are not in metadata but can filter by this property
 //https://code.earthengine.google.com/8a983033d4fff873f5a647e6cfab857f
+
+//---- date/time ----
+
+//both of these formats can be parsed natively by ee
+print(ee.Date('2014-06-02'));
+print(ee.Date('2014-06-02T05:50:06Z'));
