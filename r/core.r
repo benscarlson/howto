@@ -3,6 +3,8 @@
 # atomic
 integer, numeric, logical, character
 
+.Machine$integer.max #this is the maximum value of an integer
+
 # more complex
 Date, factor, matrix, list, data.frame
 
