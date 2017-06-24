@@ -57,6 +57,8 @@ file.path(path,to,file) #create a path out of path, to, and file
 read.csv(file.choose()) #use file.choose() to read in a file
 dir.exists('my/path')
 dir.create('my/path',recursive=TRUE)
+basename('my/file/path') #returns 'path'
+dirname('my/file/path') #returns 'my/file'
 
 #---- data frames ----
 #identify which rows in a dataframe have NA values
