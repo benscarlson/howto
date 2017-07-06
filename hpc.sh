@@ -1,15 +1,18 @@
+#--------------------
 #---- grace-next ----
+#--------------------
 
-# set up R
+#---- R configuration ----
+
 #in login node
 module load Apps/R
 #run R, then do install.packages()
 
-#set up ssh key for grace-next using these instructions 
-#https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
-
 /gpfs/apps/hpc.rhel6/Apps/R/3.2.2-generic/lib/R/library #location of system r packages
 ~/R/x86_64-pc-linux-gnu-library/3.2 #personal library
+
+#set up ssh key for grace-next using these instructions 
+#https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
 
 #nodes on grace-next have 20 cores each
 #interactive partition: limited to 4 tasks
