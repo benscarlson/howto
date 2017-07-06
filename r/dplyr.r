@@ -20,4 +20,7 @@ labelPoints <- sub %>%
 #group dataset then apply a function to certain columns in each group
 dat1 <- dat0 %>%
   group_by(col_a) %>%
-  mutate_each(funs(myscale),-c(col_a)) #don't apply to col_a
+  mutate_each(funs(myscale),-c(col_a)) #don't apply to col_a. NOTE: this is old method.
+
+db0 %>% #This is new way to apply myscale function by column
+  mutate_at(.vars=vars(-c(niche_group)), .funs=funs(myscale))
