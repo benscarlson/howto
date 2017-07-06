@@ -1,4 +1,9 @@
-### grace-next ###
+#---- grace-next ----
+
+# set up R
+#in login node
+module load Apps/R
+#run R, then do install.packages()
 
 #set up ssh key for grace-next using these instructions 
 #https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
