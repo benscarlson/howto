@@ -1,0 +1,1 @@
+=IF(C2="","",TEXT(C2,"yyyy-mm-ddThh:MM:ssZ"))
