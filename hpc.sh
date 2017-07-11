@@ -35,6 +35,8 @@ scancel <jobid>
 
 #test an mpi parallel script in interactive queue
 srun --pty -p interactive -n 4 bash #request four tasks in the interactive queue
+module load Apps/R
+module load Rpkgs/DOMPI
 mpirun -n 4 R --slave -f myscript.r #use mpi run to kick off the script using four parallel processes
 mpirun -np 1 #only start script on one task
 
