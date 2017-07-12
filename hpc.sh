@@ -20,6 +20,10 @@ module load Apps/R
 #week partition: 24 nodes
 
 #SLURM#
+
+# slurm script 
+#SBATCH --mem-per-cpu=32G
+
 srun --pty -p interactive -c 1 -t 0:30:00 --mem-per-cpu=20000 bash #start an interactive session with 20GB of memory
 sbatch myscript.sh #submit the job. parameters and script defined in myscript.sh
 srun --pty -p interactive -n 4 bash #equest four tasks for an hour, you could use
