@@ -73,3 +73,6 @@ zcat < myfile.txt.gz|head -10 > myfile_head.txt #first 10 lines of a gzipped fil
 
 gsplit -d -l 2 -a 2 myfile.csv myfile #if myfile has 6 lines, this makes myfile00, myfile01, myfile02. two lines each.
 gsplit -d -C 1MB -a 2 myfile.csv myfile #use -C option to limit file sizes to less than 1MB
+
+#on the first line, change the first instance of event_id to point_index
+sed -i ".bak" "1s/event\_id/point\_index/" biofilt/bav_biofilt.csv
