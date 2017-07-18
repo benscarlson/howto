@@ -20,6 +20,7 @@ strftime() #returns a character string. make sure to specify timezone, or local 
 #---- lubridate ----
 # number of months (roughly) between two dates
 interval(as.Date(timestamp1),as.Date(timestamp2)) %/% months(1) #%/% means integer division
+interval(dte1, dte2)/years(1) #number of years between two dates
 
 #---- timing ----
 ptm <- proc.time() 
