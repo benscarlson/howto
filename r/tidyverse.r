@@ -1,3 +1,5 @@
+#---- dplyr ----
+
 dat %>% summarise_each(funs(sum(is.na(.)))) #see how many na values are in each row
 
 filter(!val %in% c('a','b')) #not in a, b
