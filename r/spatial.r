@@ -27,6 +27,7 @@ getGDALVersionInfo()
 # reading shapefiles
 shapefile('myshapefile.shp') #part of raster package. load shapefile into a SpatialPolygonsDataFrame
 readShapePoints('myshpfile.shp') #maptools. also see readShapeLines
+readOGR(dsn="shapefiledir", layer="shpefilename")
 
 #writing shapefiles
 #make sure to create polys using a dataframe, not a tibble, otherwise writeOGR will give cryptic errors
