@@ -34,6 +34,7 @@ theme(
   legend.title = element_text(size = 10))
 
 #set the legend position and remove the boxes around  the legend shapes
+#first is x, second is y. for y, top is 1, bottom is 0
 theme(legend.position = c(.8, .8), legend.key = element_blank()) +
 
 #theme with no grey background, black lines for axes
