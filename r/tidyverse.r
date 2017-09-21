@@ -26,3 +26,7 @@ dat1 <- dat0 %>%
 
 db0 %>% #This is new way to apply myscale function by column
   mutate_at(.vars=vars(-c(niche_group)), .funs=funs(myscale))
+
+lead(colname,1); lag(colname,1) #shift column forward or backward by one
+
+case_when() #like a switch statement that works inside mutate.
