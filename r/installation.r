@@ -23,6 +23,13 @@ R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/3.2'}
 old.packages() #check which packages are out of date
 install.package('mypkg') #use install.packages to update an existing package.
 
+#checks to see a set of libs are installed
+checkInstalled <- function(libs) {
+  for(lib in libs) {
+    inst <- lib %in% rownames(installed.packages())
+    writeLines(sprintf('Is %s installed? %s',lib,inst))
+  }
+}
 #---- r configuration ----
 
 #r 3.2.3 looks like it was installed by homebrew to /usr/local/Cellar/r/3.2.3. 'Cellar' is where brew puts your 'kegs'
