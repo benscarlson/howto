@@ -1,5 +1,6 @@
 #---- base r ----
 
+dts <- as.Date(character()) #initialize dts as an empty date vector.
 POSIXct() #store date and time, as number of seconds since Jan 1 1970. Usually the best choice for storage
 POSIXlt() #stores date and time as a list of elements
 POSIXt() #virtual class that POSIXct and POSIXlt interit from.
@@ -25,3 +26,4 @@ interval(dte1, dte2)/years(1) #number of years between two dates
 #---- timing ----
 ptm <- proc.time() 
 elapsed_min <- round((proc.time() - ptm)[3]/60,2) #elapsed time in minutes
+
