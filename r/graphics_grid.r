@@ -32,3 +32,8 @@ pdf("filename.pdf")
 dev.off()
 
 gtable_add_rows() #part of gtable package
+
+
+#---- viewports ----
+formatVPTree(current.vpTree()) #see the list of viewports. the one with all the stuff seems to be 'panel.6-4-6-4'
+seekViewport('panel.6-4-6-4') #make this the current viewport (required to use grid.locator())
