@@ -13,6 +13,10 @@ scale_color_gradient2('Legend title',low="red", mid='green', high='blue',
 # The order that items are drawn on the plot is based on the order of the data frame. 
 #   The first item is drawn first and the last item drawn last.
 
+#---- axes ----
+scale_x_continuous(expand=c(0,0)) #this removes padding between axis and data
+scale_x_date() #this is prints out dates on axis
+
 #---- mapping aethetics ----
 
 #to manually set mappings, use scale_*_manual(). This assumes that var1 and var2 are factors with two levels
