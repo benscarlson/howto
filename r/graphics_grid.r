@@ -1,4 +1,8 @@
 #---- grid ----
+grid.ls() # list grobs on the current page
+#Nice grid tutorial! https://www.stat.auckland.ac.nz/~paul/useR2015-grid/grid-slides.html
+#a viewport is a rectangular sub-region on the page
+
 rect <- rectGrob(gp = gpar(fill = "#00000080")) #make a rectable grob
 tab <- gtable(unit(rep(1, 3), "null"), unit(rep(1, 3), "null")) #3x3 grid
 #t = 1 is top row; l=1 start at first col; r=3 span to third col
