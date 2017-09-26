@@ -18,6 +18,7 @@ OlsonNames() #get the names of timezones for the tz attribute
 
 strftime() #returns a character string. make sure to specify timezone, or local system timezone is assumed!
 strftime('2017-04-27',format='%Y-%m-%dT%TZ', tz='GMT') #standard format
+=TEXT(C2,"yyyy-mm-ddThh:MM:ssZ") #convert excel date to ISO formatted timestamp
 
 #---- lubridate ----
 # number of months (roughly) between two dates
