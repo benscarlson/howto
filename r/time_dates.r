@@ -17,6 +17,7 @@ as.POSIXct('2017-06-27', tz='US/Eastern') #this will result in an object '2017-0
 OlsonNames() #get the names of timezones for the tz attribute
 
 strftime() #returns a character string. make sure to specify timezone, or local system timezone is assumed!
+strftime('2017-04-27',format='%Y-%m-%dT%TZ', tz='GMT') #standard format
 
 #---- lubridate ----
 # number of months (roughly) between two dates
