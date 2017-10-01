@@ -135,4 +135,9 @@ Sys.info()['user']
 #---- other stuff ----
 df <- data.frame(a=rnorm(10000),b=rnorm(10000),c=rep('x',10000))
 digest(df,algo='sha1') #make a digest. Algo can be many different things.
+
+#supress output from functions
+sink("/dev/null"); p <- myfunct() ; sink()
+p <- suppressMessages(myfunct())
+p <- invisible(myfunct())
        
