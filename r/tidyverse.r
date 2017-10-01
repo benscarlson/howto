@@ -1,3 +1,7 @@
+#---- readr ----
+
+read_csv('my/path',col_types=cols()) # will not print out column types
+
 #---- dplyr ----
 
 dat %>% summarise_each(funs(sum(is.na(.)))) #see how many na values are in each row
