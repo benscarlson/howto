@@ -33,3 +33,6 @@ dat <- data.frame(`column name 1`=rnorm(3),`column name 2`=rnorm(3))
 #this function allows for a bunch of parameters, such as rotate.colnames
 print.xtable(xtable(dat),rotate.colnames=TRUE)
 @
+
+#How to use a child template in a knitr doc.
+#https://github.com/yihui/knitr-examples/blob/master/020-for-loop.Rnw
