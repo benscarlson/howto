@@ -36,3 +36,7 @@ print.xtable(xtable(dat),rotate.colnames=TRUE)
 
 #How to use a child template in a knitr doc.
 #https://github.com/yihui/knitr-examples/blob/master/020-for-loop.Rnw
+
+#
+<<fig.cap='My caption'>>
+<<fig.show='hold', out.width='6m'>> #puts figures side-by-side
