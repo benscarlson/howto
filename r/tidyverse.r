@@ -1,3 +1,20 @@
+#---- tidyr ----
+
+stocks <- data_frame(
+  X = rnorm(2, 0, 1),
+  Y = rnorm(2, 0, 2),
+)
+#note there is no column in 'stocks' called 'stock' or 'price'. 
+#stock is made up of the column headers. price is made up of the values.
+stocks %>% gather(stock, price) 
+
+#to have set of 'key' fields that don't get collapsed, use the syntax -key
+stocks <- data_frame(
+  key = 1,
+  X = rnorm(2, 0, 1),
+  Y = rnorm(2, 0, 2),
+)
+stocks %>% gather(stock, price,-key)
 #---- readr ----
 
 read_csv('my/path',col_types=cols()) # will not print out column types
