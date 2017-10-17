@@ -19,7 +19,7 @@ module load Apps/R
 #interactive partition: limited to 4 tasks
 #day partition: 13 nodes
 #week partition: 24 nodes
-
+#pi_jetz: 2 nodes, 28 cores/node. 256G max per node. 
 /gpfs/apps/bin/groupquota.sh #see report on group quota
 
 #jetz group
