@@ -14,12 +14,19 @@ module load Apps/R
 #set up ssh key for grace-next using these instructions 
 #https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
 
+#---- configuration ----#
 #nodes on grace-next have 20 cores each
 #interactive partition: limited to 4 tasks
 #day partition: 13 nodes
 #week partition: 24 nodes
 
-#SLURM#
+/gpfs/apps/bin/groupquota.sh #see report on group quota
+
+#jetz group
+#shared directory: /project/fas/jetz/data
+
+umask 0002 #add this to ~/.bashrc file to make sure files you create are going to be editable and movable by your fellow group members
+#---- SLURM ----#
 
 # slurm script 
 #SBATCH --mem-per-cpu=32G
@@ -51,7 +58,9 @@ mpirun -np 1 #only start script on one task
 # submit a job
 sbatch myscript_sbatch.sh
 
-### omega ###
+#--------------------
+#---- omega ----
+#--------------------
 ssh bc447@omega.hpc.yale.edu #log in to omega
 qsub -q fas_devel -I #request interactive queue on fas_devel
 #omega queues: http://research.computing.yale.edu/support/hpc/clusters/omega
