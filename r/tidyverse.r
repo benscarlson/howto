@@ -19,7 +19,9 @@ stocks %>% gather(stock, price,-key)
 
 read_csv('my/path',col_types=cols()) # will not print out column types
 
-#---- dplyr ----
+#---------------#
+#---- dplyr ----#
+#---------------#
 
 dat %>% summarise_each(funs(sum(is.na(.)))) #see how many na values are in each row
 
@@ -51,3 +53,7 @@ db0 %>% #This is new way to apply myscale function by column
 lead(colname,1); lag(colname,1) #shift column forward or backward by one
 
 case_when() #like a switch statement that works inside mutate.
+
+#we only want (1, 'a') and (3, 'b') i.e. don't want (2,'a')
+dat <- data.frame(a=c(1,2,3,4,5), b=c('a','a','b','b','c'))
+dat %>% filter(a %in% c(1,3) & b %in% c('a','b'))
