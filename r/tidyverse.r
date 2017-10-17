@@ -54,6 +54,18 @@ lead(colname,1); lag(colname,1) #shift column forward or backward by one
 
 case_when() #like a switch statement that works inside mutate.
 
+#filter by multiple columns, multiple criteria
 #we only want (1, 'a') and (3, 'b') i.e. don't want (2,'a')
 dat <- data.frame(a=c(1,2,3,4,5), b=c('a','a','b','b','c'))
 dat %>% filter(a %in% c(1,3) & b %in% c('a','b'))
+
+#filter by number of items in group. take groups in which there are more than 100 rows.
+dat %>% group_by(col1) %>% filter(n() < 100)
+
+#subsample only groups that have more than a certain number of rows.
+#use sample_frac() trick to permute
+#https://stackoverflow.com/questions/30950016/dplyr-sample-n-where-n-is-the-value-of-a-grouped-variable
+tSub <- tThin %>% 
+  group_by(individual_id,yr) %>%
+  sample_frac(1) %>% #this permutes the row, by group
+  filter(row_number() <= 100) #take up to 100 rows in each group
