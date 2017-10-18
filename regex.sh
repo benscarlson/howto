@@ -17,4 +17,5 @@ gr[^x]y #matches anything but grxy.  eg. gray, grby, grcy
 $1 #refer back to a previous sub-group
 ${1} #Use the second if there is a digit immediatly after the backreference. i.e. so the regex doesn't think you are trying to match $10, use ${1}0
 
-
+#match xyz_1234 into groups xyz, 1234. xyz_abc_1234 into xyz_abc, 1234
+([^ ]+)_(\\d{4}$)
