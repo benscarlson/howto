@@ -15,6 +15,11 @@ stocks <- data_frame(
   Y = rnorm(2, 0, 2),
 )
 stocks %>% gather(stock, price,-key)
+
+#
+separate() #splits based on a delimiter
+extract(niche_group1, c("short_name1", "year1"), '([^ ]+)_(\\d{4}$)',remove=FALSE) #uses regular expression to split
+
 #---- readr ----
 
 read_csv('my/path',col_types=cols()) # will not print out column types
