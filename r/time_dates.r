@@ -13,6 +13,9 @@ as.POSIXct('2014-09-14 19:45:09', tz='UTC')
 as.POSIXlt('2014-09-14 19:45:09', tz='UTC') 
 as.POSIXct('2014-09-14 19:45:09') #This will assign the timezone to the current timezone as defined by the computer running the code
 
+#convert from unix epoch time
+as.POSIXct(1417305600,tz='UTC',origin='1970-01-01') #always use origin as 1970-01-01
+
 as.POSIXct('2017-06-27', tz='US/Eastern') #this will result in an object '2017-06-27 EDT'. Not sure how it is figuring out it is EDT or EST.
 OlsonNames() #get the names of timezones for the tz attribute
 
