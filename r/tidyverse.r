@@ -74,3 +74,8 @@ tSub <- tThin %>%
   group_by(individual_id,yr) %>%
   sample_frac(1) %>% #this permutes the row, by group
   filter(row_number() <= 100) #take up to 100 rows in each group
+
+#sort by group and then take the first item in each group
+dat %>%
+  group_by(individual_id,dte) %>%
+  top_n(n=-1,wt=timestamp) %>% #-1 takes the first timestamp in the group
