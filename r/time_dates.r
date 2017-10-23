@@ -32,3 +32,9 @@ interval(dte1, dte2)/years(1) #number of years between two dates
 ptm <- proc.time() 
 elapsed_min <- round((proc.time() - ptm)[3]/60,2) #elapsed time in minutes
 
+elapsedTime <- function(ptm) {
+  sec_tot <- (proc.time() - ptm)[3]
+  min <- floor(sec_tot/60)
+  sec <- round(sec_tot %% 60)
+  print(sprintf('Completed in %s minutes, %s seconds',min,sec))
+}
