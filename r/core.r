@@ -84,6 +84,11 @@ df[which(!duplicated(df$timestamp)), ] #remove duplicate timestamps from df
 #---- lists ----
 unlist(lapply(mylist,function(item) {item@Name})) #make a vector out of all Name attributes
 
+#filters the lists for objects with @Name attribute = val1 or val2
+mylist[
+  unlist(lapply(mylist, function(item) 
+    {item@Name %in% c('val1','val2')}))]
+
 #built in constants:
 LETTERS, letters, month.abb, month.name, pi
 
