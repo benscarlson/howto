@@ -81,6 +81,9 @@ which(!complete.cases(df)) #--> 2 3
 
 df[which(!duplicated(df$timestamp)), ] #remove duplicate timestamps from df
 
+#---- lists ----
+unlist(lapply(mylist,function(item) {item@Name})) #make a vector out of all Name attributes
+
 #built in constants:
 LETTERS, letters, month.abb, month.name, pi
 
