@@ -79,3 +79,6 @@ tSub <- tThin %>%
 dat %>%
   group_by(individual_id,dte) %>%
   top_n(n=-1,wt=timestamp) %>% #-1 takes the first timestamp in the group
+
+#combine columns by taking the first non-na value
+dat %>% mutate(col=coalesce(col_a,col_b))
