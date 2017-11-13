@@ -14,9 +14,9 @@ var img = ee.Image().byte().paint(fc, "ID");
 //masking
 .updateMask() //only masks out currenly unmasked pixels
 .unmask() // turns any currently masked pixels into a value, 0 by default. can pass a value in
+var msk = img.select([0]).gt(0); //create a mask
 
-ic.filter(ee.Filter.listContains("system:band_names", "N")) //filter by band name. band names are not in metadata but can filter by this property
-//https://code.earthengine.google.com/8a983033d4fff873f5a647e6cfab857f
+
 
 //---- date/time ----
 
@@ -42,4 +42,17 @@ var images = ['MOD11A2_005_2014_12_27','MOD11A2_005_2014_12_27'];
 // (leftField, rightValue, rightField, leftValue)
 // below are equivilant
 var filt = ee.Filter.inList({leftField:'system:index',rightValue:images, rightField:null, leftValue:null});
-var filt = ee.Filter.inList(system:index',images);
+var filt = ee.Filter.inList('system:index',images);
+
+ic.filter(ee.Filter.listContains("system:band_names", "N")) //filter by band name. band names are not in metadata but can filter by this property
+//https://code.earthengine.google.com/8a983033d4fff873f5a647e6cfab857f
+
+Map.addLayer(img.select([0]).mask(msk),{palette:palette});
+
+//Visulications
+//palettes
+var palette = ['b5acff','8dcfff','7ffff9','71ff96','c0ff6d','eeff64','ffc952','ffaf38','ff471d'];
+
+//paint a set of polygons polyFC (with identification 'id') to image and visualize
+//example: https://code.earthengine.google.com/849862c672e8e5028a4d86ee14cf8c36
+Map.addLayer(ee.Image().int().paint(polyFC,'id').randomVisualizer())
