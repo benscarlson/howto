@@ -34,19 +34,6 @@ filter(!val %in% c('a','b')) #not in a, b
 dat %>% filter(complete.cases(.)) #only keep complete cases (rows with no NA)
 dat %>% distinct(x,y, .keep_all=TRUE) #remove duplicate x,y. take first unique row of x,y, keeping all other columns
 
-#operate on a dataframe from group
-lastLoess <- function(dat) {
-  m <- loess(Value ~ YearX, dat, span=0.75) # dat[dat$Country==country,]
-  
-  #dplyr:do requires return to be a dataframe.
-  return(as.data.frame(m$fitted[length(m$fitted)]))
-}
-
-#use dplyr to group the dataframe and apply the lastLoess function
-labelPoints <- sub %>% 
-  group_by(Country) %>%
-  do(lastLoess(.))
-
 #group dataset then apply a function to certain columns in each group
 dat1 <- dat0 %>%
   group_by(col_a) %>%
@@ -82,3 +69,26 @@ dat %>%
 
 #combine columns by taking the first non-na value
 dat %>% mutate(col=coalesce(col_a,col_b))
+
+#---- group_by/do and group_by/nest/map ----#
+
+#operate on a dataframe from group
+lastLoess <- function(dat) {
+  m <- loess(Value ~ YearX, dat, span=0.75) # dat[dat$Country==country,]
+  
+  #dplyr:do requires return to be a dataframe.
+  return(as.data.frame(m$fitted[length(m$fitted)]))
+}
+
+#use dplyr to group the dataframe and apply the lastLoess function
+#note for do(), the function must return a data.frame
+labelPoints <- sub %>% 
+  group_by(Country) %>%
+  do(lastLoess(.))
+
+#for map, it's not required that the function called return a data.frame
+dat1 %>%
+  group_by(short_name) %>%
+  nest() %>% #makes list of data frames based on groups, store in 'data' column
+  mutate(kde95=purrr::map(data, ~kde95(.))) %>% #apply kde95 function to each data frame in 'data' column. kde95 returns a data.frame
+  unnest() #expand the nested kde95 dataframes
