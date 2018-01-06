@@ -78,7 +78,9 @@ gsplit -d -C 1MB -a 2 myfile.csv myfile #use -C option to limit file sizes to le
 sed -i ".bak" "1s/event\_id/point\_index/" biofilt/bav_biofilt.csv
 
 #---- mount WD MyBook ----#
+# adapted from https://www.howtogeek.com/236055/how-to-write-to-ntfs-drives-on-a-mac/
 sudo umount /dev/disk2s1
+#ovolume and mount point names don't have to be the same. here, they are.
 sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/WD_MyBook_4TB -olocal -oallow_other -ovolname=WD_MyBook_4TB
-sudo rm -r 'My Book' #might not need this, now mount point is being removed correctly
+sudo rm -r 'My Book' #clean up after automount might not need this, now mount point is being removed correctly
 
