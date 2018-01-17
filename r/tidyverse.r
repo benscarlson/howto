@@ -1,4 +1,6 @@
-#---- tidyr ----
+#---------------#
+#---- tidyr ----#
+#---------------#
 
 stocks <- data_frame(
   X = rnorm(2, 0, 1),
@@ -20,7 +22,9 @@ stocks %>% gather(stock, price,-key)
 separate() #splits based on a delimiter
 extract(niche_group1, c("short_name1", "year1"), '([^ ]+)_(\\d{4}$)',remove=FALSE) #uses regular expression to split
 
-#---- readr ----
+#---------------#
+#---- readr ----#
+#---------------#
 
 read_csv('my/path',col_types=cols()) # will not print out column types
 
@@ -92,3 +96,9 @@ dat1 %>%
   nest() %>% #makes list of data frames based on groups, store in 'data' column
   mutate(kde95=purrr::map(data, ~kde95(.))) %>% #apply kde95 function to each data frame in 'data' column. kde95 returns a data.frame
   unnest() #expand the nested kde95 dataframes
+
+#mutate to sum columns based on vector of column names
+dat <- tibble(a=sample(rep(c(1,0),3)),
+           b=sample(rep(c(1,0),3)),
+           c=sample(rep(c(1,0),3)))
+dat %>% mutate(num=rowSums(.[c('a','b')]))
