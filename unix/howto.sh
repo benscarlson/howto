@@ -77,6 +77,12 @@ gsplit -d -C 1MB -a 2 myfile.csv myfile #use -C option to limit file sizes to le
 #on the first line, change the first instance of event_id to point_index
 sed -i ".bak" "1s/event\_id/point\_index/" biofilt/bav_biofilt.csv
 
+#insert a header into the beginning of the file. Note you need to have the line breaks in there.
+# .bak makes a backup of the file first. use '' to not make a backup.
+sed -i '.bak' '1i\
+bird_id,date,time,gps_long,gps_lat,hight,speed,heading,acc_index,ODBA,behav,behav2
+' sample.csv
+
 #---- mount WD MyBook ----#
 # adapted from https://www.howtogeek.com/236055/how-to-write-to-ntfs-drives-on-a-mac/
 sudo umount /dev/disk2s1
