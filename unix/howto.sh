@@ -18,7 +18,7 @@ shopt - s dotglob
 mv dir1/* dir2
 
 tar xvf myfile.tar.gz #unzip myfile.tar.gz
-unzip file.zip -d my_folder #unzip a zip
+unzip file.zip -d my_folder #unzip a zip to a specific folder (useful to extract a large file directly to external drive)
 
 # add folder 'bin' to your path: Edit .bashrc. (.bash_profile on a mac). Add the folder as below:
 export PATH=$HOME/bin:$PATH
