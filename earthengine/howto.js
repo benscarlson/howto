@@ -64,6 +64,7 @@ Export.image.toCloudStorage({
   image: img,
   description: 'my_img',
   bucket:'ee-output',
+  region: img.geometry(), //need to set the output geometry, else it will default to the playground window size
   scale: img.projection().nominalScale().getInfo(),
   maxPixels:1e13
 });
