@@ -1,3 +1,6 @@
+#https://github.com/dwtkns/gdal-cheat-sheet
+#http://joeyklee.github.io/broc-cli-geo/guide/index.html
+
 #---- RASTERS ----
 
 #---- metadata ----
