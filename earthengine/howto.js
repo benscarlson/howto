@@ -58,11 +58,13 @@ var palette = ['b5acff','8dcfff','7ffff9','71ff96','c0ff6d','eeff64','ffc952','f
 Map.addLayer(ee.Image().int().paint(polyFC,'id').randomVisualizer())
 
 //------ exporting assets ------
+var nomScale = img.projection().nominalScale();
+
 Export.image.toCloudStorage({
   image: img,
   description: 'my_img',
   bucket:'ee-output',
-  scale: nomScale.getInfo(),
+  scale: img.projection().nominalScale().getInfo(),
   maxPixels:1e13
 });
 
