@@ -1,6 +1,9 @@
 #http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html
 
-#---- rasters ----
+#-----------------#
+#---- rasters ----#
+#-----------------#
+
 env <- raster('misc/tinamus_env.tif') #read raster
 writeRaster(env,'misc/tinamus_env.tif','GTiff') #write a raster to tif
 
@@ -18,8 +21,11 @@ rdist_r@data@min;rdist_r@data@max #see min and max values for a rasterLayer
 env_tif <- raster('misc/tinamus_env.tif') #load the raster from tif
 raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of points (here, a SpatialPoints object)
 bbox(obj) #get the bounding box of spatial object obj
-     
-#---- Vector Data ----
+
+#---------------------#     
+#---- Vector Data ----#
+#---------------------#
+
 #libraries that can read shapefiles. 'raster', 'shapefile', 'maptools' (?)
 
 getGDALVersionInfo()
