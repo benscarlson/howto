@@ -60,9 +60,10 @@ which(is.na(spdf['mycol']@data)) #shows which rows contain NA
 spdf[,'mycol'] #this will return an spdf with just the column 'mycol'
 spdf$mycol #returns a vector
 spdf@data$mycol #also returns a vectors (seems same as spdf$)
-spdf[['mycol']]] #also returns a vector 
-     
-mydata@proj4string #see the projection
+spdf[['mycol']]] #also returns a vector
+crs(spdf) #see the projection
+mydata@proj4string #see the projection (same as crs())
+coordinates(spdf) #see the coordinates
 
 zerodist(df) #find point pairs with equal spatial coordinates
 
