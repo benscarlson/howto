@@ -79,12 +79,7 @@ spainportu$ID <- 1
 dissolved <- unionSpatialPolygons(spainportu,spainportu$ID) #in maptools library
 
 ptsClip <- pts[poly,] #spatial subset pts by poly (return all points that are within poly
-     
-#raster    
 
-
-
-     
 ### projections ###
 CRS("+proj=longlat") #WGS84
 CRS("+proj=longlat +ellps=WGS84") #WGS84
