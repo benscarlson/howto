@@ -17,7 +17,7 @@ calc(layer, function(x) { f(x) }) #apply function f to layer
 cellStats(layer,sum) #returns the sum of all cells in layer. can also use mean, min, etc.
 metadata(layer) <- metadata #adds metadata to layer
 rdist_r@data@min;rdist_r@data@max #see min and max values for a rasterLayer
-
+res(layer) #see the x,y resolution of the raster. get units from crs()
 env_tif <- raster('misc/tinamus_env.tif') #load the raster from tif
 raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of points (here, a SpatialPoints object)
 bbox(obj) #get the bounding box of spatial object obj
