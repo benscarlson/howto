@@ -35,10 +35,19 @@ readOGR(dsn="shapefiledir", layer="shpefilename")
 writeOGR(obj=polys, dsn="shapefiledir", layer="shapefilename", driver="ESRI Shapefile") #polys is SpatialPolygonsDataFrame (or Points)
 
 df <- as.data.frame(spdf) #convert SpatialPointsDataFrame spdf to a dataframe
-#create a SpatialPoints object. Not sure how to set the column names
+
+#---- Create Spatial objects ----
+
+# Create a SpatialPoints object from a matrix. Not sure how to set the column names
 coords<-matrix(c(-45.1692940000,-23.4697250000),nrow=1)
 pts<-SpatialPoints(m, proj4string=CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'))
-     
+
+# Create a SpatialPointsDataFrame object from data.frame dat1 (with cols 'lon' and 'lat')
+spdf <- SpatialPointsDataFrame(
+  coords=as.data.frame(dat1[,c('lon','lat')]), data=dat1,
+  proj4string=CRS("+proj=longlat +datum=WGS84"))
+
+# Promote a data frame to an SP or SPDF object.
 coordinates(df)=~Longitude+Latitude #turn df into a SpatialPointsDataFrame. set Longitude and Latitude as coordinates
 proj4string(df) <- CRS('+proj=longlat +datum=WGS84') #set the crs of the spatialpointsdataframe
 proj4string(df) <- CRS('+proj=longlat') #set the crs of the spatialpointsdataframe
