@@ -83,8 +83,7 @@ ptsClip <- pts[poly,] #spatial subset pts by poly (return all points that are wi
 #raster    
 
 
-### plotting polygons ###
-splancs::polymap(mymatrix) #plot a polygon for a [,2] matrix
+
      
 ### projections ###
 CRS("+proj=longlat") #WGS84
