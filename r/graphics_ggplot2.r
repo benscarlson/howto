@@ -90,6 +90,12 @@ scale_color_discrete(name='My legend title') #use this if the legend variable is
   scalebar(data=rename(gdat,long=x,lat=y), dist=25, dd2km=TRUE, model='WGS84',location='bottomleft',
     st.size=3, height=0.02) +
 
+#-----
+# color palettes
+#-----
+
+#http://tools.medialab.sciences-po.fr/iwanthue/
+
 #----------
 # cowplot
 #----------
