@@ -5,6 +5,10 @@ text(data,labels=data$myid, cex= 0.7) #add labels to a plot
 lines(data) #add lines to a plot
 box() #draw a box around a plot
 
+#how to specify particlar pch values (here 13 & 19) for a vector.
+obs <- c(0,1,1,0) #0=absence, 1=presence
+pch=c(13,19)[obs+1] #do +1 because the symbol vector is 1 based.
+
 #---- base histograms ----
 
 # adding a large number of breaks will apparantly change  a hist from "frequency" to "probability density". Compare:
