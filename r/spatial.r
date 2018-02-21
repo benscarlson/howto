@@ -58,6 +58,11 @@ coordinates(df)=~Longitude+Latitude #turn df into a SpatialPointsDataFrame. set 
 proj4string(df) <- CRS('+proj=longlat +datum=WGS84') #set the crs of the spatialpointsdataframe
 proj4string(df) <- CRS('+proj=longlat') #set the crs of the spatialpointsdataframe
 
+#make the grid from the centers of raster cells
+grid <- SpatialPoints(
+  coords=data.frame(xyFromCell(rast, 1:ncell(rast))),
+  proj4string=crs(rast))
+
 #---- Spatial*DataFrame ----
 na.omit(spdf) #remove rows with NA (not sure if this works)
 which(is.na(spdf['mycol']@data)) #shows which rows contain NA
