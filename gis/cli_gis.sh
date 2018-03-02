@@ -1,7 +1,9 @@
 #https://github.com/dwtkns/gdal-cheat-sheet
 #http://joeyklee.github.io/broc-cli-geo/guide/index.html
 
+#-----------------
 #---- RASTERS ----
+#-----------------
 
 #---- metadata ----
 gdalinfo -stats file.tif #see the min and max pixels of a tiff file
@@ -10,6 +12,9 @@ listgeo -proj4 waterdistance.tif #another way to see metadata
 gdal_edit.py -a_srs EPSG:4326 myfile.tif #define projection when it is not set
 
 #---- transform rasters ----
+
+#mosiac rasters
+gdal_merge.py -o out.tif tile1.tif tile2.tif tile3.tif
 
 #convert to wgs84
 gdalwarp -t_srs '+proj=longlat +datum=WGS84 +no_defs' image.tif image_wgs84.tif
