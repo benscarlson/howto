@@ -76,6 +76,7 @@ bird_id,date,time,gps_long,gps_lat,hight,speed,heading,acc_index,ODBA,behav,beha
 ' sample.csv
 
 #see non-printing characters in a file (for example \r and \n)
+#https://stackoverflow.com/questions/800030/remove-carriage-return-in-unix
 cat infile | od -c
 
 #----------
