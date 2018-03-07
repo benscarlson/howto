@@ -77,6 +77,7 @@ bird_id,date,time,gps_long,gps_lat,hight,speed,heading,acc_index,ODBA,behav,beha
 ' sample.csv
 
 #convert file with windows \r\n (?) endings to unix endings \n (?)
+dos2unix myfile.csv #osx makes changes in place. unix do dos2unix myfile.csv myfile2.csv
 
 #see non-printing characters in a file (for example \r and \n)
 #https://stackoverflow.com/questions/800030/remove-carriage-return-in-unix
