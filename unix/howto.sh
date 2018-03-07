@@ -71,9 +71,12 @@ sed -i ".bak" "1s/event\_id/point\_index/" biofilt/bav_biofilt.csv
 
 #insert a header into the beginning of the file. Note you need to have the line breaks in there.
 # .bak makes a backup of the file first. use '' to not make a backup.
+#I think there are some differences between unix and osx with the -i parameter
 sed -i '.bak' '1i\
 bird_id,date,time,gps_long,gps_lat,hight,speed,heading,acc_index,ODBA,behav,behav2
 ' sample.csv
+
+#convert file with windows \r\n (?) endings to unix endings \n (?)
 
 #see non-printing characters in a file (for example \r and \n)
 #https://stackoverflow.com/questions/800030/remove-carriage-return-in-unix
