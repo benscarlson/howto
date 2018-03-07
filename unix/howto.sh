@@ -55,6 +55,29 @@ chmod 755 y.txt # -rwxr-xr-x
 chmod 777 y.txt # -rwxrwxrwx
 chmod 600 y.txt # -rw-------
 
+#can unzip a zip file on mac using tar. in some cases this is the only way to unzip zip files
+tar -xvf myfile.zip
+
+df -H #total and available disk space, in easily readable units
+
+zcat < myfile.txt.gz|head -10 > myfile_head.txt #first 10 lines of a gzipped file
+
+#---- manipulate file contents ----
+gsplit -d -l 2 -a 2 myfile.csv myfile #if myfile has 6 lines, this makes myfile00, myfile01, myfile02. two lines each.
+gsplit -d -C 1MB -a 2 myfile.csv myfile #use -C option to limit file sizes to less than 1MB
+
+#on the first line, change the first instance of event_id to point_index
+sed -i ".bak" "1s/event\_id/point\_index/" biofilt/bav_biofilt.csv
+
+#insert a header into the beginning of the file. Note you need to have the line breaks in there.
+# .bak makes a backup of the file first. use '' to not make a backup.
+sed -i '.bak' '1i\
+bird_id,date,time,gps_long,gps_lat,hight,speed,heading,acc_index,ODBA,behav,behav2
+' sample.csv
+
+#see non-printing characters in a file (for example \r and \n)
+cat infile | od -c
+
 #----------
 #   OSX   
 #----------
@@ -67,25 +90,6 @@ system_profiler SPCardReaderDataType #information about SDCard
 
 #to see details about printers:
 http://localhost:631/printers
-
-#can unzip a zip file on mac using tar. in some cases this is the only way to unzip zip files
-tar -xvf myfile.zip
-
-df -H #total and available disk space, in easily readable units
-
-zcat < myfile.txt.gz|head -10 > myfile_head.txt #first 10 lines of a gzipped file
-
-gsplit -d -l 2 -a 2 myfile.csv myfile #if myfile has 6 lines, this makes myfile00, myfile01, myfile02. two lines each.
-gsplit -d -C 1MB -a 2 myfile.csv myfile #use -C option to limit file sizes to less than 1MB
-
-#on the first line, change the first instance of event_id to point_index
-sed -i ".bak" "1s/event\_id/point\_index/" biofilt/bav_biofilt.csv
-
-#insert a header into the beginning of the file. Note you need to have the line breaks in there.
-# .bak makes a backup of the file first. use '' to not make a backup.
-sed -i '.bak' '1i\
-bird_id,date,time,gps_long,gps_lat,hight,speed,heading,acc_index,ODBA,behav,behav2
-' sample.csv
 
 #---- mount WD MyBook ----#
 # adapted from https://www.howtogeek.com/236055/how-to-write-to-ntfs-drives-on-a-mac/
