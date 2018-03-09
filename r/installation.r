@@ -37,3 +37,19 @@ brew list r
 #https://support.rstudio.com/hc/en-us/articles/200486138-Using-Different-Versions-of-R
 #I set environment variable RSTUDIO_WHICH_R to /usr/local/bin/R
 #This link was set up by homebrew and links to /usr/local/Cellar/R/3.2.3/bin/R
+
+#---- upgrading r ----
+#2018-03-09 upgraded to 3.4 following this method
+#http://lcolladotor.github.io/2017/05/04/Updating-R/#.WqLjpJMbOF0
+
+installed<-dir(.libPaths())
+save(installed, file='scratch/rlibs.Rdata')
+getwd()
+
+# INSTALL R FROM CRAN
+
+load('scratch/rlibs.Rdata')
+
+current <- dir(.libPaths())
+
+install.packages(installed[!installed %in% current])
