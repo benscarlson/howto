@@ -84,12 +84,6 @@ scale_fill_continuous(
 
 scale_color_discrete(name='My legend title') #use this if the legend variable is mapped to 'color' in aes()
 
-#---- making maps ----#
-
-#make a scale bar. Need to have columns named "long" and "lat".
-  scalebar(data=rename(gdat,long=x,lat=y), dist=25, dd2km=TRUE, model='WGS84',location='bottomleft',
-    st.size=3, height=0.02) +
-
 #-----
 # color palettes
 #-----
