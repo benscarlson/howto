@@ -40,3 +40,8 @@ print.xtable(xtable(dat),rotate.colnames=TRUE)
 #
 <<fig.cap='My caption'>>
 <<fig.show='hold', out.width='6m'>> #puts figures side-by-side
+
+#supress messages
+
+#make sure message=FALSE
+<<echo=FALSE, warning=FALSE, message=FALSE>>=
