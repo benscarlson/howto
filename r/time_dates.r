@@ -15,8 +15,10 @@ as.POSIXct('2014-09-14 19:45:09') #This will assign the timezone to the current 
 
 #convert from unix epoch time
 as.POSIXct(1417305600,tz='UTC',origin='1970-01-01') #always use origin as 1970-01-01
+as.Date(as.POSIXct(1417305600,tz='UTC',origin='1970-01-01')) #Get just the data portion
 
-as.POSIXct('2017-06-27', tz='US/Eastern') #this will result in an object '2017-06-27 EDT'. Not sure how it is figuring out it is EDT or EST.
+as.POSIXct('2017-06-27', tz='US/Eastern') #class(): "POSIXct" "POSIXt" print(): '2017-06-27 EDT'. Not sure how it is figuring out it is EDT or EST.
+as.Date('2017-06-27', tz='US/Eastern') # class(): "Date". print(): "2017-06-27"
 OlsonNames() #get the names of timezones for the tz attribute
 
 strftime() #returns a character string. make sure to specify timezone, or local system timezone is assumed!
