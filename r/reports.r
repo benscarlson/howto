@@ -48,6 +48,12 @@ print.xtable(xtable(dat),rotate.colnames=TRUE)
 #fig.height is the size the plot is created at. I think plot is scaled if these are different
 <<out.width='8in', fig.width=8, fig.align='center'>>=
 
+#---- inline r code ----#
+<<>>=
+indivName<-'MyAnimal'
+@
+EDA for \Sexpr{indivName} track
+
 #---------------#
 #---- latex ----#
 #---------------#
