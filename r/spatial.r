@@ -49,13 +49,19 @@ coords<-matrix(c(-45.1692940000,-23.4697250000),nrow=1)
 pts<-SpatialPoints(m, proj4string=CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'))
 
 # Create a SpatialPointsDataFrame object from data.frame dat1 (with cols 'lon' and 'lat')
+# Note need to remove lon/lat columns from data argument
+dat1 <- as.data.frame(dat1)
 spdf <- SpatialPointsDataFrame(
-  coords=as.data.frame(dat1[,c('lon','lat')]), data=dat1,
+  coords=dat1[,c('lon','lat')], 
+  data=dat1[,!names(dat1) %in% c('lon','lat')]),
   proj4string=CRS("+proj=longlat +datum=WGS84"))
 
 # Promote a data frame to an SP or SPDF object.
-coordinates(df)=~Longitude+Latitude #turn df into a SpatialPointsDataFrame. set Longitude and Latitude as coordinates
-proj4string(df) <- CRS('+proj=longlat +datum=WGS84') #set the crs of the spatialpointsdataframe
+# Note here the @data argument does not have lon/lat columns
+spdf1 <- dat1
+coordinates(spdf1)=~lon+lat #set lon, lat as the coordinates
+proj4string(spdf1) <- CRS('+proj=longlat +datum=WGS84') #set the crs of the spatialpointsdataframe
+
 proj4string(df) <- CRS('+proj=longlat') #set the crs of the spatialpointsdataframe
 
 #make the grid from the centers of raster cells
