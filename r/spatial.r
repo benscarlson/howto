@@ -60,9 +60,10 @@ spdf <- SpatialPointsDataFrame(
 # Note here the @data argument does not have lon/lat columns
 spdf1 <- dat1
 coordinates(spdf1)=~lon+lat #set lon, lat as the coordinates
-proj4string(spdf1) <- CRS('+proj=longlat +datum=WGS84') #set the crs of the spatialpointsdataframe
+crs(spdf1) <- CRS('+proj=longlat +datum=WGS84') #set the crs of the spatialpointsdataframe
 
-proj4string(df) <- CRS('+proj=longlat') #set the crs of the spatialpointsdataframe
+proj4string(spdf1) <- '+proj=longlat +datum=WGS84' #can also just use the proj4string
+proj4string(spdf1) <- '+proj=longlat' 
 
 #make the grid from the centers of raster cells
 grid <- SpatialPoints(
