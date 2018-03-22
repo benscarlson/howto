@@ -28,6 +28,17 @@ extract(niche_group1, c("short_name1", "year1"), '([^ ]+)_(\\d{4}$)',remove=FALS
 
 read_csv('my/path',col_types=cols()) # will not print out column types
 
+#----
+#---- tibble ----#
+
+#create row-wise data.frame
+tribble(
+  ~colA, ~colB,
+  "a",   1,
+  "b",   2,
+  "c",   3
+)
+
 #---------------#
 #---- dplyr ----#
 #---------------#
