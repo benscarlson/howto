@@ -1,3 +1,5 @@
+#see: http://r4ds.had.co.nz/ (R for Data Science book)
+
 #---------------#
 #---- tidyr ----#
 #---------------#
