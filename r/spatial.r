@@ -22,6 +22,9 @@ env_tif <- raster('misc/tinamus_env.tif') #load the raster from tif
 raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of points (here, a SpatialPoints object)
 bbox(obj) #get the bounding box of spatial object obj
 
+rast@legend #if populated, this can hold a colortable (or color ramp) that can be used for plotting
+colortable(rast) #access to the colortable stored in rast@legend
+
 #---------------------#     
 #---- Vector Data ----#
 #---------------------#
