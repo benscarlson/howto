@@ -1,6 +1,9 @@
 #---- loading packages ----
 suppressPackageStartupMessages()
 
+library(devtools)
+load_all("/Users/benc/src/cmsdm/cmsdm_repo") #load package from disk
+
 #---- package management ----
 
 #if r says something like 'not available for xyz version'
