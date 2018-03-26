@@ -87,6 +87,12 @@ dat %>%
 #combine columns by taking the first non-na value
 dat %>% mutate(col=coalesce(col_a,col_b))
 
+#---- mutate ----#
+
+# mutate using dynamic column names
+envLab = 'my_col_name'
+mutate(!!envLab := !!as.name(envLab)*0.0001)
+
 #---- group_by/do and group_by/nest/map ----#
 
 #operate on a dataframe from group
