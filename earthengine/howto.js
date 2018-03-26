@@ -49,6 +49,9 @@ ic.filter(ee.Filter.listContains("system:band_names", "N")) //filter by band nam
 
 Map.addLayer(img.select([0]).mask(msk),{palette:palette});
 
+var obj = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR") 
+  .filterDate('2013-06-26', '2013-07-04')
+
 //Visulications
 
 //palettes
