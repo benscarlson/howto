@@ -22,8 +22,6 @@ var img = ee.Image().byte().paint(fc, "ID");
 .unmask() // turns any currently masked pixels into a value, 0 by default. can pass a value in
 var msk = img.select([0]).gt(0); //create a mask
 
-
-
 //---- date/time ----
 
 //both of these formats can be parsed natively by ee
@@ -38,7 +36,13 @@ function textTs(img) {
 }
 mycol = mycol.map(textTs);
 
-//---- filtering ----
+//-------------------//
+//---- filtering ----//
+//-------------------//
+
+//filter an image collection to extract one image
+var img = ee.ImageCollection("LANDSAT/LC8_L1T_8DAY_NDVI")
+  .filterMetadata('system:index','equals','20130626')
 
 //filter an image collection using metadata field by list
 var col = ee.ImageCollection('MODIS/MOD11A2');
