@@ -5,11 +5,15 @@
 //Data request? https://code.google.com/a/google.com/p/ee-testers-external/issues/list
 
 //-------------------------//
-//---- create features ----//
+//---- features ----//
 //-------------------------//
 
 var f = ee.Feature(
     ee.Geometry.Point([10.9736,52.4577]));
+
+//get a bounding box
+var pts_fc = ee.FeatureCollection(occTable);
+var bbox = pts_fc.geometry().bounds();
 
 //--------------//
 //---- misc ----//
@@ -67,6 +71,10 @@ var filt = ee.Filter.inList('system:index',images);
 
 ic.filter(ee.Filter.listContains("system:band_names", "N")) //filter by band name. band names are not in metadata but can filter by this property
 //https://code.earthengine.google.com/8a983033d4fff873f5a647e6cfab857f
+
+//filter based on a supplied list
+var filt = col.filter(
+    ee.Filter.inList('path',ee.List([194,195])));
 
 Map.addLayer(img.select([0]).mask(msk),{palette:palette});
 
