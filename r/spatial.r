@@ -115,6 +115,15 @@ coordinates(ptUtm33)
 ptUtm32_2 <- spTransform(ptUtm33,CRS('+proj=utm +zone=32 +ellps=WGS84 +units=m +no_defs'))
 coordinates(ptUtm32_2)
 
+#---- save bounding box of points ----#
+
+#have to convert extent to SpatialPolygons, then convert this to SpatialPolygonsDataFrame
+poly <- as(extent(spdf),'SpatialPolygons')
+poly <- as(poly,'SpatialPolygonsDataFrame')
+crs(poly) <- CRS('+proj=utm +zone=32 +ellps=WGS84 +units=m +no_defs')
+writeOGR(obj=poly, dsn=file.path('results/stpp_models',datName,'data/pts_bbox'), 
+         layer="pts_bbox", driver="ESRI Shapefile")
+
 ### projections ###
 
 CRS() #this is from sp package
