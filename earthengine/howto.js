@@ -93,6 +93,12 @@ var palette = 'FFFFFF,CE7E45,DF923D,F1B555,FCD163,99B718,74A901,66A000,529400,3E
 //example: https://code.earthengine.google.com/849862c672e8e5028a4d86ee14cf8c36
 Map.addLayer(ee.Image().int().paint(polyFC,'id').randomVisualizer())
 
+//---- crs/crsTranform ----//
+
+//See here for detailed explaination from Matt Hancher for how to set crs/crsTransform
+//Subject: 'Assets and CRSs, how to use them properly in GEE?'
+//https://goo.gl/y76A2f
+
 //------ exporting assets ------
 var nomScale = img.projection().nominalScale();
 
