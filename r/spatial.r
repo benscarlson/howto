@@ -95,6 +95,26 @@ dissolved <- unionSpatialPolygons(spainportu,spainportu$ID) #in maptools library
 
 ptsClip <- pts[poly,] #spatial subset pts by poly (return all points that are within poly
 
+#---- transforming points ----#
+
+#seems there are no errors when translating points between WGS84<->UTM or UTM<->UTM
+pt <- SpatialPoints(
+  coords=data.frame(lon=10.9736,lat=52.4577), 
+proj4string=CRS("+proj=longlat +datum=WGS84"))
+coordinates(pt)
+
+ptUtm32 <- spTransform(pt,CRS('+proj=utm +zone=32 +ellps=WGS84 +units=m +no_defs'))
+coordinates(ptUtm32)
+
+ptwgs <- spTransform(ptUtm32,CRS("+proj=longlat +datum=WGS84"))
+coordinates(ptwgs)
+
+ptUtm33 <- spTransform(ptwgs,CRS('+proj=utm +zone=33 +ellps=WGS84 +units=m +no_defs'))
+coordinates(ptUtm33)
+
+ptUtm32_2 <- spTransform(ptUtm33,CRS('+proj=utm +zone=32 +ellps=WGS84 +units=m +no_defs'))
+coordinates(ptUtm32_2)
+
 ### projections ###
 
 CRS() #this is from sp package
