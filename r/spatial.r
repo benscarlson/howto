@@ -6,6 +6,7 @@
 
 env <- raster('misc/tinamus_env.tif') #read raster
 writeRaster(env,'misc/tinamus_env.tif','GTiff') #write a raster to tif
+writeRaster(stk, filename=rastPF, bylayer=TRUE, format="raster",overwrite=TRUE) #write a stack as individual layers
 
 nlayers(mystack) #number of RasterLayers in the RasterStack
 names(mystack) #the names of the RasterLayers in the RasterStack
