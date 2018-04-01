@@ -5,6 +5,11 @@
 //Data request? https://code.google.com/a/google.com/p/ee-testers-external/issues/list
 //Tools to use in playground. Cloud masking, others. https://github.com/fitoprincipe/geetools-code-editor
 
+// ---- code management ----//
+
+//haven't tried this, but should be how to clone my repo to local
+git clone https://earthengine.googlesource.com/users/benscarlson/default
+
 //-------------------------//
 //---- features ----//
 //-------------------------//
