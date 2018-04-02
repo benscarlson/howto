@@ -4,6 +4,7 @@
 
 //Data request? https://code.google.com/a/google.com/p/ee-testers-external/issues/list
 //Tools to use in playground. Cloud masking, others. https://github.com/fitoprincipe/geetools-code-editor
+//Tool to auto click "Run". https://github.com/kongdd/GEE_Tools/blob/master/gee_monkey.js
 
 // ---- code management ----//
 
