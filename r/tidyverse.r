@@ -121,3 +121,6 @@ dat <- tibble(a=sample(rep(c(1,0),3)),
            b=sample(rep(c(1,0),3)),
            c=sample(rep(c(1,0),3)))
 dat %>% mutate(num=rowSums(.[c('a','b')]))
+
+#---- Forcats ----#
+https://www.r-bloggers.com/cats-are-great-and-so-is-the-forcats-r-package/
