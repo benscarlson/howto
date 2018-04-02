@@ -68,7 +68,10 @@ latex -v
 # check 'TeX distribution' in system preferences to see the version and system of TeX installed.
 
 #---- paragraphs ----
-\setlength{\parskip}{1em} % set spacing between successive paragraphs.
+\setlength{\parskip}{1em} # set spacing between successive paragraphs.
+
+#---- sections ----
+\section*{My section} #Doesn't number section
 
 #change list spacing
 \usepackage{enumitem}
