@@ -38,7 +38,9 @@ getGDALVersionInfo()
 shapefile('myshapefile.shp') #part of raster package. load shapefile into a SpatialPolygonsDataFrame
 maptools::readShapePoints('myshpfile.shp') #maptools. also see readShapeLines
 maptools::readShapeSpatial('myshpfile.shp')
-readOGR(dsn="shapefiledir", layer="shpefilename")
+
+#if shapefile is at my/path/myshape/shape.shp
+readOGR(dsn="my/path/myshape", layer="shape")
 
 #writing shapefiles
 #make sure to create polys using a dataframe, not a tibble, otherwise writeOGR will give cryptic errors
