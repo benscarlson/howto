@@ -118,6 +118,13 @@ coordinates(ptUtm33)
 ptUtm32_2 <- spTransform(ptUtm33,CRS('+proj=utm +zone=32 +ellps=WGS84 +units=m +no_defs'))
 coordinates(ptUtm32_2)
 
+#---- spatial operations ----#
+
+utm <- readOGR(dsn="/Users/benc/projects/gis-data/UTM_zones/UTM_Zone_Boundaries", layer="UTM_Zone_Boundaries")
+
+plot(crop(utm,extent(mv)))
+points(mv)
+
 #---- save bounding box of points ----#
 
 #have to convert extent to SpatialPolygons, then convert this to SpatialPolygonsDataFrame
