@@ -1,4 +1,6 @@
 
+#http://gforge.se/2013/02/exporting-nice-plots-in-r/
+
 #base graphics
 plot(data,col=data$myvar) #color by another variable
 text(data,labels=data$myid, cex= 0.7) #add labels to a plot
