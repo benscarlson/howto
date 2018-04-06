@@ -11,6 +11,14 @@
 //haven't tried this, but should be how to clone my repo to local
 git clone https://earthengine.googlesource.com/users/benscarlson/default
 
+//--------------------//
+//---- geometries ----//
+//--------------------//
+
+//xMin, yMin, xMax, yMax
+var rect = ee.Geometry.Rectangle([11.87669, 51.92500, 12.48346, 52.25738]);
+Map.addLayer(rect);
+
 //-------------------------//
 //---- features ----//
 //-------------------------//
