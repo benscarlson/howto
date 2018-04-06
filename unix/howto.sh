@@ -103,3 +103,5 @@ sudo umount /dev/disk2s1
 sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/WD_MyBook_4TB -olocal -oallow_other -ovolname=WD_MyBook_4TB
 sudo rm -r 'My Book' #clean up after automount might not need this, now mount point is being removed correctly
 
+#An A-Z Index of the Apple macOS command line (OS X)
+#https://ss64.com/osx/
