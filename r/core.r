@@ -1,3 +1,8 @@
+#---- R system ----#
+
+.Machine$double.eps # = 2.220446e-16. This is the smallest number x in which x + 1 != 1
+getOption('contrasts') # shows default option for how factor coefficients are displayed. 'contr.treatment' sets one factor as control (0) and other factors as relative to this control.
+
 #---- data types ----
 
 # atomic
