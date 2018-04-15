@@ -26,6 +26,8 @@ bbox(obj) #get the bounding box of spatial object obj
 rast@legend #if populated, this can hold a colortable (or color ramp) that can be used for plotting
 colortable(rast) #access to the colortable stored in rast@legend
 
+# create raster from scratch
+
 #---------------------#     
 #---- Vector Data ----#
 #---------------------#
