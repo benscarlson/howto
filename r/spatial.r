@@ -27,6 +27,15 @@ rast@legend #if populated, this can hold a colortable (or color ramp) that can b
 colortable(rast) #access to the colortable stored in rast@legend
 
 # create raster from scratch
+refRast <- raster(extent(spdf1),crs=CRS(pars$flatProj)) #creates a raster with extent and projection
+res(refRast) <- 30 #this sets the resolution of the raster
+
+#project raster to another CRS
+clc12_2utm <- projectRaster(from=clc12_2,crs=crs(pct_tree), method='ngb') #ngb is nearest neighbor
+
+
+bareUtm <- projectRaster(from=pct_bare,crs=crs(pct_tree))
+bareUtm <- resample(x=bareUtm,y=pct_tree) #need to resample to get back to 30,30 resolution
 
 #---------------------#     
 #---- Vector Data ----#
