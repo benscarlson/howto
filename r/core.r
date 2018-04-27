@@ -69,6 +69,9 @@ basename('my/file/path') #returns 'path'
 dirname('my/file/path') #returns 'my/file'
 
 #---- data frames ----
+#create an empty dataframe
+data.frame(a=character(),b=numeric(),stringsAsFactors = FALSE)
+
 #identify which rows in a dataframe have NA values
 df <- data.frame(a=rnorm(10),b=rnorm(10))
 
