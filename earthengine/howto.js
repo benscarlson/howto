@@ -112,6 +112,7 @@ Map.addLayer(ee.Image().int().paint(polyFC,'id').randomVisualizer())
 //See here for detailed explaination from Matt Hancher for how to set crs/crsTransform
 //Subject: 'Assets and CRSs, how to use them properly in GEE?'
 //https://goo.gl/y76A2f
+//Also see post with this subject: "using crs: image.projection() for exporting Landsat images"
 
 //------ exporting assets ------
 var nomScale = img.projection().nominalScale();
