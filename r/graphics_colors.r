@@ -9,3 +9,6 @@ rgb2hex <- function(r,g,b) rgb(r, g, b, maxColorValue = 255)#rgb2hex(255,0,0). h
 col2hex <- function(col, alpha) rgb(t(col2rgb(col)), alpha=alpha, maxColorValue=255)
 col2hex('firebrick') # [1] "#B22222"
 col2hex('firebrick', 204) # [1] "#B22222CC"
+
+#working with a color palettes
+https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2
