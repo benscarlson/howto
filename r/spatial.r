@@ -109,6 +109,18 @@ dissolved <- unionSpatialPolygons(spainportu,spainportu$ID) #in maptools library
 
 ptsClip <- pts[poly,] #spatial subset pts by poly (return all points that are within poly
 
+#---- SpatialPolygons ----#
+# SpatialPolygons are complex. 
+# a SpatialPolygons contains 1..* Polygons objects. So, takes a list of Polygons objects.
+# a Polygons object contains 1..* Polygon objects. So, takes a list of Polygon objects.
+p1 = Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2))) #create Polygon objects
+p2 = Polygon(cbind(c(5,4,2,5),c(2,3,2,2)))
+ps1 = Polygons(list(Sr1,Sr2), "ps1") #create the Polygons object
+spoly = SpatialPolygons(list(ps1)) #create the SpatialPolygons object
+
+spoly@polygons[[1]] #this is the first Polygons object
+spoly@polygons[[1]]@Polygons[[1]] #example, this is the first Polygon object
+
 #---- transforming points ----#
 
 #seems there are no errors when translating points between WGS84<->UTM or UTM<->UTM
