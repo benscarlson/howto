@@ -12,3 +12,5 @@ col2hex('firebrick', 204) # [1] "#B22222CC"
 
 #working with a color palettes
 https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2
+
+col=rainbow(length(x)) #rainbow palette for base R plot. x is a vector.
