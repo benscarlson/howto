@@ -14,7 +14,6 @@ gdal_edit.py -a_srs EPSG:4326 myfile.tif #define projection when it is not set
 #---- transform rasters ----
 
 #mosiac rasters
-gdal_merge.py -o out.tif tile1.tif tile2.tif tile3.tif
 gdal_merge.py -pct -n 0 -a_nodata 0 -o out.tif in1.tif in2.tif
 -pct #this takes the color table from the first input and applies to to output
 -n 0 #this tells merge to ignore these values from input rasters (i.e. treat as no data)
