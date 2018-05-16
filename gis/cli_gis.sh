@@ -20,6 +20,10 @@ gdal_merge.py -o out.tif tile1.tif tile2.tif tile3.tif
 gdalwarp -t_srs '+proj=longlat +datum=WGS84 +no_defs' image.tif image_wgs84.tif
 #convert to UTM 33N, and resample using cubic method
 gdalwarp -t_srs '+proj=utm +zone=33 +ellps=WGS84 +units=m +no_defs' -r cubic image.tif image_utm33N.tif
+#other parameters
+-dstnodata 0 #set 0 to nodata value
+-r near #use nearest neighbor resampling (I think this is the default)
+-t_src EPSG:3035 #can also use EPSG code to specify projection
 
 #---- create rasters ----
 
