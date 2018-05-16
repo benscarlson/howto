@@ -26,6 +26,16 @@ bbox(obj) #get the bounding box of spatial object obj
 rast@legend #if populated, this can hold a colortable (or color ramp) that can be used for plotting
 colortable(rast) #access to the colortable stored in rast@legend
 
+#---- create a rat from colortable and labels file
+# the colortable from the raster is 0-based (0 to 255), but R is 1-based (1 to 256)
+# so, need to make ID from 0 to 255
+ct <- colortable(rast)
+ct1 <- data.frame(ID=0:(length(ct)-1),col=ct,stringsAsFactors=FALSE)
+rat <- read_csv('~/path/to/labels.csv') %>%
+  left_join(ct1,by='ID')
+rat[rat$ID==0,]$col <- '#FFFFFF' #set NA value (0) to white
+write_csv(rat,'~/path/to/rat.csv')
+
 # create raster from scratch
 refRast <- raster(extent(spdf1),crs=CRS(pars$flatProj)) #creates a raster with extent and projection
 res(refRast) <- 30 #this sets the resolution of the raster
