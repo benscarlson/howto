@@ -94,6 +94,12 @@ scale_fill_continuous(
 scale_color_discrete(name='My legend title') #use this if the legend variable is mapped to 'color' in aes()
 
 #-----
+# multipanel plots
+#-----
+
+#check out patchwork: https://www.r-bloggers.com/how-to-plot-with-patchwork/
+
+#-----
 # color palettes
 #-----
 
