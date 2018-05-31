@@ -80,6 +80,9 @@ theme_map <- theme(
   legend.text = element_text(size=16),
   legend.title = element_text(size=18))
 
+#roate axis text
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
 #---- Guides/legends ----
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
 #set labels on the 
