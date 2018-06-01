@@ -1,7 +1,8 @@
-#General remote sensing notes
+General remote sensing notes
 
 #----
 #-- landsat
 #----
 
-#Landsat is descending during the daytime, and ascending in the night
+* Landsat is descending during the daytime, and ascending in the night
+* WRS-1: Landsat 1, 2, 3. WRS-2: Landsat 4, 5, 7, 8.
