@@ -1,1 +1,5 @@
 To split a multipart polygon into multiple single polygons, use Vector -> Geometry Tools -> Multipart to Singleparts
+
+Select a set of features based on a different vector layer
+Vector->Research Tools->Select by location... 
+
