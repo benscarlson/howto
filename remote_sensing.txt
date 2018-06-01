@@ -1,0 +1,7 @@
+#General remote sensing notes
+
+#----
+#-- landsat
+#----
+
+#Landsat is descending during the daytime, and ascending in the night
