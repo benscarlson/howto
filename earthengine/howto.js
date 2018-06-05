@@ -141,6 +141,17 @@ Export.image.toCloudStorage({
   maxPixels:1e13
 });
 
+//-- export to GEE asset. Note use of crs/crsTransform
+Export.image.toAsset({
+  image: herb,
+  description: 'herbExportTask',
+  assetId:'glc_landcover/herb',
+  region: bare.geometry().bounds(), //geometry is a strange shape, just use bounds
+  crs:'EPSG:4326',
+  crsTransform:herb.projection().getInfo().transform,
+  maxPixels:1e13
+});
+
 Export.table.toDrive({
   collection: featureCollection,
   description: 'exportTableExample',
