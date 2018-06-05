@@ -116,6 +116,17 @@ Map.addLayer(ee.Image().int().paint(polyFC,'id').randomVisualizer())
 //https://goo.gl/y76A2f
 //Also see post with this subject: "using crs: image.projection() for exporting Landsat images"
 
+//example crsTransform (from projection()), mapped to gdalinfo entries
+/*
+transform: List (6 elements)
+0: 0.000277777777777778 (first "Pixel Size" element)
+1: 0
+2: -0.000138889 (First "Origin" element. Upper left corner of upper left pixel).
+3: 0
+4: -0.000277777777777778 (second "Pixel Size element)
+5: 60.000138889000006 (Second "Origin" element. Upper left corner of upper left pixel).
+/*
+
 //------ exporting assets ------
 var nomScale = img.projection().nominalScale();
 
