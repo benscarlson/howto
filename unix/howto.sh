@@ -21,8 +21,16 @@ mkdir -p path/to/new/dir && cp myfile.csv "$_"
 shopt - s dotglob
 mv dir1/* dir2
 
-tar xvf myfile.tar.gz #unzip myfile.tar.gz
+#---- file archives ----#
 unzip file.zip -d my_folder #unzip a zip to a specific folder (useful to extract a large file directly to external drive)
+
+tar xvf myfile.tar.gz #unzip myfile.tar.gz
+tar -C #unzip directly to folder
+tar -xzvf #x: extract, z: filter through gzip, v: verbose, f:use archive
+tar --strip-components=n #string the first n folders from the file
+tar -xzvf file.zip file1.txt #extract just file1.txt from the archive
+
+zipinfo -1 file.zip #list files (and dir structure) in archive
 
 # add folder 'bin' to your path: Edit .bashrc. (.bash_profile on a mac). Add the folder as below:
 export PATH=$HOME/bin:$PATH
