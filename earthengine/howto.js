@@ -125,7 +125,7 @@ transform: List (6 elements)
 3: 0
 4: -0.000277777777777778 (second "Pixel Size element)
 5: 60.000138889000006 (Second "Origin" element. Upper left corner of upper left pixel).
-/*
+*/
 
 //------ exporting assets ------
 var nomScale = img.projection().nominalScale();
@@ -136,7 +136,8 @@ Export.image.toCloudStorage({
   bucket:'ee-output',
   //fileNamePrefix: 'exampleExport', //try this out. I think this is for adding folders in front of the file name
   region: img.geometry(), //need to set the output geometry, else it will default to the playground window size
-  scale: img.projection().nominalScale().getInfo(),
+  //or can do region: img.geometry().bounds() if geometry is a strange shape
+  scale: img.projection().nominalScale().getInfo(), //leave this out to accept default projection
   maxPixels:1e13
 });
 
