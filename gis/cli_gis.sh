@@ -6,7 +6,12 @@
 #-----------------
 
 #---- metadata ----
+
+#gdalinfo
 gdalinfo -stats file.tif #see the min and max pixels of a tiff file
+#origin: this is the upper left corner of the upperleft pixel, in coordinate system defined by the crs of the raster
+# note this matches the "Upper Left" entry of the "Corner Coordinates" section
+
 gdalsrsinfo file.tif #see the CRS of the image
 listgeo -proj4 waterdistance.tif #another way to see metadata
 gdal_edit.py -a_srs EPSG:4326 myfile.tif #define projection when it is not set
