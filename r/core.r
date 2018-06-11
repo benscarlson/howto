@@ -159,4 +159,11 @@ digest(df,algo='sha1') #make a digest. Algo can be many different things.
 sink("/dev/null"); p <- myfunct() ; sink()
 p <- suppressMessages(myfunct())
 p <- invisible(myfunct())
+
+#---- command line ----
+
+#---- commandline arguments ----#
+args <- commandArgs(trailingOnly=TRUE)
+datName <- args[1]
+if(is.na(datName)) stop('datName required')
        
