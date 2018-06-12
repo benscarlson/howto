@@ -39,6 +39,7 @@ write_csv(rat,'~/path/to/rat.csv')
 # create raster from scratch
 refRast <- raster(extent(spdf1),crs=CRS(pars$flatProj)) #creates a raster with extent and projection
 res(refRast) <- 30 #this sets the resolution of the raster
+values(refRast) <- rnorm(ncell(refRast)) #set all values based on normal distribution
 
 #project raster to another CRS
 clc12_2utm <- projectRaster(from=clc12_2,crs=crs(pct_tree), method='ngb') #ngb is nearest neighbor
