@@ -13,6 +13,9 @@ chown -R benc:benc data #change the user and group permissions for folder "data"
 
 dpkg -i debfile.deb #install a .deb file
 
+#---- listing files ----#
+ls -lh #human-readable file sizes
+
 #copy a file to a directory that does not yet exist
 #https://stackoverflow.com/questions/947954/how-to-have-the-cp-command-create-any-necessary-folders-for-copying-a-file-to-a
 mkdir -p path/to/new/dir && cp myfile.csv "$_"
