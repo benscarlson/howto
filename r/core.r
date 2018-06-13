@@ -67,7 +67,7 @@ dir.exists('my/path')
 dir.create('my/path',recursive=TRUE)
 basename('my/file/path') #returns 'path'
 dirname('my/file/path') #returns 'my/file'
-
+fileN <- sub('\\.csv$','', basename('my/file/path.csv'), ignore.case=TRUE) #returns 'path'
 #---- data frames ----
 #create an empty dataframe
 data.frame(a=character(),b=numeric(),stringsAsFactors = FALSE)
