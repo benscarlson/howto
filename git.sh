@@ -1,3 +1,7 @@
+#--- add existing local repo to github ---#
+#create the repo "anno" on github, don't initialize
+git remote add origin git@github.com:benscarlson/anno.git
+git push -u origin master
 
 #get the last commit
 git rev-parse HEAD #5e152f31b4e0d4fe45403d822cd785da888e0431
