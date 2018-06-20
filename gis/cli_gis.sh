@@ -1,5 +1,11 @@
 #https://github.com/dwtkns/gdal-cheat-sheet
 #http://joeyklee.github.io/broc-cli-geo/guide/index.html
+#http://opengeoportal.org/software/resources/gdal-and-open-source-geoprocessing-tutorials/
+#http://www.gdal.org/gdal_utilities.html
+##https://www.manning.com/books/geoprocessing-with-python
+#https://pcjericks.github.io/py-gdalogr-cookbook/
+#https://www.springer.com/us/book/9783319018232 (Book: Open Source Geospatial Tools)
+#http://pktools.nongnu.org/html/index.html (pktools)
 
 #-----------------
 #---- RASTERS ----
