@@ -2,6 +2,9 @@
 #nice example of heat map and a bunch of other best practices for ggplot2
 #https://rud.is/projects/facetedheatmaps.html
 
+#to use a string as column names. http://bit.ly/2tBvVMR
+aes_string()
+
 geom_text_repel(data=dat, aes(x=lon, y=lat,label=study_num),size=3,force=3) + #segment.color = NA (use this to turn off lines) 
 
 #create a three part color gradient
