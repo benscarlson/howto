@@ -51,7 +51,10 @@ wget https://domain/CHELSA_prec_{1..12}_1979-2013_V1_1.zip
 #unzip all the files you downloaded
 for file in CHELSA_prec_{1..12}_1979-2013_V1_1.zip; do tar -xvf $file; done
 
+#---- reading file contents ----#
 grep ERROR log.txt | wc -l #count the number of lines in the file log.txt with the word ERROR in it
+sed 'NUMq;d' file #read a particular line of a file. https://stackoverflow.com/questions/6022384/bash-tool-to-get-nth-line-from-a-file
+
 
 #This basically says, interpreting this from RIGHT to LEFT that the file, linux_course_notes.txt was created at 6:30 PM on July 10 and is 1892 bytes large. 
 # It belongs to the group users (i.e, the people who use this computer). It belongs to bob in particular and it is one (1) file.
