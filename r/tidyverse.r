@@ -116,6 +116,16 @@ dat1 %>%
   mutate(kde95=purrr::map(data, ~kde95(.))) %>% #apply kde95 function to each data frame in 'data' column. kde95 returns a data.frame
   unnest() #expand the nested kde95 dataframes
 
+#---- apply function to each row ----#
+
+#this will return a column called cal_name with the results of the function, by row
+library(purrrlyr)
+dat %>%
+  by_row(.to='col_name', ..f=function(r) {
+    r2 <- r#do something to r
+    return(r2)
+  })
+
 #mutate to sum columns based on vector of column names
 dat <- tibble(a=sample(rep(c(1,0),3)),
            b=sample(rep(c(1,0),3)),
