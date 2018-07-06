@@ -53,9 +53,6 @@ missing(x) #in a function, check to see if x has been passed in as a parameter
 class(x) #check the class of object x
 typeof(x) #determines the (R internal) type or storage mode of any object
 
-#---- strings ----
-sub('([^ ]+)_(\\d{4}$)','\\1','Adi_2_2017') #will print out the first matched group
-
 #---- matrices ----
 matrix(1:6, ncol=2) #make a matrix with two columns
 
