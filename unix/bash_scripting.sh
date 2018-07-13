@@ -3,6 +3,11 @@ MYFOLDER='folder_name'
 ls $MYFOLDER #lists all files in folder_name
 echo ls $MYFOLDER #see the resulting command
 
+#variable contains a list of files (seperated by space)
+# can be used as input to commands that take a 1 to n file names
+files=`ls`
+echo $files
+
 #--- loop through an array ---#
 declare -a arr=("50N_010E" "50N_010E" "60N_000E" "60N_010E")
 
