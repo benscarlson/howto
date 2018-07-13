@@ -1,12 +1,5 @@
-nohup <command> & #what is the command for running a nohup job? 
-jobs OR jobs -l #if you are still logged into the same shell, use: 
-ps -ef | grep "<part of command name>"# to find the pid #if you have exited out of the shell use this (but, which is the pid)?
-ps ax | grep "<part of command name>" #the first column is the pid
-kill -9 <pid> #to kill the process
-ps -u bc447 #see processes owned by bc447
-top -U bc447 #use top to see processed owned by bc447
 
-chown -R benc:benc data #change the user and group permissions for folder "data" to user: benc group: benc. also works on files
+
 
 .bash_pofile #used for login shell (i.e remote in via ssh)
 .bashrc #used for non-login shell (i.e. opening another shell after you've already logged in)
@@ -36,6 +29,14 @@ ls -d "$PWD"/my_folder/*
 
 -rw-r--r--  1  bob  users  1892  Jul 10  18:30 linux_course_notes.txt
 
+#---- file permissions ----#
+chown -R benc:benc data #change the user and group permissions for folder "data" to user: benc group: benc. also works on files
+#read is 4, write is 2, execute is 1
+chmod 666 y.txt # -rw-rw-rw
+chmod 755 y.txt # -rwxr-xr-x
+chmod 777 y.txt # -rwxrwxrwx
+chmod 600 y.txt # -rw-------
+
 #---- file archives ----#
 unzip file.zip -d my_folder #unzip a zip to a specific folder (useful to extract a large file directly to external drive)
 
@@ -47,9 +48,18 @@ tar -xzvf file.zip file1.txt #extract just file1.txt from the archive
 
 zipinfo -1 file.zip #list files (and dir structure) in archive
 
+#can unzip a zip file on mac using tar. in some cases this is the only way to unzip zip files
+tar -xvf myfile.zip
+
+#unzip all the files you downloaded
+for file in CHELSA_prec_{1..12}_1979-2013_V1_1.zip; do tar -xvf $file; done
+
+zcat < myfile.txt.gz|head -10 > myfile_head.txt #first 10 lines of a gzipped file
+
 # add folder 'bin' to your path: Edit .bashrc. (.bash_profile on a mac). Add the folder as below:
 export PATH=$HOME/bin:$PATH
 
+#
 #download directory from remote machine to local machine
 scp -r benc@litoria.eeb.yale.edu:/remote/path /local/path
 #download all files in a directory to the cwd
@@ -60,28 +70,14 @@ scp /local/file.txt benc@litoria.eeb.yale.edu:/remote/file.txt
 #download multiple files. this will download a total of 12 files, note {1..12} syntax
 wget https://domain/CHELSA_prec_{1..12}_1979-2013_V1_1.zip
 
-#unzip all the files you downloaded
-for file in CHELSA_prec_{1..12}_1979-2013_V1_1.zip; do tar -xvf $file; done
-
 #---- reading file contents ----#
 grep ERROR log.txt | wc -l #count the number of lines in the file log.txt with the word ERROR in it
 sed 'NUMq;d' file #read a particular line of a file. https://stackoverflow.com/questions/6022384/bash-tool-to-get-nth-line-from-a-file
 
 
-
-
-#read is 4, write is 2, execute is 1
-chmod 666 y.txt # -rw-rw-rw
-chmod 755 y.txt # -rwxr-xr-x
-chmod 777 y.txt # -rwxrwxrwx
-chmod 600 y.txt # -rw-------
-
-#can unzip a zip file on mac using tar. in some cases this is the only way to unzip zip files
-tar -xvf myfile.zip
-
 df -H #total and available disk space, in easily readable units
 
-zcat < myfile.txt.gz|head -10 > myfile_head.txt #first 10 lines of a gzipped file
+
 
 #---- manipulate file contents ----
 gsplit -d -l 2 -a 2 myfile.csv myfile #if myfile has 6 lines, this makes myfile00, myfile01, myfile02. two lines each.
@@ -103,6 +99,18 @@ dos2unix myfile.csv #osx makes changes in place. unix do dos2unix myfile.csv myf
 #see non-printing characters in a file (for example \r and \n)
 #https://stackoverflow.com/questions/800030/remove-carriage-return-in-unix
 cat infile | od -c
+
+#---- process management ----#
+Ctrl-C #sends SIGINT to process (should terminate it)
+Ctrl-Z #sends SIGSTOP to process (will pause it)
+
+nohup <command> & #what is the command for running a nohup job? 
+jobs OR jobs -l #if you are still logged into the same shell, use: 
+ps -ef | grep "<part of command name>"# to find the pid #if you have exited out of the shell use this (but, which is the pid)?
+ps ax | grep "<part of command name>" #the first column is the pid
+kill -9 <pid> #to kill the process
+ps -u bc447 #see processes owned by bc447
+top -U bc447 #use top to see processed owned by bc447
 
 #----------
 #   OSX   
