@@ -28,6 +28,14 @@ mv dir1/* dir2
 ls -d "$PWD"/*
 ls -d "$PWD"/my_folder/*
 
+#Reading output from ls
+# This basically says, interpreting this from RIGHT to LEFT that the file, linux_course_notes.txt was created at 6:30 PM on July 10 and is 1892 bytes large. 
+# It belongs to the group users (i.e, the people who use this computer). It belongs to bob in particular and it is one (1) file.
+# the first "-" means a normal file.  if it were a directory it would have a d. permissions are owner, group, world.
+# r - read, w - write, x - execute
+
+-rw-r--r--  1  bob  users  1892  Jul 10  18:30 linux_course_notes.txt
+
 #---- file archives ----#
 unzip file.zip -d my_folder #unzip a zip to a specific folder (useful to extract a large file directly to external drive)
 
@@ -60,12 +68,7 @@ grep ERROR log.txt | wc -l #count the number of lines in the file log.txt with t
 sed 'NUMq;d' file #read a particular line of a file. https://stackoverflow.com/questions/6022384/bash-tool-to-get-nth-line-from-a-file
 
 
-#This basically says, interpreting this from RIGHT to LEFT that the file, linux_course_notes.txt was created at 6:30 PM on July 10 and is 1892 bytes large. 
-# It belongs to the group users (i.e, the people who use this computer). It belongs to bob in particular and it is one (1) file.
-# the first "-" means a normal file.  if it were a directory it would have a d. permissions are owner, group, world.
-# r - read, w - write, x - execute
 
--rw-r--r--  1  bob  users  1892  Jul 10  18:30 linux_course_notes.txt
 
 #read is 4, write is 2, execute is 1
 chmod 666 y.txt # -rw-rw-rw
