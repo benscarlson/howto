@@ -24,6 +24,10 @@ mkdir -p path/to/new/dir && cp myfile.csv "$_"
 shopt - s dotglob
 mv dir1/* dir2
 
+#include full paths with files
+ls -d "$PWD"/*
+ls -d "$PWD"/my_folder/*
+
 #---- file archives ----#
 unzip file.zip -d my_folder #unzip a zip to a specific folder (useful to extract a large file directly to external drive)
 
