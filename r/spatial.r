@@ -48,6 +48,8 @@ clc12_2utm <- projectRaster(from=clc12_2,crs=crs(pct_tree), method='ngb') #ngb i
 bareUtm <- projectRaster(from=pct_bare,crs=crs(pct_tree))
 bareUtm <- resample(x=bareUtm,y=pct_tree) #need to resample to get back to 30,30 resolution
 
+rast2 <- crop(rast,extent(pts),snap='out')
+
 #---------------------#     
 #---- Vector Data ----#
 #---------------------#
