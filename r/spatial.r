@@ -171,6 +171,8 @@ writeOGR(obj=poly, dsn=file.path('results/stpp_models',datName,'data/pts_bbox'),
 
 ### projections ###
 
+rgdal::make_epsg() #this is a list of all ESPG codes and associated CRS
+
 CRS() #this is from sp package
 crs() #this is from raster package
 
