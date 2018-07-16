@@ -185,5 +185,7 @@ CRS('+proj=utm +zone=33 +ellps=WGS84 +units=m +no_defs') #UTM zone 33N
 CRS('+proj=utm +zone=33 +south +ellps=WGS84 +datum=WGS84 +units=m +no_defs') #UTM zone 33S (note +south)
 
 #proj4 notes
-#+towgs84=0,0,0 the last portion of each proj4 string is +towgs84=0,0,0 . This is a conversion factor that is used if a datum conversion is required.
++towgs84=0,0,0 #the last portion of each proj4 string is +towgs84=0,0,0 . This is a conversion factor that is used if a datum conversion is required.
 # this is from (http://bit.ly/2utPyH7) and I don't know what it's supposed to mean.
+
++no_defs #something about not pulling values from a local definition file. 
