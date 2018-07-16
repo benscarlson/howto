@@ -21,6 +21,7 @@ gdalinfo -stats file.tif #see the min and max pixels of a tiff file
 gdalsrsinfo file.tif #see the CRS of the image
 listgeo -proj4 waterdistance.tif #another way to see metadata
 gdal_edit.py -a_srs EPSG:4326 myfile.tif #define projection when it is not set
+gdal_edit.py -a_nodata 255 pct_tree_30m.tif #set nodata value
 
 #---- transform rasters ----
 
