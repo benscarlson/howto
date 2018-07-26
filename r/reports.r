@@ -59,6 +59,12 @@ EDA for \Sexpr{indivName} track
 #output can't have special characters in them. one is '_'. Need to escape this.
 \Sexpr{gsub("_","\\\\_","my_var_with_underscores")}
 
+#----
+#---- tables ----#
+#----
+
+kable(x, format.args = list(decimal.mark = '.', big.mark = ","))
+
 #cleaning up tables
 # https://webbedfeet.netlify.com/post/cleaning-up-tables/
 
