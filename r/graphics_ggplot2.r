@@ -104,7 +104,7 @@ scale_color_discrete(name='My legend title') #use this if the legend variable is
 #-----
 
 #check out patchwork: https://www.r-bloggers.com/how-to-plot-with-patchwork/
-
+# https://github.com/thomasp85/patchwork/blob/master/README.md
 #-----
 # color palettes
 #-----
