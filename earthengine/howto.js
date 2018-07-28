@@ -128,6 +128,9 @@ transform: List (6 elements)
 */
 
 //------ exporting assets ------
+//NOTE: In an email Noel suggests using crs from projection() and not specifying scale (or crsTransform)?
+crs: cfsCollection.first().projection()
+
 var nomScale = img.projection().nominalScale();
 
 Export.image.toCloudStorage({
