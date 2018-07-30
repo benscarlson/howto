@@ -1,4 +1,5 @@
-
+#---- references ----#
+#https://medium.com/@kadek/command-line-tricks-for-data-scientists-c98e0abe5da
 
 
 .bash_pofile #used for login shell (i.e remote in via ssh)
