@@ -64,6 +64,7 @@ EDA for \Sexpr{indivName} track
 #----
 
 kable(x, format.args = list(decimal.mark = '.', big.mark = ","))
+kable(x, digits=2)
 
 #cleaning up tables
 # https://webbedfeet.netlify.com/post/cleaning-up-tables/
