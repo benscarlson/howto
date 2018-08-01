@@ -160,6 +160,21 @@ utm <- readOGR(dsn="/Users/benc/projects/gis-data/UTM_zones/UTM_Zone_Boundaries"
 plot(crop(utm,extent(mv)))
 points(mv)
 
+#---- make a bounding box a certain distance around a point ----#
+library(geosphere)
+library(sp)
+library(raster)
+library(rgdal)
+
+koz <- c(lon=9.1732, lat=47.6779)
+bounds <- as.data.frame(destPoint(koz,c(0,90,180,270),200000)) #buffer 200km in N,E,S,W directions
+coordinates(bounds) <- ~lon+lat
+proj4string(bounds) <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
+
+bbox <- as(extent(bounds),'SpatialPolygons')
+bbox <- as(bbox,'SpatialPolygonsDataFrame')
+proj4string(bbox) <- proj4string(bounds)
+
 #---- save bounding box of points ----#
 
 #have to convert extent to SpatialPolygons, then convert this to SpatialPolygonsDataFrame
