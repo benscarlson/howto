@@ -163,4 +163,22 @@ p <- invisible(myfunct())
 args <- commandArgs(trailingOnly=TRUE)
 datName <- args[1]
 if(is.na(datName)) stop('datName required')
-       
+
+#---- bitwise operations ----#
+strtoi('001000',base=2) #=8. convert bit string to integer
+
+#check if a bit is turned on
+on <- strtoi('101110',base=2)
+mask <- strtoi('001000',base=2)
+bitwShiftR(bitwAnd(on,mask),3)
+
+# convert an integer to bit vector or string
+bitVec <- function(int) {
+  return(as.integer(rev(intToBits(int)[1:16])))
+}
+
+bitStr <- function(int) {
+  paste(bitVec(int),collapse='')
+}
+
+strtoi(bitStr(1346),base=2) # ==> 1346
