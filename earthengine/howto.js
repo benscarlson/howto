@@ -31,6 +31,14 @@ var pts_fc = ee.FeatureCollection(occTable);
 var bbox = pts_fc.geometry().bounds();
 
 //----
+//---- ee.FeatureCollection ----//
+//----
+
+var fc = ee.FeatureCollection( //can also construct with single geometry, or list of geometries, list of features
+  ee.Feature(
+    ee.Geometry.Point([12.0756,52.1151])));
+
+//----
 //---- ee.ImageCollection ----//
 //----
 
@@ -54,7 +62,9 @@ img = img.addBands(ee.Image.pixelLonLat());
 
 //paint a feature collection onto an image, color by the attribute "ID" (note: not tested)
 https://groups.google.com/d/msg/google-earth-engine-developers/_OBrauG-mQU/_tZL09nWbfwJ
-var img = ee.Image().byte().paint(fc, "ID");
+var img = ee.Image().toByte().paint(fc, "ID");
+
+var img = ee.Image().toByte().paint(fc, 1); //paint a 1 into the pixels. Unpainted pixels will be masked.
 
 //masking
 .updateMask() //only masks out currenly unmasked pixels
