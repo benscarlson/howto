@@ -30,6 +30,15 @@ var f = ee.Feature(
 var pts_fc = ee.FeatureCollection(occTable);
 var bbox = pts_fc.geometry().bounds();
 
+//----
+//---- ee.ImageCollection ----//
+//----
+
+//to pull images from an imagecollection by index, convert to a list
+var lst = ic.toList(5); //5 is max number of images to fetch from the collection
+print(lst);
+print(ee.Image(lst.get(0))); //get the frist image in the list
+
 //--------------//
 //---- misc ----//
 //--------------//
