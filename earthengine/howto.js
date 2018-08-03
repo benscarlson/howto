@@ -183,3 +183,10 @@ Export.table.toDrive({
   fileFormat: 'CSV',
   selectors: (["band","offset","slope","rsquare"]) //use this to pick the output columns. note system:index won't be output.
 });
+
+//----
+//---- Clouds ----//
+//----
+
+//Mosiac, filter by cloud/cloud shadow over Spain
+//https://code.earthengine.google.com/d653edd684a02416d3910182cc465684
