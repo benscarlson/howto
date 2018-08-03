@@ -190,3 +190,4 @@ Export.table.toDrive({
 
 //Mosiac, filter by cloud/cloud shadow over Spain
 //https://code.earthengine.google.com/d653edd684a02416d3910182cc465684
+//https://gis.stackexchange.com/questions/271322/cloud-mask-in-surface-reflectance-landsat-8-test
