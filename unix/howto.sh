@@ -39,15 +39,16 @@ chmod 777 y.txt # -rwxrwxrwx
 chmod 600 y.txt # -rw-------
 
 #---- file archives ----#
+zipinfo -1 file.zip #list files (and dir structure) in archive
+
 unzip file.zip -d my_folder #unzip a zip to a specific folder (useful to extract a large file directly to external drive)
+unzip file.zip filename.tif #extract just filename.tif from the archive
 
 tar xvf myfile.tar.gz #unzip myfile.tar.gz
 tar -C #unzip directly to folder
 tar -xzvf #x: extract, z: filter through gzip, v: verbose, f:use archive
 tar --strip-components=n #string the first n folders from the file
 tar -xzvf file.zip file1.txt #extract just file1.txt from the archive
-
-zipinfo -1 file.zip #list files (and dir structure) in archive
 
 #can unzip a zip file on mac using tar. in some cases this is the only way to unzip zip files
 tar -xvf myfile.zip
@@ -60,7 +61,8 @@ zcat < myfile.txt.gz|head -10 > myfile_head.txt #first 10 lines of a gzipped fil
 # add folder 'bin' to your path: Edit .bashrc. (.bash_profile on a mac). Add the folder as below:
 export PATH=$HOME/bin:$PATH
 
-#
+#---- remote download/upload files ----#
+
 #download directory from remote machine to local machine
 scp -r benc@litoria.eeb.yale.edu:/remote/path /local/path
 #download all files in a directory to the cwd
