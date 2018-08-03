@@ -50,6 +50,16 @@ gdalwarp -t_srs '+proj=utm +zone=33 +ellps=WGS84 +units=m +no_defs' -r cubic ima
 # -tr grid size, based on crs (this is 30 seconds based on espg 4326
 gdal_rasterize -burn 1 -l range -tr 0.00833333 0.00833333 range.shp range.tif
 
+#---- clip rasters ----
+#shows how to clip with either bounding box coords or shapefile
+#http://joeyklee.github.io/broc-cli-geo/guide/XX_raster_cropping_and_clipping.html
+
+#-te x_min y_min x_max y_max
+#input.tif: the input file to be clipped
+#clipped_output.tif: the clipped output file
+
+gdalwarp -te 7.8140 46.7855 10.5111 48.5825 -co COMPRESS=DEFLATE guf04_koz.tif guf04_koz100km.tif
+
 #---- VECTOR ----
 
 #metadata about a shapefile
