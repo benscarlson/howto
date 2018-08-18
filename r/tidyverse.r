@@ -1,4 +1,5 @@
 #see: http://r4ds.had.co.nz/ (R for Data Science book)
+#Quo/Enquo recipes: https://edwinth.github.io/blog/dplyr-recipes/
 
 #---------------#
 #---- tidyr ----#
