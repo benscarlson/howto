@@ -2,6 +2,7 @@
 
 .Machine$double.eps # = 2.220446e-16. This is the smallest number x in which x + 1 != 1
 getOption('contrasts') # shows default option for how factor coefficients are displayed. 'contr.treatment' sets one factor as control (0) and other factors as relative to this control.
+Sys.info()['user']
 
 #---- data types ----
 
@@ -65,6 +66,9 @@ dir.create('my/path',recursive=TRUE)
 basename('my/file/path') #returns 'path'
 dirname('my/file/path') #returns 'my/file'
 fileN <- sub('\\.csv$','', basename('my/file/path.csv'), ignore.case=TRUE) #returns 'path'
+
+shell.exec("myfile.txt") #have the operating system open myfile.txt using the default application
+
 #---- data frames ----
 #create an empty dataframe
 data.frame(a=character(),b=numeric(),stringsAsFactors = FALSE)
@@ -86,6 +90,16 @@ which(!complete.cases(df)) #--> 2 3
 
 df[which(!duplicated(df$timestamp)), ] #remove duplicate timestamps from df
 
+#make a table that summarizes each row of a dataframe      
+round(t(do.call(cbind, 
+  lapply(dat, summary ))),3) %>%
+  View()
+
+#unlist can turn a one row data frame into a vector
+d <- data.frame(a=c(1,2), b=c(3,4))
+class(d[1,]) #'data.frame'
+class(unlist(d[1,])) #'numeric'
+
 #---- lists ----
 unlist(lapply(mylist,function(item) {item@Name})) #make a vector out of all Name attributes
 
@@ -94,30 +108,31 @@ mylist[
   unlist(lapply(mylist, function(item) 
     {item@Name %in% c('val1','val2')}))]
 
-#built in constants:
+#---- built in constants----
 LETTERS, letters, month.abb, month.name, pi
 
 summary(m)$sigma #standard deviation of mean regression value
 
+#---- strange functions ----
 x<-5
 eval("x") # --> prints "x"
 as.symbol("x") # --> prints x
 eval(as.symbol("x")) #--> prints 5 
 
+#get() will resolve a string into a function
+sin(pi/2) #--> 1
+get('sin')(pi/2) #--> 1
+
+#---- run R from command line ----
 R CMD BATCH test.r #run file test.R from the command line
 R --slave -f test.r #also run from the command line
+Rscript <script_name.r>
 
-#unlist can turn a one row data frame into a vector
-d <- data.frame(a=c(1,2), b=c(3,4))
-class(d[1,]) #'data.frame'
-class(unlist(d[1,])) #'numeric'
+# get commandline arguments within a script
+args <- commandArgs(trailingOnly=TRUE)
+datName <- args[1]
+if(is.na(datName)) stop('datName required')
 
-shell.exec("myfile.txt") #have the operating system open myfile.txt using the default application
-
-#make a table that summarizes each row of a dataframe      
-round(t(do.call(cbind, 
-  lapply(dat, summary ))),3) %>%
-  View()
 
 saveRDS(object,path) #save an object to an RDS file 
 
@@ -145,8 +160,7 @@ methods(class='data.frame') #see all methods available for a particular class
 help(data.frame) #read the section 'value' to learn about the return type from a function
 args(plot) #find out the arguments of a plot
 
-#---- system information ----
-Sys.info()['user']
+
 
 #---- other stuff ----
 df <- data.frame(a=rnorm(10000),b=rnorm(10000),c=rep('x',10000))
@@ -157,12 +171,7 @@ sink("/dev/null"); p <- myfunct() ; sink()
 p <- suppressMessages(myfunct())
 p <- invisible(myfunct())
 
-#---- command line ----
 
-#---- commandline arguments ----#
-args <- commandArgs(trailingOnly=TRUE)
-datName <- args[1]
-if(is.na(datName)) stop('datName required')
 
 #---- bitwise operations ----#
 strtoi('001000',base=2) #=8. convert bit string to integer
