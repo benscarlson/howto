@@ -1,3 +1,6 @@
+#---- references ----#
+#https://cougrstats.wordpress.com/2018/04/30/mapping-in-r/
+
 #---- Base R Maps ----#
 raster::scalebar(1000, type='bar', divs=4)
 
