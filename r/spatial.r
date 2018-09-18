@@ -50,6 +50,12 @@ bareUtm <- resample(x=bareUtm,y=pct_tree) #need to resample to get back to 30,30
 
 rast2 <- crop(rast,extent(pts),snap='out')
 
+#--------------------# 
+#---- SF package ----#
+#--------------------# 
+
+#http://strimas.com/r/tidy-sf/
+
 #---------------------#     
 #---- Vector Data ----#
 #---------------------#
