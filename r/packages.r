@@ -7,3 +7,7 @@ devtools::document()
 
 #get the full path of a specified file in a package
 system.file("external/test.grd", package="raster")
+
+#after updating the package, do this in rstudio
+devtools::document()
+devtools::build()
