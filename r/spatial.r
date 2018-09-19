@@ -166,6 +166,15 @@ utm <- readOGR(dsn="/Users/benc/projects/gis-data/UTM_zones/UTM_Zone_Boundaries"
 plot(crop(utm,extent(mv)))
 points(mv)
 
+#---- distance between two points ----#
+library(geosphere)
+
+#    x.min     y.min     x.max     y.max 
+# 9.024238 50.202248 14.930488 53.750199
+distGeo(c(bb['x.min'],bb['y.max']),c(bb['x.max'],bb['y.max'])) #389509.7 - note dist at ymax is lower than at ymin, as expected.
+distGeo(c(bb['x.min'],bb['y.min']),c(bb['x.max'],bb['y.min'])) #421563.7
+
+
 #---- make a bounding box a certain distance around a point ----#
 library(geosphere)
 library(sp)
