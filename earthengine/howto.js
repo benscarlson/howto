@@ -127,6 +127,9 @@ var result = pb_20982_2008.map(function(f){
   var colorIndex = ee.Number(f.get('month')).min(8)
   return f.set('style', {color:colors.get(colorIndex)})
 })
+//also check out:
+//https://code.earthengine.google.com/4bf428a84cc19169a3e39914fc8de4a8
+//https://developers.google.com/earth-engine/feature_collections_visualizing
 
 //palettes
 //bright/aqua greenish to yellowish to red-orangeish
