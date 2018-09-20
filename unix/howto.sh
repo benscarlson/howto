@@ -80,7 +80,8 @@ sed 'NUMq;d' file #read a particular line of a file. https://stackoverflow.com/q
 
 df -H #total and available disk space, in easily readable units
 
-
+#---- manipulate file names ----#
+rename 's/old/new/g' * #replaces 'old' with 'new' for all files. note on osx, need to do 'brew install rename'
 
 #---- manipulate file contents ----
 gsplit -d -l 2 -a 2 myfile.csv myfile #if myfile has 6 lines, this makes myfile00, myfile01, myfile02. two lines each.
