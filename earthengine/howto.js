@@ -121,6 +121,13 @@ var obj = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
 
 //Visulications
 
+//color points by month
+var colors = ee.List (["ff5050","ff7d52","ffa852","ffd452","ffff52","d4ff52","a8ff52","7dff52","52ff52"])
+var result = pb_20982_2008.map(function(f){
+  var colorIndex = ee.Number(f.get('month')).min(8)
+  return f.set('style', {color:colors.get(colorIndex)})
+})
+
 //palettes
 //bright/aqua greenish to yellowish to red-orangeish
 var palette = ['b5acff','8dcfff','7ffff9','71ff96','c0ff6d','eeff64','ffc952','ffaf38','ff471d'];
