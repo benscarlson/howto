@@ -13,13 +13,21 @@
 
 #---- metadata ----
 
-#gdalinfo
-gdalinfo -stats file.tif #see the min and max pixels of a tiff file
+#---- display metadata ----
+
+#-- statistics
+gdalinfo -stats file.tif #displays stats if they exist in the raster or in an .aux.xml file
+# if aux file is present, it will *not* recompute statistics if something has changed
+gdalinfo -mm file.tif #will recompute min/max, but not store statistics. Seems that if a .aux.xml file is present, does not recompute
+
 #origin: this is the upper left corner of the upperleft pixel, in coordinate system defined by the crs of the raster
 # note this matches the "Upper Left" entry of the "Corner Coordinates" section
 
+
 gdalsrsinfo file.tif #see the CRS of the image
 listgeo -proj4 waterdistance.tif #another way to see metadata
+
+#---- edit metadata ----
 gdal_edit.py -a_srs EPSG:4326 myfile.tif #define projection when it is not set
 gdal_edit.py -a_nodata 255 pct_tree_30m.tif #set nodata value
 
