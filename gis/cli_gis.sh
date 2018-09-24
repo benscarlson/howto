@@ -76,3 +76,17 @@ ogrinfo -ro -so -al myfile.shp #list important metadata
 #-so: Summary Only: supress listing of features, show only the summary information like projection, schema, feature count and extents.
 
 ogr2ogr -f GeoJSON myfile.geojson myfile.shp #convert shp to geojson
+
+
+#---- Configuration ----
+
+#my command line is using GDAL 1.11.2, released 2015/02/10
+which gdalinfo #/usr/local/bin/gdalinfo
+ls -al /usr/local/bin/gdalinfo #/usr/local/bin/gdalinfo -> ../Cellar/gdal/1.11.2_1/bin/gdalinfo
+
+#I also have a version of GDAL in /Library/Frameworks/GDAL.framework/Programs
+#I think this is the version from KyngKaos.
+./gdalinfo -version #GDAL 1.11.3, released 2015/09/16
+
+#When I load library(sf) in R, it seems I link to version 2.1.3!
+library(sf) #Linking to GEOS 3.6.1, GDAL 2.1.3, proj.4 4.9.3
