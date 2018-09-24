@@ -1,4 +1,4 @@
-#https://github.com/dwtkns/gdal-cheat-sheet
+#https://github.com/dwtkns/gdal-cheat-sheet <- lots of great examples
 #http://joeyklee.github.io/broc-cli-geo/guide/index.html
 #http://opengeoportal.org/software/resources/gdal-and-open-source-geoprocessing-tutorials/
 #http://www.gdal.org/gdal_utilities.html
