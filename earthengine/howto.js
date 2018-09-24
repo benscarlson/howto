@@ -202,3 +202,18 @@ Export.table.toDrive({
 //Mosiac, filter by cloud/cloud shadow over Spain
 //https://code.earthengine.google.com/d653edd684a02416d3910182cc465684
 //https://gis.stackexchange.com/questions/271322/cloud-mask-in-surface-reflectance-landsat-8-test
+
+//From Copericus example: https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2
+function maskS2clouds(image) {
+  var qa = image.select('QA60');
+
+  // Bits 10 and 11 are clouds and cirrus, respectively.
+  var cloudBitMask = 1 << 10;
+  var cirrusBitMask = 1 << 11;
+
+  // Both flags should be set to zero, indicating clear conditions.
+  var mask = qa.bitwiseAnd(cloudBitMask).eq(0)
+      .and(qa.bitwiseAnd(cirrusBitMask).eq(0));
+
+  return image.updateMask(mask).divide(10000);
+}
