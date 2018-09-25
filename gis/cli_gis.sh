@@ -90,3 +90,7 @@ ls -al /usr/local/bin/gdalinfo #/usr/local/bin/gdalinfo -> ../Cellar/gdal/1.11.2
 
 #When I load library(sf) in R, it seems I link to version 2.1.3!
 library(sf) #Linking to GEOS 3.6.1, GDAL 2.1.3, proj.4 4.9.3
+
+#---- pktools ----#
+Pktools. https://link.springer.com/chapter/10.1007%2F978-3-319-01824-9_12
+
