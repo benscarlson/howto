@@ -4,6 +4,8 @@ suppressPackageStartupMessages()
 library(devtools)
 load_all("/Users/benc/src/cmsdm/cmsdm_repo") #load package from disk
 
+install_github('dkahle/ggmap') #note use user/repo format. Don't include e.g. https://github.com/dkahle/ggmap
+
 #---- package management ----
 
 #if r says something like 'not available for xyz version'
