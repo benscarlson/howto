@@ -75,13 +75,17 @@ var img = ee.Image().toByte().paint(fc, 1); //paint a 1 into the pixels. Unpaint
 .unmask() // turns any currently masked pixels into a value, 0 by default. can pass a value in
 var msk = img.select([0]).gt(0); //create a mask
 
+//----
 //---- date/time ----
+//----
 
 //both of these formats can be parsed natively by ee
 print(ee.Date('2014-06-02'));
 print(ee.Date('2014-06-02T05:50:06Z'));
+print(img.get('system:time_start_str')).format('yyyy-MM-dd HH:mm:ss') //print a date object as a string
 
-//function to set human-readable timestamps on a collection
+
+//function to set human-readable timestamps on a collection. Note this makes Date objects, not strings!
 function textTs(img) {
   return img
     .set('time_start', ee.Date(img.get('system:time_start')))
