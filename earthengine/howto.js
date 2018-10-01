@@ -20,6 +20,13 @@ git clone https://earthengine.googlesource.com/users/benscarlson/default
 var rect = ee.Geometry.Rectangle([11.87669, 51.92500, 12.48346, 52.25738]);
 Map.addLayer(rect);
 
+//get geometries from each image and merge them
+var geoms = imgLst.map(function(img) {
+    return ee.Image(img).geometry();
+});
+
+var geom = ee.Geometry.MultiPolygon(geoms).dissolve();
+
 //create a ring and sample from it
 //https://code.earthengine.google.com/a619ac5d9df6a9ca95be3a3ebe9c987c (http://bit.ly/2MknooI)
 
