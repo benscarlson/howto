@@ -171,7 +171,13 @@ transform: List (6 elements)
 5: 60.000138889000006 (Second "Origin" element. Upper left corner of upper left pixel).
 */
 
+//------
 //------ exporting assets ------
+//------
+
+//---- using scale vs. crs/crsTransform
+// If exporting an entire scene, seems to give identical results using either scale or crs method
+// *However* be careful if clipping before exporting. Confirmed that pixels are shifted using QGIS
 //NOTE: In an email Noel suggests using crs from projection() and not specifying scale (or crsTransform)?
 crs: cfsCollection.first().projection()
 
