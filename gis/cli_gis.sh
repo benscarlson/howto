@@ -33,7 +33,7 @@ gdal_edit.py -a_nodata 255 pct_tree_30m.tif #set nodata value
 
 #---- transform rasters ----
 
-#mosiac rasters
+#-- mosiac rasters
 gdal_merge.py -pct -n 0 -a_nodata 0 -co COMPRESS=DEFLATE -o out.tif in1.tif in2.tif
 -pct #this takes the color table from the first input and applies to to output
 -n 0 #this tells merge to ignore these values from input rasters (i.e. treat as no data)
@@ -41,8 +41,9 @@ gdal_merge.py -pct -n 0 -a_nodata 0 -co COMPRESS=DEFLATE -o out.tif in1.tif in2.
 -co #Seems COMPRESS=LZW is also common. This writes the raster as a compressed file. Compressed might be 400MB, uncompressed 6GB!
 #Note on COMPRESS: LZW has same compressin ration as DEFLATE, but works on more software (like ArcGIS 9.x).
 
-#convert to wgs84
+#-- convert to different projection/coordinate system
 gdalwarp -t_srs '+proj=longlat +datum=WGS84 +no_defs' -co COMPRESS=LZW image.tif image_wgs84.tif
+
 #convert to UTM 33N, and resample using cubic method
 gdalwarp -t_srs '+proj=utm +zone=33 +ellps=WGS84 +units=m +no_defs' -r cubic image.tif image_utm33N.tif
 #other parameters
@@ -50,6 +51,13 @@ gdalwarp -t_srs '+proj=utm +zone=33 +ellps=WGS84 +units=m +no_defs' -r cubic ima
 -r near #use nearest neighbor resampling (I think this is the default)
 -t_src EPSG:3035 #can also use EPSG code to specify projection
 -co COMPRESS=LZW #LZW compression. 
+
+#-- aligning grids
+# to make sure images have the same target grid, use tap
+# note this isn't the same as making one image align to an existing, target image
+# https://blogg.uit.no/thk031/2013/05/04/re-projecting-images-to-the-same-grid-using-gdal/
+gdalwarp -tr 30 30 -tap -t_srs EPSG:32633 -co COMPRESS=LZW image_utm32.tif image_utm33.tif
+-tr #the pixel size
 
 #---- create rasters ----
 
