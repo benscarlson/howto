@@ -13,7 +13,8 @@ col2hex('firebrick', 204) # [1] "#B22222CC"
 #working with a color palettes
 https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2
 
-#make color palette from picture
-https://datascienceplus.com/how-to-use-paletter-to-automagically-build-palettes-from-pictures/
+#-- make color palette from picture
+# https://datascienceplus.com/how-to-use-paletter-to-automagically-build-palettes-from-pictures/
+# https://palettegenerator.com/
 
 col=rainbow(length(x)) #rainbow palette for base R plot. x is a vector.
