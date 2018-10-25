@@ -217,6 +217,9 @@ Export.table.toDrive({
 //---- Clouds ----//
 //----
 
+//Study and learn this script (from Nicholas Clinton). Bits and approach are different from what I'm using.
+//https://code.earthengine.google.com/643c86f713c64dea1d921358b8da0530
+
 //Mosiac, filter by cloud/cloud shadow over Spain
 //https://code.earthengine.google.com/d653edd684a02416d3910182cc465684
 //https://gis.stackexchange.com/questions/271322/cloud-mask-in-surface-reflectance-landsat-8-test
