@@ -30,3 +30,6 @@ splancs::polymap(mymatrix) #plot a polygon for a [,2] matrix
 
 #Check api usage?
 #https://console.cloud.google.com/google/maps-apis/overview?onboard=true&project=research-1537904108006&consoleUI=CLOUD
+
+#3D maps
+#https://blog.revolutionanalytics.com/2018/09/raytracer.html
