@@ -217,6 +217,8 @@ Export.table.toDrive({
 //---- Clouds ----//
 //----
 
+//https://github.com/fitoprincipe/geetools-code-editor/wiki/Cloud-Masks
+
 //Study and learn this script (from Nicholas Clinton). Bits and approach are different from what I'm using.
 //https://code.earthengine.google.com/643c86f713c64dea1d921358b8da0530
 
