@@ -13,6 +13,15 @@ as.POSIXct('2014-09-14 19:45:09', tz='UTC')
 as.POSIXlt('2014-09-14 19:45:09', tz='UTC') 
 as.POSIXct('2014-09-14 19:45:09') #This will assign the timezone to the current timezone as defined by the computer running the code
 
+#these are the same thing
+s1 <- as.POSIXct('2017-09-07 00:00:00', tz='US/Eastern')
+s2 <- as.POSIXct('2017-09-07', tz='US/Eastern')
+identical(s1,s2) #TRUE
+
+# %T and %H:%M:%S are the same thing
+strftime(startDate-seconds(1),format='%Y-%m-%dT%T', usetz=TRUE, tz='US/Eastern')
+strftime(startDate-seconds(1),format='%Y-%m-%dT%H:%M:%S', usetz=TRUE, tz='US/Eastern')
+
 #convert from unix epoch time
 as.POSIXct(1417305600,tz='UTC',origin='1970-01-01') #always use origin as 1970-01-01
 as.Date(as.POSIXct(1417305600,tz='UTC',origin='1970-01-01')) #Get just the data portion
