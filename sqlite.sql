@@ -20,3 +20,18 @@ PRAGMA foreign_keys = OFF;  --Turn off
 -- finally, insert from temp into target
 INSERT INTO fd_stats(pk, col1, col2) 
 SELECT * FROM fd_stats_temp;
+
+#---- configuration ----#
+
+--- this is from using brew upgrade. not macos comes with a version and that is the default
+--- I used the first command to update path, but did not set the other commands.
+
+If you need to have sqlite first in your PATH run:
+  echo 'export PATH="/usr/local/opt/sqlite/bin:$PATH"' >> ~/.bash_profile
+
+For compilers to find sqlite you may need to set:
+  export LDFLAGS="-L/usr/local/opt/sqlite/lib"
+  export CPPFLAGS="-I/usr/local/opt/sqlite/include"
+
+For pkg-config to find sqlite you may need to set:
+  export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig"
