@@ -141,3 +141,9 @@ sudo rm -r 'My Book' #clean up after automount might not need this, now mount po
 
 #An A-Z Index of the Apple macOS command line (OS X)
 #https://ss64.com/osx/
+
+#---- homebrew ----#
+brew list #list packages
+brew list --version #also list package versions
+brew upgrade <package> #upgrade a package
+
