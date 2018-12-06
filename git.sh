@@ -1,5 +1,6 @@
 #--- add existing local repo to github ---#
 #first, go to github.com and create the repo "anno" on github, don't initialize
+cd ~/projects/anno
 git remote add origin git@github.com:benscarlson/anno.git
 git push -u origin master
 
