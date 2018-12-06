@@ -1,3 +1,7 @@
+#---- installation ----#
+library(devtools)
+install_local('~/projects/anno',dependencies=FALSE,quiet=TRUE) #won't install unless code changed
+library(anno)
 
 #update namespace file (required to export functions)
 devtools::document()
