@@ -2,6 +2,9 @@
 #first, go to github.com and create the repo "anno" on github, don't initialize
 cd ~/projects/anno
 git remote add origin git@github.com:benscarlson/anno.git
+#make sure that git repo has something in it!
+git add .
+git commit -am 'initial commit'
 git push -u origin master
 
 #get the last commit
