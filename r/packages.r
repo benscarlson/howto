@@ -35,7 +35,6 @@ devtools::document()
 #' downloadStudy(<id>,"ben.s.carlson")
 #' @export
 #'
-downloadStudy <- function(studyid,userid) {
 
 #get the full path of a specified file in a package
 system.file("external/test.grd", package="raster")
