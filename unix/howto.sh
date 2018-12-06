@@ -8,19 +8,8 @@
 dpkg -i debfile.deb #install a .deb file
 
 #---- listing files ----#
+
 ls -lh #human-readable file sizes
-
-#copy a file to a directory that does not yet exist
-#https://stackoverflow.com/questions/947954/how-to-have-the-cp-command-create-any-necessary-folders-for-copying-a-file-to-a
-mkdir -p path/to/new/dir && cp myfile.csv "$_"
-
-#move all files, including hidden files, to a new directory
-shopt - s dotglob
-mv dir1/* dir2
-
-#include full paths with files
-ls -d "$PWD"/*
-ls -d "$PWD"/my_folder/*
 
 #Reading output from ls
 # This basically says, interpreting this from RIGHT to LEFT that the file, linux_course_notes.txt was created at 6:30 PM on July 10 and is 1892 bytes large. 
@@ -29,6 +18,26 @@ ls -d "$PWD"/my_folder/*
 # r - read, w - write, x - execute
 
 -rw-r--r--  1  bob  users  1892  Jul 10  18:30 linux_course_notes.txt
+
+#include full paths with files
+ls -d "$PWD"/*
+ls -d "$PWD"/my_folder/*
+
+#---- copying files ----#
+
+#copy a file to a directory that does not yet exist
+#https://stackoverflow.com/questions/947954/how-to-have-the-cp-command-create-any-necessary-folders-for-copying-a-file-to-a
+mkdir -p path/to/new/dir && cp myfile.csv "$_"
+
+#---- moving files ----#
+
+#move all files, including hidden files, to a new directory
+shopt - s dotglob
+mv dir1/* dir2
+
+#---- deleting files ----#
+
+find . ! -name 'file.txt' -type f -exec rm -f {} + #delete all files in directory, except for 'file.txt'. https://unix.stackexchange.com/questions/153862/remove-all-files-directories-except-for-one-file
 
 #---- file permissions ----#
 chown -R benc:benc data #change the user and group permissions for folder "data" to user: benc group: benc. also works on files
