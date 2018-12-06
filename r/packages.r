@@ -39,6 +39,7 @@ devtools::document()
 # Other Roxygen2 parameters
 
 #' @importFrom readr read_csv
+#' @import dplyr
 
 #get the full path of a specified file in a package
 system.file("external/test.grd", package="raster")
