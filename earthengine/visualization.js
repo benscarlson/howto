@@ -17,3 +17,15 @@ Map.addLayer(img.select('NDVI'), {palette:palette});
 //paint a set of polygons polyFC (with identification 'id') to image and visualize
 //example: https://code.earthengine.google.com/849862c672e8e5028a4d86ee14cf8c36
 Map.addLayer(ee.Image().int().paint(polyFC,'id').randomVisualizer())
+
+//--- Landsat 7 ---//
+var viz = {
+  bands: ['B3', 'B2', 'B1'], //bands are mapped to RGB
+  min: 0,
+  max: 3000,
+  gamma: 1.4,
+};
+
+//--- Landsat 8 ---//
+//RGB bands are B4, B3, B2
+
