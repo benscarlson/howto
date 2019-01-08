@@ -51,6 +51,17 @@ system.file("external/test.grd", package="raster")
 devtools::document()
 devtools::build()
 
+#---- where to put r scripts ----#
+
+#place in folder within inst. E.g. mypackage/inst/scripts/myscript.r
+# when installed, will results in a mypackage/scripts folder
+# use .libPaths() to find out where the package is installed to access script
+# https://stackoverflow.com/questions/34044470/how-to-put-an-r-script-into-a-package
+
+#---- initialization ----#
+# use .onLoad function, put into a file called zzz.r
+# See "When you do need side-effects" in http://r-pkgs.had.co.nz/r.html#style
+
 #----
 #---- Testing
 #----
