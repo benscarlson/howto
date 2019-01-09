@@ -7,6 +7,8 @@
 #https://www.springer.com/us/book/9783319018232 (Book: Open Source Geospatial Tools)
 #http://pktools.nongnu.org/html/index.html (pktools)
 
+#GDAL/ OGR cheatsheet: https://geospatialwandering.wordpress.com/2017/01/25/gdal-ogr-cheatsheet/
+
 #-----------------
 #---- RASTERS ----
 #-----------------
