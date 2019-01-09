@@ -172,6 +172,11 @@ transform: List (6 elements)
 5: 60.000138889000006 (Second "Origin" element. Upper left corner of upper left pixel).
 */
 
+//From Hancher (subject: export global image to asset): 
+// "For a global export, what I generally do is specify this, with no "region":"
+crs: "EPSG:4326",
+  crsTransform: [scale, 0, -180, 0, -scale, 90],
+  dimensions: width + 'x' + height,
 //------
 //------ exporting assets ------
 //------
