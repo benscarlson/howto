@@ -176,6 +176,9 @@ library(geosphere)
 distGeo(c(bb['x.min'],bb['y.max']),c(bb['x.max'],bb['y.max'])) #389509.7 - note dist at ymax is lower than at ymin, as expected.
 distGeo(c(bb['x.min'],bb['y.min']),c(bb['x.max'],bb['y.min'])) #421563.7
 
+#can also use distm. Not sure what is the difference between distGeo and distm
+#https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula/23095329#23095329
+distm(x=c(lon,lat),y=c(lon,lat),fun = distVincentyEllipsoid)
 
 #---- make a bounding box a certain distance around a point ----#
 library(geosphere)
