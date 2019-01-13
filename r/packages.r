@@ -77,9 +77,7 @@ devtools::load_all()
 devtools::use_testthat() #set up unit tests
 
 #manuall run a unit test
-devtools::document()
-devtools::build()
-devtools::load_all()
+devtools::document(); devtools::build(); devtools::load_all()
 library(testthat)
 #--> highlight and run the test
 
