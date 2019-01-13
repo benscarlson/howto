@@ -8,6 +8,17 @@ echo ls $MYFOLDER #see the resulting command
 files=`ls`
 echo $files
 
+#---- path manipulation ----#
+filePF=/path/to/file.txt
+
+echo ${filePF%.*} #/path/to/file ##full path and file without extention
+echo ${filePF%.txt} #/path/to/file ##same as above full path and file without extention
+echo ${filePF%/*} #/path/to ##full path no file
+echo ${filePF##*/} #file.txt
+
+fn=${filePF##*/} #gets the file name
+echo ${fn%.csv} #strips off file extenstion. useful for getting dsn
+
 #-- export command --#
 # export will make variable available to child processes
 shellvar=1
