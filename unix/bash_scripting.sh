@@ -8,6 +8,14 @@ echo ls $MYFOLDER #see the resulting command
 files=`ls`
 echo $files
 
+#-- export command --#
+# export will make variable available to child processes
+shellvar=1
+export envvar=2
+bash #spawn child process
+echo $shellvar #nothing
+echo $envvar #prints '2'
+
 #--- loop through an array ---#
 declare -a arr=("50N_010E" "50N_010E" "60N_000E" "60N_010E")
 
