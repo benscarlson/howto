@@ -7,6 +7,9 @@ library(devtools)
 install_local('~/projects/anno',dependencies=FALSE,quiet=TRUE) #won't install unless code changed
 library(anno)
 
+#---- install package from command line, after devtools::build()
+R CMD INSTALL ~/projects/anno_0.1.0.tar.gz #in case package needs to be re-installed
+
 #----
 #---- developing packages
 #----
