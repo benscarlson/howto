@@ -11,6 +11,8 @@ echo $files
 #---- path manipulation ----#
 filePF=/path/to/file.txt
 
+#Below uses parameter expansion
+# https://opensource.com/article/17/6/bash-parameter-expansion
 echo ${filePF%.*} #/path/to/file ##full path and file without extention
 echo ${filePF%.txt} #/path/to/file ##same as above full path and file without extention
 echo ${filePF%/*} #/path/to ##full path no file
