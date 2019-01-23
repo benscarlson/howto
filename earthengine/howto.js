@@ -78,7 +78,12 @@ var img = ee.Image().toByte().paint(fc, "ID");
 
 var img = ee.Image().toByte().paint(fc, 1); //paint a 1 into the pixels. Unpainted pixels will be masked.
 
-//masking
+//----
+//---- Masking
+//---- 
+
+//Those with a mask value of 0 or below will be transparent. Those with a mask of any value above 0 will be rendered.
+
 .updateMask() //only masks out currenly unmasked pixels
 .unmask() // turns any currently masked pixels into a value, 0 by default. can pass a value in
 var msk = img.select([0]).gt(0); //create a mask
