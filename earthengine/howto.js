@@ -219,6 +219,12 @@ Export.table.toDrive({
 });
 
 //----
+//---- RMSE ----//
+//----
+
+//https://code.earthengine.google.com/577c51f32d4e4349afee950e54001233
+
+//----
 //---- Clouds ----//
 //----
 
