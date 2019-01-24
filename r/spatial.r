@@ -56,6 +56,8 @@ rast2 <- crop(rast,extent(pts),snap='out')
 
 #http://strimas.com/r/tidy-sf/
 
+pts <- st_as_sf(x=jun14, coords=c("lon", "lat"), crs=4326) #make sf object from data.frame
+
 centroid <- st_centroid(st_as_sfc(st_bbox(pts0))) #centroid of point dataset, get bbox, convert ot polygon, then get centroid of this polygon.
 
 #---------------------#     
