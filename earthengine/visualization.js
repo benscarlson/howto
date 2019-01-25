@@ -19,13 +19,8 @@ Map.addLayer(img.select('NDVI'), {palette:palette});
 Map.addLayer(ee.Image().int().paint(polyFC,'id').randomVisualizer())
 
 //--- Landsat 7 ---//
-var viz = {
-  bands: ['B3', 'B2', 'B1'], //bands are mapped to RGB
-  min: 0,
-  max: 3000,
-  gamma: 1.4,
-};
+var viz = {bands: ['B3', 'B2', 'B1'], min: 0, max: 3000, gamma: 1.4};
 
 //--- Landsat 8 ---//
-//RGB bands are B4, B3, B2
+var viz = {bands: ['B4', 'B3', 'B2'], min: 0, max: 3000,gamma: 1.4};
 
