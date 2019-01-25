@@ -7,6 +7,9 @@ mlr --csv --opprint --from sample.csv stats1 -a count -f bird_id -g bird_id #gro
 --ooprint #pretty prints the results to the screen
 -I #performs the file manipulation in place
 
+#---- dropping fields ----
+mlr --csv cut -x -f l8ndvi_monthly_30m obsbg_anno.bak > obsbg_anno.csv
+
 #---- creating new fields ----
 mlr --csv --opprint put -S '$type=typeof($bird_id)' sample_walk.csv #see the data type
 mlr --csv --opprint put -S '$tag_id=sub($bird_id, "^([0-9]{4})0([0-9]{3})$", "\1")' sample_walk.csv #pull out the first 4 digits
