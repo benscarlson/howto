@@ -55,6 +55,7 @@ rast2 <- crop(rast,extent(pts),snap='out')
 #--------------------# 
 
 #http://strimas.com/r/tidy-sf/
+#http://pierreroudier.github.io/teaching/20170626-Pedometrics/20170626-soil-data.html
 
 pts <- st_as_sf(x=jun14, coords=c("lon", "lat"), crs=4326) #make sf object from data.frame
 
