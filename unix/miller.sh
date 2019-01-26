@@ -1,5 +1,9 @@
 #http://johnkerl.org/miller/doc/10-min.html
 
+#---- outputing files ----
+mlr --csv head
+mlr --csv head -n 4
+
 mlr --csv filter '$behav == 4' sample.csv #filter
 mlr --csv --opprint --from sample.csv stats1 -a count -f bird_id -g bird_id #group by bird_id and count number of rows
 
@@ -7,6 +11,9 @@ mlr --csv --opprint --from sample.csv stats1 -a count -f bird_id -g bird_id #gro
 --icsv #is a csv in the form of field=value
 --ooprint #pretty prints the results to the screen
 -I #performs the file manipulation in place
+
+#use 'head then' command to test out command on smaler dataset 
+mlr --csv head -n 4 then cut -x -f l8ndvi_monthly_30m obsbg_anno.bak
 
 #---- dropping fields ----
 mlr --csv cut -x -f l8ndvi_monthly_30m obsbg_anno.bak > obsbg_anno.csv
