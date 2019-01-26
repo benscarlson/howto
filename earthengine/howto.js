@@ -242,6 +242,9 @@ Export.table.toDrive({
 //https://code.earthengine.google.com/d653edd684a02416d3910182cc465684
 //https://gis.stackexchange.com/questions/271322/cloud-mask-in-surface-reflectance-landsat-8-test
 
+//Another bitshifting approach, this is for sentinel-2
+//https://code.earthengine.google.com/b540df41a2af5880ad18dd5fd59aafb4
+
 //From Copericus example: https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2
 function maskS2clouds(image) {
   var qa = image.select('QA60');
