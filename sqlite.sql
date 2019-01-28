@@ -1,6 +1,16 @@
 
 INTEGER PRIMARY KEY - This will reference the rowid, an autoincrementing integer that is automatically created 
 
+--#### Create tables ####--
+CREATE TABLE my_table (
+  fd_stats_id INTEGER PRIMARY KEY,
+  player_id INTEGER NOT NULL,
+  pos TEXT NOT NULL,
+  fppg REAL NOT NULL,
+  
+  FOREIGN KEY(player_id) REFERENCES player(player_id)
+);
+
 --import if file does not contain a file header
 .import data/derived/player_table_init.csv player
 
