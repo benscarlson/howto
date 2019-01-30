@@ -207,6 +207,12 @@ crs(poly) <- CRS('+proj=utm +zone=32 +ellps=WGS84 +units=m +no_defs')
 writeOGR(obj=poly, dsn=file.path('results/stpp_models',datName,'data/pts_bbox'), 
          layer="pts_bbox", driver="ESRI Shapefile")
 
+#---- method to save a shapefile. Note bg is SpatialPolygons but has to be SPDF
+dsnP <- file.path(.resultsP,'data/nicheset_bg')
+dir.create(dsnP)
+writeOGR(obj=as(bg,'SpatialPolygonsDataFrame'), driver="ESRI Shapefile",
+         dsn=dsnP, layer=basename(dsnP))
+
 ### projections ###
 
 rgdal::make_epsg() #this is a list of all ESPG codes and associated CRS
