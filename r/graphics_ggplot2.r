@@ -44,14 +44,7 @@ theme_tufte(base_family="Helvetica") #library(ggthemes)
 #http://docs.ggplot2.org/dev/vignettes/themes.html
 theme_set(theme_bw()) #sets theme to theme_bw for every plot in r session
 
-#set legend fonts
-theme(
-  legend.text = element_text(size = 8),
-  legend.title = element_text(size = 10))
 
-#set the legend position and remove the boxes around  the legend shapes
-#first is x, second is y. for y, top is 1, bottom is 0
-theme(legend.position = c(.8, .8), legend.key = element_blank()) +
 
 #theme with no grey background, black lines for axes
 theme_bw() +
@@ -87,17 +80,40 @@ theme_map <- theme(
 theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 #---- Guides/legends ----
+
+#--- Remove legends
+
+# Several different methods. See: https://stackoverflow.com/questions/35618260/remove-legend-ggplot-2-2
+guides(fill=FALSE)
+geom_point(..., show.legend=FALSE)
+
+#--- legend appearance
+
+scale_color_discrete(name='My legend title') #use this if the legend variable is mapped to 'color' in aes()
+
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
+
+#set legend font size
+theme(
+  legend.text = element_text(size = 8),
+  legend.title = element_text(size = 10))
+
+theme(legend.key = element_blank()) #remove the boxes around  the legend shapes
+
+
 #set labels on the 
 scale_fill_continuous(
   labels=c(0,0.25,0.5,0.75,1))
+
+#--- legend position
 
 #put legend on the bottom. guide_colorbar() is for continuous, while guide_legend does discrete.
   guides(fill=guide_colorbar(
     title.position='top',
     label.position='bottom'))
 
-scale_color_discrete(name='My legend title') #use this if the legend variable is mapped to 'color' in aes()
+#set the legend position first is x, second is y. for y, top is 1, bottom is 0
+theme(legend.position = c(.8, .8), legend.key = element_blank())
 
 #-----
 # multipanel plots
