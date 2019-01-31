@@ -1,3 +1,5 @@
+#NOTE: moved these into bencmisc/colorfuns.r
+
 # Convert 3 digit tuple of RBG to hex. https://stackoverflow.com/questions/31574480/rgb-to-hex-converter
 x <- c("165 239 210", "111 45 93")
 sapply(strsplit(x, " "), function(x) {
