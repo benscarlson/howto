@@ -36,8 +36,30 @@ dat <- data.frame(`column name 1`=rnorm(3),`column name 2`=rnorm(3))
 print.xtable(xtable(dat),rotate.colnames=TRUE)
 @
 
+#---- Child templates ----#
+
+#this is from Yihui: http://r.789695.n4.nabble.com/KnitR-RMarkdown-Is-there-a-way-to-not-print-a-section-of-the-document-td4684262.html
+#Similarly, you can split a large input document into child documents in knitr, e.g. 
+
+<<chap1, child="chap1.Rnw">>= 
+@ 
+
+#You can comment out this chunk when you do not need it. Or control it programmatically, 
+
+<<setup, include=FALSE>>= 
+include_me = TRUE  # or FALSE 
+@ 
+
+.... 
+
+<<chap1, child=if (include_me) "chap1.Rnw">>= 
+@ 
+
 #How to use a child template in a knitr doc.
 #https://github.com/yihui/knitr-examples/blob/master/020-for-loop.Rnw
+
+#can also do a logical statement in the header
+<<include=(.p$env$val_type=='discrete')>>
 
 #---- supress messages ----#
 <<echo=FALSE, warning=FALSE, message=FALSE>>=
