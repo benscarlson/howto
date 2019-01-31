@@ -34,9 +34,9 @@ devtools::document()
 
 #' Downloads study metadata using movebank api
 #'
-#' @param studyid \code(integer) The id of the study
-#' @param userid \code(string) Movebank user id
-#' @return \code(tibble) A dataframe of information about the study
+#' @param studyid \code{integer} The id of the study
+#' @param userid \code{string} Movebank user id
+#' @return \code{tibble} A dataframe of information about the study
 #' @examples
 #' downloadStudy(<id>,"ben.s.carlson")
 #' @export
