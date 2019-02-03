@@ -117,12 +117,19 @@ scale_fill_continuous(
 #set the legend position first is x, second is y. for y, top is 1, bottom is 0
 theme(legend.position = c(.8, .8), legend.key = element_blank())
 
+#-- themes for faceting
+theme(strip.text = element_text(size=9)) #change font size on facets
+
 #-----
 # multipanel plots
 #-----
 
 #check out patchwork: https://www.r-bloggers.com/how-to-plot-with-patchwork/
 # https://github.com/thomasp85/patchwork/blob/master/README.md
+
+#-- Faceting
+facet_grid(vars(population),vars(term),scales='free_y',switch='y',space='free_y')
+facet_wrap(vars(group)) #one facet per group
 #-----
 # color palettes
 #-----
