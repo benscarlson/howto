@@ -69,17 +69,29 @@ devtools::build()
 #---- Testing
 #----
 
-#setting breakpoints
+#---- setting breakpoints
 devtools::document() #need to run document (and maybe build) to hit a breakpoint
 devtools::build()
 devtools::load_all() 
 #try this to load package. otherwise, can directly source the function.
 #then, directrly run a test case to walk through the code.
 
-#Unit tests: http://r-pkgs.had.co.nz/tests.html
+#---- Unit tests: http://r-pkgs.had.co.nz/tests.html
 devtools::use_testthat() #set up unit tests
 
-#manuall run a unit test
+#---- make files in tests/testthat:
+# e.g. make a file called test_myTests.r
+
+context('myTests')
+
+test_that('my test will work', {
+
+  expect_true(
+    1+1==2
+  )
+})
+
+#manually run a unit test
 devtools::document(); devtools::build(); devtools::load_all()
 library(testthat)
 #--> highlight and run the test
