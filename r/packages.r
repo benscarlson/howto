@@ -111,6 +111,6 @@ devtools::test()
 #if strange exports are into the NAMESPACE file, make sure that there are no roxygen comments masqurading as regular comments
 myfunction() {
   #' this will make weird exports!}
-  
+}
 # downloadStudy.Rd is missing name/title. Skipping
 # occurs if there is no description in roxygen block (i.e. the line "Download study metadata..." above)
