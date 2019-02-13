@@ -21,6 +21,12 @@ stocks <- data_frame(
 )
 stocks %>% gather(stock, price,-key)
 
+#another example. two columns, key, value columns will be created
+# based on dist2urban, etc.
+# the names of the column headers go into env_var
+# the values in the respective columns go into env_val
+gather(key=env_var,value=env_val,dist2urban,dist2water,pct_bare,pct_tree)
+
 #
 separate() #splits based on a delimiter
 extract(niche_group1, c("short_name1", "year1"), '([^ ]+)_(\\d{4}$)',remove=FALSE) #uses regular expression to split
