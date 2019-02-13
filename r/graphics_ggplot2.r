@@ -27,6 +27,7 @@ p + scale_fill_gradient('Timestamp',low = "grey", high = "blue", breaks=breaks, 
 
 #---- axes ----
 scale_x_continuous(expand=c(0,0)) #this removes padding between axis and data
+scale_x_continuous(limits=c(0,100)) #limit scale from 0 to 100
 scale_x_date() #this is prints out dates on axis
 
 #---- mapping aethetics ----
