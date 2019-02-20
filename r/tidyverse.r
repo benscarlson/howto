@@ -61,13 +61,21 @@ filter(!val %in% c('a','b')) #not in a, b
 dat %>% filter(complete.cases(.)) #only keep complete cases (rows with no NA)
 dat %>% distinct(x,y, .keep_all=TRUE) #remove duplicate x,y. take first unique row of x,y, keeping all other columns
 
+#-- scaling columns --#
+
+#This is how to do scale using dplyr and the base r scale function
+.vars <- vars(pct_tree,pct_bare,dist2urban,dist2water)
+
+dat1 <- dat0 %>%
+  group_by(niche_set) %>% #mutate_at will respect groups
+  mutate_at(.vars=.vars,.funs=funs(as.vector(scale(.)))) 
+
+#NOTE: this is the old mmethod for scaling columns
 #group dataset then apply a function to certain columns in each group
 dat1 <- dat0 %>%
   group_by(col_a) %>%
-  mutate_each(funs(myscale),-c(col_a)) #don't apply to col_a. NOTE: this is old method.
+  mutate_each(funs(myscale),-c(col_a)) #don't apply to col_a.
 
-db0 %>% #This is new way to apply myscale function by column
-  mutate_at(.vars=vars(-c(niche_group)), .funs=funs(myscale))
 
 lead(colname,1); lag(colname,1) #shift column forward or backward by one
 
