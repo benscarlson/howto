@@ -21,9 +21,12 @@ splancs::polymap(mymatrix) #plot a polygon for a [,2] matrix
 
 #---- ggmap ----
 
+#to use ggmap with sf, have to set inherit.aes=FALSE
+ggmap(m) +
+  geom_sf(data=popBox,inherit.aes = FALSE,aes(color=population))
+
 #-- api key
-#need to have development version of ggmap (2.7.900)
-#use devtools to install
+#need to have development version of ggmap
 
 #Example static maps call:
 #https://maps.googleapis.com/maps/api/staticmap?center=waco+texas&zoom=12&size=640x640&scale=2&maptype=terrain&key=<mykey>
