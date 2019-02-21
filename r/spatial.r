@@ -59,7 +59,27 @@ rast2 <- crop(rast,extent(pts),snap='out')
 
 pts <- st_as_sf(x=jun14, coords=c("lon", "lat"), crs=4326) #make sf object from data.frame
 
-centroid <- st_centroid(st_as_sfc(st_bbox(pts0))) #centroid of point dataset, get bbox, convert ot polygon, then get centroid of this polygon.
+#sfc is like a list (or "set") of 1 or more geometries
+sfc_centroid <- pts0 %>% #pts0 is an sf object
+  st_bbox %>% #bbox object
+  st_as_sfc %>% #sfc_POLYGON (a geometry set ("column") of sfc_POLYGON)
+  st_centroid #sfc_POINT (a geometry set ("column") of sfc_POINT)
+
+#same thing but not using piped workflow
+sfc_centroid <- st_centroid(st_as_sfc(st_bbox(pts0))) #centroid is an sfc_POINT object
+
+#st_coordinates returns a matrix of coordinates. I only have one point so get first row as a vector
+centroid <- st_coordinates(sfc_centroid)[1,] #returns a named vector c(X=<lon>,Y=<lat>)
+
+#get bounding boxes for groups of points. Quite convoluted.
+#https://stackoverflow.com/questions/54696440/create-polygons-representing-bounding-boxes-for-subgroups-using-sf/54699950#54699950
+popBox <- pts %>% #pts is an sf object with a grouping column called population
+  group_by(population) %>%
+  nest() %>%
+  mutate(bbox = map(data, ~st_as_sfc(st_bbox(.)))) %>% #resulting polygons have crs=4326
+  mutate(geometry = st_as_sfc(do.call(rbind, bbox),crs=4326)) %>% #need to specify crs, b/c it gets dropped #geometry is is a "Geometry set with 3 features"
+  select(-data, -bbox) %>% 
+  st_as_sf()
 
 #---------------------#     
 #---- Vector Data ----#
