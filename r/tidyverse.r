@@ -61,6 +61,8 @@ filter(!val %in% c('a','b')) #not in a, b
 dat %>% filter(complete.cases(.)) #only keep complete cases (rows with no NA)
 dat %>% distinct(x,y, .keep_all=TRUE) #remove duplicate x,y. take first unique row of x,y, keeping all other columns
 
+#---- Mutating ----#
+
 #-- scaling columns --#
 
 #This is how to do scale using dplyr and the base r scale function
@@ -76,10 +78,30 @@ dat1 <- dat0 %>%
   group_by(col_a) %>%
   mutate_each(funs(myscale),-c(col_a)) #don't apply to col_a.
 
+#-- mutate using dynamic column names --#
 
+envLab = 'my_col_name'
+mutate(!!envLab := !!as.name(envLab)*0.0001)
+
+#-- combine columns by taking the first non-na value --#
+dat %>% mutate(col=coalesce(col_a,col_b))
+
+#-- group_by/nest/map --#
+
+#for map, it's not required that the function called return a data.frame
+dat1 %>% group_by(short_name) %>% nest() %>% #makes list of data frames based on groups, store in 'data' column
+  mutate(kde95=purrr::map(data, ~kde95(.))) %>% #apply kde95 function to each data frame in 'data' column. kde95 returns a data.frame
+  unnest() #expand the nested kde95 dataframes
+
+#nested function call, 
+dat1 %>% group_by(short_name) %>% nest() %>%
+  mutate(mycol=map(data, ~funA(funB(.))))
+    
 lead(colname,1); lag(colname,1) #shift column forward or backward by one
 
 case_when() #like a switch statement that works inside mutate.
+
+#---- Filtering ----#
 
 #filter by multiple columns, multiple criteria
 #we only want (1, 'a') and (3, 'b') i.e. don't want (2,'a')
@@ -102,14 +124,9 @@ dat %>%
   group_by(individual_id,dte) %>%
   top_n(n=-1,wt=timestamp) %>% #-1 takes the first timestamp in the group
 
-#combine columns by taking the first non-na value
-dat %>% mutate(col=coalesce(col_a,col_b))
 
-#---- mutate ----#
 
-# mutate using dynamic column names
-envLab = 'my_col_name'
-mutate(!!envLab := !!as.name(envLab)*0.0001)
+
 
 #---- group_by/do and group_by/nest/map ----#
 
@@ -127,12 +144,7 @@ labelPoints <- sub %>%
   group_by(Country) %>%
   do(lastLoess(.))
 
-#for map, it's not required that the function called return a data.frame
-dat1 %>%
-  group_by(short_name) %>%
-  nest() %>% #makes list of data frames based on groups, store in 'data' column
-  mutate(kde95=purrr::map(data, ~kde95(.))) %>% #apply kde95 function to each data frame in 'data' column. kde95 returns a data.frame
-  unnest() #expand the nested kde95 dataframes
+
 
 #---- apply function to each row ----#
 
