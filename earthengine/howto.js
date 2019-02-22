@@ -136,7 +136,29 @@ Map.addLayer(img.select([0]).mask(msk),{palette:palette});
 var obj = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR") 
   .filterDate('2013-06-26', '2013-07-04')
 
-//Visulications
+//--------------------//
+//----- reducers -----//
+//--------------------//
+
+//-- to get crs and crsTransform, do getInfo on the projection object
+var proj = col.first().projection().getInfo();
+
+print(proj.crs);
+print(proj.transform);
+
+//-- reduceRegions
+var img2 = img1.reduceRegions(bbox,ee.Reducer.mean()); //simplest call to reduceRegions, will require crs,etc. in some situations.
+
+var img2 = img1
+  .reduceRegions({
+    collection:bbox,
+    reducer:ee.Reducer.mean(),
+    crs: proj.crs,
+    crsTransform:proj.transform });
+
+//--------------------//
+//---- Visualize -----//
+//--------------------//
 
 //color points by month
 var colors = ee.List (["ff5050","ff7d52","ffa852","ffd452","ffff52","d4ff52","a8ff52","7dff52","52ff52"])
