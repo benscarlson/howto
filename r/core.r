@@ -38,7 +38,7 @@ cut(c(1,2),breaks=c(1,2)) #makes factor level for groups based on breaks.
 factor(c(1,2,1,1),levels=c(1,2))
 factor(c(1,2,1,1),levels=c(2,1)) #changes order of levels
 factor(c(1,2,1,1),levels=c(2,1),labels=c('two','one')) #adds labels to levels
-
+factor(c(1,2,1,1),levels=c(99,1),labels=c('two','one')) #levels and labels will match. here, '2' will have NA b/c no level exists for it.
 #order of factor levels defaults to alphabetical
 f <- as.factor(rep(c('A','B'),10))
 levels(f) # "A" "B"
