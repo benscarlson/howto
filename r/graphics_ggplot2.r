@@ -26,8 +26,16 @@ p + scale_fill_gradient('Timestamp',low = "grey", high = "blue", breaks=breaks, 
 #   The first item is drawn first and the last item drawn last.
 
 #---- axes ----
-scale_x_continuous(expand=c(0,0)) #this removes padding between axis and data
+
+#-- axis limits
+xlim(0,100) #limit scale from 0 to 100
 scale_x_continuous(limits=c(0,100)) #limit scale from 0 to 100
+
+scale_x_continuous(expand=c(0,0)) #this removes padding between axis and data
+
+#-- formatting
+scale_x_continuous(labels=number_format(accuracy = 1, big.mark='')) #formats numbers to have no decimal place
+
 scale_x_date() #this is prints out dates on axis
 
 #---- mapping aethetics ----
@@ -83,6 +91,9 @@ theme(axis.text.x = element_text(angle = 45, hjust = 1))
 #----
 #---- Guides/legends ----
 #----
+
+#-- legend title
+labs(color='My Legend Title')
 
 #--- Remove legends
 
