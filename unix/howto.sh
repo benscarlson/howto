@@ -126,6 +126,14 @@ kill -9 <pid> #to kill the process
 ps -u bc447 #see processes owned by bc447
 top -U bc447 #use top to see processed owned by bc447
 
+#---- curl ----#
+#write session cookie to file then accept. note use of -c and -b
+curl -v -u <user>:<pass> -c cookies.txt -o license_terms.txt "https://www.movebank.org/movebank/service/direct-read?entity_type=event&study_id=685178886"
+
+md5 -r ~/scratch/license_terms.txt
+
+curl -v -u <user>:<pass> -b cookies.txt -o event_data.csv "https://www.movebank.org/movebank/service/direct-read?entity_type=event&study_id=685178886&license-md5=31bf56775d156bbc7aeb2986e00dff28" 
+
 #----------
 #   OSX   
 #----------
