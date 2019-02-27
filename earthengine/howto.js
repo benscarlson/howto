@@ -240,11 +240,11 @@ Export.image.toAsset({
 
 //---- export the results ----
 Export.table.toCloudStorage({
-    'collection': anno,
-    'description': taskName + '_' + group,
-    'bucket': gcsBucket,
-    'fileNamePrefix': gcsPath + '/' + fileName + group + '_',
-    'fileFormat' : 'csv'});
+    collection: anno,
+    description: taskName + '_' + group,
+    bucket: gcsBucket,
+    fileNamePrefix: gcsPath + '/' + fileName + group + '_',
+    fileFormat : 'csv'});
 
 Export.table.toDrive({
   collection: featureCollection,
