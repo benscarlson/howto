@@ -238,6 +238,14 @@ Export.image.toAsset({
   maxPixels:1e13
 });
 
+//---- export the results ----
+Export.table.toCloudStorage({
+    'collection': anno,
+    'description': taskName + '_' + group,
+    'bucket': gcsBucket,
+    'fileNamePrefix': gcsPath + '/' + fileName + group + '_',
+    'fileFormat' : 'csv'});
+
 Export.table.toDrive({
   collection: featureCollection,
   description: 'exportTableExample',
