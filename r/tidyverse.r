@@ -37,8 +37,9 @@ extract(niche_group1, c("short_name1", "year1"), '([^ ]+)_(\\d{4}$)',remove=FALS
 
 read_csv('my/path',col_types=cols()) # will not print out column types
 
-#----
+#----------------#
 #---- tibble ----#
+#----------------#
 
 #create row-wise data.frame
 tribble(
@@ -52,7 +53,7 @@ tribble(
 #---- dplyr ----#
 #---------------#
 
-#-- selecting columns --#
+#-- Selecting columns --#
 dat %>% select(my_col,everything()) #move my_col to the front of the df.
 
 dat %>% summarise_each(funs(sum(is.na(.)))) #see how many na values are in each row
@@ -85,6 +86,12 @@ mutate(!!envLab := !!as.name(envLab)*0.0001)
 
 #-- combine columns by taking the first non-na value --#
 dat %>% mutate(col=coalesce(col_a,col_b))
+
+#mutate to sum columns based on vector of column names
+dat <- tibble(a=sample(rep(c(1,0),3)),
+           b=sample(rep(c(1,0),3)),
+           c=sample(rep(c(1,0),3)))
+dat %>% mutate(num=rowSums(.[c('a','b')]))
 
 #-- group_by/nest/map --#
 
@@ -124,10 +131,6 @@ dat %>%
   group_by(individual_id,dte) %>%
   top_n(n=-1,wt=timestamp) %>% #-1 takes the first timestamp in the group
 
-
-
-
-
 #---- group_by/do and group_by/nest/map ----#
 
 #operate on a dataframe from group
@@ -145,22 +148,26 @@ labelPoints <- sub %>%
   do(lastLoess(.))
 
 
-
-#---- apply function to each row ----#
+#------------------#
+#---- purrrlyr ----#
+#------------------#
 
 #this will return a column called cal_name with the results of the function, by row
 library(purrrlyr)
 dat %>%
-  by_row(.to='col_name', ..f=function(r) {
-    r2 <- r#do something to r
-    return(r2)
+  by_row(.to='col_name', ..f=function(row) {
+    #row is a tibble with one row
+    row2 <- row#do something to r
+    return(row2)
   })
 
-#mutate to sum columns based on vector of column names
-dat <- tibble(a=sample(rep(c(1,0),3)),
-           b=sample(rep(c(1,0),3)),
-           c=sample(rep(c(1,0),3)))
-dat %>% mutate(num=rowSums(.[c('a','b')]))
+#if returning a dataframe
+dat %>%
+  by_row(function(row) {
+    #row is a tibble with one row
+    row2 <- tibble(x=1,y=2)
+    return(row2)
+  }) %>% unnest(.out)
 
 #---- Forcats ----#
 https://www.r-bloggers.com/cats-are-great-and-so-is-the-forcats-r-package/
