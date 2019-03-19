@@ -201,9 +201,20 @@ transform: List (6 elements)
 
 //From Hancher (subject: export global image to asset): 
 // "For a global export, what I generally do is specify this, with no "region":"
-crs: "EPSG:4326",
+//Strange, seems some of this was cut off??
+
+/*crs: "EPSG:4326",
   crsTransform: [scale, 0, -180, 0, -scale, 90],
-  dimensions: width + 'x' + height,
+  dimensions: width + 'x' + height,*/
+
+//Tyler Erickson on setting projection after doing ee.ImageCollection.reduce().
+/* This commonly trips people up... ee.ImageCollection.reduce() reduces the collection to a single element (image), but 
+because the collection may contain images with different CRSs, it does not assign a specific CRS to the resulting image.
+
+In the case that you do have a collection of images that share the same CRS, you can extract a sample image and use its 
+CRS for reduced image. Here is an example: https://code.earthengine.google.com/1e4dbac964b426cd4da1346333e7e507
+*/
+
 //------
 //------ exporting assets ------
 //------
