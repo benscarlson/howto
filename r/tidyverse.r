@@ -147,6 +147,37 @@ labelPoints <- sub %>%
   group_by(Country) %>%
   do(lastLoess(.))
 
+#-- Converting lists to dataframes 
+
+#dflist is a list of dataframes (or tibbles).
+# df_name is the name of the 'id' column. This is a column created that contains the 
+# appropriate value from names(dflist)
+
+bind_rows(dflist, .id='df_name')
+
+#---------------#
+#---- purrr ----#
+#---------------#
+
+#extract items from S4 slots. All but `@` should also work on non-S4 object
+# note S4 object can't select multiple 
+map(hvs@HVList, 'RandomPoints') #works
+map(hvs@HVList,`@`, 'RandomPoints') #works
+map(hvs@HVList, pluck, 'RandomPoints') #works
+
+map(mylist,`[`, 'col_a') #should work
+map(mylist,`[`, c('col_a','col_b')) #should work. note can select multiple items
+
+map_chr(hvs@HVList,'Name') #works. flattens the names into a vector
+
+#extracts slot 'RandomPoints' and then converts each item to a tibble
+hvs@HVList %>%
+  map('RandomPoints') %>%
+  map(as_tibble)
+
+#this does the same thing as above
+hvs@HVList %>% 
+  map(~as_tibble(pluck(.,'RandomPoints'))) 
 
 #------------------#
 #---- purrrlyr ----#
