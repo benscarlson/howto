@@ -12,6 +12,24 @@
 //haven't tried this, but should be how to clone my repo to local
 git clone https://earthengine.googlesource.com/users/benscarlson/default
 
+//---- Lists ----//
+
+//-- iterate
+// This makes a list [1,2,3,4,5]
+// and returns a single value, the sum of all items in the list (15)
+
+var lst = ee.List.sequence(1,5,1);
+print(lst);
+
+var runsum = lst.iterate(function(item,sum) {
+  item = ee.Number(item);
+  sum = ee.Number(sum);
+
+  return(sum.add(item));
+},0);
+
+print(runsum);
+
 
 //--------------------//
 //---- geometries ----//
