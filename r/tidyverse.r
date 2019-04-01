@@ -31,6 +31,13 @@ gather(key=env_var,value=env_val,dist2urban,dist2water,pct_bare,pct_tree)
 separate() #splits based on a delimiter
 extract(niche_group1, c("short_name1", "year1"), '([^ ]+)_(\\d{4}$)',remove=FALSE) #uses regular expression to split
 
+#-- nest
+
+#seems these do the same things. nest() will respect group_by
+# or, will make groups based on items that are not to be nested
+dat %>% group_by(id) %>% nest()
+dat %>% nest(-id) 
+
 #---------------#
 #---- readr ----#
 #---------------#
