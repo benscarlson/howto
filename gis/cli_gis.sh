@@ -46,8 +46,9 @@ gdal_merge.py -pct -n 0 -a_nodata 0 -co COMPRESS=DEFLATE -o out.tif in1.tif in2.
 #-- convert to different projection/coordinate system
 
 #-- important parameters
--co COMPRESS= #this will set compression
+-co COMPRESS=LZW #this will set compression
 -r near|cubic #this will set resampling 
+-t_srs '+init=epsg:3035' #note can define target projection using the espg code
 
 gdalwarp -t_srs '+proj=longlat +datum=WGS84 +no_defs' -co COMPRESS=LZW image.tif image_wgs84.tif
 
