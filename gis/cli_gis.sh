@@ -44,6 +44,11 @@ gdal_merge.py -pct -n 0 -a_nodata 0 -co COMPRESS=DEFLATE -o out.tif in1.tif in2.
 #Note on COMPRESS: LZW has same compressin ration as DEFLATE, but works on more software (like ArcGIS 9.x).
 
 #-- convert to different projection/coordinate system
+
+#-- important parameters
+-co COMPRESS= #this will set compression
+-r near|cubic #this will set resampling 
+
 gdalwarp -t_srs '+proj=longlat +datum=WGS84 +no_defs' -co COMPRESS=LZW image.tif image_wgs84.tif
 
 #convert to UTM 33N, and resample using cubic method
