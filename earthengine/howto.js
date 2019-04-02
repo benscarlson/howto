@@ -225,6 +225,11 @@ var viz = {bands: ['B3', 'B2', 'B1'], min: 0, max: 3000, gamma: 1.4};
 //--- Landsat 8 ---//
 var viz = {bands: ['B4', 'B3', 'B2'], min: 0, max: 3000,gamma: 1.4};
 
+//---- map legends ----//
+
+//https://gis.stackexchange.com/questions/290713/adding-map-key-to-map-or-console-in-google-earth-engine
+//https://mygeoblog.com/2016/12/09/add-a-legend-to-to-your-gee-map/
+
 //---- crs/crsTranform ----//
 
 //See here for detailed explaination from Matt Hancher for how to set crs/crsTransform
