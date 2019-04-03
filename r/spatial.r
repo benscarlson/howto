@@ -8,11 +8,15 @@ env <- raster('misc/tinamus_env.tif') #read raster
 writeRaster(env,'misc/tinamus_env.tif','GTiff') #write a raster to tif
 writeRaster(stk, filename=rastPF, bylayer=TRUE, format="raster",overwrite=TRUE) #write a stack as individual layers
 
+dataType(rast) #get the data type of the raster
+  
 nlayers(mystack) #number of RasterLayers in the RasterStack
 names(mystack) #the names of the RasterLayers in the RasterStack
+names(layer) <- 'layername' #set the name of RasterLayer to 'layername'
+
 extent(mystack) #extent of the RasterLayers in the RasterStack
 mystack[[1]] #extract the first RasterLayer from the RasterStack
-names(layer) <- 'layername' #set the name of RasterLayer to 'layername'
+
 ncell(layer) #number of cells
 calc(layer, function(x) { f(x) }) #apply function f to layer
 cellStats(layer,sum) #returns the sum of all cells in layer. can also use mean, min, etc.
@@ -23,10 +27,29 @@ env_tif <- raster('misc/tinamus_env.tif') #load the raster from tif
 raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of points (here, a SpatialPoints object)
 bbox(obj) #get the bounding box of spatial object obj
 
+freq(rast) #get a frequency table of values. useful for landcover layers
+click(rast) #can click on a plot of raster and inspect values
+
+#---- Color table & legend
+#What is a legend?
 rast@legend #if populated, this can hold a colortable (or color ramp) that can be used for plotting
+
+#colortable seems to be stored in legend object
+rast@legend@colortable ??
 colortable(rast) #access to the colortable stored in rast@legend
 
-#---- create a rat from colortable and labels file
+#-- create a and assign a color table based on legend csv file
+#TODO: maybe make into function and move to bencmisc
+legend <- read_csv('~/projects/gis-data/dfd_lulc/DFD-LULC_DE2014_subset_legend.csv')
+#This assigns a color table to a raster
+# a color table is a vector of 256 colors (colors are hex values)
+# https://www.rdocumentation.org/packages/raster/versions/2.8-19/topics/colortable
+# strange but I can't figure out how to do this using gdal
+ctab <- rep(rgb(0,0,0),256)
+ctab[legend$value+1] <- tuple2hex(legend$color_rgb) #table is 0 based, so add 1 to each value
+colortable(land_use) <- ctab
+
+#-- create a rat from colortable and labels file
 # the colortable from the raster is 0-based (0 to 255), but R is 1-based (1 to 256)
 # so, need to make ID from 0 to 255
 ct <- colortable(rast)
@@ -57,9 +80,24 @@ rast2 <- crop(rast,extent(pts),snap='out')
 #http://strimas.com/r/tidy-sf/
 #http://pierreroudier.github.io/teaching/20170626-Pedometrics/20170626-soil-data.html
 
-pts <- st_as_sf(x=jun14, coords=c("lon", "lat"), crs=4326) #make sf object from data.frame
+#-- make sf object from data.frame
+pts <- st_as_sf(x=jun14, coords=c("lon", "lat"), crs=4326) 
 
-#https://github.com/r-spatial/sf/issues/231
+#-- make a data.frame from an sf object
+#TODO: move this into github or bencmisc
+#based on function that comes from here: https://github.com/r-spatial/sf/issues/231
+sfc_as_cols <- function(x, names = c("x","y")) {
+  stopifnot(inherits(x,"sf") && inherits(sf::st_geometry(x),"sfc_POINT"))
+  ret <- sf::st_coordinates(x)
+  ret <- tibble::as_tibble(ret)
+  stopifnot(length(names) == ncol(ret))
+  x <- x[ , !names(x) %in% names]
+  ret <- setNames(ret,names)
+  
+  ret <- dplyr::bind_cols(x,ret)
+  
+  ret <- st_set_geometry(ret, NULL) #this removes geometry column and turns back into data frame
+}
 
 #sfc is like a list (or "set") of 1 or more geometries
 sfc_centroid <- pts0 %>% #pts0 is an sf object
