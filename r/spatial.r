@@ -59,6 +59,8 @@ rast2 <- crop(rast,extent(pts),snap='out')
 
 pts <- st_as_sf(x=jun14, coords=c("lon", "lat"), crs=4326) #make sf object from data.frame
 
+#https://github.com/r-spatial/sf/issues/231
+
 #sfc is like a list (or "set") of 1 or more geometries
 sfc_centroid <- pts0 %>% #pts0 is an sf object
   st_bbox %>% #bbox object
