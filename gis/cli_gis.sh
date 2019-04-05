@@ -94,6 +94,7 @@ ogrinfo -ro -so -al myfile.shp #list important metadata
 
 ogr2ogr -f GeoJSON myfile.geojson myfile.shp #convert shp to geojson
 
+ogrinfo -so -al $dsn/$shp | grep Extent #get the extent. Must be lower left, upper right
 
 #---- Configuration ----
 
