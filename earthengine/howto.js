@@ -64,9 +64,12 @@ var bbox = pts_fc.geometry().bounds();
 //---- ee.FeatureCollection ----//
 //----
 
+//Create an fc
 var fc = ee.FeatureCollection( //can also construct with single geometry, or list of geometries, list of features
   ee.Feature(
     ee.Geometry.Point([12.0756,52.1151])));
+
+var bbox = fc.geometry().bounds(); //This gets the bbox of an fc. Fails at large number of pts.
 
 //----
 //---- ee.ImageCollection ----//
