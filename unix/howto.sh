@@ -47,6 +47,10 @@ chmod 755 y.txt # -rwxr-xr-x
 chmod 777 y.txt # -rwxrwxrwx
 chmod 600 y.txt # -rw-------
 
+#---- executing files ----#
+chmod 755 ~/projects/rsf/src/scripts/report_runcopy.r #make file executeable
+ln -s ~/projects/rsf/src/scripts/report_runcopy.r knitcopy #make a softlink in ~/bin
+
 #---- file archives ----#
 zipinfo -1 file.zip #list files (and dir structure) in archive
 
