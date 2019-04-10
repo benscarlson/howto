@@ -27,6 +27,9 @@ for asset in $assets; do
     earthengine mv $asset $dest
 done
 
+#or, try this approach (taken from gee list)
+earthengine upload image --asset_id=projects/myProject/imgMosaic  $(gsutil ls gs://bucketName/*.tif) 
+
 #---- delete assets ----#
 earthengine rm -r projects/map-of-life/benc/l8sr_ndvi_loburg_sum14_new --dry_run #use dry_run to see what would be deleted
 
