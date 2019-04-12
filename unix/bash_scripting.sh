@@ -21,6 +21,10 @@ echo ${filePF##*/} #file.txt
 fn=${filePF##*/} #gets the file name
 echo ${fn%.csv} #strips off file extenstion. useful for getting dsn
 
+#---- pass in arguments ----#
+
+#use getopts: https://www.lifewire.com/pass-arguments-to-bash-script-2200571
+
 #-- export command --#
 # export will make variable available to child processes
 shellvar=1
