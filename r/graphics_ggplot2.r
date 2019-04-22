@@ -132,6 +132,9 @@ theme(legend.position = c(.8, .8), legend.key = element_blank())
 #-- themes for faceting
 theme(strip.text = element_text(size=9)) #change font size on facets
 
+#---- PCA ----#
+https://github.com/vqv/ggbiplot
+
 #-----
 # multipanel plots
 #-----
