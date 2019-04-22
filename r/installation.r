@@ -35,6 +35,32 @@ checkInstalled <- function(libs) {
     writeLines(sprintf('Is %s installed? %s',lib,inst))
   }
 }
+
+#---- finding r from a script ----#
+#
+#Q: is there an equivalent way to find these from the bash command line? i.e., an environment variable that specifies where 
+#the R libraries are installed if $R_LIBS and $R_LIBS_USER are not set? (I want to be able to execute an R script in the inst/ directory of an installed package) on any Unix system. – David LeBauer Jan 7 '14 at 18:07 
+
+#A: Bubble the problem up: define R_LIBS / R_LIBS_USER somewhere else both your script and R can access -- maybe ~/.bashrc or /etc/environment. – Dirk Eddelbuettel Jan 7 '14 at 18:22
+
+#Can access library using: 
+
+R_HOME/library
+
+#RHOME is:
+/Library/Frameworks/R.framework/Resources
+
+#This points to:
+
+/Library/Frameworks/R.framework/Versions/Current/Resources
+
+#Which contains:
+
+/Library/Frameworks/R.framework/Versions/Current/Resources/library
+
+#.libPaths points to this, maybe this is the same thing?
+/Library/Frameworks/R.framework/Versions/3.5/Resources/library
+
 #---- r configuration ----
 
 #r 3.2.3 looks like it was installed by homebrew to /usr/local/Cellar/r/3.2.3. 'Cellar' is where brew puts your 'kegs'
