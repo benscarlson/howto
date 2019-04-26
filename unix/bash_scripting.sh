@@ -3,6 +3,10 @@ MYFOLDER='folder_name'
 ls $MYFOLDER #lists all files in folder_name
 echo ls $MYFOLDER #see the resulting command
 
+#set variable to output of a command. Either method below works.
+numlines1=$(cat $dat | wc -l)
+numlines1=`cat $dat | wc -l`
+
 #variable contains a list of files (seperated by space)
 # can be used as input to commands that take a 1 to n file names
 files=`ls`
@@ -32,6 +36,15 @@ export envvar=2
 bash #spawn child process
 echo $shellvar #nothing
 echo $envvar #prints '2'
+
+#--- if/then statements ----#
+if [ "$dat" == "$datPath" ]; then
+  dlP=raw
+else
+  dlP=$datPath/raw
+fi
+
+if [$nline1 -ne $nline2]; then echo 'Number of rows is not equal!'
 
 #--- loop through an array ---#
 declare -a arr=("50N_010E" "50N_010E" "60N_000E" "60N_010E")
