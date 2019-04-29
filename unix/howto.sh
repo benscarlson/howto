@@ -166,6 +166,6 @@ sudo rm -r 'My Book' #clean up after automount might not need this, now mount po
 
 #---- homebrew ----#
 brew list #list packages
-brew list --version #also list package versions
+brew list --versions #also list package versions
 brew upgrade <package> #upgrade a package
 
