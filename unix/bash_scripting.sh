@@ -1,3 +1,8 @@
+#---- run a bash script from commandline ----#
+#!/bin/bash #put this at the beginning of the line
+chmod 755 myscript.sh
+ln -s ~/myscript.sh myscript #make a softlink in ~/bin
+
 #create and use a variable
 MYFOLDER='folder_name'
 ls $MYFOLDER #lists all files in folder_name
