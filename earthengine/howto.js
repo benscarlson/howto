@@ -99,6 +99,9 @@ var img = ee.Image().toByte().paint(fc, "ID");
 
 var img = ee.Image().toByte().paint(fc, 1); //paint a 1 into the pixels. Unpainted pixels will be masked.
 
+//Look at this code for how to export a histogram
+//https://code.earthengine.google.com/259b086d689ff91d28afbed5041f61f7
+
 //----
 //---- Masking
 //---- 
