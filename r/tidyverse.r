@@ -86,10 +86,18 @@ dat1 <- dat0 %>%
   group_by(col_a) %>%
   mutate_each(funs(myscale),-c(col_a)) #don't apply to col_a.
 
-#-- mutate using dynamic column names --#
+#-- tidy evaluation --#
 
+#note use of dynamic column name
 envLab = 'my_col_name'
 mutate(!!envLab := !!as.name(envLab)*0.0001)
+
+#these also work
+envName <- quo(dist2forest)
+dat %>% select(!!envName)
+
+envName <- quo(!!sym('dist2forest'))
+dat %>% select(!!envName)
 
 #-- combine columns by taking the first non-na value --#
 dat %>% mutate(col=coalesce(col_a,col_b))
