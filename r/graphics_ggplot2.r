@@ -112,6 +112,8 @@ scale_color_discrete(name='My legend title') #use this if the legend variable is
 
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
 
+theme(legend.background = element_rect(color='black',size=0.3)) #put a black box around legend
+
 #set legend font size
 theme(
   legend.text = element_text(size = 8),
