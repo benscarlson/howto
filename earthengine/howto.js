@@ -112,6 +112,8 @@ var img = ee.Image().toByte().paint(fc, 1); //paint a 1 into the pixels. Unpaint
 .unmask() // turns any currently masked pixels into a value, 0 by default. can pass a value in
 var msk = img.select([0]).gt(0); //create a mask
 
+//Exporting NAs: try casting to float, then exported tif may have NA values.
+
 //----
 //---- date/time ----
 //----
