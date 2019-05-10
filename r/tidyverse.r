@@ -174,6 +174,22 @@ bind_rows(dflist, .id='df_name')
 #---- purrr ----#
 #---------------#
 
+#map or walk can use shortcut ~ instead of function(x). so these are all the same
+map(lst, function(.) { print(.) }) #just like lapply
+map(lst,~{ print(.)}) #just like above, but using ~ for function(.)
+map(lst, function(.) print(.) ) #just like lapply
+map(lst,~print(.)) #just like above, but using ~ for function(.)
+
+
+
+
+
+#walk is like map, but does not return values. Use this if printing or plotting
+walk(hvs@HVList,~{
+  plot(.,show.density=FALSE,show.random=FALSE,show.data=FALSE)
+  #print(.)
+})
+
 #extract items from S4 slots. All but `@` should also work on non-S4 object
 # note S4 object can't select multiple 
 map(hvs@HVList, 'RandomPoints') #works
