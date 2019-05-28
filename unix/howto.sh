@@ -53,7 +53,9 @@ chmod 755 ~/projects/rsf/src/scripts/report_runcopy.r #make file executeable
 ln -s ~/projects/rsf/src/scripts/report_runcopy.r knitcopy #make a softlink in ~/bin
 
 #---- file archives ----#
+
 zipinfo -1 file.zip #list files (and dir structure) in archive
+unzip -Zt file.zip #list the total uncompressed file size
 
 unzip file.zip -d my_folder #unzip a zip to a specific folder (useful to extract a large file directly to external drive)
 unzip file.zip filename.tif #extract just filename.tif from the archive
