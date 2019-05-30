@@ -36,6 +36,7 @@ gdal_edit.py -a_nodata 255 pct_tree_30m.tif #set nodata value
 #---- transform rasters ----
 
 #-- mosiac rasters
+
 gdal_merge.py -pct -n 0 -a_nodata 0 -co COMPRESS=DEFLATE -o out.tif in1.tif in2.tif
 -pct #this takes the color table from the first input and applies to to output
 -n 0 #this tells merge to ignore these values from input rasters (i.e. treat as no data)
@@ -45,20 +46,16 @@ gdal_merge.py -pct -n 0 -a_nodata 0 -co COMPRESS=DEFLATE -o out.tif in1.tif in2.
 
 #-- convert to different projection/coordinate system
 
-#-- important parameters
--co COMPRESS=LZW #this will set compression
--r near|cubic #this will set resampling 
--t_srs '+init=epsg:3035' #note can define target projection using the espg code
-
 gdalwarp -t_srs '+proj=longlat +datum=WGS84 +no_defs' -co COMPRESS=LZW image.tif image_wgs84.tif
+
+-t_srs '+init=epsg:3035' #note can define target projection using the espg code
+-t_src EPSG:3035 #can also use EPSG code to specify projection
+-co COMPRESS=LZW #this will set compression
+-r near|cubic #this will set resampling. default might be 'near'
+-dstnodata 0 #set 0 to nodata value. if nodata is set on input image, it will also be set on output
 
 #convert to UTM 33N, and resample using cubic method
 gdalwarp -t_srs '+proj=utm +zone=33 +ellps=WGS84 +units=m +no_defs' -r cubic image.tif image_utm33N.tif
-#other parameters
--dstnodata 0 #set 0 to nodata value. if nodata is set on input image, it will also be set on output
--r near #use nearest neighbor resampling (I think this is the default)
--t_src EPSG:3035 #can also use EPSG code to specify projection
--co COMPRESS=LZW #LZW compression. 
 
 #-- aligning grids
 # to make sure images have the same target grid, use tap
