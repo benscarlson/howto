@@ -240,6 +240,10 @@ var viz = {bands: ['B4', 'B3', 'B2'], min: 0, max: 3000,gamma: 1.4};
 
 //---- crs/crsTranform ----//
 
+//From Genna: If you need to preview how results will look like at specufic scale - resproject you image before 
+// adding to map, image.reproject(ee.Projection('EPSG:3857').atScale(100)), this may break computation if you zoom out 
+// too much. 
+
 //See here for detailed explaination from Matt Hancher for how to set crs/crsTransform
 //Subject: 'Assets and CRSs, how to use them properly in GEE?'
 //https://goo.gl/y76A2f
