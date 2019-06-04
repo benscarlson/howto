@@ -22,6 +22,9 @@ rvm install ruby-2.4.2
 #--- brew ---#
 #------------#
 
+brew info <package> #lists a bunch of info about package, including install directory
+brew list versions #list versions of all installed packages
+
 #-------------------------------#
 #--- software install/config ---#
 #-------------------------------#
