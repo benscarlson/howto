@@ -18,15 +18,23 @@
   
 rvm install ruby-2.4.2
 
+#------------#
+#--- brew ---#
+#------------#
+
 #-------------------------------#
 #--- software install/config ---#
 #-------------------------------#
 
 brew install miller
-brew upgrade gdal
 
+brew upgrade gdal #install gdal using brew 2019-06-04
+
+#install qgis using osgeo brew tap
 brew tap osgeo/osgeo4mac
 ulimit -n 1024
-brew install osgeo/osgeo4mac/qgis
+brew install osgeo/osgeo4mac/qgis #this didn't work
+
+brew install osgeo-qgis #tried this instead
 
 
