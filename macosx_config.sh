@@ -18,11 +18,15 @@
   
 rvm install ruby-2.4.2
 
-#------------#
-#--- brew ---#
-#------------#
+#-------------------------------#
+#--- software install/config ---#
+#-------------------------------#
 
 brew install miller
 brew upgrade gdal
+
 brew tap osgeo/osgeo4mac
+ulimit -n 1024
 brew install osgeo/osgeo4mac/qgis
+
+
