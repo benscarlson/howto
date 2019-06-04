@@ -24,3 +24,5 @@ rvm install ruby-2.4.2
 
 brew install miller
 brew upgrade gdal
+brew tap osgeo/osgeo4mac
+brew install osgeo/osgeo4mac/qgis
