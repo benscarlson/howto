@@ -123,14 +123,7 @@ print(ee.Date('2014-06-02'));
 print(ee.Date('2014-06-02T05:50:06Z'));
 print(img.get('system:time_start_str')).format('yyyy-MM-dd HH:mm:ss') //print a date object as a string
 
-
-//function to set human-readable timestamps on a collection. Note this makes Date objects, not strings!
-function textTs(img) {
-  return img
-    .set('time_start', ee.Date(img.get('system:time_start')))
-    .set('time_end', ee.Date(img.get('system:time_end')));
-}
-mycol = mycol.map(textTs);
+mydate.getRelative('day','year'); //get doy
 
 //-------------------//
 //---- filtering ----//
