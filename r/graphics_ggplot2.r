@@ -151,6 +151,24 @@ https://github.com/vqv/ggbiplot
 #check out patchwork: https://www.r-bloggers.com/how-to-plot-with-patchwork/
 # https://github.com/thomasp85/patchwork/blob/master/README.md
 
+#----
+# patchwork
+#----
+
+#-- use patchwork with a list of plots
+#TODO: should be able to do this using map()
+
+plots <- list()
+
+for(item in items) {
+
+  p <- ggplot(dat) + etc...
+  
+  plots[[item]] <- p
+}
+
+p <- wrap_elements(wrap_plots(plots,nrow=3))
+
 #-- Faceting
 facet_grid(vars(population),vars(term),scales='free_y',switch='y',space='free_y')
 facet_wrap(vars(group)) #one facet per group
