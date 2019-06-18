@@ -36,13 +36,14 @@ as.POSIXct('2017-06-27', tz='US/Eastern') #class(): "POSIXct" "POSIXt" print(): 
 as.Date('2017-06-27', tz='US/Eastern') # class(): "Date". print(): "2017-06-27"
 OlsonNames() #get the names of timezones for the tz attribute
 
-
+#---- excel ----#
 =TEXT(C2,"yyyy-mm-ddThh:MM:ssZ") #convert excel date to ISO formatted timestamp
 
 #---- lubridate ----
 # number of months (roughly) between two dates
 interval(as.Date(timestamp1),as.Date(timestamp2)) %/% months(1) #%/% means integer division
 interval(dte1, dte2)/years(1) #number of years between two dates
+ydat(today()) #get day of year
 
 #---- timing ----
 ptm <- proc.time() 
