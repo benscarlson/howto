@@ -123,17 +123,7 @@ eval(as.symbol("x")) #--> prints 5
 sin(pi/2) #--> 1
 get('sin')(pi/2) #--> 1
 
-#---- run R from command line ----
-R CMD BATCH test.r #run file test.R from the command line
-R --slave -f test.r #also run from the command line
-Rscript <script_name.r>
-
-# get commandline arguments within a script
-args <- commandArgs(trailingOnly=TRUE)
-datName <- args[1]
-if(is.na(datName)) stop('datName required')
-
-
+#---- save r objects ----
 saveRDS(object,path) #save an object to an RDS file 
 
 #infix operators
