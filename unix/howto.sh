@@ -45,11 +45,12 @@ chown -R benc:benc data #change the user and group permissions for folder "data"
 #read is 4, write is 2, execute is 1
 chmod 666 y.txt # -rw-rw-rw
 chmod 755 y.txt # -rwxr-xr-x
+chmod 744 y.txt # -rwxr--r--
 chmod 777 y.txt # -rwxrwxrwx
 chmod 600 y.txt # -rw-------
 
 #---- executing files ----#
-chmod 755 ~/projects/rsf/src/scripts/report_runcopy.r #make file executeable
+chmod 744 ~/projects/rsf/src/scripts/report_runcopy.r #make file executeable
 ln -s ~/projects/rsf/src/scripts/report_runcopy.r knitcopy #make a softlink in ~/bin
 
 #---- file archives ----#
