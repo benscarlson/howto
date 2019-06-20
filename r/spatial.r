@@ -111,6 +111,11 @@ sfc_centroid <- st_centroid(st_as_sfc(st_bbox(pts0))) #centroid is an sfc_POINT 
 #st_coordinates returns a matrix of coordinates. I only have one point so get first row as a vector
 centroid <- st_coordinates(sfc_centroid)[1,] #returns a named vector c(X=<lon>,Y=<lat>)
 
+#make a bbox shapefile from a set of sf points
+dsn <- file.path(.pd,'data/lbg_bbox')
+dir.create(dsn)
+pts %>% st_bbox %>% st_as_sfc %>% st_write(file.path(dsn,'lbg_bbox.shp'))
+
 #get bounding boxes for groups of points. Quite convoluted.
 #https://stackoverflow.com/questions/54696440/create-polygons-representing-bounding-boxes-for-subgroups-using-sf/54699950#54699950
 popBox <- pts %>% #pts is an sf object with a grouping column called population
