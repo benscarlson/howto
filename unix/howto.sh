@@ -11,6 +11,7 @@ dpkg -i debfile.deb #install a .deb file
 
 ls -lh #human-readable file sizes
 du -h mydir #total size of directory
+du -h myfile.txt #size of file in human-readable units
 
 #Reading output from ls
 # This basically says, interpreting this from RIGHT to LEFT that the file, linux_course_notes.txt was created at 6:30 PM on July 10 and is 1892 bytes large. 
