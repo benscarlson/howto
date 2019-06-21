@@ -14,7 +14,8 @@ git clone https://earthengine.googlesource.com/users/benscarlson/default
 
 //---- Lists ----//
 
-//-- iterate
+//---- iterate and return a single value --
+
 // This makes a list [1,2,3,4,5]
 // and returns a single value, the sum of all items in the list (15)
 
@@ -29,6 +30,23 @@ var runsum = lst.iterate(function(item,sum) {
 },0);
 
 print(runsum);
+
+//--- iterate and accumulate in a list
+//  kind of like cumsum in R
+var lst = ee.List([1,2,3]);
+var first = ee.List([0]);
+
+var accumulate = function(val,list){
+  //we are building up 'list' that is started with 'first'
+  //so, get(-1) always gets the last item in the list that we are building up
+  var prev = ee.Number(ee.List(list).get(-1));
+  var added = ee.Number(val).add(prev);
+  return ee.List(list).add(added);
+};
+
+var mysums = lst.iterate(accumulate,first);
+
+print(mysums);
 
 
 //--------------------//
