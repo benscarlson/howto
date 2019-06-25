@@ -55,8 +55,8 @@ getOption('a') #get value for option a
 system.file("external/test.grd", package="raster")
 
 #after updating the package, do this in rstudio
-devtools::document()
-devtools::build()
+devtools::document(); devtools::build()
+R CMD INSTALL ~/projects/anno_0.1.0.tar.gz
 
 #---- where to put r scripts ----#
 
