@@ -69,6 +69,8 @@ R CMD INSTALL ~/projects/anno_0.1.0.tar.gz
 # use .onLoad function, put into a file called zzz.r
 # See "When you do need side-effects" in http://r-pkgs.had.co.nz/r.html#style
 
+/ignore #put files or folders here that should not be installed
+
 #----
 #---- Testing
 #----
