@@ -71,6 +71,7 @@ dat %>% distinct(x,y, .keep_all=TRUE) #remove duplicate x,y. take first unique r
 
 #---- Mutating ----#
 
+mutate(id=row_number()) #add row number to 
 #-- scaling columns --#
 
 #This is how to do scale using dplyr and the base r scale function
