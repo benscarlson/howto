@@ -197,6 +197,8 @@ var img2 = img1
 //---- Visualize -----//
 //--------------------//
 
+Map.addLayer(pts,{color: 'BA1E01'}) //color points reddish color
+
 //color points by month
 var colors = ee.List (["ff5050","ff7d52","ffa852","ffd452","ffff52","d4ff52","a8ff52","7dff52","52ff52"])
 var result = pb_20982_2008.map(function(f){
