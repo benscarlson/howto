@@ -33,6 +33,9 @@ echo ${fn%.csv} #strips off file extenstion. useful for getting dsn
 #---- pass in arguments ----#
 
 #use getopts: https://www.lifewire.com/pass-arguments-to-bash-script-2200571
+#https://stackoverflow.com/questions/11742996/shell-script-is-mixing-getopts-with-positional-parameters-possible
+#https://web.archive.org/web/20130927000512/http://www.devhands.com/2010/01/handling-positional-and-non-positional-command-line-arguments-from-a-shell-script/
+#https://sookocheff.com/post/bash/parsing-bash-script-arguments-with-shopts/
 
 #-- export command --#
 # export will make variable available to child processes
