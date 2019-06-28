@@ -40,7 +40,7 @@ scale_x_continuous(expand=c(0,0)) #this removes padding between axis and data
 
 #-- formatting
 scale_x_continuous(labels=number_format(accuracy = 1, big.mark='')) #formats numbers to have no decimal place
-
+scale_x_continuous(labels = function(x) format(as.Date(as.character(x), "%j"), "%d-%b")) #x is doy, prints 'Month-Day' on axis
 scale_x_date() #this is prints out dates on axis
 
 #---- mapping aethetics ----
