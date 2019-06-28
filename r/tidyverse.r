@@ -76,6 +76,7 @@ mutate(id=row_number()) #add row number as a column (good for unique id). CAREFU
 
 #This is how to do scale using dplyr and the base r scale function
 .vars <- vars(pct_tree,pct_bare,dist2urban,dist2water)
+.vars <- c('pct_tree','pct_bare') #Also works
 
 dat1 <- dat0 %>%
   group_by(niche_set) %>% #mutate_at will respect groups
@@ -94,6 +95,9 @@ envLab = 'my_col_name'
 mutate(!!envLab := !!as.name(envLab)*0.0001)
 
 #these also work
+envNames <- c('env1','env2')
+dat %>% select(!!envNames)
+
 envName <- quo(dist2forest)
 dat %>% select(!!envName)
 
