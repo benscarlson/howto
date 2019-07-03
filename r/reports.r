@@ -163,4 +163,9 @@ https://www.sharelatex.com/learn/Page_size_and_margins
 
 <<echo=FALSE, warning=FALSE, message=FALSE, out.width='6in', fig.height=6>>=
 
+#---- TOC ----#
+#https://www.latex-tutorial.com/tutorials/table-of-contents/
+#https://tex.stackexchange.com/questions/337083/latex-table-of-contents-not-visible-in-sidebar-of-pdf-viewer
+#
+
 
