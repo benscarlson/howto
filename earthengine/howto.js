@@ -120,6 +120,9 @@ var img = ee.Image().toByte().paint(fc, 1); //paint a 1 into the pixels. Unpaint
 //Look at this code for how to export a histogram
 //https://code.earthengine.google.com/259b086d689ff91d28afbed5041f61f7
 
+//---- generate grids ----//
+//https://code.earthengine.google.com/140d61ef71730ea7ce38c85f5705497e
+
 //----
 //---- Masking
 //---- 
