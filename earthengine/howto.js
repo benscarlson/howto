@@ -377,3 +377,7 @@ function maskS2clouds(image) {
 
   return image.updateMask(mask).divide(10000);
 }
+
+//--- Functions and modules ----//
+//Implement default parameters
+//https://code.earthengine.google.com/c55646044eee3eee72409be885521e0f
