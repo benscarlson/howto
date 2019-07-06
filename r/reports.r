@@ -1,4 +1,5 @@
-#https://bookdown.org/yihui/rmarkdown/
+#Bookdown: https://bookdown.org/yihui/rmarkdown/
+#Modeldown: http://smarterpoland.pl/index.php/2019/06/modeldown-is-now-on-cran/
 
 #----------
 # rmarkdown
