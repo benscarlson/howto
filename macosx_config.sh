@@ -40,4 +40,11 @@ brew install osgeo/osgeo4mac/qgis #this didn't work
 
 brew install osgeo-qgis #tried this instead
 
+#----
+#--- Mac-specific configuration ---#
+#---
 
+#prefs (.plist) are stored in two places
+#https://www.makeuseof.com/tag/hidden-mac-settings-defaults-command/
+~/Library/Preferences/ #user prefs
+/Library/Preferences/ #system-wide prefs
