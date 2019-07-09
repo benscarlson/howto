@@ -1,3 +1,6 @@
+sqlite3 path/to/database.db
+.databases #show attached databases
+.tables #show the tables
 
 INTEGER PRIMARY KEY - This will reference the rowid, an autoincrementing integer that is automatically created 
 
