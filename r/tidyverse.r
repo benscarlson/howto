@@ -123,7 +123,13 @@ dat1 %>% group_by(short_name) %>% nest() %>% #makes list of data frames based on
 #nested function call, 
 dat1 %>% group_by(short_name) %>% nest() %>%
   mutate(mycol=map(data, ~funA(funB(.))))
-    
+
+#can pass in data from multiple columns. refer to .x and .y inside the function
+dat %>% mutate(x=map2(.x=col1,.y=col2, ~{.x + .y}))
+#try out pmap to pass in n parameters
+
+#---- other stuff? ----#
+
 lead(colname,1); lag(colname,1) #shift column forward or backward by one
 
 case_when() #like a switch statement that works inside mutate.
@@ -185,7 +191,7 @@ map(lst,~{ print(.)}) #just like above, but using ~ for function(.)
 map(lst, function(.) print(.) ) #just like lapply
 map(lst,~print(.)) #just like above, but using ~ for function(.)
 
-
+#can also pass in more than one 
 
 
 
@@ -219,6 +225,8 @@ hvs@HVList %>%
 #---- purrrlyr ----#
 #------------------#
 
+#NOTE: seems this approach is deprecated in favor of the nest/mutate/map approach
+    
 #this will return a column called cal_name with the results of the function, by row
 library(purrrlyr)
 dat %>%
