@@ -196,6 +196,9 @@ var img2 = img1
     crs: proj.crs,
     crsTransform:proj.transform });
 
+//code to export histogram from Noel
+//https://code.earthengine.google.com/8fb0aa4de96c653c98728e1fb6293c60
+
 //--------------------//
 //---- Visualize -----//
 //--------------------//
