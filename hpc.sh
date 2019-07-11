@@ -16,12 +16,17 @@
 
 #---- R configuration ----
 
-#in login node
-module load Apps/R
-#run R, then do install.packages()
+#-- install required packages
+# can do this in the login node
+module avail R #find the most recent version of R
+#module load Apps/R
+module load Apps/R/3.5.1-generic
+#run R, then do install.packages() for all the packages you need
 
-/gpfs/apps/hpc.rhel6/Apps/R/3.2.2-generic/lib/R/library #location of system r packages
-~/R/x86_64-pc-linux-gnu-library/3.2 #personal library
+
+#This is old, for 3.2. Prolly similar for 3.5
+#/gpfs/apps/hpc.rhel6/Apps/R/3.2.2-generic/lib/R/library #location of system r packages
+#~/R/x86_64-pc-linux-gnu-library/3.2 #personal library
 
 #---- configuration ----#
 #nodes on grace-next have 20 cores each
@@ -60,6 +65,7 @@ scancel <jobid>
 #test an mpi parallel script in interactive queue
 srun --pty -p interactive -n 4 bash #request four tasks in the interactive queue
 module load Apps/R
+module load Apps/R/3.5.1-generic
 module load Rpkgs/DOMPI
 mpirun -n 4 R --slave -f myscript.r #use mpi run to kick off the script using four parallel processes
 mpirun -np 1 #only start script on one task
