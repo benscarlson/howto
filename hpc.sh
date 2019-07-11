@@ -2,6 +2,16 @@
 #---- grace ----
 #--------------------
 
+#---- git configuration ----#
+
+#-- github
+# 1) use public key at ~/.ssh/id_rsa.pub
+# 2) add this as an ssh key to github: https://github.com/settings/keys
+# 3) need to do this for each computer/cluster you want to use to access github
+
+#-- bitbucket 
+#https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
+
 #---- R configuration ----
 
 #in login node
@@ -10,9 +20,6 @@ module load Apps/R
 
 /gpfs/apps/hpc.rhel6/Apps/R/3.2.2-generic/lib/R/library #location of system r packages
 ~/R/x86_64-pc-linux-gnu-library/3.2 #personal library
-
-#set up ssh key for grace-next using these instructions 
-#https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
 
 #---- configuration ----#
 #nodes on grace-next have 20 cores each
