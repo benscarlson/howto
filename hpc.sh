@@ -4,10 +4,12 @@
 
 #---- git configuration ----#
 
+# need to set up key for computer/cluster you want to use to access github
+
 #-- github
 # 1) use public key at ~/.ssh/id_rsa.pub
 # 2) add this as an ssh key to github: https://github.com/settings/keys
-# 3) need to do this for each computer/cluster you want to use to access github
+# 3) git clone git@github.com:<user>/<repo>.git
 
 #-- bitbucket 
 #https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
