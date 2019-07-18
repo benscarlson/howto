@@ -42,6 +42,9 @@ module load Apps/R/3.5.1-generic
 umask 0002 #add this to ~/.bashrc file to make sure files you create are going to be editable and movable by your fellow group members
 #---- SLURM ----#
 
+#Documentation
+#https://docs.ycrc.yale.edu/clusters-at-yale/job-scheduling/
+
 # slurm script 
 #SBATCH --mem-per-cpu=32G
 
