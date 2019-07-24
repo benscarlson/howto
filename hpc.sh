@@ -40,6 +40,11 @@ module load Apps/R/3.5.1-generic
 #shared directory: /project/fas/jetz/data
 
 umask 0002 #add this to ~/.bashrc file to make sure files you create are going to be editable and movable by your fellow group members
+
+#---- doMC ----#
+
+#---- doMPI ----#
+
 #---- SLURM ----#
 
 #Documentation
