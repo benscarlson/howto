@@ -42,8 +42,17 @@ module load Apps/R/3.5.1-generic
 umask 0002 #add this to ~/.bashrc file to make sure files you create are going to be editable and movable by your fellow group members
 
 #---- doMC ----#
+RNGkind("L'Ecuyer-CMRG") #set random numbers
+#This gets cores, which is set by -c. When using doMC, need to use -c, not -n
+cores <- strtoi(Sys.getenv('SLURM_CPUS_PER_TASK', unset=1)) #for testing on hpc
 
 #---- doMPI ----#
+
+# don't need to set number of nodes, etc if executing from slurm script
+# in slurm, use -n to set the number of tasks
+cl <- startMPIcluster(verbose=TRUE) 
+registerDoMPI(cl)
+setRngDoMPI(cl) #set each worker to receive a different stream of random numbers
 
 #---- SLURM ----#
 
