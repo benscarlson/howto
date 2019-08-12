@@ -1,5 +1,6 @@
 
 sudo pip install earthengine-api --upgrade #upgrade a package
+sudo pip install earthengine-api --upgrade --user #try using '--user' if you get a permissions denied error
 
 pip show earthengine-api #show version
 pip freeze | grep earthengine-api #version using older versions of pip
