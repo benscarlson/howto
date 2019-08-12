@@ -131,6 +131,7 @@ var img = ee.Image().toByte().paint(fc, 1); //paint a 1 into the pixels. Unpaint
 //Those with a mask value of 0 or below will be transparent. Those with a mask of any value above 0 will be rendered.
 
 .updateMask() //only masks out currenly unmasked pixels
+.selfMask() //try this out
 .unmask() // turns any currently masked pixels into a value, 0 by default. can pass a value in
 var msk = img.select([0]).gt(0); //create a mask
 
@@ -263,7 +264,9 @@ var viz = {bands: ['B4', 'B3', 'B2'], min: 0, max: 3000,gamma: 1.4};
 //From Genna: If you need to preview how results will look like at specufic scale - resproject you image before 
 // adding to map, image.reproject(ee.Projection('EPSG:3857').atScale(100)), this may break computation if you zoom out 
 // too much. 
-
+//From Matt: more example code for how to set the scale on the playground viewer
+var proj = ee.Projection('EPSG:4326').atScale(20);
+Map.addLayer(ImgCnnLMed.reproject(proj).selfMask(),{palette:'00ff00'},'ImgCnnLMed');
 //See here for detailed explaination from Matt Hancher for how to set crs/crsTransform
 //Subject: 'Assets and CRSs, how to use them properly in GEE?'
 //https://goo.gl/y76A2f
