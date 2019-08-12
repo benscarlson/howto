@@ -60,7 +60,20 @@ setRngDoMPI(cl) #set each worker to receive a different stream of random numbers
 #https://docs.ycrc.yale.edu/clusters-at-yale/job-scheduling/
 
 # slurm script 
+
+#Basic commands for slurm:
+#SBATCH -n 20 #use -n for mpi
+#SBATCH -t 60:00 #this is 60 min
+#SBATCH -p day #use day partition
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=email@email.com
+
+#Additional commands:
 #SBATCH --mem-per-cpu=32G
+#SBATCH -J myjob
+
+#Can also combine commands
+#SBATCH -n 20 -t 60:00
 
 srun --pty -p interactive -c 1 -t 0:30:00 --mem-per-cpu=20000 bash #start an interactive session with 20GB of memory
 sbatch myscript.sh #submit the job. parameters and script defined in myscript.sh
