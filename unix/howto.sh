@@ -126,6 +126,10 @@ dos2unix myfile.csv #osx makes changes in place. unix do dos2unix myfile.csv myf
 #https://stackoverflow.com/questions/800030/remove-carriage-return-in-unix
 cat infile | od -c
 
+#---- user management ----#
+id -un #get current users (might only work for mac?)
+whoami
+
 #---- process management ----#
 Ctrl-C #sends SIGINT to process (should terminate it)
 Ctrl-Z #sends SIGSTOP to process (will pause it)
