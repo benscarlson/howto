@@ -50,7 +50,7 @@ cores <- strtoi(Sys.getenv('SLURM_CPUS_PER_TASK', unset=1)) #for testing on hpc
 
 # don't need to set number of nodes, etc if executing from slurm script
 # in slurm, use -n to set the number of tasks
-cl <- startMPIcluster(verbose=TRUE) 
+cl <- startMPIcluster(verbose=TRUE,logdir='mylogdir') #MPI_*.out files will be written to mylogdir
 registerDoMPI(cl)
 setRngDoMPI(cl) #set each worker to receive a different stream of random numbers
 
@@ -69,8 +69,10 @@ setRngDoMPI(cl) #set each worker to receive a different stream of random numbers
 #SBATCH --mail-user=email@email.com
 
 #Additional commands:
-#SBATCH --mem-per-cpu=32G
-#SBATCH -J myjob
+--mem-per-cpu=32G
+-J myjob  #job name
+-e --error. default is slurm-%j.out
+-o --output. default is slurm-%j.out
 
 #Can also combine commands
 #SBATCH -n 20 -t 60:00
