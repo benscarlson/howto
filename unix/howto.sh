@@ -7,6 +7,9 @@
 
 dpkg -i debfile.deb #install a .deb file
 
+#---- create folders ----#
+mkdir -p ~/projects/oilbirds/analysis/$datName && cd "$_" #make a folder and cd to it
+
 #---- listing files ----#
 
 ls -lh #human-readable file sizes
