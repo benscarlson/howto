@@ -13,6 +13,9 @@ as.POSIXct('2014-09-14 19:45:09', tz='UTC')
 as.POSIXlt('2014-09-14 19:45:09', tz='UTC') 
 as.POSIXct('2014-09-14 19:45:09') #This will assign the timezone to the current timezone as defined by the computer running the code
 
+#can set format to convert to POSIXct
+as.POSIXct('2007-10-12T00:30:00.000Z', format='%Y-%m-%dT%H:%M:%S', tz='UTC') 
+
 #these are the same thing
 s1 <- as.POSIXct('2017-09-07 00:00:00', tz='US/Eastern')
 s2 <- as.POSIXct('2017-09-07', tz='US/Eastern')
