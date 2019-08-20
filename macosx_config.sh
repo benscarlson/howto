@@ -48,3 +48,6 @@ brew install osgeo-qgis #tried this instead
 #https://www.makeuseof.com/tag/hidden-mac-settings-defaults-command/
 ~/Library/Preferences/ #user prefs
 /Library/Preferences/ #system-wide prefs
+
+showFiles 			Alias that shows hidden files
+hideFiles				Alias that hides hidden files
