@@ -2,8 +2,23 @@
 #http://gforge.se/2013/02/exporting-nice-plots-in-r/
 #http://bit.ly/2JrDbRW. Producing a vector graphics image (i.e. metafile) in R suitable for printing in Word 2007
 
+#----------------#
+#---- colors ----#
+#----------------#
 
-#---- base graphics ----
+col=rainbow(length(x)) #rainbow palette for base R plot. x is a vector.
+
+#---- ggsci ----#
+#https://nanx.me/ggsci/articles/ggsci.html
+#Has color palettes for popular journals and sci-fi shows
+
+#---- viridis ----#
+viridis::viridis(12)
+
+#-----------------------#
+#---- base graphics ----#
+#-----------------------#
+
 plot(data,col=data$myvar) #color by another variable
 text(data,labels=data$myid, cex= 0.7) #add labels to a plot
 lines(data) #add lines to a plot
@@ -13,8 +28,7 @@ box() #draw a box around a plot
 obs <- c(0,1,1,0) #0=absence, 1=presence
 pch=c(13,19)[obs+1] #do +1 because the symbol vector is 1 based.
 
-#-- colors
-col=rainbow(length(x)) #rainbow palette for base R plot. x is a vector.
+
 
 #---- base histograms ----
 
