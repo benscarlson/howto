@@ -104,6 +104,8 @@ dat %>% select(!!envName)
 envName <- quo(!!sym('dist2forest'))
 dat %>% select(!!envName)
 
+#---- working with columns ----#
+
 #-- combine columns by taking the first non-na value --#
 dat %>% mutate(col=coalesce(col_a,col_b))
 
@@ -112,6 +114,9 @@ dat <- tibble(a=sample(rep(c(1,0),3)),
            b=sample(rep(c(1,0),3)),
            c=sample(rep(c(1,0),3)))
 dat %>% mutate(num=rowSums(.[c('a','b')]))
+
+#apply function to each column
+dat %>% summarize_all(my_fun) #also look at summarize_at, summarize_if
 
 #-- group_by/nest/map --#
 
@@ -173,6 +178,8 @@ labelPoints <- sub %>%
   group_by(Country) %>%
   do(lastLoess(.))
 
+#---- Converting ----#
+
 #-- Converting lists to dataframes 
 
 #dflist is a list of dataframes (or tibbles).
@@ -180,6 +187,9 @@ labelPoints <- sub %>%
 # appropriate value from names(dflist)
 
 bind_rows(dflist, .id='df_name')
+
+#convert a tibble row to a vector
+dat %>% slice(1) %>% unlist() #can also do unlist(use.names=FALSE) or unlist %>% uname
 
 #---------------#
 #---- purrr ----#
