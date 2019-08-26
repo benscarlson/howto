@@ -15,6 +15,9 @@ col=rainbow(length(x)) #rainbow palette for base R plot. x is a vector.
 #---- viridis ----#
 viridis::viridis(12)
 
+#Turbo, An Improved Rainbow Colormap for Visualization
+#https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html
+
 #-----------------------#
 #---- base graphics ----#
 #-----------------------#
