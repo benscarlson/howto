@@ -248,6 +248,15 @@ distGeo(c(bb['x.min'],bb['y.min']),c(bb['x.max'],bb['y.min'])) #421563.7
 #https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula/23095329#23095329
 distm(x=c(lon,lat),y=c(lon,lat),fun = distVincentyEllipsoid)
 
+#Very convoluted way to get dist_m to return a single column and play nice with dplyr
+dat %>%
+  group_by(niche_name) %>% #note each row gets it's own group
+  nest %>%
+  mutate(dist_m=map(data,~{
+    distm(c(.$nest_lon,.$nest_lat),c(.$mean_lon,.$mean_lat),fun=distHaversine)
+  })) %>%
+  unnest
+
 #---- make a bounding box a certain distance around a point ----#
 library(geosphere)
 library(sp)
