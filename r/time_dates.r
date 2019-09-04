@@ -58,3 +58,8 @@ elapsedTime <- function(ptm) {
   sec <- round(sec_tot %% 60)
   print(sprintf('Completed in %s minutes, %s seconds',min,sec))
 }
+
+#-- another approach
+diffmin <- function(t) round(difftime(Sys.time(), t, unit = "min"),2)
+tsEnt <- Sys.time()
+message(glue('Complete in {diffmin(tsEnt)} minutes'))
