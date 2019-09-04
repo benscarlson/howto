@@ -6,6 +6,12 @@ dat0 %>%
   as.data.frame %>%
   as.telemetry()
 
+#general workflow
+tel <- as.telemetry()
+vg <- variogram(tel)
+GUESS <- variogram.fit(vg,interactive=FALSE)
+ctmm.select(tel, CTMM=GUESS)
+
 #AKDE
 #akde can take a telemetry object and best.fit? Maybe this will internally fit model?
 AKDES <- akde(telem.obj, best.fit)
