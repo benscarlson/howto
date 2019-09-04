@@ -56,6 +56,9 @@ tribble(
   "c",   3
 )
 
+#create empty tibble
+tibble(niche_name=character(),event=character())
+
 #---------------#
 #---- dplyr ----#
 #---------------#
