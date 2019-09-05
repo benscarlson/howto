@@ -214,6 +214,9 @@ walk(hvs@HVList,~{
   #print(.)
 })
 
+#extract items from lists
+map(dat$listcol,`$`,'item1')
+
 #extract items from S4 slots. All but `@` should also work on non-S4 object
 # note S4 object can't select multiple 
 map(hvs@HVList, 'RandomPoints') #works
