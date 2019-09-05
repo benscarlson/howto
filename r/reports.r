@@ -90,6 +90,15 @@ EDA for \Sexpr{indivName} track
 kable(x, format.args = list(decimal.mark = '.', big.mark = ","))
 kable(x, digits=2)
 
+#-- table that spans multiple pages
+# need to load longtable and booktabs in latex
+\usepackage{longtable}
+\usepackage{booktabs}
+
+dat %>% 
+  kable('latex',booktabs=TRUE, longtable=TRUE,digits=1) %>%
+  kable_styling(latex_options=c('hold_position','repeat_header')) #this is kableExtra package
+
 #cleaning up tables
 # https://webbedfeet.netlify.com/post/cleaning-up-tables/
 
