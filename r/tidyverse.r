@@ -194,6 +194,7 @@ bind_rows(dflist, .id='df_name')
 #convert a tibble row to a vector
 dat %>% slice(1) %>% unlist() #can also do unlist(use.names=FALSE) or unlist %>% uname
 
+
 #---------------#
 #---- purrr ----#
 #---------------#
@@ -201,12 +202,11 @@ dat %>% slice(1) %>% unlist() #can also do unlist(use.names=FALSE) or unlist %>%
 #map or walk can use shortcut ~ instead of function(x). so these are all the same
 map(lst, function(.) { print(.) }) #just like lapply
 map(lst,~{ print(.)}) #just like above, but using ~ for function(.)
-map(lst, function(.) print(.) ) #just like lapply
+#map(lst, function(.) print(.) ) #just like lapply. commented b/c github syntax parser doesn't like
 map(lst,~print(.)) #just like above, but using ~ for function(.)
 
-#can also pass in more than one 
-
-
+#passing in parameters to function can be like this:
+map(hv,hypervolume_thin,num.points=10)
 
 #walk is like map, but does not return values. Use this if printing or plotting
 walk(hvs@HVList,~{
