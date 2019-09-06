@@ -7,6 +7,9 @@ aes_string()
 
 geom_text_repel(data=dat, aes(x=lon, y=lat,label=study_num),size=3,force=3) + #segment.color = NA (use this to turn off lines) 
 
+#---- geoms ----#
+ggConvexHull::geom_convexhull() #convex hull
+
 #---- color ----#
 
 #create a three part color gradient
