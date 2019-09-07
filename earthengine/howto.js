@@ -7,6 +7,11 @@
 //Tool to auto click "Run". https://github.com/kongdd/GEE_Tools/blob/master/gee_monkey.js
 //Tools for uploading to GEE: https://github.com/samapriya/geeup
 
+//---- shortcut keys ---//
+ctrl + /  for //
+
+ctrl +shift + / for /**/
+
 // ---- code management ----//
 
 //haven't tried this, but should be how to clone my repo to local
