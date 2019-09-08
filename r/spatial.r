@@ -287,6 +287,9 @@ dir.create(dsnP)
 writeOGR(obj=as(bg,'SpatialPolygonsDataFrame'), driver="ESRI Shapefile",
          dsn=dsnP, layer=basename(dsnP))
 
+#Count number of points that fall in a raster grid cell
+#https://gis.stackexchange.com/questions/309407/computing-number-of-points-in-a-raster-grid-cell-in-r/309460#309460
+
 ### projections ###
 
 rgdal::make_epsg() #this is a list of all ESPG codes and associated CRS
