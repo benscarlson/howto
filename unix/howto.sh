@@ -29,6 +29,9 @@ du -h myfile.txt #size of file in human-readable units
 ls -d "$PWD"/*
 ls -d "$PWD"/my_folder/*
 
+#---- finding files and directories ----#
+sudo find / -size +500000 -print
+
 #---- copying files ----#
 
 #copy a file to a directory that does not yet exist
