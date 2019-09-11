@@ -17,6 +17,9 @@ ctrl +shift + / for /**/
 //haven't tried this, but should be how to clone my repo to local
 git clone https://earthengine.googlesource.com/users/benscarlson/default
 
+//---- metadata ----//
+//Number of images in landsat collections: https://code.earthengine.google.com/257808f57d8feedeaf18a7d50d738ed2
+// subject: "GEE's data catalogue"
 //---- Lists ----//
 
 //---- iterate and return a single value --
