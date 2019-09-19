@@ -20,3 +20,14 @@ animal.akde <- akde(tel, mod, res = 50)
 #also seems akde can take a list of objects and not just one at a time
 #https://groups.google.com/d/msg/ctmm-user/_gMRESokCYc/MY9ShphIBwAJ
 #might be required if I'm doing overlap metrics
+
+#To plot a model, need to plot a variogram
+t <- telemetry object
+v <- variogram(t)
+m <- ctmm model
+
+plot(v,CTMM=m, xlim=c(0,2 %#% "hour"))
+
+#when is velocity 95% uncorrelated?
+m$tau['velocity'] * -log(0.05) #note velocity is in SI units, so this is minutes
+m$tau['velocity'] * -log(0.05)/60 #now this value is in seconds
