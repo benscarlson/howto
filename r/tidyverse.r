@@ -237,6 +237,8 @@ hvs@HVList %>%
 hvs@HVList %>% 
   map(~as_tibble(pluck(.,'RandomPoints'))) 
 
+dat %>% mutate(a=map(obj,`$`,'slotname'))
+dat %>% mutate(a=map(obj,pluck,'slotname')) #these do the same thing
 #------------------#
 #---- purrrlyr ----#
 #------------------#
