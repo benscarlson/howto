@@ -14,6 +14,14 @@ install_github('dkahle/ggmap') #note use user/repo format. Don't include e.g. ht
 install.packages('hypervolume',dependencies=TRUE,repos='http://cran.rstudio.com/') #seems to install all dependencies, no matter what
 install.packages('hypervolume',repos='http://cran.rstudio.com/') #this is probably faster
 
+#install from github
+#note now use remote package instead of devtools
+remotes::install_github('aaarchmiller/uhcplots')
+#in order to build vignettes, need to supply default build_opts, but without the 'no vignette' option
+#also might need build_vignette=TRUE. force=TRUE if you've already installed this package
+remotes::install_github('aaarchmiller/uhcplots',build_vignettes=TRUE,force=TRUE,
+                        build_opts = c("--no-resave-data", "--no-manual"))
+
 .libPaths() #see library paths. by default the first one is picked as the install location
 #path seem to be built from here file below. see: http://stackoverflow.com/questions/6218358/how-do-i-set-r-libs-site-on-ubuntu-so-that-libpaths-is-set-properly-for-all-u
 /etc/R/Renviron
