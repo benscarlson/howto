@@ -1,10 +1,12 @@
 sqlite3 path/to/database.db
 .databases #show attached databases
 .tables #show the tables
+.schema mytable #show schema information for mytable
+.headers on     --display headers when running select statement
 
 cat db.sql | sqlite3 database.db /* create a database and run db.sql to initialize it */
 
-INTEGER PRIMARY KEY - This will reference the rowid, an autoincrementing integer that is automatically created 
+
 
 --#### Create tables ####--
 CREATE TABLE my_table (
@@ -16,14 +18,29 @@ CREATE TABLE my_table (
   FOREIGN KEY(player_id) REFERENCES player(player_id)
 );
 
+--#### primary keys ####--
+--complicated in sqlite!
+--A hidden column called rowid will be created if WITHOUT ROWID is not used. This is called a "row id" table
+--If the table is a "row id" table, then using "mycol INTEGER PRIMARY KEY" makes mycol an alias to rowid
+create table my_table (
+  mycol INTEGER PRIMARY KEY --Just an alias to rowid
+);
+
+--If table is a "without row id" table, then PK is not an alias
+create table my_table (
+  mycol INTEGER PRIMARY KEY --Not an alias to rowid, because rowid is not created
+) WITHOUT ROWID;
+
+--If 
+
+
 --import if file does not contain a file header
 .import data/derived/player_table_init.csv player
 
 --There is no flag to skip file header when importing. so, need to explicitly skip it
 .import "|tail -n +2 data/derived/player_table_init.csv" player
 
-.headers on     --display headers when running select statement
-.schmea mytable --display table schema
+
 
 PRAGMA foreign_keys         --check if foreign keys are enabled
 PRAGMA foreign_keys = ON;   --Turn on
