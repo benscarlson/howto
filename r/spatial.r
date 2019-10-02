@@ -126,6 +126,10 @@ popBox <- pts %>% #pts is an sf object with a grouping column called population
   select(-data, -bbox) %>% 
   st_as_sf()
 
+#---- geoprocessing ----#
+
+poly1 %>% st_crop(poly2) #crop poly1 based on bbox of poly 2
+
 #---------------------#     
 #---- Vector Data ----#
 #---------------------#
