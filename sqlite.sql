@@ -2,6 +2,8 @@ sqlite3 path/to/database.db
 .databases #show attached databases
 .tables #show the tables
 
+cat db.sql | sqlite3 database.db /* create a database and run db.sql to initialize it */
+
 INTEGER PRIMARY KEY - This will reference the rowid, an autoincrementing integer that is automatically created 
 
 --#### Create tables ####--
