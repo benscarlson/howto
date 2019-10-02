@@ -6,8 +6,6 @@ sqlite3 path/to/database.db
 
 cat db.sql | sqlite3 database.db /* create a database and run db.sql to initialize it */
 
-
-
 --#### Create tables ####--
 CREATE TABLE my_table (
   fd_stats_id INTEGER PRIMARY KEY,
@@ -31,7 +29,7 @@ create table my_table (
   mycol INTEGER PRIMARY KEY --Not an alias to rowid, because rowid is not created
 ) WITHOUT ROWID;
 
---If 
+select rowid, * from mytable; --to see rowid (if it exists) add it to select list
 
 
 --import if file does not contain a file header
