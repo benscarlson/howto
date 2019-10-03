@@ -30,8 +30,8 @@ plot(v,CTMM=m, xlim=c(0,2 %#% "hour"))
 
 #when is velocity 95% uncorrelated?
 #note that -log(0.05) is around 3
-m$tau['velocity'] * -log(0.05) #note velocity is in SI units, so this is minutes
-m$tau['velocity'] * -log(0.05)/60 #now this value is in seconds
+m$tau['velocity'] * -log(0.05) #note velocity is in SI units, so this is seconds
+m$tau['velocity'] * -log(0.05)/60 #now this value is in minutes
 
 #---- ctmm objects ----#
 
