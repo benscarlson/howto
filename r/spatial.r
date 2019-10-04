@@ -80,8 +80,29 @@ rast2 <- crop(rast,extent(pts),snap='out')
 #http://strimas.com/r/tidy-sf/
 #http://pierreroudier.github.io/teaching/20170626-Pedometrics/20170626-soil-data.html
 
-#-- make sf object from data.frame
-pts <- st_as_sf(x=jun14, coords=c("lon", "lat"), crs=4326) 
+#---- making sf objects ----#
+
+#-- sfg
+poly <- st_polygon(list(cbind(c(0,3,3,0,0),c(0,0,3,3,0)))) #poly is an sfg object
+
+#-- sfc
+#a list with additional attributes. also referred to as "geometry set"
+# includes coordiante system
+poly_sfc <- st_sfc(poly)
+
+#-- sf
+poly_sf = st_sf(st_sfc(poly,poly)) #from sfg objects
+
+pts <- st_as_sf(x=jun14, coords=c("lon", "lat"), crs=4326) # sf from data.frame
+# sf round trip to/from wkt
+wkt <- st_asewkt(poly1)
+poly1 <- st_sf(st_as_sfc(wkt))
+
+#alternative way to make sf
+c2 <- st_sfc(poly,poly)
+d2 <- data.frame(name=c('x','y'))
+f1 <- st_sf(cbind(d2,c2)) #one way to make sf
+f2 <- st_sf(d2, geometry = c2) #another way to make sf
 
 #-- make a data.frame from an sf object
 #TODO: move this into github or bencmisc
