@@ -14,14 +14,24 @@ library(rnaturalearth) #get administrative and country boundaries
 rnaturalearth::ne_countries() #get country borders
 
 #make a scale bar. Need to have columns named "long" and "lat".
-  scalebar(data=rename(gdat,long=x,lat=y), dist=25, dd2km=TRUE, model='WGS84',location='bottomleft',
+  scalebar(data=rename(gdat,long=x,lat=y), dist=25, dist_unit='km', transform=TRUE, model='WGS84',location='bottomleft',
     st.size=3, height=0.02) +
 
-#use x.min, etc. to manually set the bounds. scalebar is placed relative to this box. note here data=NULL
-  ggsn::scalebar(data=NULL,
-      dist = 50, dd2km = TRUE, model = 'WGS84', location='bottomleft',
-      height=0.03, st.size=3, st.dist=0.05, st.color='white', #st.color requires dev version ggsn
-      x.min=bb['x.min'], x.max=bb['x.max'], y.min=bb['y.min'], y.max=bb['y.max'])
+#to use ggsn with ggmaps, need to figure out the bounds of the map, then set xmin, ... based on this.
+
+mp <- get_map(...)
+bb <- attr(mp,'bb')
+
+#where to place map. play around with scaling to get scale put in right place.
+xmin <- bb$ll.lon + (bb$ur.lon-bb$ll.lon)/15
+xmax <- bb$ur.lon - (bb$ur.lon-bb$ll.lon)/15
+ymin <- bb$ll.lat + (bb$ur.lat-bb$ll.lat)/10
+ymax <- bb$ur.lat - (bb$ur.lat-bb$ll.lat)/10
+
+ggsn::scalebar(data=NULL,
+  dist = 10, dist_unit='km',transform = TRUE, model = 'WGS84', location='bottomleft',
+  height=0.03, st.size=3, st.dist=0.05, st.color='white', #st.color might require dev version
+  x.min=xmin, x.max=xmax, y.min=ymin, y.max=ymax)
 
 #---- ggmap ----
 
