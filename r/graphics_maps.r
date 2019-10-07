@@ -29,14 +29,19 @@ rnaturalearth::ne_countries() #get country borders
 ggmap(m) +
   geom_sf(data=popBox,inherit.aes = FALSE,aes(color=population))
 
-#-- api key
+#-- Google Maps static api
+#need to enable this api in cloud console
 #need to have development version of ggmap
+#After 12-month trail, need to 'upgrade' account which will be subject to billing
+#But, the cost looks low: https://developers.google.com/maps/documentation/maps-static/usage-and-billing
+# $2 for 1000 requests, and there might be a $200 credit applied each month.
+# See Notes for project id
 
 #Example static maps call:
 #https://maps.googleapis.com/maps/api/staticmap?center=waco+texas&zoom=12&size=640x640&scale=2&maptype=terrain&key=<mykey>
 
 #Check api usage?
-#https://console.cloud.google.com/google/maps-apis/overview?onboard=true&project=research-1537904108006&consoleUI=CLOUD
+#https://console.cloud.google.com/google/maps-apis/overview?onboard=true&project=<project id>&consoleUI=CLOUD
 
 #3D maps
 #https://blog.revolutionanalytics.com/2018/09/raytracer.html
