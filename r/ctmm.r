@@ -26,7 +26,10 @@ t <- telemetry object
 v <- variogram(t)
 m <- ctmm model
 
+#plot.variogram can control x axis with xlim or fraction
 plot(v,CTMM=m, xlim=c(0,2 %#% "hour"))
+plot(vg,CTMM=mod,fraction=0.65)
+plot(vg,CTMM=mod,fraction=1) #full variogram, but first 50% is generally helpful
 
 #when is velocity 95% uncorrelated?
 #note that -log(0.05) is around 3
