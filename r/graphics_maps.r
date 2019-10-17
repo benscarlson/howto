@@ -33,6 +33,13 @@ ggsn::scalebar(data=NULL,
   height=0.03, st.size=3, st.dist=0.05, st.color='white', #st.color might require dev version
   x.min=xmin, x.max=xmax, y.min=ymin, y.max=ymax)
 
+# a second method is to make a datafram to supply to data parameter. still need to adjust xmin etc. values accordingly
+bbdf <- data.frame(long=c(xmin,xmax),lat=c(ymin,ymax))
+
+ggsn::scalebar(data=bbdf,
+  dist = 10, dist_unit='km',transform = TRUE, model = 'WGS84', location='bottomleft',
+  height=0.03, st.size=3, st.dist=0.05, st.color='white')
+
 #---- ggmap ----
 
 #to use ggmap with sf, have to set inherit.aes=FALSE
