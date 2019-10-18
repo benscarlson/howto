@@ -147,9 +147,21 @@ popBox <- pts %>% #pts is an sf object with a grouping column called population
   select(-data, -bbox) %>% 
   st_as_sf()
 
+#-----------------------#
 #---- geoprocessing ----#
+#-----------------------#
 
 poly1 %>% st_crop(poly2) #crop poly1 based on bbox of poly 2
+
+#---- Intersections ----#
+#this will return the intersections of sa_poly and polys
+#here, sa_poly is an sf with one feature, and polys is sf with multiple features
+#this returns a geometry list (an sfc?)
+st_intersection(sa_poly,polys)
+
+#to retain attributes, use the intersection sfc to replace the geometry of the sf that you clipped
+clipped <- polys
+st_geometry(clipped) <- st_intersection(sa_poly,polys)
 
 #---------------------#     
 #---- Vector Data ----#
