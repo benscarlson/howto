@@ -40,3 +40,5 @@ for(i in seq_len(nrow(rini))) {
   if(af != 1) message(glue('Warning, update for {row$niche_name} affected {af} rows'))
 }
 
+#can also try this approach. uses dbSendQuery to send data.frame
+# https://stackoverflow.com/questions/20546468/how-to-pass-data-frame-for-update-with-r-dbi
