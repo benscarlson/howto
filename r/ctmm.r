@@ -41,3 +41,6 @@ m$tau['velocity'] * -log(0.05)/60 #now this value is in minutes
 #-- ctmm model
 m$MSPE # "mean square predictive error" for model selection on trend terms.
 m$tau #has tau velocity and tau position
+
+#--- exporting ---#
+SpatialPolygonsDataFrame.UD(akde, level.UD=0.95,level=0.95) #Convert UD to SPDF
