@@ -65,6 +65,7 @@ tibble(niche_name=character(),event=character())
 
 #-- Selecting columns --#
 dat %>% select(my_col,everything()) #move my_col to the front of the df.
+dat %>% select(-my_col,everything()) #move my_col to the end of the df.
 
 dat %>% summarise_each(funs(sum(is.na(.)))) #see how many na values are in each row
 
