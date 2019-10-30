@@ -307,6 +307,11 @@ In the case that you do have a collection of images that share the same CRS, you
 CRS for reduced image. Here is an example: https://code.earthengine.google.com/1e4dbac964b426cd4da1346333e7e507
 */
 
+//When an image collection is a composite of images, the collection receives the projection EPSG:4326, [1,0,0,0,1,0],
+//  even if all images in the collection have the same projection. If you know all images have the same projection
+//  you can set the projection on the collection using setDefaultProjection. Here is an example:
+//https://code.earthengine.google.com/f1770a1ddfbe59677ef2357fdc3ad916
+
 //------
 //------ exporting assets ------
 //------
