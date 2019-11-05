@@ -225,20 +225,16 @@ var result = pb_20982_2008.map(function(f){
 //https://code.earthengine.google.com/4bf428a84cc19169a3e39914fc8de4a8
 //https://developers.google.com/earth-engine/feature_collections_visualizing
 
-//palettes
+//---- palettes ----//
+
+//-- apply palettes
+Map.addLayer(img.select('NDVI'), {palette:palette});
+Map.addLayer{fc, palette:'blue'} //should make all polygons blue
+
 //bright/aqua greenish to yellowish to red-orangeish
 var palette = ['b5acff','8dcfff','7ffff9','71ff96','c0ff6d','eeff64','ffc952','ffaf38','ff471d'];
 //EVI palette
 var palette = 'FFFFFF,CE7E45,DF923D,F1B555,FCD163,99B718,74A901,66A000,529400,3E8601,207401,056201,004C00,023B01,012E01,011D01,011301';
-//paint a set of polygons polyFC (with identification 'id') to image and visualize
-//example: https://code.earthengine.google.com/849862c672e8e5028a4d86ee14cf8c36
-Map.addLayer(ee.Image().int().paint(polyFC,'id').randomVisualizer())
-
-{palette:'blue'} //can also do this in addLayer
-
-//---- palettes ----//
-
-
 var palette = ['b5acff','8dcfff','7ffff9','71ff96','c0ff6d','eeff64','ffc952','ffaf38','ff471d'];
 
 //--- vegetation palettes ----//
@@ -250,7 +246,8 @@ var palette = ['FFFFFF', 'CE7E45', 'DF923D', 'F1B555', 'FCD163', '99B718',
                '74A901', '66A000', '529400', '3E8601', '207401', '056201',
                '004C00', '023B01', '012E01', '011D01', '011301'];
 
-Map.addLayer(img.select('NDVI'), {palette:palette});
+// palette for USGS/NLCD
+// https://code.earthengine.google.com/364a21cf48da7160d1f96769e367a58d
 
 //paint a set of polygons polyFC (with identification 'id') to image and visualize
 //example: https://code.earthengine.google.com/849862c672e8e5028a4d86ee14cf8c36
