@@ -36,6 +36,18 @@ plot(vg,CTMM=mod,fraction=1) #full variogram, but first 50% is generally helpful
 m$tau['velocity'] * -log(0.05) #note velocity is in SI units, so this is seconds
 m$tau['velocity'] * -log(0.05)/60 #now this value is in minutes
 
+#--- plotting ----#
+
+#-- to add a vertical line to the plot, need to get the units of the x-axis
+# The x-axis of the plot is dynamic. After plotting, can extract the units from the plot environment
+# The units are given as number of seconds in each plot unit
+# So, if plot is in hours x.scale will be 3600
+# if plot is in days x.scale will be 86400
+p95 <- mod$tau['position'] * -log(0.05) #this is in seconds
+plot(vg,CTMM=mod, xlim=c(0,p95*1.5)) #x units will adjust automatically
+abline(v=p95/get("x.scale",envir=ctmm:::plot.env),lty='dashed') #need to scale to plot units
+title('95% decay in position autocorrelation')
+
 #---- ctmm objects ----#
 
 #-- ctmm model
