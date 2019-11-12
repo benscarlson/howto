@@ -48,6 +48,8 @@ plot(vg,CTMM=mod, xlim=c(0,p95*1.5)) #x units will adjust automatically
 abline(v=p95/get("x.scale",envir=ctmm:::plot.env),lty='dashed') #need to scale to plot units
 title('95% decay in position autocorrelation')
 
+ls(ctmm:::plot.env) #can see other items in plot env
+
 #---- ctmm objects ----#
 
 #-- ctmm model
