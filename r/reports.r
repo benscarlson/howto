@@ -1,3 +1,4 @@
+#Officer: https://davidgohel.github.io/officer/. Embed tables/figures directly into office docs!
 #Bookdown: https://bookdown.org/yihui/rmarkdown/
 #Modeldown: http://smarterpoland.pl/index.php/2019/06/modeldown-is-now-on-cran/
 
