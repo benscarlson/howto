@@ -7,3 +7,5 @@ Examples of cool figures:
 
 Maps
 Figure 1: https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.5190
+
+Why scientists need to be better at data visualization. https://www.knowablemagazine.org/article/mind/2019/science-data-visualization?utm_campaign=2019-11-17
