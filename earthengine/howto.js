@@ -213,6 +213,8 @@ var img2 = img1
 //---- Visualize -----//
 //--------------------//
 
+//https://code.earthengine.google.com/?accept_repo=users/gena/packages&scriptPath=users/gena/packages:style-test-symbology
+
 Map.addLayer(pts,{color: 'BA1E01'}) //color points reddish color
 
 //color points by month
