@@ -311,6 +311,16 @@ CRS for reduced image. Here is an example: https://code.earthengine.google.com/1
 //  you can set the projection on the collection using setDefaultProjection. Here is an example:
 //https://code.earthengine.google.com/f1770a1ddfbe59677ef2357fdc3ad916
 
+//Example of using projection.wkt property instead of crs
+//Note that reproject also does raster snapping
+//https://code.earthengine.google.com/e42b7d4e1727763379cbd54019b15eb0
+nlcdTreeCover2011.projection().getInfo()
+var transform = proj.transform,
+  crs = proj.wkt;
+  // crs = proj.crs; //some are tagged as crs
+  
+var snappedHansenTreeCover2000 = hansenTreeCover2000.reproject(crs, transform);
+
 //------
 //------ exporting assets ------
 //------
@@ -359,6 +369,13 @@ Export.table.toDrive({
   fileFormat: 'CSV',
   selectors: (["band","offset","slope","rsquare"]) //use this to pick the output columns. note system:index won't be output.
 });
+
+//----
+//---- listing assets
+//----
+var items = ee.data.getList({id: '<path to folder>'})
+var items = ee.data.getList({id: 'users/JunXiong1981/AHI'})
+print(items)
 
 //----
 //---- RMSE ----//
