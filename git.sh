@@ -1,3 +1,13 @@
+#--- add non-repo code to a new github repo ---#
+#first, go to github.com and create the repo "anno" on github, don't initialize
+cd ~/projects/anno
+git init
+git status
+git add .
+git remote add origin git@github.com:benscarlson/anno.git
+git commit -am 'initial commit'
+git push -u origin master
+
 #--- add existing local repo to github ---#
 #first, go to github.com and create the repo "anno" on github, don't initialize
 cd ~/projects/anno
