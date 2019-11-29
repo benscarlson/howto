@@ -214,6 +214,9 @@ var img2 = img1
 //---- Visualize -----//
 //--------------------//
 
+//Example color ramp for points
+//https://code.earthengine.google.com/4bf428a84cc19169a3e39914fc8de4a8
+
 //https://code.earthengine.google.com/?accept_repo=users/gena/packages&scriptPath=users/gena/packages:style-test-symbology
 
 Map.addLayer(pts,{color: 'BA1E01'}) //color points reddish color
