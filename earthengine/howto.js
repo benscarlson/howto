@@ -436,3 +436,13 @@ function maskS2clouds(image) {
 //--- Functions and modules ----//
 //Implement default parameters
 //https://code.earthengine.google.com/c55646044eee3eee72409be885521e0f
+
+//----
+//---- BRDF Correction
+//----
+
+//-- Landsat 8
+//https://groups.google.com/forum/#!topic/google-earth-engine-developers/KDqlUCj4LTs
+//https://code.earthengine.google.com/3a6761dea6f1bf54b03de1b84dc375c6
+//D.P. Roy, H.K. Zhang, J. Ju, J.L. Gomez-Dans, P.E. Lewis, C.B. Schaaf, Q. Sun, J. Li, H. Huang, V. Kovalskyy, A general method to normalize Landsat reflectance data to nadir BRDF adjusted reflectance, Remote Sensing of Environment, Volume 176, April 2016, Pages 255-271
+
