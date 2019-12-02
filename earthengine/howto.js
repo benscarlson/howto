@@ -396,6 +396,21 @@ print(items)
 //Study and learn this script (from Nicholas Clinton). Bits and approach are different from what I'm using.
 //https://code.earthengine.google.com/643c86f713c64dea1d921358b8da0530
 
+//-- Landsat 8 --
+// Take a closer look. Seems to mask bit 3 and 5.
+//https://code.earthengine.google.com/a760f223ed1f7e5925ea94f198c547d7
+function maskL8sr(image) {
+  // Bits 3 and 5 are cloud shadow and cloud, respectively.
+  var cloudShadowBitMask = (1 << 3);
+  var cloudsBitMask = (1 << 5);
+  // Get the pixel QA band.
+  var qa = image.select('pixel_qa');
+  // Both flags should be set to zero, indicating clear conditions.
+  var mask = qa.bitwiseAnd(cloudShadowBitMask).eq(0)
+                 .and(qa.bitwiseAnd(cloudsBitMask).eq(0));
+  return image.updateMask(mask);
+}
+
 //Mosiac, filter by cloud/cloud shadow over Spain
 //https://code.earthengine.google.com/d653edd684a02416d3910182cc465684
 //https://gis.stackexchange.com/questions/271322/cloud-mask-in-surface-reflectance-landsat-8-test
