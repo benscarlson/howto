@@ -127,6 +127,8 @@ get('sin')(pi/2) #--> 1
 saveRDS(object,path) #save an object to an RDS file 
 
 #infix operators
+5 %in% 1:5 #TRUE
+
 `%s%` <- function(x,y) x + y
 1 %s% 2 #3
       
