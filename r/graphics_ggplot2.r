@@ -10,7 +10,15 @@ geom_text_repel(data=dat, aes(x=lon, y=lat,label=study_num),size=3,force=3) + #s
 #---- geoms ----#
 ggConvexHull::geom_convexhull() #convex hull
 
+#----
 #---- color ----#
+#----
+
+#Note setting manual colors and applying to multiple aesthetics
+cols <- c('random'='#0073C2FF','actual'='#FC4E07')
+ggplot(gdat,aes(x=abs(diff),fill=diff_type,color=diff_type,..scaled..)) +
+  geom_density(alpha=0.5) +
+  scale_fill_manual(values=cols,aesthetics=c('color','fill'))
 
 #create a three part color gradient
 scale_color_gradient2('Legend title',low="red", mid='green', high='blue',
@@ -43,7 +51,7 @@ scale_x_continuous(expand=c(0,0)) #this removes padding between axis and data
 
 #-- formatting
 scale_x_continuous(labels=number_format(accuracy = 1, big.mark='')) #formats numbers to have no decimal place
-scale_x_continuous(labels = function(x) format(as.Date(as.character(x), "%j"), "%d-%b")) #x is doy, prints 'Month-Day' on axis
+scale_x_continuous(labels = function(x) {format(as.Date(as.character(x), "%j"), "%d-%b")}) #x is doy, prints 'Month-Day' on axis
 scale_x_date() #this is prints out dates on axis
 
 #---- mapping aethetics ----
@@ -141,6 +149,8 @@ scale_fill_continuous(
 #set the legend position first is x, second is y. for y, top is 1, bottom is 0
 theme(legend.position = c(.8, .8), legend.key = element_blank())
 
+#---
+                   
 #-- themes for faceting
 theme(strip.text = element_text(size=9)) #change font size on facets
 
