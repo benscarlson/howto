@@ -12,6 +12,7 @@ splancs::polymap(mymatrix) #plot a polygon for a [,2] matrix
 
 library(rnaturalearth) #get administrative and country boundaries
 rnaturalearth::ne_countries() #get country borders
+ne_coastline(scale=110,returnclass='sf') #get coastlines
 
 #make a scale bar. Need to have columns named "long" and "lat".
   scalebar(data=rename(gdat,long=x,lat=y), dist=25, dist_unit='km', transform=TRUE, model='WGS84',location='bottomleft',
