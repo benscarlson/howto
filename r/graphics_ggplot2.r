@@ -154,6 +154,18 @@ theme(legend.position = c(.8, .8), legend.key = element_blank())
 #-- themes for faceting
 theme(strip.text = element_text(size=9)) #change font size on facets
 
+#---- Density plots ----#
+
+#if color of fill is numeric, need to make it into a factor
+sim.data$y <- factor(sim.data$y,levels=c(0,1),labels=c('avail','used'))
+
+cols <- c('avail'='#0073C2FF','used'='#FC4E07')
+
+#set ..scaled.. to make both groups max at 1
+ggplot(sim.data,aes(x=elev,fill=y,color=y,..scaled..)) +
+  geom_density(alpha=0.5) +
+  scale_fill_manual(values=cols,aesthetics=c('color','fill'))
+
 #---- PCA ----#
 https://github.com/vqv/ggbiplot
 
