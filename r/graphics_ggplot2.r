@@ -13,14 +13,6 @@ ggConvexHull::geom_convexhull() #convex hull
 #---- colors ----#
 # See colors.r
 
-#figure out breaks and format based on data. 
-#this is how ggplot internally figures out breaks
-#https://stackoverflow.com/questions/38486102/how-does-ggplot-calculate-its-default-breaks
-rng <- range(as.numeric(gdat$timestamp))
-breaks <-labeling::extended(rng[1], rng[2], m = 5) #note won't display the first and last items
-labels <- as.Date(as.POSIXct(breaks,origin='1970-01-01',tz='UTC'))
-
-p + scale_fill_gradient('Timestamp',low = "grey", high = "blue", breaks=breaks, labels=labels)
 
 # The order that items are drawn on the plot is based on the order of the data frame. 
 #   The first item is drawn first and the last item drawn last.
