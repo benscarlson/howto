@@ -37,52 +37,21 @@ ggplot(data=dat, aes(x=x,y=y, alpha=var1, shape=var2)) +
   geom_point() +
   scale_shape_manual(values=c(3,16)) + 
   scale_alpha_manual(values=c(0.2,1))
-    
-#---- Themes ----
-theme_classic() #this theme usually works fine
+
+#----------------#
+#---- Themes ----#
+#----------------#
+
+theme_classic(base_family="Helvetica") #this theme usually works fine
 theme_tufte(base_family="Helvetica") #library(ggthemes)
-
+theme_bw()
 #http://docs.ggplot2.org/dev/vignettes/themes.html
-theme_set(theme_bw()) #sets theme to theme_bw for every plot in r session
-
-
-
-#theme with no grey background, black lines for axes
-theme_bw() +
-theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-  panel.grid.minor = element_blank(),
-  axis.line.x = element_line(color="black", size = 0.5),
-  axis.line.y = element_line(color="black", size = 0.5))
-
-#theme that looks similar to the above theme
-plotTheme <-   theme(panel.background = element_blank(),
-                     panel.grid.major = element_blank(), 
-                     panel.grid.minor = element_blank(),
-                     axis.text=element_text(size=20),
-                     axis.title=element_text(size=20),
-                     axis.line = element_line(colour = "black"),
-                     legend.text = element_text(size=12),
-                     legend.title = element_text(size=14))
-
-# Use this theme for maps in presentations
-theme_map <- theme(
-  panel.background = element_blank(),
-  panel.grid.major = element_blank(), 
-  panel.grid.minor = element_blank(),
-  #axis.line = element_line(colour = "black"),
-  axis.ticks = element_blank(),
-  axis.text = element_text(size=18), #element_blank(),
-  axis.title = element_text(size=20), #element_blank(),
-  legend.key = element_blank(),
-  legend.text = element_text(size=16),
-  legend.title = element_text(size=18))
+theme_set(theme_classic(base_family="Helvetica")) #sets theme for every plot in r session
 
 #roate axis text
 theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-#----
 #---- Guides/legends ----
-#----
 
 #-- legend title
 labs(color='My Legend Title')
@@ -124,11 +93,11 @@ scale_fill_continuous(
 
 #set the legend position first is x, second is y. for y, top is 1, bottom is 0
 theme(legend.position = c(.8, .8), legend.key = element_blank())
-
-#---
-                   
+           
 #-- themes for faceting
-theme(strip.text = element_text(size=9)) #change font size on facets
+strip.text = element_text(size=9) #change font size on facets
+strip.background = element_blank() #remove border around facet labels
+panel.border = element_rect(color = "black", fill=NA) #make a black border around facet panels
 
 #---- Density plots ----#
 
