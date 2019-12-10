@@ -86,6 +86,7 @@ save(installed, file='scratch/rlibs.Rdata')
 getwd()
 
 # INSTALL R FROM CRAN
+# http://archive.linux.duke.edu/cran/ #Here is a mirror
 
 load('scratch/rlibs.Rdata')
 
