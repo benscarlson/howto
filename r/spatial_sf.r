@@ -7,6 +7,8 @@
 
 #---- making sf objects ----#
 
+#-- example going from sfg to sf
+
 #-- sfg
 poly <- st_polygon(list(cbind(c(0,3,3,0,0),c(0,0,3,3,0)))) #poly is an sfg object
 
@@ -17,6 +19,14 @@ poly_sfc <- st_sfc(poly)
 
 #-- sf
 poly_sf = st_sf(st_sfc(poly,poly)) #from sfg objects
+
+#---- make st_polygon from data frame
+
+# single polygon. last row has to equal first row (i.e. should be closed)
+dat %>% 
+  as.matrix %>%
+  list %>%
+  st_polygon
 
 pts <- st_as_sf(x=jun14, coords=c("lon", "lat"), crs=4326) # sf from data.frame
 # sf round trip to/from wkt
