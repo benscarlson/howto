@@ -54,18 +54,17 @@ theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 #---- Guides/legends ----
 
-#-- legend title
-labs(color='My Legend Title')
-
 #--- Remove legends
-
 # Several different methods. See: https://stackoverflow.com/questions/35618260/remove-legend-ggplot-2-2
 guides(fill=FALSE)
 geom_point(..., show.legend=FALSE)
 
-#--- legend appearance
-
+#--- legend title
+labs(color='My Legend Title')
 scale_color_discrete(name='My legend title') #use this if the legend variable is mapped to 'color' in aes()
+
+#-- legend labels
+scale_color_discrete(labels=c('label 1', 'label 2'))
 
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
 
