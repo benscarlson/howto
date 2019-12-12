@@ -161,7 +161,17 @@ facet_wrap(vars(group)) #one facet per group
 # set the base_width and base_height parameters in save_plot. Get the graph the way you want it,
 # then play around with the size of the legend by using theme(). Finally, make final adjustments to base_width and base_height
 
+#----
+#---- save plots ----#
+#--------------------#
+
+#-- cowplot
 save_plot('~/scratch/dualplot.png', dualPlot,
           ncol = 2, nrow = 1,
           base_width=8,
           base_height=6)
+
+ggsave(.figout,plot=p,height=6,width=12,device=cairo_pdf) #save pdf
+
+#https://www.andrewheiss.com/blog/2017/09/27/working-with-r-cairo-graphics-custom-fonts-and-ggplot/
+ggsave(file.path(.figP,glue('rsf_spider_by_coef_myear.png')),plot=p,height=6,width=12,type='cairo')
