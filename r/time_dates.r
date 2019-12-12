@@ -60,6 +60,13 @@ elapsedTime <- function(ptm) {
 }
 
 #-- another approach
-diffmin <- function(t) round(difftime(Sys.time(), t, unit = "min"),2)
-tsEnt <- Sys.time()
-message(glue('Complete in {diffmin(tsEnt)} minutes'))
+diffmin <- function(t,t2=Sys.time()) round(difftime(t2, t, unit = "min"),2)
+
+t1 <- Sys.time()
+# do something
+message(glue('Complete in {diffmin(t1)} minutes'))
+
+t1 <- Sys.time()
+# do something
+t2 <- Sys.time()
+message(glue('Complete in {diffmin(t1,t2)} minutes'))
