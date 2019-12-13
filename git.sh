@@ -1,6 +1,6 @@
 #--- add non-repo code to a new github repo ---#
 #first, go to github.com and create the repo "anno" on github, don't initialize
-cd ~/projects/anno
+cd ~/projects/anno/src
 git init
 git status
 git add .
