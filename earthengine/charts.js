@@ -6,3 +6,6 @@
 
 //Example of two time series
 //https://code.earthengine.google.com/3dc458d7be9b13ac4a41ef30a6bdeb0b
+
+//Can make any of the charts here
+//https://developers.google.com/chart/interactive/docs/gallery
