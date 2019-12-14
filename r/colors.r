@@ -18,6 +18,8 @@ viridis::viridis(12)
 #Turbo, An Improved Rainbow Colormap for Visualization
 #https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html
 
+#Three color packages: https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-visualization/
+
 #----------------#
 #---- ggplot ----#
 #----------------#
