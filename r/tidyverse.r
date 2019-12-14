@@ -265,3 +265,11 @@ dat %>%
 
 #---- Forcats ----#
 https://www.r-bloggers.com/cats-are-great-and-so-is-the-forcats-r-package/
+
+#--------------------#
+#---- multidplyr ----#
+#--------------------#
+
+#https://www.business-science.io/code-tools/2016/12/18/multidplyr.html
+#https://cfss.uchicago.edu/notes/split-apply-combine/
+
