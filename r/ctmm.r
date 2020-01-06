@@ -87,6 +87,11 @@ ls(ctmm:::plot.env) #can see other items in plot env
 
 # In plot, semivariance of model is higher than empirical semi-variance for most of the plot
 # So, this means an underestimate of tau_v results in overestimate of semi-variance
+
+#Built-in cross validation!
+# https://groups.google.com/d/msg/ctmm-user/Y46EP_t6_3c/k0KxhoFQBgAJ
+# See IC parameter and use option "LOOCV" or "HSCV"
+
 #---- ctmm objects ----#
 
 #-- ctmm model
