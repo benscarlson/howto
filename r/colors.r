@@ -20,6 +20,10 @@ viridis::viridis(12)
 
 #Three color packages: https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-visualization/
 
+#---- RColorBrewer ----#
+pal <- brewer.pal(n = length(hvs), name = "Dark2") #
+pal <- colorRampPalette(brewer.pal(n=12, name = "Paired"))(length(hvs)) #Use color ramp if too many items
+
 #----------------#
 #---- ggplot ----#
 #----------------#
