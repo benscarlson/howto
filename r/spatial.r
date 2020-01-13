@@ -142,6 +142,7 @@ grid <- SpatialPoints(
 #---- Spatial*DataFrame ----
 na.omit(spdf) #remove rows with NA (not sure if this works)
 which(is.na(spdf['mycol']@data)) #shows which rows contain NA
+poly[poly$name=='Mina-2014 95% high',] #filter polygons based on field
 
 #---- SpatialPointsDataFrame ----
 spdf[,'mycol'] #this will return an spdf with just the column 'mycol'
@@ -193,12 +194,16 @@ coordinates(ptUtm33)
 ptUtm32_2 <- spTransform(ptUtm33,CRS('+proj=utm +zone=32 +ellps=WGS84 +units=m +no_defs'))
 coordinates(ptUtm32_2)
 
-#---- spatial operations ----#
+#---- geoprocessing ----#
 
 utm <- readOGR(dsn="/Users/benc/projects/gis-data/UTM_zones/UTM_Zone_Boundaries", layer="UTM_Zone_Boundaries")
 
 plot(crop(utm,extent(mv)))
 points(mv)
+
+#---- create random points and sample ----#
+bg <- spsample(poly,n=nrow(pts)*10,type='random')
+extract(pctTree,bg)
 
 #---- distance between two points ----#
 library(geosphere)
