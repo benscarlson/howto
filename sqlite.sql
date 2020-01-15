@@ -32,6 +32,9 @@ create table my_table (
 select rowid, * from mytable; --to see rowid (if it exists) add it to select list
 
 
+---- Importing csv files ----
+.mode csv #need to set mode to csv
+
 --import if file does not contain a file header
 .import data/derived/player_table_init.csv player
 
