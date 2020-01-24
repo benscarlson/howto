@@ -98,7 +98,8 @@ scale_fill_continuous(
 
 #set the legend position first is x, second is y. for y, top is 1, bottom is 0
 theme(legend.position = c(.8, .8), legend.key = element_blank())
-           
+theme(legend.position='bottom') #can do top, bottom, left, right
+
 #-- themes for faceting
 strip.text = element_text(size=9) #change font size on facets
 strip.background = element_blank() #remove border around facet labels
