@@ -39,6 +39,11 @@ ggplot(data=dat, aes(x=x,y=y, alpha=var1, shape=var2)) +
   scale_shape_manual(values=c(3,16)) + 
   scale_alpha_manual(values=c(0.2,1))
 
+#---- Order of elements ----#
+
+#ggplot respects order levels. So, this will draw/order levels with B first, A second
+type=factor(c('A','B'), levels=c('B','A')) 
+
 #----------------#
 #---- Themes ----#
 #----------------#
