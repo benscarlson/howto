@@ -28,6 +28,8 @@ pal <- colorRampPalette(brewer.pal(n=12, name = "Paired"))(length(hvs)) #Use col
 #---- ggplot ----#
 #----------------#
 
+scale_color_brewer(palette='Dark2') #This is loaded with ggplot no need to load RColorBrewer package
+
 #Note setting manual colors and applying to multiple aesthetics
 cols <- c('random'='#0073C2FF','actual'='#FC4E07')
 ggplot(gdat,aes(x=abs(diff),fill=diff_type,color=diff_type,..scaled..)) +
