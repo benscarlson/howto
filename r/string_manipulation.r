@@ -1,5 +1,7 @@
 trimws(s) #remove whitespace
 
+trimws(str_replace_all(s, '[\r\n]',' ')) #remove linebreaks from s
+
 #---- extracting substrings ----
 stringr::str_extract('123ABC','\\d+') #will extract '123'. seems to work better than gsub
 stringr::str_sub('123ABC',1,3) #First three chars '123'
