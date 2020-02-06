@@ -33,7 +33,10 @@ scale_x_continuous(labels = function(x) {format(as.Date(as.character(x), "%j"), 
 scale_x_continuous(breaks=4:12,labels=2^(4:12)) #Label a logged axis with the actual values
 scale_x_date() #this is prints out dates on axis
 
-#---- mapping aethetics ----
+#roate axis text
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+#---- mapping aethetics ----#
 
 #to manually set mappings, use scale_*_manual(). This assumes that var1 and var2 are factors with two levels
 ggplot(data=dat, aes(x=x,y=y, alpha=var1, shape=var2)) +
@@ -56,8 +59,7 @@ theme_bw()
 #http://docs.ggplot2.org/dev/vignettes/themes.html
 theme_set(theme_classic(base_family="Helvetica")) #sets theme for every plot in r session
 
-#roate axis text
-theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
 
 #---- Guides/legends ----
 
