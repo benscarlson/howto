@@ -88,6 +88,8 @@ EDA for \Sexpr{indivName} track
 #---- tables ----#
 #----
 
+options(knitr.kable.NA = '') #don't print NA in table
+
 kable(x, format.args = list(decimal.mark = '.', big.mark = ","))
 kable(x, digits=2)
 
