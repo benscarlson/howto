@@ -2,9 +2,13 @@
 #https://cougrstats.wordpress.com/2018/04/30/mapping-in-r/
 # Inset maps with ggplot2. https://geocompr.github.io/post/2019/ggplot2-inset-maps/
 
+#Example of where I created a map
+#https://gist.github.com/benscarlson/652f9048958bbd5fbb0175c1492cac6d
+
 #---- data sources ----#
 rnaturalearth
 spData #https://nowosad.github.io/spData/ us states, world borders
+
 #---- Base R Maps ----#
 raster::scalebar(1000, type='bar', divs=4)
 
