@@ -53,3 +53,7 @@ breaks <-labeling::extended(rng[1], rng[2], m = 5) #note won't display the first
 labels <- as.Date(as.POSIXct(breaks,origin='1970-01-01',tz='UTC'))
 
 p + scale_fill_gradient('Timestamp',low = "grey", high = "blue", breaks=breaks, labels=labels)
+
+#-------------------------#
+#---- Manual palettes ----#
+#-------------------------#
