@@ -57,3 +57,6 @@ p + scale_fill_gradient('Timestamp',low = "grey", high = "blue", breaks=breaks, 
 #-------------------------#
 #---- Manual palettes ----#
 #-------------------------#
+
+#This appears to be the color palette from ggradar
+# "#FF5A5F", "#FFB400", "#007A87", "#8CE071", "#7B0051","#00D1C1", "#FFAA91", "#B4A76C", "#9CA299", "#565A5C", "#00A04B", "#E54C20"
