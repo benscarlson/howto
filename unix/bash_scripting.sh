@@ -12,6 +12,10 @@ echo ls $MYFOLDER #see the resulting command
 numlines1=$(cat $dat | wc -l)
 numlines1=`cat $dat | wc -l`
 
+#-- lists 
+lst=("one" "two" "three")
+echo ${lst[0]} # one
+
 #variable contains a list of files (seperated by space)
 # can be used as input to commands that take a 1 to n file names
 files=`ls`
@@ -55,6 +59,8 @@ fi
 if [$nline1 -ne $nline2]; then echo 'Number of rows is not equal!'
 
 #--- loop through an array ---#
+
+#note can just say arr=("one" "two"), at least in interactive shell
 declare -a arr=("50N_010E" "50N_010E" "60N_000E" "60N_010E")
 
 ## now loop through the above array
