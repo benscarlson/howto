@@ -74,6 +74,10 @@ include_me = TRUE  # or FALSE
 #fig.height is the size the plot is created at. I think plot is scaled if these are different
 <<out.width='8in', fig.width=8, fig.align='center'>>=
 
+#Insert picture into R Markdown
+#https://stackoverflow.com/questions/25166624/insert-picture-table-in-r-markdown
+knitr::include_graphics('/path/to/image.png') #This looks like best suggestion
+
 #---- inline r code ----#
 <<>>=
 indivName<-'MyAnimal'
