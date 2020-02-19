@@ -31,6 +31,15 @@ create table my_table (
 
 select rowid, * from mytable; --to see rowid (if it exists) add it to select list
 
+------------------------
+---- Inserting data ----
+------------------------
+
+---- Using R DBI ----
+
+-- for a date/time datatype in dataframe, DBI will insert a numeric value by default into sqlite, regardless of data affinity
+-- if using dbi, probably best to convert to string manually.
+-- using .import works as expected.
 
 ---- Importing csv files ----
 .mode csv #need to set mode to csv
@@ -41,6 +50,7 @@ select rowid, * from mytable; --to see rowid (if it exists) add it to select lis
 --There is no flag to skip file header when importing. so, need to explicitly skip it
 .import "|tail -n +2 data/derived/player_table_init.csv" player
 
+-- Note .import will insert text date into db, if that is what is stored in csv, regardless of data affinity
 
 
 PRAGMA foreign_keys         --check if foreign keys are enabled
