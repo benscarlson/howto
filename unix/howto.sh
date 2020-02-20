@@ -125,6 +125,10 @@ sed -i '.bak' '1i\
 bird_id,date,time,gps_long,gps_lat,hight,speed,heading,acc_index,ODBA,behav,behav2
 ' sample.csv
 
+#replace all '-' with '_' in first row of file
+# -i means in place, '' means no backup. 1s means first line only. \ is escape character
+sed -i '' '1s/\-/\_/g' event_raw.csv
+
 #convert file with windows \r\n (?) endings to unix endings \n (?)
 dos2unix myfile.csv #osx makes changes in place. unix do dos2unix myfile.csv myfile2.csv
 
