@@ -24,7 +24,7 @@ identical(s1,s2) #TRUE
 .POSIXct(as.integer(Sys.time()),tz='UTC') #This converts timestamp to UTC
 
 strftime() #returns a character string. make sure to specify timezone, or local system timezone is assumed!
-strftime('2017-04-27',format='%Y-%m-%dT%TZ', tz='GMT') #standard format
+strftime('2017-04-27',format='%Y-%m-%dT%TZ', tz='UTC') #standard format
 
 # %T and %H:%M:%S are the same thing
 strftime(strTS,format='%Y-%m-%dT%T', usetz=TRUE, tz='US/Eastern')
