@@ -6,4 +6,10 @@ library(amt)
 
 #---- workflow for single animal rsf ----#
 
-trk <- make_track(dat, lon, lat, timestamp, crs = sp::CRS("+init=epsg:4326"))
+trk <- dat %>% make_track(lon, lat, timestamp, crs = sp::CRS("+init=epsg:4326")) #make an track_xyt
+trk <- dat %>% make_track(lon, lat, crs = sp::CRS("+init=epsg:4326")) #make a track_xy
+
+trk <- random_points
+
+#Plotting tracks. case_ is after using random_points()
+ggplot(trk,aes(x=x_,y=y_,color=case_)) + geom_point()
