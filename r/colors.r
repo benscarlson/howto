@@ -54,6 +54,10 @@ labels <- as.Date(as.POSIXct(breaks,origin='1970-01-01',tz='UTC'))
 
 p + scale_fill_gradient('Timestamp',low = "grey", high = "blue", breaks=breaks, labels=labels)
 
+#---- Examples of figures with nice palettes ----#
+
+#https://advances.sciencemag.org/content/6/9/eaax8329?rss=1
+
 #-------------------------#
 #---- Manual palettes ----#
 #-------------------------#
