@@ -15,13 +15,20 @@ raster::scalebar(1000, type='bar', divs=4)
 ### plotting polygons ###
 splancs::polymap(mymatrix) #plot a polygon for a [,2] matrix
 
-#---- making maps ----#
+#---- Making maps ----#
 #https://www.r-bloggers.com/zooming-in-on-maps-with-sf-and-ggplot2/ #tricks to zooming into regions using ggplot and sf
 
 library(rnaturalearth) #get administrative and country boundaries
 rnaturalearth::ne_countries() #get country borders
 ne_coastline(scale=110,returnclass='sf') #get coastlines
 
+# method to clip map to size of pts/data layer
+xlims <- range(pts$lon) * c(0.8,1.2)
+ylims <- range(pts$lat) * c(0.5,1)
+
+lims(x=xlims,y=ylims) #use lims argument in ggplot
+
+#---- Scale bars ----#
 #make a scale bar. Need to have columns named "long" and "lat".
   scalebar(data=rename(gdat,long=x,lat=y), dist=25, dist_unit='km', transform=TRUE, model='WGS84',location='bottomleft',
     st.size=3, height=0.02) +
