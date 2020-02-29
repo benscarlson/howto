@@ -18,7 +18,7 @@ raster::scalebar(1000, type='bar', divs=4)
 ### plotting polygons ###
 splancs::polymap(mymatrix) #plot a polygon for a [,2] matrix
 
-#---- Making maps ----#
+#---- ggplot maps ----#
 #https://www.r-bloggers.com/zooming-in-on-maps-with-sf-and-ggplot2/ #tricks to zooming into regions using ggplot and sf
 
 library(rnaturalearth) #get administrative and country boundaries
@@ -65,7 +65,15 @@ ggsn::scalebar(data=bbdf,
 
 #Try it out: https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html
 
+#----
+#---- Labels ----
+#----
+
+geom_text_repel(aes(x=lon,y=lat,label=study_name),size=2) #ggrepel
+
+#----
 #---- ggmap ----
+#----
 
 #to use ggmap with sf, have to set inherit.aes=FALSE
 ggmap(m) +
