@@ -5,6 +5,9 @@
 #Example of where I created a map
 #https://gist.github.com/benscarlson/652f9048958bbd5fbb0175c1492cac6d
 
+#Other guides:
+#https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html
+
 #---- data sources ----#
 rnaturalearth
 spData #https://nowosad.github.io/spData/ us states, world borders
@@ -26,10 +29,12 @@ ne_coastline(scale=110,returnclass='sf') #get coastlines
 xlims <- range(pts$lon) * c(0.8,1.2)
 ylims <- range(pts$lat) * c(0.5,1)
 
+#can use lims or coord_sf. in one test, lims removed some points but coord_sf retained them. so maybe coord_sf is better
 lims(x=xlims,y=ylims) #use lims argument in ggplot
-
+coord_sf(xlim=xlims,ylim=ylims) #use coord_sf instead of lims. 
 #---- Scale bars ----#
-#make a scale bar. Need to have columns named "long" and "lat".
+
+#-- make a scale bar using ggsn. Need to have columns named "long" and "lat".
   scalebar(data=rename(gdat,long=x,lat=y), dist=25, dist_unit='km', transform=TRUE, model='WGS84',location='bottomleft',
     st.size=3, height=0.02) +
 
@@ -55,6 +60,10 @@ bbdf <- data.frame(long=c(xmin,xmax),lat=c(ymin,ymax))
 ggsn::scalebar(data=bbdf,
   dist = 10, dist_unit='km',transform = TRUE, model = 'WGS84', location='bottomleft',
   height=0.03, st.size=3, st.dist=0.05, st.color='white')
+
+#-- make a scalebar using ggspatial
+
+#Try it out: https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html
 
 #---- ggmap ----
 
