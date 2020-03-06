@@ -10,6 +10,13 @@ dbListFields(db,'my_table')
 #---- getting data ----#
 pltb <- as_tibble(tbl(db, 'player'))
 
+dbGetQuery() #executes query, fetches data, and clears results
+
+#alternative to dbGetQuery
+dbSendQuery()
+dbFetch()
+dbClearResults()
+
 #---- inserting data ----#
 
 #-- trick to insert into a table that has autoincrement pk fields
@@ -18,7 +25,15 @@ sumLong %>%
   select(model_summary_id,everything()) %>% #move to the right position
   dbAppendTable(db, "model_summary", .)
 
+#option 1
 dbExecute(db,sql) #use to execute query that does not return data (e.g. update)
+
+#option 2
+dbSendStatement()
+dbGetRowsAffected()
+dbClearResult()
+
+#can't do this but shouldn't, use option 1 or 2
 dbSendQuery(db,sql) #can be used to update, but can also be used to make request need to clear result no matter what
 dbClearResult(q) #need to clear response buffer after calling dbSendQuery
 
