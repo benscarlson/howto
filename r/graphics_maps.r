@@ -95,3 +95,23 @@ ggmap(m) +
 
 #3D maps
 #https://blog.revolutionanalytics.com/2018/09/raytracer.html
+
+#----
+#---- Quick map scripts ----#
+#----
+
+#ggplot script of points and coastlines
+
+library(rnaturalearth) #get administrative and country boundaries
+
+pts <- st_as_sf(...)
+cl <- ne_coastline(scale=110,returnclass='sf') #get coastlines
+
+ggplot() +
+  geom_sf(data=cl) +
+  geom_sf(data=pts) +
+  geom_sf_text(data=pts,aes(label=name),size=2,nudge_y=-1) +
+  coord_sf(
+    xlim=st_bbox(pts)[c(1,3)] + c(-1,1),
+    ylim=st_bbox(pts)[c(2,4)] + c(-1,1))
+
