@@ -57,3 +57,13 @@ for(i in seq_len(nrow(rini))) {
 
 #can also try this approach. uses dbSendQuery to send data.frame
 # https://stackoverflow.com/questions/20546468/how-to-pass-data-frame-for-update-with-r-dbi
+
+#This checks to see if foreign key constraint works
+#This will fail
+dbExecute(db,'PRAGMA foreign_keys=ON')
+dbSendQuery(db, "DELETE FROM sensor")
+sensor %>% mutate(tag_id=1) %>% dbAppendTable(db, "sensor", .)
+#This should work
+dbExecute(db,'PRAGMA foreign_keys=OFF')
+dbSendQuery(db, "DELETE FROM sensor")
+sensor %>% mutate(tag_id=1) %>% dbAppendTable(db, "sensor", .)
