@@ -92,6 +92,16 @@ ls(ctmm:::plot.env) #can see other items in plot env
 # https://groups.google.com/d/msg/ctmm-user/Y46EP_t6_3c/k0KxhoFQBgAJ
 # See IC parameter and use option "LOOCV" or "HSCV"
 
+#---- other notes ----#
+see: http://bit.ly/2TWTLQL
+
+tau_p - the asymptote of the variogram. can be though of as the home-range crossing timescale
+au_v - timescale over which autocorrelation in velocity decays
+
+OU has tau_p
+OUF has tau_p and tau_v
+OUF has both, but tau_p and tau_v cant be distinguished, so only one parameter is estimated
+
 #---- ctmm objects ----#
 
 #-- ctmm model
