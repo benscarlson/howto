@@ -5,7 +5,8 @@
 
 #coolors. site to build color palette: https://coolors.co/def2c8-ff101f-7c90db-c5dac1-bcd0c7
 #Color Mind. http://colormind.io/ AI-driven color palettes.
-#Canva. https://www.canva.com/ Extract color palette from image
+#Canva. https://www.canva.com/ Web-based desktop publishing ?
+#Colormind. http://colormind.io/ Extract color palette from image
 
 #---- refs ----#
 # Color theory: https://www.smashingmagazine.com/2010/02/color-theory-for-designer-part-3-creating-your-own-color-palettes/
