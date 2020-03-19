@@ -1,3 +1,6 @@
+#---- Libraries ----#
+detach(package:mylibrary) #this will remove mylibrary from the environment
+
 #---- R system ----#
 
 .Machine$double.eps # = 2.220446e-16. This is the smallest number x in which x + 1 != 1
