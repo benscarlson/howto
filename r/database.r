@@ -37,9 +37,19 @@ dbClearResult()
 dbSendQuery(db,sql) #can be used to update, but can also be used to make request need to clear result no matter what
 dbClearResult(q) #need to clear response buffer after calling dbSendQuery
 
-#---- updating data ----#
+#----
+#---- updating tables ----#
+#----
 
-#updating is hard. need to update row by row
+#-- Use this approach! Update table using dataframe --#
+
+dat <- tibble(id=1:10,var1=rnorm(10))
+rs <- dbSendStatement(db, 'update mytable set var1 = $var1 where id = $id') #parameter names should match column names
+dbBind(rs,params=dat) #just pass in the full dataframe
+dbGetRowsAffected(rs)
+dbClearResult(rs)
+
+#Older approaches update row by row
 for(i in seq_len(nrow(rini))) {
   #i <- 1
   row <- rini[i,]
@@ -54,9 +64,6 @@ for(i in seq_len(nrow(rini))) {
   #should update exactly 1 row, if not provide warning
   if(af != 1) message(glue('Warning, update for {row$niche_name} affected {af} rows'))
 }
-
-#can also try this approach. uses dbSendQuery to send data.frame
-# https://stackoverflow.com/questions/20546468/how-to-pass-data-frame-for-update-with-r-dbi
 
 #This checks to see if foreign key constraint works
 #This will fail
