@@ -42,6 +42,7 @@ dbClearResult(q) #need to clear response buffer after calling dbSendQuery
 #----
 
 #-- Use this approach! Update table using dataframe --#
+# Some info here: https://cran.r-project.org/web/packages/RSQLite/vignettes/RSQLite.html
 
 dat <- tibble(id=1:10,var1=rnorm(10))
 rs <- dbSendStatement(db, 'update mytable set var1 = $var1 where id = $id') #parameter names should match column names
