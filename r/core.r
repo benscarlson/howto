@@ -72,6 +72,12 @@ basename('my/file/path') #returns 'path'
 dirname('my/file/path') #returns 'my/file'
 fileN <- sub('\\.csv$','', basename('my/file/path.csv'), ignore.case=TRUE) #returns 'path'
 
+#Use this to get just the file extension
+fext <- function(filePath){ 
+  ex <- strsplit(basename(filePath), split="\\.")[[1]]
+  return(ex[length(ex)])
+}
+
 shell.exec("myfile.txt") #have the operating system open myfile.txt using the default application
 
 #---- data frames ----
