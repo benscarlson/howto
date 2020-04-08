@@ -147,7 +147,13 @@ for(item in items) {
   plots[[item]] <- p
 }
 
+#Seems I can just do wrap_plots without need to do wrap_elements
+#wrap_elements seems to be used to make subpanels. Note below will 
+# result in a single tag for the whole subpanel
 p <- wrap_elements(wrap_plots(plots,nrow=3))
+
+#This is generally what you want
+p <- wrap_plots(plots,nrow=3)
 
 #-- Faceting
 facet_grid(vars(population),vars(term),scales='free_y',switch='y',space='free_y')
