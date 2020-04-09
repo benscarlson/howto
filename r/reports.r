@@ -185,4 +185,7 @@ https://www.sharelatex.com/learn/Page_size_and_margins
 #https://tex.stackexchange.com/questions/337083/latex-table-of-contents-not-visible-in-sidebar-of-pdf-viewer
 #
 
+#---- CPDF ----#
+# Use to combine multiple pdfs from command line. Lots of features:
+# http://community.coherentpdf.com/
 
