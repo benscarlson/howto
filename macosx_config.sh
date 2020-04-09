@@ -51,3 +51,7 @@ brew install osgeo-qgis #tried this instead
 
 showFiles 			Alias that shows hidden files
 hideFiles				Alias that hides hidden files
+
+#put command line binaries in:
+#https://superuser.com/questions/7150/mac-os-x-conventional-places-where-binary-files-should-live
+/usr/local/bin
