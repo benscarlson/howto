@@ -35,6 +35,20 @@ pal <- colorRampPalette(brewer.pal(n=12, name = "Paired"))(length(hvs)) #Use col
 #---- ggplot ----#
 #----------------#
 
+#--- default colors ---#
+
+#This emulates ggplot colors:
+#https://stackoverflow.com/questions/8197559/emulate-ggplot2-default-color-palette
+
+#However, scales library has hue_pal() which also returns the palette
+library(scales)
+hue_pal()(3)
+
+#can use show_pal to look at colors
+show_col(hue_pal()(3))
+
+#----
+
 scale_color_brewer(palette='Dark2') #This is loaded with ggplot no need to load RColorBrewer package
 
 #Note setting manual colors and applying to multiple aesthetics
