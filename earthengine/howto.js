@@ -21,6 +21,8 @@ git clone https://earthengine.googlesource.com/users/benscarlson/default
 //---- metadata ----//
 //Number of images in landsat collections: https://code.earthengine.google.com/257808f57d8feedeaf18a7d50d738ed2
 // subject: "GEE's data catalogue"
+//Total size of collection as of Apr 2020: 30P
+
 //---- Lists ----//
 
 //---- iterate and return a single value --
