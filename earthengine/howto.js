@@ -435,6 +435,25 @@ function maskS2clouds(image) {
   return image.updateMask(mask).divide(10000);
 }
 
+//-- Examples from ---//
+// https://code.earthengine.google.com/?accept_repo=users%2Fvictoriainman%2FOkavangoDelta_TechnicalNote&scriptPath=users%2Fvictoriainman%2FOkavangoDelta_TechnicalNote%3AScript1-OkavangoDelta_LandsatComposites
+// 1. Cloud masking functions
+// Landsat 8 function from https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR
+function cloudMaskL8(image) {
+  var cloudShadowBitMask = 1 << 3;  
+  var cloudsBitMask = 1 << 5;
+  var qa = image.select('pixel_qa');   
+  var mask = qa.bitwiseAnd(cloudShadowBitMask).eq(0).and(qa.bitwiseAnd(cloudsBitMask).eq(0));
+  return image.updateMask(mask);}
+
+// Landsat 5 and 7 function from https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LE07_C01_T1_SR
+var cloudMaskL57 = function(image) {
+  var qa = image.select('pixel_qa');   
+  var cloud = qa.bitwiseAnd(1 << 5).and(qa.bitwiseAnd(1 << 7)).or(qa.bitwiseAnd(1 << 3)); 
+  var mask2 = image.mask().reduce(ee.Reducer.min());
+  return image.updateMask(cloud.not()).updateMask(mask2);};
+
+
 //--- Functions and modules ----//
 //Implement default parameters
 //https://code.earthengine.google.com/c55646044eee3eee72409be885521e0f
