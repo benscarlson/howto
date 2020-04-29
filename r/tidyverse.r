@@ -240,6 +240,11 @@ hvs@HVList %>%
 
 dat %>% mutate(a=map(obj,`$`,'slotname'))
 dat %>% mutate(a=map(obj,pluck,'slotname')) #these do the same thing
+
+#Pass in data to function where the function doesn't take the data as the first argument
+#data should be first argument to map, use ~function syntax, and .x refers to data that is passed into map
+dat %>% nest(data=-group) %>% mutate(a=map(data,~lm(x~y,data=.x)))
+                                     
 #------------------#
 #---- purrrlyr ----#
 #------------------#
