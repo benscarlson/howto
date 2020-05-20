@@ -70,6 +70,7 @@ geom_point(..., show.legend=FALSE)
 
 #--- legend title
 labs(color='My Legend Title')
+labs(color=NULL) #Don't show legend title
 scale_color_discrete(name='My legend title') #use this if the legend variable is mapped to 'color' in aes()
 
 #-- legend labels
