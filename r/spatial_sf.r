@@ -55,6 +55,8 @@ sfc_as_cols <- function(x, names = c("x","y")) {
   ret <- st_set_geometry(ret, NULL) #this removes geometry column and turns back into data frame
 }
 
+#---- Geoprocessing ----#
+
 #sfc is like a list (or "set") of 1 or more geometries
 sfc_centroid <- pts0 %>% #pts0 is an sf object
   st_bbox %>% #bbox object
@@ -82,3 +84,5 @@ popBox <- pts %>% #pts is an sf object with a grouping column called population
   select(-data, -bbox) %>% 
   st_as_sf()
 
+#add area column to sf object, convert units to km2
+polys0 %>% mutate(area_km2=set_units(st_area(.),km^2))
