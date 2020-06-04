@@ -64,11 +64,12 @@ PRAGMA foreign_keys = OFF;  --Turn off
 INSERT INTO fd_stats(pk, col1, col2) 
 SELECT * FROM fd_stats_temp;
 
-#---- configuration ----#
+----- configuration -----
 
 --- this is from using brew upgrade. not macos comes with a version and that is the default
 --- I used the first command to update path, but did not set the other commands.
 
+/*
 If you need to have sqlite first in your PATH run:
   echo 'export PATH="/usr/local/opt/sqlite/bin:$PATH"' >> ~/.bash_profile
 
@@ -78,3 +79,15 @@ For compilers to find sqlite you may need to set:
 
 For pkg-config to find sqlite you may need to set:
   export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig"
+*/
+
+---- Selecting ----
+
+-- Take earliest timestamp per day --
+
+select *, date(timestamp) as date 
+from event 
+where individual_id = 10666985
+group by date
+having min(timestamp)
+order by date
