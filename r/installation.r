@@ -6,7 +6,9 @@ load_all("/Users/benc/src/cmsdm/cmsdm_repo") #load package from disk
 
 install_github('dkahle/ggmap') #note use user/repo format. Don't include e.g. https://github.com/dkahle/ggmap
 
+#----
 #---- package management ----
+#----
 
 #if r says something like 'not available for xyz version'
 #http://stackoverflow.com/questions/25721884/how-should-i-deal-with-package-xxx-is-not-available-for-r-version-x-y-z-wa
@@ -14,13 +16,20 @@ install_github('dkahle/ggmap') #note use user/repo format. Don't include e.g. ht
 install.packages('hypervolume',dependencies=TRUE,repos='http://cran.rstudio.com/') #seems to install all dependencies, no matter what
 install.packages('hypervolume',repos='http://cran.rstudio.com/') #this is probably faster
 
-#install from github
+#---- install from github ----
 #note now use remote package instead of devtools
 remotes::install_github('aaarchmiller/uhcplots')
 #in order to build vignettes, need to supply default build_opts, but without the 'no vignette' option
 #also might need build_vignette=TRUE. force=TRUE if you've already installed this package
 remotes::install_github('aaarchmiller/uhcplots',build_vignettes=TRUE,force=TRUE,
                         build_opts = c("--no-resave-data", "--no-manual"))
+
+#remotes converts all warnings to errors. This can result in failure to install if a package was built under different
+# minor version (e.g. you have 3.6.1 but package was built under 3.6.2)
+# to avoid this set environment variable
+Sys.setenv(R_REMOTES_NO_ERRORS_FROM_WARNINGS="true")
+Sys.getenv('R_REMOTES_NO_ERRORS_FROM_WARNINGS')
+remotes::install_github("dbspitz/migrateR/migrateR", build_vignettes = TRUE)
 
 .libPaths() #see library paths. by default the first one is picked as the install location
 #path seem to be built from here file below. see: http://stackoverflow.com/questions/6218358/how-do-i-set-r-libs-site-on-ubuntu-so-that-libpaths-is-set-properly-for-all-u
