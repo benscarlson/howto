@@ -7,7 +7,10 @@ db <- DBI::dbConnect(RSQLite::SQLite(), "data/database.db")
 dbListTables(db)
 dbListFields(db,'my_table')
 
-#---- getting data ----#
+#------------------------#
+#---- Selecting data ----#
+#------------------------#
+
 pltb <- as_tibble(tbl(db, 'player'))
 
 dbGetQuery() #executes query, fetches data, and clears results
@@ -16,6 +19,25 @@ dbGetQuery() #executes query, fetches data, and clears results
 dbSendQuery()
 dbFetch()
 dbClearResults()
+
+#---- parameterized queries ----#
+
+#Can use parameters directly with dbGetQuery
+sql <- "select individual_id from individual where study_id = ?"
+id <- 10157679
+dbGetQuery(db, sql, params = list(id))
+
+#Can't select using IN operator with dbGetQuery. Use glue_sql instead
+sql <- "select study_id,individual_id from individual where study_id in ?"
+id <- c(10157679,3807090)
+dbGetQuery(db, sql, params = list(id)) #Fail
+
+#Query using IN operator using glue_sql
+id <- c(10157679,3807090)
+sql <- "select study_id,individual_id 
+  from individual 
+  where study_id in ({id*})" %>% glue_sql
+dbGetQuery(db, sql)
 
 #---- inserting data ----#
 
