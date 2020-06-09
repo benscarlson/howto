@@ -10,6 +10,13 @@ geom_text_repel(data=dat, aes(x=lon, y=lat,label=study_num),size=3,force=3) + #s
 #---- geoms ----#
 ggConvexHull::geom_convexhull() #convex hull
 
+#to acheive a horizontal line segment with a point in the middle, use the following
+dat %>%
+  ggplot(aes(x = beta, y = Level)) +
+  geom_errorbarh(aes(xmin = ulower, xmax = uupper), 
+      show.legend=FALSE,size=.8,height=0) +
+  geom_point()
+
 #---- colors ----#
 # See colors.r
 
