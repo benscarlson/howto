@@ -23,6 +23,13 @@ git clone https://earthengine.googlesource.com/users/benscarlson/default
 // subject: "GEE's data catalogue"
 //Total size of collection as of Apr 2020: 30P
 
+//---- External libraries ----//
+
+//Landtrendr API. Has library for building consistent surface reflectance across landsats
+//Also will do cloud masking. See link below for lots more discussion on merging landsat data
+//https://groups.google.com/d/msg/google-earth-engine-developers/15gsO2twNYU/vGgU1YheGgAJ
+//https://emapr.github.io/LT-GEE/api.html
+
 //---- Lists ----//
 
 //---- iterate and return a single value --
