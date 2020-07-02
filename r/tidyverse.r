@@ -63,6 +63,9 @@ tibble(niche_name=character(),event=character())
 #---- dplyr ----#
 #---------------#
 
+#-- Renaming columns --#
+dat %>% rename_all(~str_replace_all(., "-", "_")) #replace all instances of '-' with '_'
+
 #-- Selecting columns --#
 dat %>% select(my_col,everything()) #move my_col to the front of the df.
 dat %>% select(-my_col,everything()) #move my_col to the end of the df.
