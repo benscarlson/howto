@@ -21,3 +21,12 @@ trk %>% random_points
 
 #Plotting tracks. case_ is after using random_points()
 ggplot(trk,aes(x=x_,y=y_,color=case_)) + geom_point()
+
+#--------------#
+#---- move ----#
+#--------------#
+
+timestamps(mv) #get the timestamps of a move object
+timeLag(mv, units = 'mins')
+distance(mv) #returns vector of distances (in meters, for lon/lat) between points. vector length is one less than the number of points.
+angle(mv) #returns vector of angles between points. length is one less than number of points.
