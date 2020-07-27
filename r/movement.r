@@ -26,6 +26,16 @@ ggplot(trk,aes(x=x_,y=y_,color=case_)) + geom_point()
 #---- adehabitat ----#
 #--------------------#
 
+# adehabitatHR - Homeranges
+# adehabitatHS - Habitat selection
+# adehabitatLT - animal tracks and track analysis
+# adehabitatMA - maps
+
+# class is ltraj
+# time not included in points - type I trajectories
+# time is included with points - type II trajectories
+# constant time lag - regularly sampled trajectory
+# variable time lag - irregularly sampled trajectory
 #--------------#
 #---- move ----#
 #--------------#
