@@ -22,6 +22,10 @@ trk %>% random_points
 #Plotting tracks. case_ is after using random_points()
 ggplot(trk,aes(x=x_,y=y_,color=case_)) + geom_point()
 
+#--------------------#
+#---- adehabitat ----#
+#--------------------#
+
 #--------------#
 #---- move ----#
 #--------------#
