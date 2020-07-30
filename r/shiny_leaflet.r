@@ -55,3 +55,8 @@ $(document).on("shiny:inputchanged", function(event) {
     document.getElementById("mylabel").innerHTML = event.value
   }
 });
+
+#---- Leaflet ----#
+
+#use to zoom the map to the bounds of the dataset
+leaflet() %>% fitBounds(min(dat$lon), min(dat$lat), max(dat$lon), max(dat$lat))
