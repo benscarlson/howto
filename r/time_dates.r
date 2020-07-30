@@ -39,6 +39,18 @@ as.POSIXct('2017-06-27', tz='US/Eastern') #class(): "POSIXct" "POSIXt" print(): 
 as.Date('2017-06-27', tz='US/Eastern') # class(): "Date". print(): "2017-06-27"
 OlsonNames() #get the names of timezones for the tz attribute
 
+# Day of Year #
+
+#R is 0 based for 
+#2019 is not a leap year. So 0 = Jan 1 and 364 = Dec 31
+# 365 is Jan 1, 2020!
+as.Date(0, origin = "2019-01-01") #2019-01-01
+as.Date(364, origin = "2019-01-01") #2019-12-31
+as.Date(365, origin = "2019-01-01") #2020-01-01
+
+#For leap-year, 365 is 12-31
+as.Date(365, origin = "2020-01-01") #2020-12-31
+
 #---- excel ----#
 =TEXT(C2,"yyyy-mm-ddThh:MM:ssZ") #convert excel date to ISO formatted timestamp
 
