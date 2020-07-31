@@ -60,6 +60,11 @@ type=factor(c('A','B'), levels=c('B','A'))
 #---- Themes ----#
 #----------------#
 
+#Try this theme font, looks nice
+#https://mattherman.info/blog/fix-facet-width/
+theme_minimal(base_family = "Roboto Condensed")
+
+
 theme_classic(base_family="Helvetica") #this theme usually works fine
 theme_tufte(base_family="Helvetica") #library(ggthemes)
 theme_bw()
