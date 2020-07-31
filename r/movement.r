@@ -31,6 +31,9 @@ ggplot(trk,aes(x=x_,y=y_,color=case_)) + geom_point()
 # adehabitatLT - animal tracks and track analysis
 # adehabitatMA - maps
 
+#Hard to find vignette for adehabitatLT on the web. Instead use:
+vignette('adehabitatLT')
+
 # class is ltraj
 # time not included in points - type I trajectories
 # time is included with points - type II trajectories
