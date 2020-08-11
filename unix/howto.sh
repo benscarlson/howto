@@ -122,6 +122,9 @@ gsplit -d -C 1MB -a 2 myfile.csv myfile #use -C option to limit file sizes to le
 #on the first line, change the first instance of event_id to point_index
 sed -i ".bak" "1s/event\_id/point\_index/" biofilt/bav_biofilt.csv
 
+# Add a line to the end of .bash_profile
+echo "export BREEZY_HOME=${breezy_home}" >> ~/.bash_profile
+
 #insert a header into the beginning of the file. Note you need to have the line breaks in there.
 # .bak makes a backup of the file first. use '' to not make a backup.
 #I think there are some differences between unix and osx with the -i parameter
