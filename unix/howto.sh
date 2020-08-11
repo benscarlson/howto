@@ -1,10 +1,10 @@
 #---- references ----#
 #https://medium.com/@kadek/command-line-tricks-for-data-scientists-c98e0abe5da
 
-
+#seems macos uses .bash_profile and not bashrc
 .bash_pofile #used for login shell (i.e remote in via ssh)
 .bashrc #used for non-login shell (i.e. opening another shell after you've already logged in)
-        #seems macos uses .bashrc and not .bash_profile
+
 dpkg -i debfile.deb #install a .deb file
 
 #---- create folders ----#
