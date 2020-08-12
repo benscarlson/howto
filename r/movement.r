@@ -39,6 +39,19 @@ vignette('adehabitatLT')
 # time is included with points - type II trajectories
 # constant time lag - regularly sampled trajectory
 # variable time lag - irregularly sampled trajectory
+
+#--- create ltraj objects ---#
+
+#note timestamp need to be a POSIXct object and data has to be a data.frame
+#convert as needed
+dat <- dat0 %>% 
+  mutate(timestamp=as.POSIXct(timestamp, format='%Y-%m-%dT%H:%M:%S', tz='UTC') %>%
+  as.data.frame #needs to be a dataframe for xy to work
+
+trk <- as.ltraj(xy=dat %>% select(lon,lat), 
+  date=dat$timestamp, 
+  id=dat$individual_id)
+
 #--------------#
 #---- move ----#
 #--------------#
