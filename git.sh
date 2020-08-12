@@ -9,6 +9,7 @@ git clone git@github.com:repo.git myrepo #instead of cloning to folder 'repo' th
 cd ~/projects/anno/src
 git init
 git status
+#set up .gitignore. See below
 git add .
 git remote add origin git@github.com:benscarlson/anno.git
 git commit -am 'initial commit'
@@ -52,3 +53,10 @@ git push -u origin mybranch # set up a branch on github that will track your loc
 # maintainer will merge branch into master, and delete remote branch
 git pull # get the latest (assuming you are on master branch)
 git branch -d mybranch # delete local branch
+
+#---- .gitignore
+echo ".DS_Store" >> .gitignore
+echo ".RData" >> .gitignore
+echo ".RHistory" >> .gitignore
+echo ".Rproj.user" >> .gitignore
+
