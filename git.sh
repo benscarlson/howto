@@ -24,6 +24,9 @@ git add .
 git commit -am 'initial commit'
 git push -u origin master
 
+# Untrack a file from the repo but leave on disk
+git rm --cached your_filename
+
 #get the last commit
 git rev-parse HEAD #5e152f31b4e0d4fe45403d822cd785da888e0431
 git log -1 --format='%H' #5e152f31b4e0d4fe45403d822cd785da888e0431
