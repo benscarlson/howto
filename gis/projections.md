@@ -1,5 +1,5 @@
 | proj | proj4 string | notes|
-|-------|----------------|
+|-------|----------------|-|
 | WGS84 | +proj=longlat  |
 UTM zone 33S | +proj=utm +zone=33 +south +ellps=WGS84 +datum=WGS84 +units=m +no_defs | (note +south)
 
