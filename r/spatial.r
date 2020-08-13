@@ -261,18 +261,12 @@ writeOGR(obj=as(bg,'SpatialPolygonsDataFrame'), driver="ESRI Shapefile",
 
 ### projections ###
 
+# NOTE: projection info moved to gis/projections.md
+
 rgdal::make_epsg() #this is a list of all ESPG codes and associated CRS
 
 CRS() #this is from sp package
 crs() #this is from raster package
-
-CRS("+proj=longlat") #WGS84
-CRS("+proj=longlat +ellps=WGS84") #WGS84
-CRS("+proj=longlat +datum=WGS84") #WGS84
-CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0") #WGS84
-CRS('+proj=aea +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs') #albers
-CRS('+proj=utm +zone=33 +ellps=WGS84 +units=m +no_defs') #UTM zone 33N
-CRS('+proj=utm +zone=33 +south +ellps=WGS84 +datum=WGS84 +units=m +no_defs') #UTM zone 33S (note +south)
 
 #proj4 notes
 +towgs84=0,0,0 #the last portion of each proj4 string is +towgs84=0,0,0 . This is a conversion factor that is used if a datum conversion is required.
