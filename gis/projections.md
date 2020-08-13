@@ -1,5 +1,6 @@
-
-| +proj=longlat | WGS84 |
+| proj | proj4 string |
+|-------|----------------|
+| WGS84 | +proj=longlat  |
 
 +proj=longlat +ellps=WGS84 WGS84
 
