@@ -1,5 +1,5 @@
 
-+proj=longlat WGS84
+| +proj=longlat | WGS84 |
 
 +proj=longlat +ellps=WGS84 WGS84
 
