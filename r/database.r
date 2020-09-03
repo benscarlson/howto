@@ -97,3 +97,18 @@ sensor %>% mutate(tag_id=1) %>% dbAppendTable(db, "sensor", .)
 dbExecute(db,'PRAGMA foreign_keys=OFF')
 dbSendQuery(db, "DELETE FROM sensor")
 sensor %>% mutate(tag_id=1) %>% dbAppendTable(db, "sensor", .)
+
+#---- Transaction management ----#
+dbBegin(db)
+dbRollback(db)
+dbCommit(db)
+
+
+#---- Errors ----#
+
+# Error: database disk image is malformed
+# Got this error. Did a transaction roll back.
+# From commandline
+PRAGMA integrity_check; #This returned a bunch of errors
+VACUUM; #Run this then run integrity_check again and got a bunch of errors about indices on event table
+REINDEX event; #Ran this and then integrity_check found no errors!
