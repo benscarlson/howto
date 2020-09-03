@@ -1,4 +1,4 @@
-#Storage classes: null, integer, real, txt, blob
+--Storage classes: null, integer, real, txt, blob
 
 sqlite3 path/to/database.db
 .databases #show attached databases
