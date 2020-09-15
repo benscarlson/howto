@@ -15,6 +15,10 @@
 
 #---- metadata ----
 
+#Color table:
+gdalinfo -noct #Don't show color table
+# Seems if there is a color table, it is displayed by default
+
 #---- display metadata ----
 
 #-- statistics
