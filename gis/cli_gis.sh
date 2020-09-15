@@ -37,11 +37,11 @@ gdal_edit.py -a_nodata 255 pct_tree_30m.tif #set nodata value
 
 #-- mosiac rasters
 
-gdal_merge.py -pct -n 0 -a_nodata 0 -co COMPRESS=DEFLATE -o out.tif in1.tif in2.tif
+gdal_merge.py -pct -n 0 -a_nodata 0 -co COMPRESS=LZW -o out.tif in1.tif in2.tif
 -pct #this takes the color table from the first input and applies to to output
 -n 0 #this tells merge to ignore these values from input rasters (i.e. treat as no data)
 -a_nodata #this tells merge to set 0 as the no data value in the output
--co #Seems COMPRESS=LZW is also common. This writes the raster as a compressed file. Compressed might be 400MB, uncompressed 6GB!
+-co #COMPRESS can be either LZW or DEFLATE. This writes the raster as a compressed file. Compressed might be 400MB, uncompressed 6GB!
 #Note on COMPRESS: LZW has same compressin ration as DEFLATE, but works on more software (like ArcGIS 9.x).
 
 #-- convert to different projection/coordinate system
