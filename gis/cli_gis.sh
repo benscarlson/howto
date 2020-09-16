@@ -77,16 +77,21 @@ gdalwarp -tr 30 30 -tap -t_srs EPSG:32633 -co COMPRESS=LZW image_utm32.tif image
 gdal_rasterize -burn 1 -l range -tr 0.00833333 0.00833333 range.shp range.tif
 
 #---- clip rasters ----
+
 #shows how to clip with either bounding box coords or shapefile
 #http://joeyklee.github.io/broc-cli-geo/guide/XX_raster_cropping_and_clipping.html
 
-gdalwarp -cutline border.shp -co COMPRESS=LZW infile.tif outfile.tif
+# clip raster using shapefile
+gdalwarp -dstnodata 255 -cutline $border -crop_to_cutline -co COMPRESS=LZW $tree $treeclip
+# -dstnodata: important because raster is square so regions outside polygon need to be set to nodata value
+# -crop_to_cutline: crop raster to bounding box of polygon
 
+
+# clip raster using bounding box
+gdalwarp -te 7.8140 46.7855 10.5111 48.5825 -co COMPRESS=LZW guf04_koz.tif guf04_koz100km.tif
 #-te x_min y_min x_max y_max
 #input.tif: the input file to be clipped
 #clipped_output.tif: the clipped output file
-
-gdalwarp -te 7.8140 46.7855 10.5111 48.5825 -co COMPRESS=LZW guf04_koz.tif guf04_koz100km.tif
 
 #----------------#
 #---- VECTOR ----#
