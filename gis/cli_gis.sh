@@ -86,16 +86,28 @@ gdal_rasterize -burn 1 -l range -tr 0.00833333 0.00833333 range.shp range.tif
 
 gdalwarp -te 7.8140 46.7855 10.5111 48.5825 -co COMPRESS=DEFLATE guf04_koz.tif guf04_koz100km.tif
 
-#---- VECTOR ----
+#----------------#
+#---- VECTOR ----#
+#----------------#
 
 #metadata about a shapefile
 ogrinfo -ro -so -al myfile.shp #list important metadata
 #-al lists info on all layers, layer is not specified. to specify layer, use myfile.shp mylayer
 #-so: Summary Only: supress listing of features, show only the summary information like projection, schema, feature count and extents.
 
-ogr2ogr -f GeoJSON myfile.geojson myfile.shp #convert shp to geojson
+ogrinfo -where "rs in ('15','16','14')" myfile.shp
 
 ogrinfo -so -al $dsn/$shp | grep Extent #get the extent. Must be lower left, upper right
+
+#---- Create new data sets ----#
+
+#Note ogr2ogr has format outfile, infile (not infile, outfile)
+
+ogr2ogr -f GeoJSON myfile.geojson myfile.shp #convert shp to geojson
+
+#Extract geometries and merge them
+sql="SELECT ST_Union(geometry) AS geometry FROM vg2500_bld where rs in ('15','16','14')"
+ogr2ogr outfile.shp infile.shp -dialect sqlite -sql "$sql"
 
 #---- Configuration ----
 
