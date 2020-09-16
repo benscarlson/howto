@@ -15,9 +15,25 @@ dat %>% make_track(lon, lat, crs = sp::CRS("+init=epsg:4326")) #make a track_xy
 
 trk %>% transform_coords(sp::CRS('+init=epsg:3035'))
 
+#Use random_points() for rsf, and random_steps() for ssf
+
 #default is to sample from MCP around points. Bg is 10x presenses. Note flat projectin required due to sf.
 # also results in a "random_points" object, not track_xy!
 trk %>% random_points 
+
+trk %>% random_steps
+
+track_resample #does something like 
+
+#This is a typical workflow for creating random steps for ssf. Assume single animal.
+dat %>% 
+  make_track(lon, lat, timestamp, crs = sp::CRS("+init=epsg:4326")) %>% #make an track_xyt
+  track_resample(rate=minutes(2),tolerance=hours(4)) %>% #what does this do?
+  filter_min_n_burst %>% #minimum number of samples per bursts. default is min_n=3
+  steps_by_burst %>% #this must make steps based on bursts? i.e. will not make steps between bursts?
+  random_steps %>% #number of random points. default is 10 
+  mutate(stratum=paste(niche_name,step_id_,sep='_')) %>% #per Stephanie, stratum should be unique across individuals
+  select(individual_id, niche_name, obs=case_, stratum, x=x2_,y=y2_,timestamp=t2_)
 
 #Plotting tracks. case_ is after using random_points()
 ggplot(trk,aes(x=x_,y=y_,color=case_)) + geom_point()
