@@ -5,7 +5,8 @@
 #-----------------#
 
 env <- raster('misc/tinamus_env.tif') #read raster
-writeRaster(env,'misc/tinamus_env.tif','GTiff') #write a raster to tif
+writeRaster(env,'misc/tinamus_env.tif') #write a raster. seems to interpret *.tif to write geotiff. defaults to LZW compression
+writeRaster(env,'misc/tinamus_env.tif',format='GTiff', options=c("COMPRESS=NONE")) #Explicitly define format and compression
 writeRaster(stk, filename=rastPF, bylayer=TRUE, format="raster",overwrite=TRUE) #write a stack as individual layers
 
 dataType(rast) #get the data type of the raster
