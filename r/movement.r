@@ -25,15 +25,21 @@ trk %>% random_steps
 
 track_resample #does something like 
 
-#This is a typical workflow for creating random steps for ssf. Assume single animal.
-dat %>% 
+#This is a typical workflow for running an ssf for one animal
+dat <- dat0 %>% 
   make_track(lon, lat, timestamp, crs = sp::CRS("+init=epsg:4326")) %>% #make an track_xyt
-  track_resample(rate=minutes(2),tolerance=hours(4)) %>% #what does this do?
+  track_resample(rate=minutes(2),tolerance=hours(4)) %>% 
   filter_min_n_burst %>% #minimum number of samples per bursts. default is min_n=3
   steps_by_burst %>% #this must make steps based on bursts? i.e. will not make steps between bursts?
-  random_steps %>% #number of random points. default is 10 
-  mutate(stratum=paste(niche_name,step_id_,sep='_')) %>% #per Stephanie, stratum should be unique across individuals
-  select(individual_id, niche_name, obs=case_, stratum, x=x2_,y=y2_,timestamp=t2_)
+  random_steps %>% 
+  extract_covariates(rast) %>% #rast is a raster
+  mutate(cos_ta = cos(ta_), #These are used for issf
+         log_sl = log(sl_))
+
+m0 <- dat %>% fit_clogit(case_ ~ tree + strata(step_id_))
+m1 <- dat %>% fit_clogit(case_ ~ tree + tree:cos_ta + tree:log_sl + log_sl * cos_ta + strata(step_id_)) #This is issf
+m2 <- dat %>% fit_clogit(case_ ~ tree + tree:cos_ta + tree:log_sl + log_sl + cos_ta + strata(step_id_)) #This is issf
+
 
 #Plotting tracks. case_ is after using random_points()
 ggplot(trk,aes(x=x_,y=y_,color=case_)) + geom_point()
