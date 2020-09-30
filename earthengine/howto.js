@@ -8,6 +8,13 @@
 //Tools for uploading to GEE: https://github.com/samapriya/geeup
 //Tensor flow examples: https://developers.google.com/earth-engine/tf_examples
 
+//--------------------------------//
+//---- Tutorials and training ----//
+//--------------------------------//
+
+//Community tutorials. https://developers.google.com/earth-engine/tutorials
+//  *  Has L7 & L8 harmonization example!! 
+
 //---- shortcut keys ---//
 ctrl + /  for //
 
