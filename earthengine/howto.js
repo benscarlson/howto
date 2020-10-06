@@ -7,6 +7,8 @@
 //Tool to auto click "Run". https://github.com/kongdd/GEE_Tools/blob/master/gee_monkey.js
 //Tools for uploading to GEE: https://github.com/samapriya/geeup
 //Tensor flow examples: https://developers.google.com/earth-engine/tf_examples
+//List of all data products (updated daily): https://console.cloud.google.com/storage/browser/earthengine-stac/1.0.0/catalog
+//List of all data prodcuts (updated weekly and includes a bunch of other features). https://github.com/samapriya/Earth-Engine-Datasets-List
 
 //--------------------------------//
 //---- Tutorials and training ----//
