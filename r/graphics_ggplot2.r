@@ -10,12 +10,25 @@ geom_text_repel(data=dat, aes(x=lon, y=lat,label=study_num),size=3,force=3) + #s
 #---- geoms ----#
 ggConvexHull::geom_convexhull() #convex hull
 
-#to acheive a horizontal line segment with a point in the middle, use the following
+# NOTE seems using geom_linerange is often a better approach
+# to acheive a horizontal line segment with a point in the middle, use the following
 dat %>%
   ggplot(aes(x = beta, y = Level)) +
   geom_errorbarh(aes(xmin = ulower, xmax = uupper), 
       show.legend=FALSE,size=.8,height=0) +
   geom_point()
+
+#Here is how to do a horizontal line range
+#Tricky to just output linerange geometry. If we have min and max
+# for the line range, what do we put as x? The trick is to 
+# just put the min value. That seems to set up the axes correctly.
+# to do vertical, switch aes(x,y) mapping and use ymin, ymax in linerange
+dat %>%
+  group_by(local_identifier) %>%
+  summarize(mints=as.Date(min(timestamp)),
+            maxts=as.Date(max(timestamp))) %>%
+  ggplot(aes(x=mints,y=local_identifier,color=local_identifier)) +
+  geom_linerange(aes(xmin=mints,xmax=maxts),show.legend=FALSE)
 
 #---- colors ----#
 # See colors.r
