@@ -86,3 +86,7 @@ popBox <- pts %>% #pts is an sf object with a grouping column called population
 
 #add area column to sf object, convert units to km2
 polys0 %>% mutate(area_km2=set_units(st_area(.),km^2))
+
+#get a bbox of points, buffer by 0.25 degrees, and create an extent object to clip a raster
+box <- pts %>% st_bbox + c(-0.25,-0.25,0.25,0.25)
+ext <- extent(as.numeric(box)[c(1,3,2,4)]) #values are in different order in an extent object
