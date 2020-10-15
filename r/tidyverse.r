@@ -247,7 +247,15 @@ dat %>% mutate(a=map(obj,pluck,'slotname')) #these do the same thing
 #Pass in data to function where the function doesn't take the data as the first argument
 #data should be first argument to map, use ~function syntax, and .x refers to data that is passed into map
 dat %>% nest(data=-group) %>% mutate(a=map(data,~lm(x~y,data=.x)))
-                                     
+
+#map over each row in a dataframe.
+#This uses pmap and sends the entire row into the function. The function captures all rows as a tibble
+dat %>%
+  mutate(result=pmap(.,function(...) {
+    row <- tibble(...)
+    rsf <- exp(rast2*row$tree) #example using the column "tree" from the current row
+  }))
+
 #------------------#
 #---- purrrlyr ----#
 #------------------#
