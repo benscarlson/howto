@@ -10,11 +10,13 @@ writeRaster(env,'misc/tinamus_env.tif',format='GTiff', options=c("COMPRESS=NONE"
 writeRaster(stk, filename=rastPF, bylayer=TRUE, format="raster",overwrite=TRUE) #write a stack as individual layers
 
 dataType(rast) #get the data type of the raster
-  
+ 
+#---- raster stacks ----#
+stack(x) #x can be list of raster objects, list of file paths
 nlayers(mystack) #number of RasterLayers in the RasterStack
 names(mystack) #the names of the RasterLayers in the RasterStack
 names(layer) <- 'layername' #set the name of RasterLayer to 'layername'
-
+subset(stk,1:3) #take layers 1-3 of a raster stack
 extent(mystack) #extent of the RasterLayers in the RasterStack
 mystack[[1]] #extract the first RasterLayer from the RasterStack
 
