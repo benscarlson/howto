@@ -119,6 +119,12 @@ mylist[
   unlist(lapply(mylist, function(item) 
     {item@Name %in% c('val1','val2')}))]
 
+#combine multiple lists into a matrix using rbind
+  a <- list(); a['one'] <- 1; a['two'] <- 2
+  b <- list(); b['one'] <- 1; b['two'] <- 2
+  
+  x <- rbind(a,b) #creates a matrix
+
 #---- built in constants----
 LETTERS, letters, month.abb, month.name, pi
 
