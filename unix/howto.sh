@@ -96,6 +96,8 @@ scp benc@litoria.eeb.yale.edu:~/remote/path/* .
 scp /local/file.txt benc@litoria.eeb.yale.edu:/remote/file.txt
 #upload all files and folders in current directory to remote directory huj_eobs_test
 scp -r * bc447@grace.hpc.yale.edu:~/results/huj_eobs_test
+#upload the ms1 folder (and all contents) to the ~/projects directory
+scp -r ms1 bc447@grace.hpc.yale.edu:~/projects
 
 #download multiple files. this will download a total of 12 files, note {1..12} syntax
 wget https://domain/CHELSA_prec_{1..12}_1979-2013_V1_1.zip
