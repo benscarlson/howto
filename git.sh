@@ -32,7 +32,11 @@ git rev-parse HEAD #5e152f31b4e0d4fe45403d822cd785da888e0431
 git log -1 --format='%H' #5e152f31b4e0d4fe45403d822cd785da888e0431
 git log --pretty --format='%h' -n 1 #5e152f3 (short version?)
 
-
+# add ssh key to github
+# https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+ls -al ~/.ssh #check ssh director for ssh key
+cat ~/.ssh/id_rsa.pub #print out contents of rsa key and copy the text
+# go to github and add a key by pasting the contents
 
 git checkout mybranch #switch to mybranch
 git branch --merged #see which branches have been merged into the current branch
