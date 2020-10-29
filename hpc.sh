@@ -1,9 +1,10 @@
 #---- General development workflow ----#
 
-# 1) Run script sequentially, interactive mode on local machine
-# 2) Run script in parallel, interactive mode on local machine
-# 3) Run script sequentially, script mode on local machine
-# 4) Run script in parallel, script mode on local machine
+# * Run script sequentially, interactive mode on local machine
+# * Run script in parallel, interactive mode on local machine
+# * Run script sequentially, script mode on local machine
+# * Run script in parallel, script mode on local machine
+# * Upload code to grace using scp or git
 
 #--------------------
 #---- grace ----
