@@ -8,6 +8,13 @@ aes_string()
 geom_text_repel(data=dat, aes(x=lon, y=lat,label=study_num),size=3,force=3) + #segment.color = NA (use this to turn off lines) 
 
 #---- geoms ----#
+
+#-- density/histograms
+
+#to show relative density or relative frequency
+geom_density(..scaled..) #relative density
+geom_histogram(aes(y=stat(count) / sum(count))) #relative frequency
+
 ggConvexHull::geom_convexhull() #convex hull
 
 # NOTE seems using geom_linerange is often a better approach
