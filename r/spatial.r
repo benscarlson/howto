@@ -12,7 +12,8 @@ writeRaster(stk, filename=rastPF, bylayer=TRUE, format="raster",overwrite=TRUE) 
 dataType(rast) #get the data type of the raster
  
 #---- raster stacks ----#
-stack(x) #x can be list of raster objects, list of file paths
+stack(x) #Load raster stack. x can be list of raster objects, list of file paths, or a multiband raster
+
 nlayers(mystack) #number of RasterLayers in the RasterStack
 names(mystack) #the names of the RasterLayers in the RasterStack
 names(layer) <- 'layername' #set the name of RasterLayer to 'layername'
@@ -20,18 +21,25 @@ subset(stk,1:3) #take layers 1-3 of a raster stack
 extent(mystack) #extent of the RasterLayers in the RasterStack
 mystack[[1]] #extract the first RasterLayer from the RasterStack
 
+# Metadata
 ncell(layer) #number of cells
 calc(layer, function(x) { f(x) }) #apply function f to layer
 cellStats(layer,sum) #returns the sum of all cells in layer. can also use mean, min, etc.
 metadata(layer) <- metadata #adds metadata to layer
 rdist_r@data@min;rdist_r@data@max #see min and max values for a rasterLayer
 res(layer) #see the x,y resolution of the raster. get units from crs()
-env_tif <- raster('misc/tinamus_env.tif') #load the raster from tif
+is.factor(rast)
+
+
 raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of points (here, a SpatialPoints object)
 bbox(obj) #get the bounding box of spatial object obj
 
+#Interrogate the data
 freq(rast) #get a frequency table of values. useful for landcover layers
 click(rast) #can click on a plot of raster and inspect values
+
+#---- updating rasters ----
+rast[rast==0] <- NA #set pixels to NA where 0
 
 #---- Color table & legend
 #What is a legend?
