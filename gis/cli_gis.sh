@@ -93,6 +93,9 @@ gdalwarp -te 7.8140 46.7855 10.5111 48.5825 -co COMPRESS=LZW guf04_koz.tif guf04
 #input.tif: the input file to be clipped
 #clipped_output.tif: the clipped output file
 
+# gdalwarp can convert between file formats
+gdalwarp ... in.img, out.tif
+
 #----------------#
 #---- VECTOR ----#
 #----------------#
