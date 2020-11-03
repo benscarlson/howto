@@ -55,7 +55,9 @@ sfc_as_cols <- function(x, names = c("x","y")) {
   ret <- st_set_geometry(ret, NULL) #this removes geometry column and turns back into data frame
 }
 
+#-----------------------#
 #---- Geoprocessing ----#
+#-----------------------#
 
 #sfc is like a list (or "set") of 1 or more geometries
 sfc_centroid <- pts0 %>% #pts0 is an sf object
@@ -68,6 +70,8 @@ sfc_centroid <- st_centroid(st_as_sfc(st_bbox(pts0))) #centroid is an sfc_POINT 
 
 #st_coordinates returns a matrix of coordinates. I only have one point so get first row as a vector
 centroid <- st_coordinates(sfc_centroid)[1,] #returns a named vector c(X=<lon>,Y=<lat>)
+
+#---- bounding boxes ----#
 
 #make a bbox shapefile from a set of sf points
 dsn <- file.path(.pd,'data/lbg_bbox')
@@ -90,3 +94,7 @@ polys0 %>% mutate(area_km2=set_units(st_area(.),km^2))
 #get a bbox of points, buffer by 0.25 degrees, and create an extent object to clip a raster
 box <- pts %>% st_bbox + c(-0.25,-0.25,0.25,0.25)
 ext <- extent(as.numeric(box)[c(1,3,2,4)]) #values are in different order in an extent object
+
+#convert raster extent to an sf bbox
+box <- tree %>% extent %>% st_bbox %>% st_as_sfc
+st_crs(box) <- 4326 #For some reason st_as_sfc(crs=4326) is not working, so need to set this seperately
