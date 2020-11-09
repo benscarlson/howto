@@ -6,6 +6,10 @@
 # * Run script in parallel, script mode on local machine
 # * Upload code to grace using scp or git
 
+#Use env variables to pass to sbatch
+#https://help.rc.ufl.edu/doc/Using_Variables_in_SLURM_Jobs
+sbatch --export=A=5,b='test' jobscript.sbatch #see link for more examples
+
 #--------------------
 #---- grace ----
 #--------------------
