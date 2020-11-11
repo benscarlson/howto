@@ -101,6 +101,19 @@ st_intersection(sa_poly,polys)
 clipped <- polys
 st_geometry(clipped) <- st_intersection(sa_poly,polys)
 
+#---- extracting from rasters ----
+
+#extract can take an sf object
+#the output is an sp object
+#crs matches the raster, so need to transform
+anno <- dat0 %>% 
+  #filter(niche_name=='Magnus-2016') %>%
+  st_as_sf(coords=c('lon','lat'),crs=4326) %>%
+  raster::extract(rast,.,sp=TRUE)  %>%
+  spTransform(CRSobj=CRS('+proj=longlat +datum=WGS84 +no_defs')) %>%
+  as_tibble %>%
+  rename(lon=coords.x1,lat=coords.x2)
+
 #---------------------#     
 #---- Vector Data ----#
 #---------------------#
