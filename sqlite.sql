@@ -93,3 +93,9 @@ where individual_id = 10666985
 group by date
 having min(timestamp)
 order by date
+
+---- Managing table structure ----
+
+-- Change the table name - Use alter table statement
+-- Add column - Use alter table statement
+-- Change column name, column order - Use DB Browser
