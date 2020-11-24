@@ -95,6 +95,9 @@ dat1 <- dat0 %>%
   group_by(col_a) %>%
   mutate_each(funs(myscale),-c(col_a)) #don't apply to col_a.
 
+#Assign date variable to bins
+dat %>% mutate(bin=cut(as.Date(timestamp),'7 days'))
+
 #-- tidy evaluation --#
 
 #note use of dynamic column name
