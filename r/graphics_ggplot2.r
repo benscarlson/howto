@@ -225,3 +225,14 @@ ggsave(.figout,plot=p,height=6,width=12,device=cairo_pdf) #save pdf
 #should always use cairo. Can also use cairo for pdf by saying device=cairo_pdf
 #https://www.andrewheiss.com/blog/2017/09/27/working-with-r-cairo-graphics-custom-fonts-and-ggplot/
 ggsave(file.path(.figP,glue('rsf_spider_by_coef_myear.png')),plot=p,height=6,width=12,type='cairo')
+
+
+#---- ggplot and sf ----#
+#-----------------------#
+
+#this is how to use two different geometry columns
+# the geometry column is polygons
+# pts is a second list column of sf geoms
+ggplot(bg) +
+  geom_sf(aes(color=bin),fill=NA) +
+  geom_sf(aes(color=bin,geometry=pts))
