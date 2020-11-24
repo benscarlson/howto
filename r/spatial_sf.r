@@ -59,6 +59,10 @@ sfc_as_cols <- function(x, names = c("x","y")) {
 #---- Geoprocessing ----#
 #-----------------------#
 
+#Buffers
+
+pts %>% st_buffer(pts$radius) #apply different radius to each point
+
 #sfc is like a list (or "set") of 1 or more geometries
 sfc_centroid <- pts0 %>% #pts0 is an sf object
   st_bbox %>% #bbox object
