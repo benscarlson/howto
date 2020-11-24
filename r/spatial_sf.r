@@ -40,6 +40,13 @@ f1 <- st_sf(cbind(d2,c2)) #one way to make sf
 f2 <- st_sf(d2, geometry = c2) #another way to make sf
 
 #-- make a data.frame from an sf object
+
+# This piped workflow is the same as the function below.
+ptsbg %>%
+  st_set_geometry(NULL) %>%
+  bind_cols(
+    ptsbg %>% st_coordinates %>% as_tibble)
+
 #TODO: move this into github or bencmisc
 #based on function that comes from here: https://github.com/r-spatial/sf/issues/231
 sfc_as_cols <- function(x, names = c("x","y")) {
