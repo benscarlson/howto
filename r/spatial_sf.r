@@ -55,13 +55,30 @@ sfc_as_cols <- function(x, names = c("x","y")) {
   ret <- st_set_geometry(ret, NULL) #this removes geometry column and turns back into data frame
 }
 
+#set crs in piped workflow
+pts %>% st_set_crs(3035) 
+
+#change the geometry (if you have another sfc or geom list column)
+pts %>% st_set_geometry(pts$geom2)
+
 #-----------------------#
 #---- Geoprocessing ----#
 #-----------------------#
 
-#Buffers
+#--- Buffers
 
 pts %>% st_buffer(pts$radius) #apply different radius to each point
+
+#--- Sampling
+
+# Sample within different polygons using and different number of points
+buf %>% #Buf is a sf object with polygon geometries
+  mutate(pts=map2(geometry,num,~{
+    st_sample(.x,.y)
+  })) %>%
+  unnest(pts) %>%
+  mutate(pts=st_sfc(pts)) #pts is now a second column that is a list of geoms
+
 
 #sfc is like a list (or "set") of 1 or more geometries
 sfc_centroid <- pts0 %>% #pts0 is an sf object
