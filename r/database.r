@@ -20,6 +20,12 @@ dbSendQuery()
 dbFetch()
 dbClearResults()
 
+#---- rowid ----#
+
+#If primary key is not specified, pk is a hidden auto-increment column called rowid
+#to select row id, use dbGetQuery
+dbGetQuery(db,'select rowid, * from rpt')
+
 #---- parameterized queries ----#
 
 #Can use parameters directly with dbGetQuery
