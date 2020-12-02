@@ -42,6 +42,7 @@ dbGetQuery(db, sql)
 #---- inserting data ----#
 
 #-- trick to insert into a table that has autoincrement pk fields
+# NOTE: don't need to do this! PK column still autoupdates if the column is not included
 sumLong %>% 
   mutate(model_summary_id=NA) %>% #add PK column set to NA
   select(model_summary_id,everything()) %>% #move to the right position
