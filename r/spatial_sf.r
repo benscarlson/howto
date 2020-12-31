@@ -99,6 +99,14 @@ sfc_centroid <- st_centroid(st_as_sfc(st_bbox(pts0))) #centroid is an sfc_POINT 
 #st_coordinates returns a matrix of coordinates. I only have one point so get first row as a vector
 centroid <- st_coordinates(sfc_centroid)[1,] #returns a named vector c(X=<lon>,Y=<lat>)
 
+#---- spatial filters ----#
+
+#select all points that are within a polygon
+pts2 <- pts %>% st_join(poly,left=FALSE) #pts, poly must be sf objects. need to use left=FALSE
+
+#---- other ----#
+pts %>% st_union %>% st_convex_hull #make a convex hull, need to do st_union first
+
 #---- bounding boxes ----#
 
 #make a bbox shapefile from a set of sf points
@@ -126,3 +134,7 @@ ext <- extent(as.numeric(box)[c(1,3,2,4)]) #values are in different order in an 
 #convert raster extent to an sf bbox
 box <- tree %>% extent %>% st_bbox %>% st_as_sfc
 st_crs(box) <- 4326 #For some reason st_as_sfc(crs=4326) is not working, so need to set this seperately
+
+#---- units ----#
+units(x) <- with(ud_units, km^2) #Changes units to km^2 (x is in m^2)
+
