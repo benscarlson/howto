@@ -94,6 +94,15 @@ group by date
 having min(timestamp)
 order by date
 
+---- Date/Time columns ----
+
+cast(strftime('%Y',timestamp) as integer) -- extract year. have to cast to int if comparing to an integer
+
+---- Filtering ----
+
+-- can filter using computed column
+where cast(strftime('%Y',timestamp) as integer) =  2015
+
 ---- Managing table structure ----
 
 -- Change the table name - Use alter table statement
