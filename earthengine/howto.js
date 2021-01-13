@@ -9,6 +9,7 @@
 //Tensor flow examples: https://developers.google.com/earth-engine/tf_examples
 //List of all data products (updated daily): https://console.cloud.google.com/storage/browser/earthengine-stac/1.0.0/catalog
 //List of all data prodcuts (updated weekly and includes a bunch of other features). https://github.com/samapriya/Earth-Engine-Datasets-List
+//Another list of all data products (maybe json format): https://gee.stac.cloud/?t=catalogs
 
 //--------------------------------//
 //---- Tutorials and training ----//
