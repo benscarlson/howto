@@ -20,6 +20,18 @@ poly_sfc <- st_sfc(poly)
 #-- sf
 poly_sf = st_sf(st_sfc(poly,poly)) #from sfg objects
 
+#---- Geometries ----#
+
+#-- Linestring --#
+
+#Turn point geometries into lines
+# turning point geom into lines: https://github.com/r-spatial/sf/issues/321
+lines <- dat %>% 
+  st_as_sf(coords=c('lon','lat'),crs=4326) %>% 
+  group_by(individual_id) %>% 
+  summarize(do_union=FALSE,.groups='drop') %>%
+  st_cast('LINESTRING') 
+
 #---- make st_polygon from data frame
 
 # single polygon. last row has to equal first row (i.e. should be closed)
