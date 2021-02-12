@@ -60,6 +60,12 @@ interval(as.Date(timestamp1),as.Date(timestamp2)) %/% months(1) #%/% means integ
 interval(dte1, dte2)/years(1) #number of years between two dates
 ydat(today()) #get day of year
 
+#Number of seconds between two timestamps
+#interval, time_length are both vectorized. difftime has to use map. these functions are about 6x faster than map/difftime
+mutate(
+      diff_s1=map2_dbl(timestamp,lag(timestamp),difftime,units='secs') #Note later timestamp goes first
+      diff_s2=time_length(interval(lag(timestamp),timestamp),unit='second')) #Here later timestamp goes second
+
 #---- timing ----
 ptm <- proc.time() 
 elapsed_min <- round((proc.time() - ptm)[3]/60,2) #elapsed time in minutes
