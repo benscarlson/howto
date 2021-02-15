@@ -241,14 +241,39 @@ distGeo(c(bb['x.min'],bb['y.min']),c(bb['x.max'],bb['y.min'])) #421563.7
 #https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula/23095329#23095329
 distm(x=c(lon,lat),y=c(lon,lat),fun = distVincentyEllipsoid)
 
+#Don't use this method! Use the method below.
 #Very convoluted way to get dist_m to return a single column and play nice with dplyr
-dat %>%
+
+lon <- 30; lat <- 30; ts <- 0
+co <- tribble(
+  ~lon,~lat,
+  lon,lat,
+  lon + 1,lat + 1,
+  lon + 2,lat + 2,
+  lon + 3,lat + 3)
+ 
+co %>%
   group_by(niche_name) %>% #note each row gets it's own group
   nest %>%
   mutate(dist_m=map(data,~{
     distm(c(.$nest_lon,.$nest_lat),c(.$mean_lon,.$mean_lat),fun=distHaversine)
   })) %>%
   unnest
+
+#Use this method, much better! Note also computing bearing in the same fashion.
+co %>%
+  mutate(
+    dist_m=distGeo(cbind(lon,lat),lag(cbind(lon,lat))),
+    bearing=bearing(cbind(lon,lat),lag(cbind(lon,lat))))
+
+#Turn angle for spherical coordinates. theta1, theta2 are comupted using the bearing() function.
+#https://stackoverflow.com/questions/16180595/find-the-angle-between-two-bearings
+# returns angle next point relative to a stright line. 
+# so continuing straight is 0 and turning direction back is 180
+turnAngle <- function(theta1, theta2){
+  theta <- abs(theta1 - theta2) %% 360 
+  return(ifelse(theta > 180, 360 - theta, theta))
+}
 
 #---- make a bounding box a certain distance around a point ----#
 library(geosphere)
