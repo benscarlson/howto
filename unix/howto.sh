@@ -106,6 +106,7 @@ wget https://domain/CHELSA_prec_{1..12}_1979-2013_V1_1.zip
 grep ERROR log.txt | wc -l #count the number of lines in the file log.txt with the word ERROR in it
 sed 'NUMq;d' file #read a particular line of a file. https://stackoverflow.com/questions/6022384/bash-tool-to-get-nth-line-from-a-file
 tail -n +2 file.csv #print all lines, starting at line 2 (i.e. skip file header)
+find . -type f -exec cat {} + | wc -l #sum of total lines in all files
 
 #---- disk management ----#
 df -H #total and available disk space, in easily readable units
