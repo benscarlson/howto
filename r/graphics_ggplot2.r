@@ -210,7 +210,15 @@ facet_wrap(vars(group)) #one facet per group
 # set the base_width and base_height parameters in save_plot. Get the graph the way you want it,
 # then play around with the size of the legend by using theme(). Finally, make final adjustments to base_width and base_height
 
-#----
+#Snippet for how Ruth uses cowplot
+xi <- 0.5
+pdf("~/Desktop/test.pdf")
+ggdraw() +
+  draw_plot(p1, x = 0, y = xi, width = 1, height = xi) +
+  draw_plot(p2, x = 0, y = 0, width = 1, height = xi)
+dev.off()
+
+#--------------------#
 #---- save plots ----#
 #--------------------#
 
