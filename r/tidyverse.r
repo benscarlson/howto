@@ -44,6 +44,9 @@ dat %>% nest(-id)
 
 read_csv('my/path',col_types=cols()) # will not print out column types
 
+#Write na as "" instead of NA. It would be nice to be able to default this but I can't find a way.
+write_csv(...,na="")
+
 #----------------#
 #---- tibble ----#
 #----------------#
