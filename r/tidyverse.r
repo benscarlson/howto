@@ -42,7 +42,13 @@ dat %>% nest(-id)
 #---- readr ----#
 #---------------#
 
+#--- Reading csvs ---#
+
 read_csv('my/path',col_types=cols()) # will not print out column types
+
+#it seems timestamps are read assuming UTC timezone
+
+#--- Writing csvs ---#
 
 #Write na as "" instead of NA. It would be nice to be able to default this but I can't find a way.
 write_csv(...,na="")
