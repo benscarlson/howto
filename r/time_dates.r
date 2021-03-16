@@ -27,9 +27,11 @@ strftime() #returns a character string. make sure to specify timezone, or local 
 strftime('2017-04-27',format='%Y-%m-%dT%TZ', tz='UTC') #standard format
 
 # %T and %H:%M:%S are the same thing
+# Note sure how strftime and format are different
 strftime(strTS,format='%Y-%m-%dT%T', usetz=TRUE, tz='US/Eastern')
 strftime(strTS,format='%Y-%m-%dT%H:%M:%S', usetz=TRUE, tz='US/Eastern')
 strftime(strTS,format='%Y-%m-%dT%H:%M:%S', tz='US/Eastern') #usetz prints out the tz in the result: 2014-06-01T03:20:11 UTC
+format(x, "%Y-%m-%d %H:%M:%OS3", tz='UTC') #%OS says print milliseconds. %OS3 means print 3 decimal places
 
 #convert from unix epoch time
 as.POSIXct(1417305600,tz='UTC',origin='1970-01-01') #always use origin as 1970-01-01
