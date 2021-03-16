@@ -111,19 +111,29 @@ d <- data.frame(a=c(1,2), b=c(3,4))
 class(d[1,]) #'data.frame'
 class(unlist(d[1,])) #'numeric'
 
+#----
 #---- lists ----
+#---- 
+
 unlist(lapply(mylist,function(item) {item@Name})) #make a vector out of all Name attributes
+
+#--- Filtering 
 
 #filters the lists for objects with @Name attribute = val1 or val2
 mylist[
   unlist(lapply(mylist, function(item) 
     {item@Name %in% c('val1','val2')}))]
 
+lst <- lst[lengths(lst) > 0] #remove NULL elements
+lst <- lst[lengths(lst) > 0 & lst != ""] #remove NULL and empty elements
+
 #combine multiple lists into a matrix using rbind
   a <- list(); a['one'] <- 1; a['two'] <- 2
   b <- list(); b['one'] <- 1; b['two'] <- 2
   
   x <- rbind(a,b) #creates a matrix
+
+
 
 #---- built in constants----
 LETTERS, letters, month.abb, month.name, pi
