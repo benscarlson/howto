@@ -47,6 +47,14 @@ read_csv('my/path',col_types=cols()) # will not print out column types
 #Write na as "" instead of NA. It would be nice to be able to default this but I can't find a way.
 write_csv(...,na="")
 
+#Write timestamps in alternative format
+#By default, timestamps are written like '2018-10-18T12:37:03Z'
+#This sets the output format for timestamps for write_csv
+#Github has an example using POSIXt but only POSIXct seems to work (https://github.com/tidyverse/readr/issues/745)
+output_column.POSIXct <- function(x) {
+  format(x, "%Y-%m-%d %H:%M:%OS3", tz='UTC')
+}
+
 #----------------#
 #---- tibble ----#
 #----------------#
