@@ -24,6 +24,12 @@ git add .
 git commit -am 'initial commit'
 git push -u origin master
 
+#--- change a repo name ---#
+
+#go to github and change the name
+#the old name will still forward to the new name
+git remote set-url origin git@github.com:/benscarlson/movedb.git #update the target repo on local repositories. don't have to but recommended.
+
 # Untrack a file from the repo but leave on disk
 git rm --cached your_filename
 
