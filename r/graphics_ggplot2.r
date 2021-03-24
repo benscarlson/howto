@@ -191,6 +191,10 @@ p <- wrap_plots(plots,nrow=3)
 #-- Faceting
 facet_grid(vars(population),vars(term),scales='free_y',switch='y',space='free_y')
 facet_wrap(vars(group)) #one facet per group
+
+#Workaround for common y-axis label
+#https://stackoverflow.com/questions/66778174/how-to-allow-common-central-y-axis-label-to-extend-into-the-bottom-graph/66778622#66778622
+
 #-----
 # color palettes
 #-----
