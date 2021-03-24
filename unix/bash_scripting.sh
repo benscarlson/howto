@@ -1,3 +1,8 @@
+#---- builtins ----#
+
+#Set. Try set -e and set -x
+#https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+
 #---- run a bash script from commandline ----#
 #!/bin/bash #put this at the beginning of the line
 chmod 755 myscript.sh
