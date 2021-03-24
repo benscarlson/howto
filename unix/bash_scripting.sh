@@ -12,6 +12,14 @@ echo ls $MYFOLDER #see the resulting command
 numlines1=$(cat $dat | wc -l)
 numlines1=`cat $dat | wc -l`
 
+#Reading variables from files can result in nonprintable characters eg \n, \r, etc.
+#https://unix.stackexchange.com/questions/32001/what-is-m-and-how-do-i-get-rid-of-it#:~:text=Show%202%20more%20comments,marked%20by%20a%20single%20newline.
+#https://stackoverflow.com/questions/64758213/stop-inserting-newline-before-comma/64766076#64766076
+echo $myvar | cat -ve #this will print symbols for non printing chars. eg. ^M for \r
+myvar=${myvar%$'\r'} #this strips \r from the variable
+#above, $'\r' converts the string "\r" to return
+#${myvar%suffix} removes suffix
+
 #-- lists 
 lst=("one" "two" "three")
 echo ${lst[0]} # one
