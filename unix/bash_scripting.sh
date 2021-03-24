@@ -81,3 +81,7 @@ tifs=`ls *.tif` #save the list of files to the tifs variable
 
 #--- bash arrays and loops ----#
 The weird, wondrous world of Bash arrays. https://medium.com/@robaboukhalil/the-weird-wondrous-world-of-bash-arrays-a86e5adf2c69
+
+#---- Input parameters ----#
+
+#http://try.docopt.org/
