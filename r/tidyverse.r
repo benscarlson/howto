@@ -115,22 +115,6 @@ dat1 <- dat0 %>%
 #Assign date variable to bins
 dat %>% mutate(bin=cut(as.Date(timestamp),'7 days'))
 
-#-- tidy evaluation --#
-
-#note use of dynamic column name
-envLab = 'my_col_name'
-mutate(!!envLab := !!as.name(envLab)*0.0001)
-
-#these also work
-envNames <- c('env1','env2')
-dat %>% select(!!envNames)
-
-envName <- quo(dist2forest)
-dat %>% select(!!envName)
-
-envName <- quo(!!sym('dist2forest'))
-dat %>% select(!!envName)
-
 #---- working with columns ----#
 
 #-- combine columns by taking the first non-na value --#
@@ -218,6 +202,24 @@ bind_rows(dflist, .id='df_name')
 #convert a tibble row to a vector
 dat %>% slice(1) %>% unlist() #can also do unlist(use.names=FALSE) or unlist %>% uname
 
+#-------------------------#
+#---- tidy evaluation ----#
+#-------------------------#
+
+#note use of dynamic column name
+envLab = 'my_col_name'
+mutate(!!envLab := !!as.name(envLab)*0.0001)
+
+#these also work
+envNames <- c('env1','env2')
+dat %>% select(!!envNames)
+
+envName <- quo(dist2forest) #single term
+envName <- quo(c(dist2forest,ndvi)) #multiple terms. note the use of c() within quo
+dat %>% select(!!envName)
+
+envName <- quo(!!sym('dist2forest'))
+dat %>% select(!!envName)
 
 #---------------#
 #---- purrr ----#
