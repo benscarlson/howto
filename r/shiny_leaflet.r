@@ -11,6 +11,11 @@ server <- function(input, output, session) {
 }
 shinyApp(ui, server)
 
+#---- UI Elements ----#
+
+#Floating, draggable panel. Can set draggable = TRUE
+# https://shiny.rstudio.com/reference/shiny/0.11/absolutePanel.html
+
 #---- Layouts ----#
 
 fluidPage(splitLayout(htmlOutput('startDoy'),htmlOutput('endDoy'))) #put two elements side-by-side
