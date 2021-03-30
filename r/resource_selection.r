@@ -8,5 +8,5 @@
 #But model requires stratum id that is unique across all animals
 #This can be created by combining the id or name of the animal with the stratum.
 
-mutate(stratum_id=paste(niche_name,step_id_,sep='_'))
+mutate(step_id=paste(niche_name,step_id_,sep='_'))
     
