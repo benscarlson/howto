@@ -189,6 +189,13 @@ labelPoints <- sub %>%
   group_by(Country) %>%
   do(lastLoess(.))
 
+#---- across/columnwise operations ----#
+
+dat0 %>% mutate(across(c(x,y,z),~as.vector(scale(.x)))) #scales x,y,z
+
+terms <- quo(c(x,y,z))
+dat0 %>% mutate(across(!!terms,~as.vector(scale(.x)))) #use tidy evaluation to define columns
+
 #---- Converting ----#
 
 #-- Converting lists to dataframes 
