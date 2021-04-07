@@ -173,6 +173,9 @@ dat %>%
   group_by(individual_id,dte) %>%
   top_n(n=-1,wt=timestamp) %>% #-1 takes the first timestamp in the group
 
+#subsample .npts rows from each group, but take all rows if n() < .npts
+dat %>% slice_sample(n=.npts)
+
 #---- group_by/do and group_by/nest/map ----#
 
 #operate on a dataframe from group
