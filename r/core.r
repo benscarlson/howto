@@ -150,6 +150,15 @@ eval(as.symbol("x")) #--> prints 5
 sin(pi/2) #--> 1
 get('sin')(pi/2) #--> 1
 
+#---- other functions ----#
+
+#ifelse will not return a NULL value
+ifelse(is.null(NULL),NULL,'value') #error
+
+#instead use switch. http://r-addict.com/2017/02/21/switch-ifelse.html
+switch(is.null(NULL)+1,FALSE,TRUE)
+swtich(is.null(NULL)+1,'value',NULL)
+
 #---- save r objects ----
 saveRDS(object,path) #save an object to an RDS file 
 
