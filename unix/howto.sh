@@ -99,6 +99,12 @@ scp -r * bc447@grace.hpc.yale.edu:~/results/huj_eobs_test
 #upload the ms1 folder (and all contents) to the ~/projects directory
 scp -r ms1 bc447@grace.hpc.yale.edu:~/projects
 
+#Handling ~ expansion
+#SCP doesn't expand ~. But you need to have ~ in path if you want local and remote to have the same structure
+wd=~/path #This will not work, because it will be expanded to /user/benc/path which doesn't exist on the remote machine
+wd="~/path" #This won't expand, but now you have to expand manually in scp
+scp ${wd/#\~/$HOME}/path/file.csv grace:$wd/path
+
 #download multiple files. this will download a total of 12 files, note {1..12} syntax
 wget https://domain/CHELSA_prec_{1..12}_1979-2013_V1_1.zip
 
