@@ -54,6 +54,18 @@ echo ${fn%.csv} #strips off file extenstion. useful for getting dsn
 #https://web.archive.org/web/20130927000512/http://www.devhands.com/2010/01/handling-positional-and-non-positional-command-line-arguments-from-a-shell-script/
 #https://sookocheff.com/post/bash/parsing-bash-script-arguments-with-shopts/
 
+#---- passing optional arguments to another script ----#
+
+#See first answer: https://unix.stackexchange.com/questions/446847/conditionally-pass-params-to-a-script
+
+bmode=ci
+
+params=()
+[[ ! -z "$bmode" ]] && params+=("-b $bmode") # -z checks if bmode is empty
+[[ ! -z "$axes" ]] && params+=("-a $axes") # axes is empty so won't be added to the array
+
+echo script "${params[@]}" #result is script -b ci
+
 #-- export command --#
 # export will make variable available to child processes
 shellvar=1
