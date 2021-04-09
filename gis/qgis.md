@@ -11,3 +11,7 @@ Layer properties -> Source -> Provider Feature Filter -> Query Builder
 
 Style an integer raster using a discrete color palette
 https://gis.stackexchange.com/questions/217566/displaying-nlcd-landcover-data-in-qgis-with-landcover-class-type
+
+### Basemaps
+
+HCMGIS: https://plugins.qgis.org/plugins/HCMGIS/
