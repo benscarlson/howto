@@ -100,6 +100,7 @@ tifs=`ls *.tif` #save the list of files to the tifs variable
 $? #will return the exit code of the last executed command
 
 #when doing a pipe command, if you want the exit code of the first command, use pipstatus
+#https://www.mydbaworld.com/retrieve-return-code-all-commands-pipeline-pipestatus/
 exitcode=("${PIPESTATUS[@]}")
 if [ ${exitcode[0]} -eq 0 ]; then ... fi
 
