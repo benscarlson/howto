@@ -96,6 +96,13 @@ done
 
 tifs=`ls *.tif` #save the list of files to the tifs variable
 
+#--- Error Handling ----#
+$? #will return the exit code of the last executed command
+
+#when doing a pipe command, if you want the exit code of the first command, use pipstatus
+exitcode=("${PIPESTATUS[@]}")
+if [ ${exitcode[0]} -eq 0 ]; then ... fi
+
 #--- bash arrays and loops ----#
 The weird, wondrous world of Bash arrays. https://medium.com/@robaboukhalil/the-weird-wondrous-world-of-bash-arrays-a86e5adf2c69
 
