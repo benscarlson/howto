@@ -108,7 +108,7 @@ squeue -p interactive #see job status for interactive queue
 
 sacct -j <jobid> --format=JobID,JobName,Partition,AllocCPUS,MaxRSS,Elapsed
 sacct -u <username> --format=JobID,JobName,Partition,AllocCPUS,MaxRSS,Elapsed
-
+sacct --format="Elapsed" -j <jobid> #Just output how much time has elapsed for the job
 scancel <jobid>
 
 #test an mpi parallel script in interactive queue
