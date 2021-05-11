@@ -68,6 +68,10 @@ gdalwarp -t_srs '+proj=utm +zone=33 +ellps=WGS84 +units=m +no_defs' -r cubic ima
 gdalwarp -tr 30 30 -tap -t_srs EPSG:32633 -co COMPRESS=LZW image_utm32.tif image_utm33.tif
 -tr #the pixel size
 
+# Example specifying ~30m pixel size in wgs84 coordinate system 
+px=0.000277777777778 #=1/3600, so one second resolution
+gdalwarp -tr $px $px -tap -t_srs EPSG:4326 -co COMPRESS=LZW ndvi_cv.tif ndvi_cv_wgs84.tif
+
 #---- create rasters ----
 
 #-- convert a shapefile to a raster. 
