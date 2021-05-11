@@ -30,6 +30,10 @@ rdist_r@data@min;rdist_r@data@max #see min and max values for a rasterLayer
 res(layer) #see the x,y resolution of the raster. get units from crs()
 is.factor(rast)
 
+#Inspect NoData value
+NAvalue(tree) #This seems to always return -Inf b/c of something to do with how it reads the raster when driver is "gdal". So, ignore
+rgdal::GDALinfo('raster.tif') #Look at this report to see NoDataValue
+
 
 raster::extract(env_rdata,pts,df=T,ID=F) #extract raster values given a set of points (here, a SpatialPoints object)
 bbox(obj) #get the bounding box of spatial object obj
@@ -75,13 +79,21 @@ refRast <- raster(extent(spdf1),crs=CRS(pars$flatProj)) #creates a raster with e
 res(refRast) <- 30 #this sets the resolution of the raster
 values(refRast) <- rnorm(ncell(refRast)) #set all values based on normal distribution
 
-#project raster to another CRS
+#---- project raster to another CRS ----
 clc12_2utm <- projectRaster(from=clc12_2,crs=crs(pct_tree), method='ngb') #ngb is nearest neighbor
+
+# Manually specify a crs string
+utm32n <- CRS(SRS_string = 'EPSG:32632') #this should work, but doesn't. Maybe I have an old version?
+
+utm32n <- CRS('+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs') #Look up proj4 string on spatial reference
+
+treef <- tree %>% projectRaster(crs=utm32n,res=30,method='ngb')
 
 
 bareUtm <- projectRaster(from=pct_bare,crs=crs(pct_tree))
 bareUtm <- resample(x=bareUtm,y=pct_tree) #need to resample to get back to 30,30 resolution
 
+#---- crop a raster using extent ----
 rast2 <- crop(rast,extent(pts),snap='out')
 
 
