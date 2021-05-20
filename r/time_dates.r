@@ -41,6 +41,15 @@ as.POSIXct('2017-06-27', tz='US/Eastern') #class(): "POSIXct" "POSIXt" print(): 
 as.Date('2017-06-27', tz='US/Eastern') # class(): "Date". print(): "2017-06-27"
 OlsonNames() #get the names of timezones for the tz attribute
 
+# More on milliseconds
+#as.POSIXct does not store milliseconds correctly
+d <- as.POSIXct('2016-01-15 06:07:56.123', format='%Y-%m-%d %H:%M:%OS', tz='UTC')
+strftime(d,format='%Y-%m-%d %H:%M:%OS6',tz='UTC') #2016-01-15 06:07:56.122999. Note milliseconds are now incorrect!
+
+#instead use ymd_hms. note default is tz=UTC
+d2 <- ymd_hms('2016-01-15 06:07:56.123')
+strftime(d2,format='%Y-%m-%d %H:%M:%OS6',tz='UTC') #2016-01-15 06:07:56.123000. Milliseconds are correct
+
 # Day of Year #
 
 #R is 0 based for 
