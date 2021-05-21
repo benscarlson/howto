@@ -85,7 +85,7 @@ indivName<-'MyAnimal'
 EDA for \Sexpr{indivName} track
 
 #output can't have special characters in them. one is '_'. Need to escape this.
-#this might be wrong, might only need \\ to escape. Look at function in model report
+#I think gsub processes one set of \\, so need to add \\\\ in order to write out \\
 \Sexpr{gsub("_","\\\\_","my_var_with_underscores")}
 
 #----
