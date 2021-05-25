@@ -69,6 +69,10 @@ params=()
 
 echo script "${params[@]}" #result is script -b ci
 
+# When this script calls an r script that uses docopt to process the arguments, for some reason an extra space is prefixed
+# so instead of 'ci', I get ' ci'. Need to do trimws() to get rid of the space
+# Also, short command works, but long command does not. e.g. -b ci works, but --boot ci does not work
+
 #-- export command --#
 # export will make variable available to child processes
 shellvar=1
