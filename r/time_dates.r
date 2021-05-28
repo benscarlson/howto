@@ -41,14 +41,26 @@ as.POSIXct('2017-06-27', tz='US/Eastern') #class(): "POSIXct" "POSIXt" print(): 
 as.Date('2017-06-27', tz='US/Eastern') # class(): "Date". print(): "2017-06-27"
 OlsonNames() #get the names of timezones for the tz attribute
 
-# More on milliseconds
-#as.POSIXct does not store milliseconds correctly
-d <- as.POSIXct('2016-01-15 06:07:56.123', format='%Y-%m-%d %H:%M:%OS', tz='UTC')
-strftime(d,format='%Y-%m-%d %H:%M:%OS6',tz='UTC') #2016-01-15 06:07:56.122999. Note milliseconds are now incorrect!
+#---- More on milliseconds ----#
 
-#instead use ymd_hms. note default is tz=UTC
-d2 <- ymd_hms('2016-01-15 06:07:56.123')
-strftime(d2,format='%Y-%m-%d %H:%M:%OS6',tz='UTC') #2016-01-15 06:07:56.123000. Milliseconds are correct
+#If you want millisecond (.000) resolution, add .0005 to the timestamp before formatting
+#I checked every value from .001 to .999 and the method of adding .0005 will return accurate timestamp
+ts <- as.POSIXct('2013-06-11 10:01:01.001',tz='UTC')
+
+strftime(ts,format='%Y-%m-%d %H:%M:%OS3',tz='UTC') #2013-06-11 10:01:01.000
+strftime(ts+0.0005,format='%Y-%m-%d %H:%M:%OS3',tz='UTC') #2013-06-11 10:01:01.001
+
+#--- ymd_hms and as.POSIXct are accurate at different times. Strange!
+#So regardless of how POSIXct is constructed, need to use the .0005 trick when writing the value.
+
+#ymd is acurate with .123 millis
+ymd_hms('2016-01-15 06:07:56.123') %>% strftime(format='%Y-%m-%d %H:%M:%OS6',tz='UTC') #.123000
+as.POSIXct('2016-01-15 06:07:56.123', tz='UTC') %>% strftime(format='%Y-%m-%d %H:%M:%OS6',tz='UTC') #.122999
+
+#But as.POSIXct is accurate with .127 millies
+strftime(d,format='%Y-%m-%d %H:%M:%OS6',tz='UTC') #2016-01-15 06:07:56.122999.
+ymd_hms('2016-01-15 06:07:56.127') %>% strftime(format='%Y-%m-%d %H:%M:%OS6',tz='UTC') #.126999
+as.POSIXct('2016-01-15 06:07:56.127', tz='UTC') %>% strftime(format='%Y-%m-%d %H:%M:%OS6',tz='UTC') #.127000
 
 # Day of Year #
 
