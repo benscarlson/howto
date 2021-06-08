@@ -8,10 +8,10 @@ https://community.adobe.com/t5/illustrator/fit-bounding-box-to-text-in-illustrat
 
 ### Rectangle around text box
 
-Direct select (white) arrow
-Appearance panel. Window -> Appearance panel
-Upper right corner (three small lines) -> add stroke
-Effect -> convert to shape -> rectangle
+* Direct select (white) arrow
+* Appearance panel. Window -> Appearance panel
+* Upper right corner (three small lines) -> add stroke
+* Effect -> convert to shape -> rectangle
 
 https://graphicdesign.stackexchange.com/questions/132886/illustrator-auto-sized-text-box-with-a-rectangle-border-no-fill
 
