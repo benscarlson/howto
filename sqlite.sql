@@ -6,6 +6,10 @@ sqlite3 path/to/database.db
 .schema mytable #show schema information for mytable
 .headers on     --display headers when running select statement
 
+--# Save a query to csv
+sqlite3 -header -csv c:/sqlite/chinook.db "select * from tracks;" > tracks.csv
+
+
 cat db.sql | sqlite3 database.db /* create a database and run db.sql to initialize it */
 
 --#### Create tables ####--
