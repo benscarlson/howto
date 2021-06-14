@@ -1,6 +1,8 @@
 #---- base r ----
 
 dts <- as.Date(character()) #initialize dts as an empty date vector.
+as.Date(ISOdate(2016,3,1)) #make date from date components
+
 POSIXct() #store date and time, as number of seconds since Jan 1 1970. Usually the best choice for storage
 POSIXlt() #stores date and time as a list of elements
 POSIXt() #virtual class that POSIXct and POSIXlt interit from.
