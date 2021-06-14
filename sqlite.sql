@@ -6,11 +6,18 @@ sqlite3 path/to/database.db
 .schema mytable #show schema information for mytable
 .headers on     --display headers when running select statement
 
+cat db.sql | sqlite3 database.db /* create a database and run db.sql to initialize it */
+
+---- Run from bash ----
+
 --# Save a query to csv
 sqlite3 -header -csv c:/sqlite/chinook.db "select * from tracks;" > tracks.csv
 
+--#Import csv into the database. note use of --skip 1 to skip the heaader row
+sqlite3 -csv $db ".import --skip 1 data/outlier.csv outlier"
 
-cat db.sql | sqlite3 database.db /* create a database and run db.sql to initialize it */
+
+
 
 --#### Create tables ####--
 CREATE TABLE my_table (
@@ -37,6 +44,10 @@ create table my_table (
 
 select rowid, * from mytable; --to see rowid (if it exists) add it to select list
 
+--# Create a copy of a table
+ create table outlier_old as
+	select * from outlier
+  
 ------------------------
 ---- Inserting data ----
 ------------------------
