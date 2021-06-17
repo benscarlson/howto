@@ -136,6 +136,12 @@ popBox <- pts %>% #pts is an sf object with a grouping column called population
   select(-data, -bbox) %>% 
   st_as_sf()
 
+#Get area of bounding boxes over sf objects
+polys %>% #polys is an sf object
+  nest(data=-population) %>% #nest creates a list column, each item is an sf object
+  mutate(bbox = map(data,~{.x %>% st_bbox %>% st_as_sfc})) %>%
+  mutate(area_km2 = map_dbl(bbox,st_area)/1e3^2)
+
 #add area column to sf object, convert units to km2
 polys0 %>% mutate(area_km2=set_units(st_area(.),km^2))
 
