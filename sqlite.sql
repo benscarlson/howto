@@ -13,11 +13,14 @@ cat db.sql | sqlite3 database.db /* create a database and run db.sql to initiali
 --# Save a query to csv
 sqlite3 -header -csv c:/sqlite/chinook.db "select * from tracks;" > tracks.csv
 
+sql="select study_id, individual_id, local_identifier, 1 as run \
+from individual \
+order by study_id, individual_id"
+
+sqlite3 -header -csv $db "$sql;" > $wd/ctfs/individual.csv
+
 --#Import csv into the database. note use of --skip 1 to skip the heaader row
 sqlite3 -csv $db ".import --skip 1 data/outlier.csv outlier"
-
-
-
 
 --#### Create tables ####--
 CREATE TABLE my_table (
