@@ -76,6 +76,16 @@ tribble(
 #create empty tibble
 tibble(niche_name=character(),event=character())
 
+#More general way to initial an empty tibble and write to csv
+c('ses_id','num','minutes') %>% 
+  purrr::map_dfc(~tibble::tibble(!!.x := character())) %>%
+  write_csv('out.csv') #cat -e out.csv -> ses_id,num,minutes$
+
+#In writing to csv, no need to go through tibble. Just write a string to file
+c('ses_id','num','minutes') %>% 
+  paste(collapse=',') %>% 
+  write_lines(.outPF) #cat -e out2.csv -> ses_id,num,minutes$
+
 #---------------#
 #---- dplyr ----#
 #---------------#
