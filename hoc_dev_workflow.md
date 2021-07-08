@@ -16,7 +16,7 @@ hpc_script.r -t
 hpc_script.r -p mc -t
 ```
 
-# Run in init environment on hpc in serial
-# Run in init env on hpc in parallel
-# Small test run on hpc in parallel
-# Main test run
+## Run in init environment on hpc in serial
+## Run in init env on hpc in parallel
+## Small test run on hpc in parallel
+## Main test run
