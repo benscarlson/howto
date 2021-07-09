@@ -190,6 +190,8 @@ https://www.sharelatex.com/learn/Page_size_and_margins
 
 #---- Merge multiple files to pdf ----#
 
+# Various methods here: https://askubuntu.com/questions/246647/convert-a-directory-of-jpeg-files-to-a-single-pdf-document
+
 #---- CPDF ----#
 # Use to combine multiple pdfs from command line. Lots of features:
 # http://community.coherentpdf.com/
