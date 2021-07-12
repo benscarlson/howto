@@ -10,7 +10,10 @@ dat0 %>%
 tel <- as.telemetry()
 vg <- variogram(tel)
 GUESS <- variogram.fit(vg,interactive=FALSE)
-ctmm.select(tel, CTMM=GUESS)
+#ctmm.select returns the best fitting model
+mod <- ctmm.select(tel, CTMM=GUESS)
+
+summary(mod)
 
 #---- AKDE
 #akde can take a telemetry object and best.fit? Maybe this will internally fit model?
