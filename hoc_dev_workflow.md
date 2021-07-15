@@ -2,21 +2,25 @@
 
 ## Local
 
-### Run interactively in serial
+### Interactive
+
+#### Serial execution
 
 Run inside rstudio
 
-### Run interacttively in parallel (doMC)
+#### Parallel execution (doMC)
 
 Run inside rstudio
 
-### Run as local script in serial
+### Local script
+
+#### Serial execution
 
 ```bash
 hpc_script.r -t
 ```
 
-### Run as local script in parallel (uses doMC)
+#### Parallel execution (uses doMC)
 
 ```bash
 hpc_script.r -p mc -t
@@ -55,6 +59,8 @@ mpirun -n 4 R --slave -f $src/poc/ctmm/poc_hpc_sqlite_simple.r --args $out -p mp
 
 ### Scavenge queue
 
+#### Parallel execution
+
 Set up slurm script
 
 ```bash
@@ -70,6 +76,8 @@ source activate parallelR3
 
 mpirun -n $n Rscript --vanilla $src/poc/ctmm/poc_hpc_sqlite_simple.r $out -p mpi -m $logs
 ```
+
+Run using slurm
 
 ```bash
 wd=~/projects/ms3/analysis/full_workflow_poc/test3
@@ -98,4 +106,4 @@ exp=`echo --export=ALL,n=$n,p=$p,t=$t,J=$J,mail=$mail`
 sbatch $pars $exp $src/poc/ctmm/poc_hpc_sqlite_simple_sbatch.sh
 ```
 
-### Main test run
+### Full run in day queue
