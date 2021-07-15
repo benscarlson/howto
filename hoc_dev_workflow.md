@@ -40,14 +40,18 @@ source activate parallelR3
 
 #### Serial execution
 
+```bash
 Rscript --vanilla $src/poc/ctmm/poc_hpc_sqlite_simple.r test3/out3.csv
+```
 
 #### Parallel execution
 
+```bash
 out=test3/out4/out.csv
 logs=test3/out4/mpilogs
 
 mpirun -n 4 R --slave -f $src/poc/ctmm/poc_hpc_sqlite_simple.r --args $out -p mpi -m $logs
+```
 
 ### Scavenge queue
 
