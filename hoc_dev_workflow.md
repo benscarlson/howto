@@ -10,7 +10,7 @@
 hpc_script.r -t
 ```
 
-## Run as local script in parallel
+## Run as local script in parallel (uses doMC)
 
 ```bash
 hpc_script.r -p mc -t
