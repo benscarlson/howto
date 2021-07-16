@@ -74,15 +74,15 @@ mpirun -n 4 R --slave -f $src/hpc_script.r --args out.csv -p mpi -m logs -t
 
 #### Parallel execution
 
-Set up slurm script
+Set up slurm script (hpc_script_sbatch.sh)
 
 ```bash
 #!/bin/bash
 
 #SBATCH --mail-user=ben.s.carlson@gmail.com
 #SBATCH --mem-per-cpu=5G
-#SBATCH --error=%x/poc_hpc_sqlite_simple.log
-#SBATCH --output=%x/poc_hpc_sqlite_simple.log
+#SBATCH --error=poc_hpc_sqlite_simple.log
+#SBATCH --output=poc_hpc_sqlite_simple.log
 
 module load miniconda
 source activate parallelR3
