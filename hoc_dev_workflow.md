@@ -4,7 +4,7 @@
 
 ### Interactive
 
-#### Serial execution
+#### Sequential execution
 
 Run inside rstudio
 
@@ -14,7 +14,7 @@ Run inside rstudio
 
 ### Local script
 
-#### Serial execution
+#### Sequential execution
 
 ```bash
 hpc_script.r -t
@@ -42,7 +42,7 @@ module load miniconda
 source activate parallelR3
 ```
 
-#### Serial execution
+#### Sequential execution
 
 ```bash
 Rscript --vanilla $src/poc/ctmm/poc_hpc_sqlite_simple.r test3/out3.csv
