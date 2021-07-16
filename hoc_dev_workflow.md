@@ -23,7 +23,7 @@ hpc_script.r -t
 #### Parallel execution (uses doMC)
 
 ```bash
-hpc_script.r -p mc -t
+hpc_script.r -p mc -c 6 -t
 ```
 
 ## HPC
