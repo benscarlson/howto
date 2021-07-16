@@ -105,7 +105,7 @@ export logs=$outp/mpilogs
 export n=4
 export t=10:00
 export p=scavenge
-export J=out5 #note this is used as folder name for slurm error and 
+export J=out5
 export mail=NONE
 
 #Make sure to make the output directory or mpi will fail because mpi log files go here
