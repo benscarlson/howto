@@ -28,7 +28,23 @@ hpc_script.r -p mc -c 6 -t
 
 ## HPC
 
-### Interactive queue
+Upload relevant project files
+
+```bash
+wdx="~/projects/coolproject/analysis"
+
+cd $wd
+
+ssh grace "mkdir -p $wdx" #make sure to use double not single quotes!
+scp -r ctfs grace:$wdx
+```
+
+Connect to hpc
+```bash
+ssh grace
+```
+
+### Interactive environment
 
 ```bash
 srun --pty -p interactive -n 4 bash #request four tasks in the interactive queue
@@ -45,16 +61,13 @@ source activate parallelR3
 #### Sequential execution
 
 ```bash
-Rscript --vanilla $src/poc/ctmm/poc_hpc_sqlite_simple.r test3/out3.csv
+Rscript --vanilla $src/hpc_script.r out.csv -t
 ```
 
 #### Parallel execution
 
 ```bash
-out=test3/out4/out.csv
-logs=test3/out4/mpilogs
-
-mpirun -n 4 R --slave -f $src/poc/ctmm/poc_hpc_sqlite_simple.r --args $out -p mpi -m $logs
+mpirun -n 4 R --slave -f $src/hpc_script.r --args out.csv -p mpi -m logs -t
 ```
 
 ### Scavenge queue
