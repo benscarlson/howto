@@ -153,6 +153,13 @@ ext <- extent(as.numeric(box)[c(1,3,2,4)]) #values are in different order in an 
 box <- tree %>% extent %>% st_bbox %>% st_as_sfc
 st_crs(box) <- 4326 #For some reason st_as_sfc(crs=4326) is not working, so need to set this seperately
 
+#--- Convert terra SpatRaster bbox to sf bbox
+#sf raster: xmin, ymin, xmax, ymax
+#terra raster: xmin, xmax, ymin, ymax
+
+ext(rterra) #(xmin, xmax, ymin, ymax)
+st_bbox(as.vector(ext(rterra))[c(1,3,2,4)])
+
 #---- units ----#
 units(x) <- with(ud_units, km^2) #Changes units to km^2 (x is in m^2)
 
