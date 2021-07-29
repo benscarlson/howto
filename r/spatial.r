@@ -4,9 +4,41 @@
 #---- rasters ----#
 #-----------------#
 
+#Also see terra & stars package, below
+
+#--- Create from scratch ---#
+px <- 1/3600
+xmin <- -110
+ymin <- 38
+
+#-- Two ways to make a fake raster
+x <- raster(xmn=xmin, ymn=ymin, xmx=xmin + px*100, ymx=ymin + px*100)
+res(x) <- px
+
+#Or, can create a global raster, then disaggregate and crop to size you want
+x <- raster()
+disaggregate(x,fact=3600)
+# Now crop
+
+#Fill raster with random values
+x[] <- runif(1000)
+
+#--Make two adjacent fake rasters 
+# Is xmax means left size of rightmost pixel, or right side of rightmost pixel?
+# If I use px*101 as xmn, there is gap between rasters. This means the value refers to the middle of the pixel?
+x <- raster(xmn=xmin, ymn=ymin, xmx=xmin + px*100, ymx=ymin + px*100)
+res(x) <- px
+
+y <- raster(xmn=xmin + px*100, ymn=ymin, xmx=xmin + px*200, ymx=ymin + px*100)
+res(y) <- px
+
+#--- Read from disk ---#
+
 env <- raster('misc/tinamus_env.tif') #read raster
+
+#--- Write to disk ---#
 writeRaster(env,'misc/tinamus_env.tif') #write a raster. seems to interpret *.tif to write geotiff. defaults to LZW compression
-writeRaster(env,'misc/tinamus_env.tif',format='GTiff', options=c("COMPRESS=NONE")) #Explicitly define format and compression
+writeRaster(env,'misc/tinamus_env.tif',format='GTiff', options=c("COMPRESS=LZW")) #Explicitly define format and compression
 writeRaster(stk, filename=rastPF, bylayer=TRUE, format="raster",overwrite=TRUE) #write a stack as individual layers
 
 dataType(rast) #get the data type of the raster
@@ -334,3 +366,24 @@ crs() #this is from raster package
 # this is from (http://bit.ly/2utPyH7) and I don't know what it's supposed to mean.
 
 +no_defs #something about not pulling values from a local definition file. 
+
+#---- Terra ----#
+
+pts %>% as('Spatial') %>% vect #convert sf points to SpatVect
+rast(file.path(.wd,'test.vrt')) #Load SpatRast
+
+extract(rast,pts)
+
+#convert terra rast extent to sf
+as.vector(ext(rterra))[c(1,3,2,4)] %>% st_bbox %>% st_as_sfc
+
+#---- Stars ----#
+x <- read_stars(file.path(.wd,'test1.tif'))
+pts = st_sample(st_as_sfc(st_bbox(x)), 10)
+st_extract(x, pts)
+
+#---- gdalUtils ----#
+gdallocationinfo('/Users/benc/projects/ms3/analysis/anno/test.vrt',
+                 coords=st_coordinates(pts),wgs84=TRUE,raw_output=FALSE,valonly=TRUE)
+
+
