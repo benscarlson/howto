@@ -22,7 +22,14 @@ sqlite3 -header -csv $db "$sql;" > $wd/ctfs/individual.csv
 --#Import csv into the database. note use of --skip 1 to skip the heaader row
 sqlite3 -csv $db ".import --skip 1 data/outlier.csv outlier"
 
+--#### ------------- ####--
 --#### Create tables ####--
+--#### ------------- ####--
+
+--NOTES:
+--  TEXT should be used for date, not NUMERIC
+--  INTEGER is used for boolean
+
 CREATE TABLE my_table (
   fd_stats_id INTEGER PRIMARY KEY,
   player_id INTEGER NOT NULL,
