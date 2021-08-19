@@ -90,6 +90,12 @@ c('ses_id','num','minutes') %>%
 #---- dplyr ----#
 #---------------#
 
+#---- Filtering ----#
+
+#Complete cases for multiple variables
+tibble(a=c(1,NA,1,NA),b=c(1,1,NA,NA),rep(NA,4)) %>%
+  filter(across(c(a,b),~!is.na(.x)))
+
 #-- Renaming columns --#
 dat %>% rename_all(~str_replace_all(., "-", "_")) #replace all instances of '-' with '_'
 
