@@ -137,6 +137,9 @@ scale_fill_continuous(
 theme(legend.position = c(.8, .8), legend.key = element_blank())
 theme(legend.position='bottom') #can do top, bottom, left, right
 
+#put legend on bottom, but align items vertically
+theme(legend.position="bottom", legend.direction="vertical")
+
 #-- themes for faceting
 strip.text = element_text(size=9) #change font size on facets
 strip.background = element_blank() #remove border around facet labels
