@@ -413,6 +413,9 @@ print(items)
 
 //https://github.com/fitoprincipe/geetools-code-editor/wiki/Cloud-Masks
 
+//This script has a cloud masking function. Compare to other functions.
+//https://code.earthengine.google.com/4a896f69dde7fa675242aaf7584efd8b
+
 //Study and learn this script (from Nicholas Clinton). Bits and approach are different from what I'm using.
 //https://code.earthengine.google.com/643c86f713c64dea1d921358b8da0530
 
