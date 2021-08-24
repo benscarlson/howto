@@ -93,6 +93,12 @@ EOF
 #Pass in optional and one required argument
 Usage: load_datasets.sh [options] <argv> ...
 
+#assign a default value of option is not passed in
+[[ -z "$csvdir" ]] && csvdir=my/default/path
+
+#get a required parameter
+myval=${argv[0]}
+
 #-- export command --#
 # export will make variable available to child processes
 shellvar=1
