@@ -64,6 +64,7 @@ echo ${fn%.csv} #strips off file extenstion. useful for getting dsn
 bmode=ci
 
 params=()
+#IMPORTANT! remember to put space after [[ and before ]]
 [[ ! -z "$bmode" ]] && params+=("-b $bmode") # -z checks if bmode is empty
 [[ ! -z "$axes" ]] && params+=("-a $axes") # axes is empty so won't be added to the array
 
@@ -72,6 +73,25 @@ echo script "${params[@]}" #result is script -b ci
 # When this script calls an r script that uses docopt to process the arguments, for some reason an extra space is prefixed
 # so instead of 'ci', I get ' ci'. Need to do trimws() to get rid of the space
 # Also, short command works, but long command does not. e.g. -b ci works, but --boot ci does not work
+
+#-- docopt --#
+
+#Pass in only optional arguments
+eval "$(docopts -h - : "$@" <<EOF
+Usage: load_datasets.sh [options] ...
+
+Options:
+      --help     Show help options.
+      --version  Print program version.
+      --csvdir=<csvdir> Path to store raw and clean csv directories
+----
+my_script 0.1
+
+EOF
+)"
+
+#Pass in optional and one required argument
+Usage: load_datasets.sh [options] <argv> ...
 
 #-- export command --#
 # export will make variable available to child processes
