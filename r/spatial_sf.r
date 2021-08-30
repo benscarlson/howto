@@ -153,6 +153,11 @@ ext <- extent(as.numeric(box)[c(1,3,2,4)]) #values are in different order in an 
 box <- tree %>% extent %>% st_bbox %>% st_as_sfc
 st_crs(box) <- 4326 #For some reason st_as_sfc(crs=4326) is not working, so need to set this seperately
 
+#Create an sf bbox using a dataframe with lon/lat columns
+ptbb <- c(range(dat$lon),range(dat$lat))[c(1,3,2,4)] %>% 
+  `names<-`(c('xmin', 'ymin', 'xmax', 'ymax')) %>%
+  st_bbox(crs=4326)
+
 #--- Convert terra SpatRaster bbox to sf bbox
 #sf raster: xmin, ymin, xmax, ymax
 #terra raster: xmin, xmax, ymin, ymax
