@@ -27,6 +27,10 @@ header-includes:
 #http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907057
 \usepackage[margin=0.5in]{geometry} #can also use pt instead of in
 
+#Change default font size
+#https://texblog.org/2012/08/29/changing-the-font-size-in-latex/
+\documentclass[12pt]{report}
+
 #to rotate column headers
 \usepackage{rotating} #need to specifically include this, or else xtable will fail
 
