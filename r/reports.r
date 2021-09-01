@@ -90,7 +90,11 @@ EDA for \Sexpr{indivName} track
 
 #output can't have special characters in them. one is '_'. Need to escape this.
 #I think gsub processes one set of \\, so need to add \\\\ in order to write out \\
+#NOTE: see my function rfuns/escapeForLatex.r
 \Sexpr{gsub("_","\\\\_","my_var_with_underscores")}
+
+#If error (a boolean variable) is true, print the message. Otherwise there is no output
+\Sexpr{ifelse(error,msg,'')}
 
 #----
 #---- tables ----#
