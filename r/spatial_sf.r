@@ -152,6 +152,8 @@ ext <- extent(as.numeric(box)[c(1,3,2,4)]) #values are in different order in an 
 #convert raster extent to an sf bbox
 box <- tree %>% extent %>% st_bbox %>% st_as_sfc
 st_crs(box) <- 4326 #For some reason st_as_sfc(crs=4326) is not working, so need to set this seperately
+#can also turn it into an sfc to set crs in one pipeline
+st_bbox %>% st_as_sfc %>% st_sf(crs=4326)
 
 #Create an sf bbox using a dataframe with lon/lat columns
 ptbb <- c(range(dat$lon),range(dat$lat))[c(1,3,2,4)] %>% 
