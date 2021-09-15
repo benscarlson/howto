@@ -45,6 +45,11 @@ sql <- "select study_id,individual_id
   where study_id in ({id*})" %>% glue_sql
 dbGetQuery(db, sql)
 
+#Using glue_sql with dynamic column names
+cols <- c('a','b')
+glue_sql('select {cols*} from t') #Does not work because results in 'a','b' which is returned as data
+glue_sql('select {`cols`* from t') #Using backticks works because it does a quoted identifier "a", "b" which refers to a column.
+
 #---- inserting data ----#
 
 #-- trick to insert into a table that has autoincrement pk fields
