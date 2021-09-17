@@ -133,3 +133,10 @@ where cast(strftime('%Y',timestamp) as integer) =  2015
 -- Change the table name - Use alter table statement
 -- Add column - Use alter table statement
 -- Change column name, column order - Use DB Browser
+
+---#### Load extensions ####---
+
+#https://stackoverflow.com/questions/6663124/how-to-load-extensions-into-sqlite
+curl --location --output extension-functions.c 'https://www.sqlite.org/contrib/download/extension-functions.c?get=25'
+gcc -g -fPIC -dynamiclib extension-functions.c -o extension-functions.dylib
+
