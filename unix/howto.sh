@@ -14,6 +14,7 @@ mkdir -p ~/projects/oilbirds/analysis/$datName && cd "$_" #make a folder and cd 
 
 ls -lh #human-readable file sizes
 du -h mydir #total size of directory (also lists all files underneath mydir)
+du -h --threshold=1G #only show dirs above 1G
 du -hsc mydir #just the total file size of mydir
 du -h myfile.txt #size of file in human-readable units
 
