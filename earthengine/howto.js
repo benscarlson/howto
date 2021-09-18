@@ -10,7 +10,7 @@
 //List of all data products (updated daily): https://console.cloud.google.com/storage/browser/earthengine-stac/1.0.0/catalog
 //List of all data prodcuts (updated weekly and includes a bunch of other features). https://github.com/samapriya/Earth-Engine-Datasets-List
 //Another list of all data products (maybe json format): https://gee.stac.cloud/?t=catalogs
-//Batch submit tasks: https://github.com/MarcYin/GeeBatch (Seems to build on tampermonky script)
+//Batch submit tasks: https://github.com/MarcYin/GeeBatch (Seems to build on tampermonky script) - Not sure if this works anymore. See Tasks section.
 
 //--------------------------------//
 //---- Tutorials and training ----//
@@ -488,3 +488,20 @@ var cloudMaskL57 = function(image) {
 //https://code.earthengine.google.com/3a6761dea6f1bf54b03de1b84dc375c6
 //D.P. Roy, H.K. Zhang, J. Ju, J.L. Gomez-Dans, P.E. Lewis, C.B. Schaaf, Q. Sun, J. Li, H. Huang, V. Kovalskyy, A general method to normalize Landsat reflectance data to nadir BRDF adjusted reflectance, Remote Sensing of Environment, Volume 176, April 2016, Pages 255-271
 
+//---- Tasks ----//
+//---------------//
+
+//Message from yzq.yang on 2021-09-17: 
+//run this function in the chrome console to bulk run pending tasks.
+
+runTasks = function() {
+    $$('.run-button' ,$$('ee-task-pane')[0].shadowRoot).forEach(function(e) {
+         e.click();
+    })
+
+    $$('ee-table-config-dialog, ee-image-config-dialog').forEach(function(e) {
+    var eeDialog = $$('ee-dialog', e.shadowRoot)[0]
+var paperDialog = $$('paper-dialog', eeDialog.shadowRoot)[0]
+    $$('.ok-button', paperDialog)[0].click()
+    })
+}
