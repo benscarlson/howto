@@ -19,6 +19,10 @@ sbatch --export=A=5,b='test' jobscript.sbatch #see link for more examples
 #---- grace ----
 #--------------------
 
+#---- commandline vpn ----#
+#See email from Kevin, Yanni for more information
+/opt/cisco/anyconnect/bin/vpn connect access.yale.edu
+
 #---- git configuration ----#
 
 # need to set up key for computer/cluster you want to use to access github
