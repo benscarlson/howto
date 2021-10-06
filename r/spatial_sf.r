@@ -111,6 +111,10 @@ sfc_centroid <- st_centroid(st_as_sfc(st_bbox(pts0))) #centroid is an sfc_POINT 
 #st_coordinates returns a matrix of coordinates. I only have one point so get first row as a vector
 centroid <- st_coordinates(sfc_centroid)[1,] #returns a named vector c(X=<lon>,Y=<lat>)
 
+#---- Union ----#
+#st_union help text is confusing, but seems to work as expected with polygons.
+border <- lkPoly %>% st_union %>% st_sf #note lkPoly is an sf but st_union outputs a geometry set, so need to turn back into sf
+
 #---- spatial filters ----#
 
 #select all points that are within a polygon
