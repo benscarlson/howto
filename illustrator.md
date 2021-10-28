@@ -16,3 +16,14 @@ https://community.adobe.com/t5/illustrator/fit-bounding-box-to-text-in-illustrat
 https://graphicdesign.stackexchange.com/questions/132886/illustrator-auto-sized-text-box-with-a-rectangle-border-no-fill
 
 
+Preferences -> edit artboards -> simulate paper -> pick a color
+View -> show transparency grid
+
+edit the artboard so that just the elements you want are on the artboard. Then you can delete the other elements.
+Try to remove any background rectangles
+If you cant delete, then use properties -> appearance, fill. click the square and change it to transparent
+To make sure everything is transparent, set the artboard to simulate paper and then pick
+View -> show transparancy
+Export as a pdf
+
+
