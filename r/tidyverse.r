@@ -228,6 +228,9 @@ bind_rows(dflist, .id='df_name')
 #convert a tibble row to a vector
 dat %>% slice(1) %>% unlist() #can also do unlist(use.names=FALSE) or unlist %>% uname
 
+#pull out a column using [] syntax
+dat %>% .[1] #takes column 1, this is the same as `[`(1). can also do e.g. .['event'] if it is a list
+
 #-------------------------#
 #---- tidy evaluation ----#
 #-------------------------#
@@ -303,6 +306,11 @@ dat %>%
     row <- tibble(...)
     rsf <- exp(rast2*row$tree) #example using the column "tree" from the current row
   }))
+
+#---- purrr and lists
+mylist %>% list_modify('event'=NULL) #removes the item 'event' from the list
+
+mylist %>% iwalk(~write_csv(dfs[.y][[1]],.x,na="")) #version of map2 specific to lists. .y is the item name, .x is the value
 
 #------------------#
 #---- purrrlyr ----#
