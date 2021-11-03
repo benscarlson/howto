@@ -2,9 +2,6 @@
 #nice example of heat map and a bunch of other best practices for ggplot2
 #https://rud.is/projects/facetedheatmaps.html
 
-#to use a string as column names. http://bit.ly/2tBvVMR
-aes_string()
-
 geom_text_repel(data=dat, aes(x=lon, y=lat,label=study_num),size=3,force=3) + #segment.color = NA (use this to turn off lines) 
 
 #---- geoms ----#
@@ -144,6 +141,11 @@ theme(legend.position="bottom", legend.direction="vertical")
 strip.text = element_text(size=9) #change font size on facets
 strip.background = element_blank() #remove border around facet labels
 panel.border = element_rect(color = "black", fill=NA) #make a black border around facet panels
+
+#---- Tidy evaluation ----#
+
+x <- 'var1'; y <- 'var2'
+ggplot(dat, aes(x=!!sym(x),y=!!sym(y))) 
 
 #---- Density plots ----#
 
