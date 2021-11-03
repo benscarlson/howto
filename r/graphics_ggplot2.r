@@ -70,8 +70,12 @@ ggplot(data=dat, aes(x=x,y=y, alpha=var1, shape=var2)) +
 
 #---- Order of elements ----#
 
+#NOTE: Sometimes ggplot does not respect levels, but instead respects sort order
+
 #ggplot respects order levels. So, this will draw/order levels with B first, A second
 type=factor(c('A','B'), levels=c('B','A')) 
+
+dat %>% arrange(desc(category))
 
 #----------------#
 #---- Themes ----#
