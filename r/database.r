@@ -13,6 +13,9 @@ dbListFields(db,'my_table')
 
 pltb <- as_tibble(tbl(db, 'player'))
 
+#Note using !! operator to inject vector data into dbplyr request
+indTb %>% filter(individual_id %in% !!unique(dat$individual_id))
+
 dbGetQuery() #executes query, fetches data, and clears results
 
 #alternative to dbGetQuery
