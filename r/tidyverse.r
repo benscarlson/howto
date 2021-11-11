@@ -131,6 +131,9 @@ dat1 <- dat0 %>%
 #Assign date variable to bins
 dat %>% mutate(bin=cut(as.Date(timestamp),'7 days'))
 
+#Supress messages from chatty functions
+dat %>% {suppressMessages(make_track(.,lon,lat,timestamp,id=individual_id,crs=sp::CRS('+proj=longlat +datum=WGS84')))}
+
 #---- working with columns ----#
 
 #-- combine columns by taking the first non-na value --#
