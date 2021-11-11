@@ -108,6 +108,10 @@ options(knitr.kable.NA = '') #don't print NA in table
 kable(x, format.args = list(decimal.mark = '.', big.mark = ","))
 kable(x, digits=2)
 
+#If you have one non-numeric column, 'digits' won't work
+# in this case, you have to do rounding yourself
+dat %>% mutate(across(where(is.numeric),~round(.x,2))) %>% kable
+
 #-- table that spans multiple pages
 # need to load longtable and booktabs in latex
 \usepackage{longtable}
