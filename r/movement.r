@@ -8,8 +8,25 @@ library(amt)
 #https://cran.r-project.org/web/packages/amt/vignettes/p1_getting_started.html
 #https://cran.r-project.org/web/packages/amt/vignettes/p4_SSF.html
 
+#This is suggested way to make a dataset of traks for multiple animals
+#First, make a track of the entire dataset
+#Next, we group the track by id and nest the track.
+#Note this is just a tibble with id,data columns, where data is a list column of trk objects
+trk <- dat %>% 
+  make_track(lon,lat,timestamp,id=individual_id,crs=sp::CRS('+proj=longlat +datum=WGS84')) %>% 
+  nest(data = -"id")
+
+#---- summarize sampling rate
+
+#To use summarize_sampling_rate_many don't split into multiple animals. 
+#Instead, make one big track and then pass this to the function, specify column to split on.
+dat %>% 
+  make_track(lon,lat,timestamp,id=individual_id,crs=sp::CRS('+proj=longlat +datum=WGS84')) %>% 
+  summarize_sampling_rate_many(c('id'))
+
 #---- workflow for single animal rsf ----#
 
+#Below proj4string don't seem to work. Try: sp::CRS('+proj=longlat +datum=WGS84')
 dat %>% make_track(lon, lat, timestamp, crs = sp::CRS("+init=epsg:4326")) #make an track_xyt
 dat %>% make_track(lon, lat, crs = sp::CRS("+init=epsg:4326")) #make a track_xy
 
