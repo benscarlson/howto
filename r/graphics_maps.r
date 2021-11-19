@@ -11,6 +11,7 @@
 #---- data sources ----#
 rnaturalearth
 spData #https://nowosad.github.io/spData/ us states, world borders
+urbnmapr #https://github.com/UrbanInstitute/urbnmapr. Shapefiles for US counties and states
 
 #---- Base R Maps ----#
 raster::scalebar(1000, type='bar', divs=4)
