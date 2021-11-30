@@ -230,6 +230,22 @@ var img2 = img1
 //code to export histogram from Noel
 //https://code.earthengine.google.com/8fb0aa4de96c653c98728e1fb6293c60
 
+//----
+//---- Geoprocessing ----//
+//----
+
+//Distance to pixels calculation
+//Fast distance transform is in units of pixels^2, which is strange
+//Take sqrt to make units pixels
+//Then multiply by pixelArea().sqrt() to get distance in meters
+//neighborhood is max distance (in pixels). this is supposed to limit how far to search from any given pixel
+// but doesn't seem to work like I expect. 
+var region = tree.geometry().bounds();
+
+var dist = urban
+  .fastDistanceTransform(1000).sqrt()
+  .clip(region)
+  .multiply(ee.Image.pixelArea().sqrt());
 //--------------------//
 //---- Visualize -----//
 //--------------------//
@@ -368,14 +384,18 @@ Export.image.toCloudStorage({
   maxPixels:1e13
 });
 
-//-- export to GEE asset. Note use of crs/crsTransform
+//-- export to GEE asset. 
+//Note use of crsTransform or nominalScale
+//Need to use crs so that it is populated on the task.
+//Also need to use getInfo, otherwise the task won't populate correctly.
 Export.image.toAsset({
-  image: herb,
-  description: 'herbExportTask',
-  assetId:'glc_landcover/herb',
-  region: bare.geometry().bounds(), //geometry is a strange shape, just use bounds
-  crs:'EPSG:4326',
-  crsTransform:herb.projection().getInfo().transform,
+  image: img,
+  description: 'task name',
+  assetId:'mylayer',
+  region: img.geometry().bounds(), //geometry is a strange shape, just use bounds
+  crs:img.projection().crs().getInfo(),
+  //crsTransform:img.projection().getInfo().transform,
+  scale:img.projection().nominalScale().getInfo()
   maxPixels:1e13
 });
 
