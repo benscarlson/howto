@@ -399,7 +399,10 @@ Export.image.toAsset({
   maxPixels:1e13
 });
 
-//---- export the results ----
+//---- Exporting tables ----
+
+f.setGeometry(null) //Useful to remove geometry before export
+
 Export.table.toCloudStorage({
     collection: anno,
     description: taskName + '_' + group,
