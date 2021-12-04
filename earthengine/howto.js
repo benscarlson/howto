@@ -107,6 +107,9 @@ var f = ee.Feature(
 var pts_fc = ee.FeatureCollection(occTable);
 var bbox = pts_fc.geometry().bounds();
 
+f.toDictionary(); //Get dictionary of properties
+f.propertyNames(); //Get the names including system properties (e.g. system:index)
+
 //----
 //---- ee.FeatureCollection ----//
 //----
@@ -126,6 +129,8 @@ var bbox = fc.geometry().bounds(); //This gets the bbox of an fc. Fails at large
 var lst = ic.toList(5); //5 is max number of images to fetch from the collection
 print(lst);
 print(ee.Image(lst.get(0))); //get the frist image in the list
+
+col.toBands(); //Convert image collection to multi-band image
 
 //--------------//
 //---- misc ----//
