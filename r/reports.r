@@ -208,6 +208,8 @@ https://www.sharelatex.com/learn/Page_size_and_margins
 # Use to combine multiple pdfs from command line. Lots of features:
 # http://community.coherentpdf.com/
 
+cpdf one.pdf two.pdf three.pdf -o merged.pdf
+
 #---- pngs -> pdf ----#
 
 #Merges png files into one pdf
