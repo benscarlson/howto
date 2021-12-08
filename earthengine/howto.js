@@ -378,11 +378,14 @@ crs: cfsCollection.first().projection()
 
 var nomScale = img.projection().nominalScale();
 
+//fileNamePrefix - used to specify path within the bucket and the file name.
+//  the extension is automatically added. e.g. my/path/file will result in my/path/file.tif
+
 Export.image.toCloudStorage({
   image: img,
   description: 'my_img',
   bucket:'ee-output',
-  //fileNamePrefix: 'exampleExport', //try this out. I think this is for adding folders in front of the file name
+  fileNamePrefix: 'exampleExport',
   region: img.geometry(), //need to set the output geometry, else it will default to the playground window size
   //or can do region: img.geometry().bounds() if geometry is a strange shape
   scale: img.projection().nominalScale().getInfo(), //leave this out to accept default projection
