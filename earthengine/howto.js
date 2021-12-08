@@ -389,6 +389,21 @@ Export.image.toCloudStorage({
   maxPixels:1e13
 });
 
+//Export a cloud optimized geotiff. Just need to add the formatOptions parameter
+Export.image.toCloudStorage({
+  image: dist,
+  description: 'dist2urban',
+  bucket:'mol-playground',
+  fileNamePrefix: 'benc/projects/ms3/layers/dist2urban',
+  region: region,
+  crs: urban.projection().crs().getInfo(),
+  scale: urban.projection().nominalScale().getInfo(),
+  maxPixels:1e13,
+  formatOptions: {
+    cloudOptimized: true
+  }
+});
+
 //-- export to GEE asset. 
 //Note use of crsTransform or nominalScale
 //Need to use crs so that it is populated on the task.
