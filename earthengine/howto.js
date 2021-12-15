@@ -239,6 +239,8 @@ var img2 = img1
 //---- Geoprocessing ----//
 //----
 
+img.remap([1,2],[1,1],0); //maps pixels with 1, 2 to 1, and everything else to 0
+
 //Distance to pixels calculation
 //Fast distance transform is in units of pixels^2, which is strange
 //Take sqrt to make units pixels
