@@ -181,6 +181,11 @@ print(ee.Date('2014-06-02T05:50:06Z'));
 print(img.get('system:time_start_str')).format('yyyy-MM-dd HH:mm:ss') //print a date object as a string
 
 mydate.getRelative('day','year'); //get doy
+mydate.advance(1,'month').advance(-1,'second')//get end date for a monthly timeseries, given a start date
+
+//GEE system properties for start, end dates (in milliseconds)
+system:time_start
+system:time_end
 
 //-------------------//
 //---- filtering ----//
