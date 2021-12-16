@@ -281,7 +281,8 @@ var result = pb_20982_2008.map(function(f){
 
 //---- palettes ----//
 
-//Can either supply a list of colors or a csv string of colors
+//Seems it requires a list of color strings. Use below to reverse order
+.split(',').reverse().join();
 
 //-- apply palettes
 Map.addLayer(img.select('NDVI'), {palette:palette});
@@ -307,9 +308,6 @@ var palette = ['FFFFFF', 'CE7E45', 'DF923D', 'F1B555', 'FCD163', '99B718',
 
 //Viridis (20)
 var pal = '440154FF,481568FF,482677FF,453781FF,3F4788FF,39558CFF,32648EFF,2D718EFF,287D8EFF,238A8DFF,1F968BFF,20A386FF,29AF7FFF,3CBC75FF,56C667FF,74D055FF,94D840FF,B8DE29FF,DCE318FF,FDE725FF';
-//Reverse Viridis (20)
-var pal = 'FDE725FF,DCE318FF,B8DE29FF,94D840FF,74D055FF,56C667FF,3CBC75FF,29AF7FFF,20A386FF,1F968BFF,238A8DFF,287D8EFF,2D718EFF,32648EFF,39558CFF,3F4788FF,453781FF,482677FF,481568FF,440154FF';
-
 
 //paint a set of polygons polyFC (with identification 'id') to image and visualize
 //example: https://code.earthengine.google.com/849862c672e8e5028a4d86ee14cf8c36
