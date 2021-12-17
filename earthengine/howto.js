@@ -479,8 +479,9 @@ print(items)
 //https://code.earthengine.google.com/643c86f713c64dea1d921358b8da0530
 
 //Landsat 8 Collection 2, Level 2
+//
 // This example demonstrates the use of the Landsat 8 Collection 2, Level 2
-// QA_PIXEL band (CFMask) to mask unwanted pixels.
+// QA_PIXEL band (CFMask) to mask unwanted pixels. (User contributed, so verify correctness)
 //https://code.earthengine.google.com/691115257996c309d349402317e4310a
 
 //-- Landsat 8 --
