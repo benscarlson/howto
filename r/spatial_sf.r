@@ -20,6 +20,20 @@ poly_sfc <- st_sfc(poly)
 #-- sf
 poly_sf = st_sf(st_sfc(poly,poly)) #from sfg objects
 
+#-- Make a rectangle sfc from coordinates --
+
+# Need to repeat the first coordinate at the end to close the polygon
+coords <- rbind(
+  c(10.557096544818195, 51.95006165421499),
+  c(10.557096544818195, 51.35707374226688),
+  c(12.238004747943195, 51.35707374226688),
+  c(12.238004747943195, 51.95006165421499),
+  c(10.557096544818195, 51.95006165421499))
+
+poly <- st_polygon(list(coords)) #Coords need to be in a list to pass to st_polygon
+
+polysfc <- st_sfc(poly,crs=4326)
+
 #---- Geometries ----#
 
 #-- Linestring --#
