@@ -67,6 +67,11 @@ f2 <- st_sf(d2, geometry = c2) #another way to make sf
 
 #-- make a data.frame from an sf object
 
+# This is the most compact version of the function below.
+pts %>%
+  cbind(st_coordinates(.)) %>%
+  st_set_geometry(NULL)
+
 # This piped workflow is the same as the function below.
 ptsbg %>%
   st_set_geometry(NULL) %>%
@@ -96,7 +101,12 @@ pts %>% st_set_geometry(pts$geom2)
 
 #---- Writing to disk ----#
 
+#This should work but is writing an additional comma after the final column name. Strange.
+#Instead, convert to dataframe first then just write the csv.
 pts %>% st_write(.outPF,layer_options = "GEOMETRY=AS_XY", delete_dsn=TRUE)
+# X,Y,timestamp, <--- note additional comma
+# 11.3190349598152,51.4117821494741,2019-08-09T10:05:44Z
+# 11.6036340773717,51.4811973146424,2019-07-01T17:35:03Z
 
 #-----------------------#
 #---- Geoprocessing ----#
