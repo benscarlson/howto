@@ -94,6 +94,10 @@ pts %>% st_set_crs(3035)
 #change the geometry (if you have another sfc or geom list column)
 pts %>% st_set_geometry(pts$geom2)
 
+#---- Writing to disk ----#
+
+pts %>% st_write(.outPF,layer_options = "GEOMETRY=AS_XY", delete_dsn=TRUE)
+
 #-----------------------#
 #---- Geoprocessing ----#
 #-----------------------#
