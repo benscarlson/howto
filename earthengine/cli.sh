@@ -7,6 +7,16 @@ gsutil -m cp -r UTM_Zone_Boundaries gs://mol-playground/benc/ingest_ee
 
 earthengine upload table gs://mol-playground/benc/ingest_ee/UTM_Zone_Boundaries/UTM_Zone_Boundaries.shp --asset_id users/benscarlson/ref/utmzones
 
+#---- upload a csv file ----
+csv=~/projects/ms3/analysis/layers/rand_pts.csv
+gcs=gs://mol-playground/benc/ingest_ee/tracks/rand_pts.csv
+asset=users/benscarlson/projects/ms3/tracks/rand_pts
+
+#---- Upload file to GCS
+gsutil -m cp -r $csv $gcs
+
+earthengine upload table $gcs --asset_id $asset --x_column X --y_column Y --force
+
 #---- move all assets to another folder ----#
 
 #seems no bulk way to do this! Use this little script
