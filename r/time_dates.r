@@ -1,8 +1,16 @@
 #---- base r ----
 
+#--- Date object
+# an integer that represents the number of days since 1970-01-01
+# if creating date from an integer, you have to supply the origin
+# when creating from string, it defaults to 1970-01-01
+as.numeric(as.Date('1970-01-01')) #0
+as.Date(0, origin='1970-01-01') #1970-01-01
+
 dts <- as.Date(character()) #initialize dts as an empty date vector.
 as.Date(ISOdate(2016,3,1)) #make date from date components
 
+#--- Date/Time object
 POSIXct() #store date and time, as number of seconds since Jan 1 1970. Usually the best choice for storage
 POSIXlt() #stores date and time as a list of elements
 POSIXt() #virtual class that POSIXct and POSIXlt interit from.
@@ -42,6 +50,31 @@ as.Date(as.POSIXct(1417305600,tz='UTC',origin='1970-01-01')) #Get just the data 
 as.POSIXct('2017-06-27', tz='US/Eastern') #class(): "POSIXct" "POSIXt" print(): '2017-06-27 EDT'. Not sure how it is figuring out it is EDT or EST.
 as.Date('2017-06-27', tz='US/Eastern') # class(): "Date". print(): "2017-06-27"
 OlsonNames() #get the names of timezones for the tz attribute
+
+# To manually convert from date to timestamp, get the number representing the date and multiply by the number of seconds in a day
+as.numeric(as.Date("2018-07-01")) # 17713
+17713*60*60*24 #1530403200
+as.POSIXct(1530403200, origin='1970-01-01',tz='UTC') #"2018-07-01 UTC"
+as.POSIXct(1530403200 + 1, origin='1970-01-01',tz='UTC') #"2018-07-01 00:00:01 UTC"
+
+#---- Generate random timestamps in non-consequtive ranges ----
+
+# First generate all potential dates. Convert to numeric, which is days since 1970-01-01
+# Convert to number of seconds from 1970-01-01 by multiplying by 60*60*24=86400
+# Sample from this vector to get random days. 
+# Then add random number of seconds to get random timestamp
+.n <- 2
+spd <- 60*60*24 #seconds per day
+
+dates <- c(
+  seq(as.Date("2018-07-01"),as.Date("2018-08-31"),by='day'),
+  seq(as.Date("2019-07-01"), as.Date("2019-08-31"),by='day')) %>%
+  as.numeric
+
+#Sample from possible dates, and randomly generate times for those dates
+ts <- sample(dates*spd,.n,replace=TRUE) + sample(1:spd,.n,replace=TRUE)
+
+as.POSIXct(ts,origin='1970-01-01',tz='UTC') #verify valid timestamps
 
 #---- More on milliseconds ----#
 
