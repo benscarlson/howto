@@ -8,6 +8,10 @@ gsutil -m cp -r UTM_Zone_Boundaries gs://mol-playground/benc/ingest_ee
 earthengine upload table gs://mol-playground/benc/ingest_ee/UTM_Zone_Boundaries/UTM_Zone_Boundaries.shp --asset_id users/benscarlson/ref/utmzones
 
 #---- upload a csv file ----
+
+# if generating csv file from R, use this to format timestamp columns so that they will be parsed correctly in GEE
+strftime(format="%Y-%m-%dT%H:%M:%SZ",tz='UTC')
+
 csv=~/projects/ms3/analysis/layers/rand_pts.csv
 gcs=gs://mol-playground/benc/ingest_ee/tracks/rand_pts.csv
 asset=users/benscarlson/projects/ms3/tracks/rand_pts
