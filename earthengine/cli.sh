@@ -9,9 +9,15 @@ earthengine upload table gs://mol-playground/benc/ingest_ee/UTM_Zone_Boundaries/
 
 #---- upload a csv file ----
 
-# if generating csv file from R, use this to format timestamp columns so that they will be parsed correctly in GEE
-strftime(format="%Y-%m-%dT%H:%M:%SZ",tz='UTC')
+#-- generating from R. pts is a sf object
+# The timestamp format below will be parsed as a date object by GEE
+pts %>% 
+  mutate(timestamp=strftime(timestamp,format="%Y-%m-%dT%H:%M:%SZ",tz='UTC')) %>%
+  cbind(st_coordinates(.)) %>%
+  st_set_geometry(NULL) %>%
+  write_csv(.outPF)
 
+#-- in bash:
 csv=~/projects/ms3/analysis/layers/rand_pts.csv
 gcs=gs://mol-playground/benc/ingest_ee/tracks/rand_pts.csv
 asset=users/benscarlson/projects/ms3/tracks/rand_pts
