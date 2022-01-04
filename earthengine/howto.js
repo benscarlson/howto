@@ -217,6 +217,16 @@ Map.addLayer(img.select([0]).mask(msk),{palette:palette});
 var obj = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR") 
   .filterDate('2013-06-26', '2013-07-04')
 
+//filter an image collection with timestamps by date
+//note this will take all timestamps less than 2018-09-01, so it will return
+//add timestamps on Aug 81, but none on Sep 1
+var fltrTs = ee.Filter.and(
+  ee.Filter.greaterThanOrEquals('timestamp', '2018-08-01'),
+  ee.Filter.lessThan('timestamp', '2018-09-01')
+);
+
+pts = pts.filter(fltrTs);
+
 //--------------------//
 //----- reducers -----//
 //--------------------//
