@@ -98,13 +98,12 @@ SELECT * FROM fd_stats_temp;
 --UPDATE FROM syntax
 --requires > SQLite version 3.33.0 (2020-08-14)
 --if executing in DB Browser, requires DB Browser version >=3.12.2 (did not work for version 3.12.0)
--- might not be able to use an alias for table that is being updated
--- try an alias using from table
+--cant use alias for update table. can use alias for from table
 -- note dont need table name on column that is being set
 update event_forage
-set study_id = individual.study_id
-from individual
-where individual.individual_id = event_forage.individual_id
+set study_id = i.study_id
+from individual i
+where i.individual_id = event_forage.individual_id
 
 ----- configuration -----
 
@@ -137,6 +136,8 @@ order by date
 ---- Date/Time columns ----
 
 cast(strftime('%Y',timestamp) as integer) -- extract year. have to cast to int if comparing to an integer
+
+strftime('%Y-%m-%dT%H:%M:%SZ',timestamp) as timestamp -- format timestamps for earthengine to ingest
 
 ---- Filtering ----
 
