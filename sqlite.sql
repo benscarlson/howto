@@ -91,6 +91,21 @@ PRAGMA foreign_keys = OFF;  --Turn off
 INSERT INTO fd_stats(pk, col1, col2) 
 SELECT * FROM fd_stats_temp;
 
+-------------------
+----- Updating ----
+-------------------
+
+--UPDATE FROM syntax
+--requires > SQLite version 3.33.0 (2020-08-14)
+--if executing in DB Browser, requires DB Browser version >=3.12.2 (did not work for version 3.12.0)
+-- might not be able to use an alias for table that is being updated
+-- try an alias using from table
+-- note dont need table name on column that is being set
+update event_forage
+set study_id = individual.study_id
+from individual
+where individual.individual_id = event_forage.individual_id
+
 ----- configuration -----
 
 --- this is from using brew upgrade. not macos comes with a version and that is the default
