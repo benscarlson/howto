@@ -157,6 +157,7 @@ var img = ee.Image().toByte().paint(fc, 1); //paint a 1 into the pixels. Unpaint
 //---- generate grids ----//
 //https://code.earthengine.google.com/140d61ef71730ea7ce38c85f5705497e
 //https://code.earthengine.google.com/3b4d15f4dc0eace8c5cdd5809feb5f06
+//https://gis.stackexchange.com/questions/231959/draw-a-grid-of-polygons-in-google-earth-engine/328662
 
 //----
 //---- Masking
