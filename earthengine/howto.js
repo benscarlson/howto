@@ -125,6 +125,8 @@ var bbox = fc.geometry().bounds(); //This gets the bbox of an fc. Fails at large
 //---- ee.ImageCollection ----//
 //----
 
+ee.ImageCollection.fromImages(imgLst) //Create an image collection from a list of images
+
 //to pull images from an imagecollection by index, convert to a list
 var lst = ic.toList(5); //5 is max number of images to fetch from the collection
 print(lst);
@@ -228,6 +230,28 @@ var fltrTs = ee.Filter.and(
 
 pts = pts.filter(fltrTs);
 
+//-----------------------//
+//---- spatial joins ----//
+//-----------------------//
+
+// Define a spatial filter as geometries that intersect.
+var spatialFilter = ee.Filter.intersects({
+  leftField: '.geo',
+  rightField: '.geo',
+  maxError: 10
+});
+
+// Define a save all join.
+//matchesKey is just the name of the property that holds the images
+var saveAllJoin = ee.Join.saveAll({
+  matchesKey: 'tiles',
+});
+
+// Apply the join.
+var joined = saveAllJoin.apply(primaryCol, secondaryCol, spatialFilter);
+
+var gisaFL = ee.ImageCollection.fromImages(joined.first().get('tiles')); //this assumes 
+
 //--------------------//
 //----- reducers -----//
 //--------------------//
@@ -269,6 +293,10 @@ var dist = urban
   .fastDistanceTransform(1000).sqrt()
   .clip(region)
   .multiply(ee.Image.pixelArea().sqrt());
+
+
+fc.union() //Union/merge all features in a feature collection
+
 //--------------------//
 //---- Visualize -----//
 //--------------------//
