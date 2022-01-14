@@ -30,6 +30,12 @@ du -h myfile.txt #size of file in human-readable units
 ls -d "$PWD"/*
 ls -d "$PWD"/my_folder/*
 
+#---- reading file contents ----#
+
+#Two methods for printing the number of lines in a file
+wc -l $csv | awk '{print $1}'
+cat $csv | wc -l
+
 #---- finding files and directories ----#
 sudo find / -size +500000 -print
 
