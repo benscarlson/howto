@@ -28,9 +28,13 @@ myvar=${myvar%$'\r'} #this strips \r from the variable
 #-- lists/arrays 
 lst=("one" "two" "three")
 echo ${lst[0]} # one
-echo ${lst[@]} # prints all elements
-lst2=${lst[@]/#/path/to/file/} #prefixes all elements in array. Note return is not an array but some sort of list. This is what you get when you do e.g. ls
-lst2=${lst[@]/%/.pdf} #suffix all values in list
+echo ${lst[@]} # prints all elements as seperate words. e.g. "one" "two" "three"
+echo ${lst[*]} # prints all elements as one word. e.g. "one two three"
+printf "%s\n" ${studyIds[@]} # prints all elements on a seperate line
+
+${lst[@]/#/path/to/file/} #prefixes all elements in array. Note return is not an array but a list of elements
+${lst[@]/%/.pdf} #suffix all values in list
+${studyIds[@]%$'\r'} #removes \r from the end of all elements
 
 #variable contains a list of files (seperated by space)
 # can be used as input to commands that take a 1 to n file names
