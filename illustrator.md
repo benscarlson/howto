@@ -15,10 +15,6 @@ https://community.adobe.com/t5/illustrator/fit-bounding-box-to-text-in-illustrat
 
 https://graphicdesign.stackexchange.com/questions/132886/illustrator-auto-sized-text-box-with-a-rectangle-border-no-fill
 
-
-Preferences -> edit artboards -> simulate paper -> pick a color
-View -> show transparency grid
-
 edit the artboard so that just the elements you want are on the artboard. Then you can delete the other elements.
 Try to remove any background rectangles
 If you cant delete, then use properties -> appearance, fill. click the square and change it to transparent
@@ -26,4 +22,12 @@ To make sure everything is transparent, set the artboard to simulate paper and t
 View -> show transparancy
 Export as a pdf
 
+To change elements so that they show up on a black background
+* Shift + click to select multiple elements
+* Text - Change fill to white
+* Boxes - no fill, white stroke
+* Arrows - white stroke
 
+To set the illustrator background to black (note this will not output a black background!)
+* Document setup -> Check Simulate colored paper. Pick black for each box of grid
+* View -> Show transparancy grid
