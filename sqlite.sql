@@ -79,6 +79,8 @@ select rowid, * from mytable; --to see rowid (if it exists) add it to select lis
 
 -- Note .import will insert text date into db, if that is what is stored in csv, regardless of data affinity
 
+-- .import will load empty csv fields as empty strings (''). So, need to set these to null afterwards.
+update event_test set lst = NULL where lst='';
 
 PRAGMA foreign_keys         --check if foreign keys are enabled
 PRAGMA foreign_keys = ON;   --Turn on
