@@ -272,8 +272,13 @@ var img2 = img1
     crs: proj.crs,
     crsTransform:proj.transform });
 
+//---- Frequency histogram ----//
+
 //code to export histogram from Noel
 //https://code.earthengine.google.com/8fb0aa4de96c653c98728e1fb6293c60
+
+//Discusion of how to represent equal area. Use pixelArea?
+//https://groups.google.com/g/google-earth-engine-developers/c/LTo94esE8cs/m/QDljOTK8BAAJ
 
 //----
 //---- Geoprocessing ----//
@@ -362,6 +367,14 @@ var viz = {bands: ['B4', 'B3', 'B2'], min: 0, max: 3000,gamma: 1.4};
 
 //https://gis.stackexchange.com/questions/290713/adding-map-key-to-map-or-console-in-google-earth-engine
 //https://mygeoblog.com/2016/12/09/add-a-legend-to-to-your-gee-map/
+
+//-----------------------//
+//---- Scale and CRS ----//
+//-----------------------//
+
+//See Noel's response and example setting crs instead of scale parameter
+//https://groups.google.com/g/google-earth-engine-developers/c/LTo94esE8cs/m/QDljOTK8BAAJ
+var proj = ee.Projection("EPSG:4326").atScale(1)
 
 //---- crs/crsTranform ----//
 
