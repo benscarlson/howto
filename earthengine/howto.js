@@ -272,6 +272,12 @@ var img2 = img1
     crs: proj.crs,
     crsTransform:proj.transform });
 
+//tileScale
+//Some functions have this parameter. This changes the size of each tile that is computed and can reduce memory. 
+// Larger scale means smaller tile, less memory, more computations
+// not related to "scale" parameter
+//https://groups.google.com/g/google-earth-engine-developers/c/MiktRhbqhZ4
+
 //---- Frequency histogram ----//
 
 //code to export histogram from Noel
