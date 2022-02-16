@@ -107,7 +107,20 @@ set study_id = i.study_id
 from individual i
 where i.individual_id = event_forage.individual_id
 
+------------------
+---- Deleting ----
+------------------
+
+-- can't do delete ... join syntax, instead do delete ... in and select pks
+delete from deployment
+where deployment_id in (
+	select deployment_id from deployment d
+	inner join individual i on d.individual_id = i.individual_id
+	where i.taxon_canonical_name = 'Tadorna tadorna')
+	
+-------------------------
 ----- configuration -----
+-------------------------
 
 --- this is from using brew upgrade. not macos comes with a version and that is the default
 --- I used the first command to update path, but did not set the other commands.
