@@ -242,6 +242,11 @@ dat %>% .[1] #takes column 1, this is the same as `[`(1). can also do e.g. .['ev
 envLab = 'my_col_name'
 mutate(!!envLab := !!as.name(envLab)*0.0001)
 
+#This worked in dplyr and ggplot
+env <- 'col_name'
+mutate(x=!!sym(env))
+aes(x=!!sym(env))
+
 #these also work
 envNames <- c('env1','env2')
 dat %>% select(!!envNames)
