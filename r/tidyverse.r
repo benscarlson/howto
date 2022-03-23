@@ -238,14 +238,17 @@ dat %>% .[1] #takes column 1, this is the same as `[`(1). can also do e.g. .['ev
 #---- tidy evaluation ----#
 #-------------------------#
 
-#note use of dynamic column name
-envLab = 'my_col_name'
-mutate(!!envLab := !!as.name(envLab)*0.0001)
+#-- interactive environment
 
+#In dplyr and ggplot functions, seems that as.name, and sym are interchangelble
 #This worked in dplyr and ggplot
 env <- 'col_name'
 mutate(x=!!sym(env))
 aes(x=!!sym(env))
+
+#note use of dynamic column name
+envLab = 'my_col_name'
+mutate(!!envLab := !!as.name(envLab)*0.0001)
 
 #these also work
 envNames <- c('env1','env2')
@@ -258,6 +261,14 @@ dat %>% select(!!envName)
 envName <- quo(!!sym('dist2forest'))
 dat %>% select(!!envName)
 
+#--- in map functions ---#
+
+#have to make seperate function. Anonomous functions will fail
+phist <- function(colname) {
+  ggdat %>% ggplot(aes(x=!!sym(colname))) + geom_histogram()
+}
+
+tibble(envts=envts) %>% mutate(phist=map(envts,phist))
 #---------------#
 #---- purrr ----#
 #---------------#
