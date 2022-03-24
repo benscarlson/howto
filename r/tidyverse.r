@@ -255,7 +255,11 @@ envNames <- c('env1','env2')
 dat %>% select(!!envNames)
 
 #it seems like sometimes I can use just !!x and sometimes I have to use !!sym(x)
-#across(!!x,fn) worked, and also across(!!sym(x), fn) worked
+
+#Have to use !!sym:
+# filter, mutate
+#Don't have to use !!sym() (but can)
+# accross, select
 
 envName <- quo(dist2forest) #single term
 envName <- quo(c(dist2forest,ndvi)) #multiple terms. note the use of c() within quo
