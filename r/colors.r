@@ -7,6 +7,8 @@
 #Color Mind. http://colormind.io/ AI-driven color palettes.
 #Canva. https://www.canva.com/ Web-based desktop publishing ?
 #Colormind. http://colormind.io/ Extract color palette from image
+#Met Brewer. https://github.com/BlakeRMills/MetBrewer
+#Wes Anderson Colors. https://github.com/karthik/wesanderson
 
 #---- refs ----#
 # Color theory: https://www.smashingmagazine.com/2010/02/color-theory-for-designer-part-3-creating-your-own-color-palettes/
