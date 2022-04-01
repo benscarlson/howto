@@ -602,6 +602,10 @@ var cloudMaskL57 = function(image) {
 //Implement default parameters
 //https://code.earthengine.google.com/c55646044eee3eee72409be885521e0f
 
+//---- Landsat 7 ----//
+
+//Gap fill: https://stackoverflow.com/questions/55256739/slc-code-not-filling-all-landsat-7-sr-gaps/55271390#55271390
+
 //----
 //---- BRDF Correction
 //----
