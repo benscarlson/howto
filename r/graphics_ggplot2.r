@@ -170,8 +170,9 @@ https://github.com/vqv/ggbiplot
 # multipanel plots
 #-----
 
-#check out patchwork: https://www.r-bloggers.com/how-to-plot-with-patchwork/
-# https://github.com/thomasp85/patchwork/blob/master/README.md
+#TrelliscopeJS. Visualizing big data.
+# https://hafen.github.io/trelliscopejs/
+# https://www.business-science.io/code-tools/2022/03/30/how-i-analyze-100-ggplots-at-once.html
 
 #----
 # patchwork
