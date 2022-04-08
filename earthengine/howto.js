@@ -456,6 +456,7 @@ Export.image.toCloudStorage({
   image: img,
   description: 'my_img',
   bucket:'ee-output',
+  fileFormat: 'GeoTIFF', //this might be the default
   fileNamePrefix: 'exampleExport',
   region: img.geometry(), //need to set the output geometry, else it will default to the playground window size
   //or can do region: img.geometry().bounds() if geometry is a strange shape
@@ -468,7 +469,8 @@ Export.image.toCloudStorage({
   image: dist,
   description: 'dist2urban',
   bucket:'mol-playground',
-  fileNamePrefix: 'benc/projects/ms3/layers/dist2urban',
+  fileFormat:'GeoTIFF', //this might be the default
+  fileNamePrefix:'benc/projects/ms3/layers/dist2urban',
   region: region,
   crs: urban.projection().crs().getInfo(),
   scale: urban.projection().nominalScale().getInfo(),
