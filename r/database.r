@@ -53,6 +53,13 @@ cols <- c('a','b')
 glue_sql('select {cols*} from t') #Does not work because results in 'a','b' which is returned as data
 glue_sql('select {`cols`* from t') #Using backticks works because it does a quoted identifier "a", "b" which refers to a column.
 
+#Get the last inserted row id
+#be careful, sqlite can represent larger integers than R
+# sqlite: 8 bytes, so 64 bit signed integer. 2^63 - 1 == 9223372036854775807
+# r is 32 bit signed so 2e9 == 2147483647
+# for 64 bit R try bit64 package
+"select last_insert_rowid() as id" %>% dbGetQuery(db,.) %>% as.integer
+
 #---- inserting data ----#
 
 #-- trick to insert into a table that has autoincrement pk fields
