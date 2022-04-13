@@ -107,6 +107,16 @@ set study_id = i.study_id
 from individual i
 where i.individual_id = event_forage.individual_id
 
+-- Can also UPDATE FROM using a subquery
+ update hv_set
+ set spec = hv.spec
+ from ( 
+	 select hs_id, avg(spec) as spec
+	 from hypervol
+	 where ses_id = 3 and level = 'hv'
+	 group by hs_id) hv
+ where hv_set.hs_id = hv.hs_id
+ 
 ------------------
 ---- Deleting ----
 ------------------
