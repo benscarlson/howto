@@ -10,7 +10,7 @@ geom_text_repel(data=dat, aes(x=lon, y=lat,label=study_num),size=3,force=3) + #s
 
 #to show relative density or relative frequency
 geom_density(..scaled..) #relative density
-#Do these both work?
+#Both of these approaches work
 geom_histogram(aes(y=stat(count) / sum(count))) #relative frequency
 geom_histogram(aes(y=stat(count / sum(count))))
 
