@@ -538,6 +538,9 @@ print(items)
 //Study and learn this script (from Nicholas Clinton). Bits and approach are different from what I'm using.
 //https://code.earthengine.google.com/643c86f713c64dea1d921358b8da0530
 
+//Discussion of using different cloud masking algorithms (cFmask, cloudScore, others)
+//https://groups.google.com/g/google-earth-engine-developers/c/qkSaZ5tBXWg/m/JMvWXFLxAQAJ
+
 //Landsat 8 Collection 2, Level 2
 //
 // This example demonstrates the use of the Landsat 8 Collection 2, Level 2
