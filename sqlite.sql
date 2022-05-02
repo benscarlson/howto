@@ -91,7 +91,7 @@ PRAGMA foreign_keys = OFF;  --Turn off
 -- then, create the target table (with pk, col1, col2)
 -- finally, insert from temp into target
 INSERT INTO fd_stats(pk, col1, col2) 
-SELECT * FROM fd_stats_temp;
+SELECT NULL,* FROM fd_stats_temp;
 
 -------------------
 ----- Updating ----
