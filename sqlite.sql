@@ -22,9 +22,9 @@ sqlite3 -header -csv $db "$sql;" > $wd/ctfs/individual.csv
 --#Import csv into the database. note use of --skip 1 to skip the heaader row
 sqlite3 -csv $db ".import --skip 1 data/outlier.csv outlier"
 
---#### ------------- ####--
---#### Create tables ####--
---#### ------------- ####--
+-----------------------
+---- Create tables ---- 
+-----------------------
 
 --NOTES:
 --  TEXT should be used for date, not NUMERIC
@@ -67,7 +67,14 @@ select rowid, * from mytable; --to see rowid (if it exists) add it to select lis
 
 -- if a table references a column other than a primary key as a foreign key,
 -- that column needs to have a unique constraint or unique index.
-  
+
+---------------------
+---- Alter table ----
+---------------------
+
+-- add a column with a foreign key constraint to an existing table
+alter table hv_set add column pop_id integer references population (pop_id);
+
 ------------------------
 ---- Inserting data ----
 ------------------------
