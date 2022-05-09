@@ -39,7 +39,14 @@ CREATE TABLE my_table (
   FOREIGN KEY(player_id) REFERENCES player(player_id)
 );
 
---#### primary keys ####--
+--# Create a copy of a table
+ create table outlier_old as
+	select * from outlier
+	
+----------------------
+---- primary keys ----
+----------------------
+
 --complicated in sqlite!
 --A hidden column called rowid will be created if WITHOUT ROWID is not used. This is called a "row id" table
 --If the table is a "row id" table, then using "mycol INTEGER PRIMARY KEY" makes mycol an alias to rowid
@@ -54,9 +61,12 @@ create table my_table (
 
 select rowid, * from mytable; --to see rowid (if it exists) add it to select list
 
---# Create a copy of a table
- create table outlier_old as
-	select * from outlier
+----------------------
+---- Foreign keys ----
+----------------------
+
+-- if a table references a column other than a primary key as a foreign key,
+-- that column needs to have a unique constraint or unique index.
   
 ------------------------
 ---- Inserting data ----
