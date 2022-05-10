@@ -169,7 +169,9 @@ lead(colname,1); lag(colname,1) #shift column forward or backward by one
 
 case_when() #like a switch statement that works inside mutate.
 
+#-------------------#
 #---- Filtering ----#
+#-------------------#
 
 #filter by multiple columns, multiple criteria
 #we only want (1, 'a') and (3, 'b') i.e. don't want (2,'a')
@@ -194,6 +196,17 @@ dat %>%
 
 #subsample .npts rows from each group, but take all rows if n() < .npts
 dat %>% slice_sample(n=.npts)
+
+#-- Filter w/ Across --#
+
+#This takes a row if ALL rows meet the condition
+vdat %>% filter(across(.fns=~.x > 0)) #note .x==0 returns nothing if there is not a row that contains all 0
+
+#To take a row if ANY column matches the condition, need to use rowSums trick
+#Works but I'm not sure how
+#https://community.rstudio.com/t/using-filter-with-across-to-keep-all-rows-of-a-data-frame-that-include-a-missing-value-for-any-variable/68442
+rowAny <- function(x) rowSums(x) > 0 
+vdat %>% filter(rowAny(across(.fns = ~ .x==0)))
 
 #---- group_by/do and group_by/nest/map ----#
 
