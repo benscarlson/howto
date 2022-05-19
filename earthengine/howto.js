@@ -250,7 +250,7 @@ var saveAllJoin = ee.Join.saveAll({
 });
 
 // Apply the join.
-var joined = saveAllJoin.apply(primaryCol, secondaryCol, spatialFilter);
+var joined = saveAllJoin.apply(primaryCollection, secondaryCollection, spatialFilter);
 
 var gisaFL = ee.ImageCollection.fromImages(joined.first().get('tiles')); //this assumes 
 
