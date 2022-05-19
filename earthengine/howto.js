@@ -186,6 +186,10 @@ print(img.get('system:time_start_str')).format('yyyy-MM-dd HH:mm:ss') //print a 
 mydate.getRelative('day','year'); //get doy
 mydate.advance(1,'month').advance(-1,'second')//get end date for a monthly timeseries, given a start date
 
+//extract start date and remove time component (is there a better way?)
+var dte = ee.Date(img.get('system:time_start'));
+dte = ee.Date(dte.format('yyyy-MM-dd'));
+
 //GEE system properties for start, end dates (in milliseconds)
 system:time_start
 system:time_end
