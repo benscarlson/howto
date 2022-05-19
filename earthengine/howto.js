@@ -20,9 +20,9 @@
 //  *  Has L7 & L8 harmonization example!! 
 
 //---- shortcut keys ---//
-ctrl + /  for //
+cmd + /  for //
 
-ctrl +shift + / for /**/
+cmd + shift + / for /**/
 
 // ---- code management ----//
 
@@ -196,7 +196,9 @@ system:time_end
 
 //filter an image collection to extract one image
 var img = ee.ImageCollection("LANDSAT/LC8_L1T_8DAY_NDVI")
-  .filterMetadata('system:index','equals','20130626')
+  .filterMetadata('system:index','equals','20130626') //Note filter metaMetadata is deprecated
+
+.filter(ee.Filter.eq('system:index','20130626'))
 
 //filter an image collection using metadata field by list
 var col = ee.ImageCollection('MODIS/MOD11A2');
