@@ -41,6 +41,9 @@ git clone https://earthengine.googlesource.com/users/benscarlson/default
 //https://groups.google.com/d/msg/google-earth-engine-developers/15gsO2twNYU/vGgU1YheGgAJ
 //https://emapr.github.io/LT-GEE/api.html
 
+//---- Objects ----//
+object.name() //get the type of object
+
 //---- Lists ----//
 
 //---- iterate and return a single value --
