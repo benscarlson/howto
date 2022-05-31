@@ -137,6 +137,8 @@ print(ee.Image(lst.get(0))); //get the frist image in the list
 
 col.toBands(); //Convert image collection to multi-band image
 
+ic.get('system:id') //Get the asset name. Note this is system:id and not system:index
+
 //--------------//
 //---- misc ----//
 //--------------//
