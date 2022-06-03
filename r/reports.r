@@ -67,8 +67,13 @@ include_me = TRUE  # or FALSE
 #can also do a logical statement in the header
 <<include=(.p$env$val_type=='discrete')>>
 
-#---- supress messages ----#
-<<echo=FALSE, warning=FALSE, message=FALSE>>=
+#---- Chunk options ----#
+
+
+<<echo=FALSE, warning=FALSE, message=FALSE>>= # supress messages
+
+{r echo=TRUE, results='hide'} #Show code but not output
+
 
 #---- figures ----#
 
