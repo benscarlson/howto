@@ -200,6 +200,10 @@ p <- wrap_elements(wrap_plots(plots,nrow=3))
 #This is generally what you want
 p <- wrap_plots(plots,nrow=3)
 
+#Add themes and annotations to patchwork
+p + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(size = 8))
+p + plot_annotation() & theme_minimal()
+
 #-- Faceting
 facet_grid(vars(population),vars(term),scales='free_y',switch='y',space='free_y')
 facet_wrap(vars(group)) #one facet per group
