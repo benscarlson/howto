@@ -351,6 +351,7 @@ mylist %>% list_modify('event'=NULL) #removes the item 'event' from the list
 
 mylist %>% iwalk(~write_csv(dfs[.y][[1]],.x,na="")) #version of map2 specific to lists. .y is the item name, .x is the value
 
+mylist %>% imap(~print(.y)) #Sends both the value, as well as the name of the element to the function. .x is the value, .y is the name
 #------------------#
 #---- purrrlyr ----#
 #------------------#
