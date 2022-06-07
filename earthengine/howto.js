@@ -34,6 +34,11 @@ git clone https://earthengine.googlesource.com/users/benscarlson/default
 // subject: "GEE's data catalogue"
 //Total size of collection as of Apr 2020: 30P
 
+//---- Assets ----//
+
+//View asset information
+//https://code.earthengine.google.com/?asset=COPERNICUS/CORINE/V20/100m 
+
 //---- External libraries ----//
 
 //Landtrendr API. Has library for building consistent surface reflectance across landsats
