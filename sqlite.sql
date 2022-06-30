@@ -73,7 +73,11 @@ select rowid, * from mytable; --to see rowid (if it exists) add it to select lis
 ---------------------
 
 -- add a column with a foreign key constraint to an existing table
+-- can do "add column x" or just "add x"
 alter table hv_set add column pop_id integer references population (pop_id);
+
+-- can drop columns as of 3.38, but not in current version (3.12) of DB Browser. Use sqlite3 instead
+alter table hv_set drop my_column
 
 ------------------------
 ---- Inserting data ----
