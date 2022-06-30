@@ -42,6 +42,12 @@ ${studyIds[@]%$'\r'} #removes \r from the end of all elements
 
 echo "$(IFS=,; echo "${lst[*]}")" #convert array to a comma seperated list
 
+#split string, add _z suffix, and rejoin
+envs='pct_tree,pct_bare,l8_evi,dist2forest,dist2urban,dist2water_month'
+arrenvs=($(IFS=,; echo $envs))
+arrenvs_z=(${arrenvs[@]/%/_z})
+envs_z="$(IFS=,; echo "${arrenvs_z[*]}")"
+
 #variable contains a list of files (seperated by space)
 # can be used as input to commands that take a 1 to n file names
 files=`ls`
