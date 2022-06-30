@@ -40,6 +40,8 @@ ${lst[@]/#/path/to/file/} #prefixes all elements in array. Note return is not an
 ${lst[@]/%/.pdf} #suffix all values in list
 ${studyIds[@]%$'\r'} #removes \r from the end of all elements
 
+echo "$(IFS=,; echo "${lst[*]}")" #convert array to a comma seperated list
+
 #variable contains a list of files (seperated by space)
 # can be used as input to commands that take a 1 to n file names
 files=`ls`
