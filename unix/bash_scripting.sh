@@ -29,6 +29,9 @@ myvar=${myvar%$'\r'} #this strips \r from the variable
 #above, $'\r' converts the string "\r" to return
 #${myvar%suffix} removes suffix
 
+#Look at the IFS
+echo $IFS | cat -et
+ 
 #-- lists/arrays 
 lst=("one" "two" "three")
 echo ${lst[0]} # one
