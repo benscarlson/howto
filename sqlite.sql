@@ -22,6 +22,10 @@ sqlite3 -header -csv $db "$sql;" > $wd/ctfs/individual.csv
 --#Import csv into the database. note use of --skip 1 to skip the heaader row
 sqlite3 -csv $db ".import --skip 1 data/outlier.csv outlier"
 
+--- Delete data with on delete cascade enabled
+--- Need to activate foreign keys, they are disabled by default in sqlite3
+sqlite3 $db "PRAGMA foreign_keys = ON; delete from session where ses_name = \"${sesnm}\";"
+
 -----------------------
 ---- Create tables ---- 
 -----------------------
