@@ -87,6 +87,10 @@ include_me = TRUE  # or FALSE
 #https://stackoverflow.com/questions/25166624/insert-picture-table-in-r-markdown
 knitr::include_graphics('/path/to/image.png') #This looks like best suggestion
 
+#ggmap plots are always too small. The trick is to use *both* fig.height and fig.width
+# Setting just one will still result in a small figure. 
+{r, fig.width=10, fig.height=10}
+
 #---- inline r code ----#
 <<>>=
 indivName<-'MyAnimal'
