@@ -183,6 +183,9 @@ md5 -r ~/scratch/license_terms.txt
 
 curl -v -u <user>:<pass> -b cookies.txt -o event_data.csv "https://www.movebank.org/movebank/service/direct-read?entity_type=event&study_id=685178886&license-md5=31bf56775d156bbc7aeb2986e00dff28" 
 
+#---- wget ----#
+wget -O individuals.csv --user "ben.s.carlson" --password $pass $url
+
 #----------
 #   OSX   
 #----------
