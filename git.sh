@@ -44,9 +44,21 @@ ls -al ~/.ssh #check ssh director for ssh key
 cat ~/.ssh/id_rsa.pub #print out contents of rsa key and copy the text
 # go to github and add a key by pasting the contents
 
+#---- Branches ----#
+
+#https://thenewstack.io/dont-mess-with-the-master-working-with-branches-in-git-and-github/
+
+git branch -a #Shows all branches and which is the current branch
+git checkout -b mybranch #Creates the branch and switches to that branch
 git checkout mybranch #switch to mybranch
+
+#to merge back to main
+git checkout main
+git merge –no-ff
+
 git branch --merged #see which branches have been merged into the current branch
 git branch -d mybranch #delete my branch
+
 
 #---- how to stage a pull request ----
 #note if master branch is selected and you make changes, and you want to commit changes to a local branch
@@ -62,10 +74,19 @@ git commit -am 'my message' # make changes and commit to local branch
 git push -u origin mybranch # set up a branch on github that will track your local branch.
 # go to github and make a pull request
 
-#---- what to do to your local repo after pull request has been merged
+#---- What to do to your local repo after pull request has been merged
 # maintainer will merge branch into master, and delete remote branch
 git pull # get the latest (assuming you are on master branch)
 git branch -d mybranch # delete local branch
+
+#---- Display logs ----#
+#Some pretty ways to show commit history
+git log --graph --oneline --decorate --all #This prints out the commits
+git log --topo-order --all --graph --date=local --pretty=format:'%C(green)%h%C(reset) %><(55,trunc)%s%C(red)%d%C(reset) %C(blue)[%an]%C(reset) %C(yellow)%ad%C(reset)%n'
+
+#can make alias for a command
+git config --global alias.mycmd 'git command'
+git mycmd #is now aliased to 'git command'
 
 #---- .gitignore
 echo ".DS_Store" >> .gitignore
