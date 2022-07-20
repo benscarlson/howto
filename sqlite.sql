@@ -83,6 +83,9 @@ alter table hv_set add column pop_id integer references population (pop_id);
 -- can drop columns as of 3.38, but not in current version (3.12) of DB Browser. Use sqlite3 instead
 alter table hv_set drop my_column
 
+-- can rename columns as of 3.25 (?)
+alter table hv_set rename my_column to my_column2
+
 ------------------------
 ---- Inserting data ----
 ------------------------
