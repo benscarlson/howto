@@ -94,22 +94,6 @@ dbBind(rs,params=dat) #just pass in the full dataframe
 dbGetRowsAffected(rs)
 dbClearResult(rs)
 
-#Older approaches update row by row
-for(i in seq_len(nrow(rini))) {
-  #i <- 1
-  row <- rini[i,]
-  sql <- glue_sql(
-    "update indiv_vol 
-    set rini={row$rini} 
-    where niche_name={row$niche_name} 
-    and hv_job_name={row$hv_job_name}",.con=db)
-  
-  af <- dbExecute(db,sql)
-  
-  #should update exactly 1 row, if not provide warning
-  if(af != 1) message(glue('Warning, update for {row$niche_name} affected {af} rows'))
-}
-
 #This checks to see if foreign key constraint works
 #This will fail
 dbExecute(db,'PRAGMA foreign_keys=ON')
