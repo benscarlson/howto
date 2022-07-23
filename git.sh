@@ -54,7 +54,7 @@ git checkout mybranch #switch to mybranch
 
 #to merge back to main
 git checkout main
-git merge –no-ff mybranch
+git merge -–no-ff mybranch
 
 git branch --merged #see which branches have been merged into the current branch
 git branch -d mybranch #delete my branch
