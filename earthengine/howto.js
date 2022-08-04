@@ -295,6 +295,21 @@ var img2 = img1
 // not related to "scale" parameter
 //https://groups.google.com/g/google-earth-engine-developers/c/MiktRhbqhZ4
 
+//---- Sample regions ----//
+
+//Extract pixel values given polygon
+//https://gis.stackexchange.com/questions/407840/extracting-pixel-values-in-sample-polygons-in-google-earth-engine
+img.sampleRegions({collection:poly,scale:30})
+
+//Extract based on random number of samples in the region
+var pts = ee.FeatureCollection.randomPoints({
+  region: poly,
+  points: 1000
+});
+
+var samp = img.sampleRegions({collection:pts,scale:30})
+
+
 //---- Frequency histogram ----//
 
 //code to export histogram from Noel
