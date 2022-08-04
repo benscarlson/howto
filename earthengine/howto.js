@@ -11,6 +11,7 @@
 //List of all data prodcuts (updated weekly and includes a bunch of other features). https://github.com/samapriya/Earth-Engine-Datasets-List
 //Another list of all data products (maybe json format): https://gee.stac.cloud/?t=catalogs
 //Batch submit tasks: https://github.com/MarcYin/GeeBatch (Seems to build on tampermonky script) - Not sure if this works anymore. See Tasks section.
+//Collection of tools for working with GEE: https://github.com/gee-community
 
 //--------------------------------//
 //---- Tutorials and training ----//
