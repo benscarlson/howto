@@ -3,7 +3,6 @@ detach(package:mylibrary) #this will remove mylibrary from the environment
 
 #---- R system ----#
 
-.Machine$double.eps # = 2.220446e-16. This is the smallest number x in which x + 1 != 1
 getOption('contrasts') # shows default option for how factor coefficients are displayed. 'contr.treatment' sets one factor as control (0) and other factors as relative to this control.
 Sys.info()['user']
 
@@ -12,7 +11,34 @@ Sys.info()['user']
 # atomic
 integer, numeric, logical, character
 
-.Machine$integer.max #this is the maximum value of an integer
+.Machine$double.eps # = 2.220446e-16. This is the smallest number x in which x + 1 != 1
+
+#Even though doubles are 64-bit, they can't store numbers above 2^53 without losing precision
+# Note adding one does not increase the value!
+options(digits=22)
+2^53 #9007199254740992 
+9007199254740992 + 1 #9007199254740992
+
+
+#by default, R assumes numeric input is of type numeric, which is a 64-bit double
+#unless you add L to the end
+class(123) #numeric
+class(123L) #integer
+
+#The max value of an integer is 2^31 - 1
+.Machine$integer.max # 2147483647
+2^31 - 1 #2147483647
+as.integer(2147483647) #2147483647
+as.integer(2147483648) #NA
+  #Warning message:
+  #NAs introduced by coercion
+
+#The bit64 package can represent larger integers. 
+# See nice discussion here: https://www.tidyverse.org/blog/2020/01/vroom-1-1-0/
+# Many tidyverse packages support bit64
+as.integer64(2^31) #2147483648
+as.integer64(2^53) #9007199254740992
+as.integer64(2^53) + 1 #9007199254740993
 
 # more complex
 Date, factor, matrix, list, data.frame
