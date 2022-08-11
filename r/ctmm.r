@@ -66,6 +66,15 @@ plot(vg,CTMM=mod,fraction=1) #full variogram, but first 50% is generally helpful
 m$tau['velocity'] * -log(0.05) #note velocity is in SI units, so this is seconds
 m$tau['velocity'] * -log(0.05)/60 #now this value is in minutes
 
+#--- modeling error ----#
+
+# Here is how one researcher handled error. They are simulating movement paths: 
+#  Filter for individuals with > 30 observations 
+#  I assign an error prior with uere() <- X for X=1 (10) for eobs (gps); then, I set the DOF to 2
+# Chris says: 
+#  That makes sense to me. Recent versions of the package should also provide a point estimate guess for the error prior, so you shouldn't have to adjust more than the DOF.
+#  I think specifying a good prior is pretty safe relative to having no error model, if there is some chance that you could have small sampling intervals in the data.
+
 #--- plotting ----#
 
 #-- to add a vertical line to the plot, need to get the units of the x-axis
