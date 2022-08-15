@@ -175,6 +175,12 @@ For pkg-config to find sqlite you may need to set:
   export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig"
 */
 
+---- Loading extensions ----
+
+-- Example includes compiling and loading extension-functions.c, which has median()
+-- https://www.cafe-encounter.net/p3244/installing-and-using-sqlite-extensions-on-macos-and-maybe-windows-linux-too
+
+
 ---- Selecting ----
 
 -- Take earliest timestamp per day --
