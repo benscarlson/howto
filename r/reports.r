@@ -62,7 +62,9 @@ include_me = TRUE  # or FALSE
 @ 
 
 #How to use a child template in a knitr doc.
-#https://github.com/yihui/knitr-examples/blob/master/020-for-loop.Rnw
+# https://github.com/yihui/knitr-examples/blob/master/020-for-loop.Rnw
+#How to use a child template in an Rmd doc.
+#https://drmowinckels.io/blog/2021-12-17-rmarkdown-child-templates/
 
 #can also do a logical statement in the header
 <<include=(.p$env$val_type=='discrete')>>
