@@ -116,3 +116,16 @@ ggplot() +
     xlim=st_bbox(pts)[c(1,3)] + c(-1,1),
     ylim=st_bbox(pts)[c(2,4)] + c(-1,1))
 
+#---- ggmap of a movement track
+
+source(rd('src/funs/ggmap_ext.r'))
+
+mp <- ggmMap(gdat)
+
+ggmap(mp) +
+  geom_path(data=dat, aes(x = lon, y=lat), show.legend =FALSE, alpha=0.5, color='white') +
+  geom_point(data=dat %>% sample_frac(1), size = 2, shape = 21, color='white', stroke=0.1,
+    aes(x = lon, y = lat, fill=date)) + #, fill=individual_id)
+  scale_fill_viridis_c(option='plasma',trans='date') +
+  ggmScalebar(mp)
+
