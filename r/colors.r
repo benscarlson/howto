@@ -77,6 +77,9 @@ labels <- as.Date(as.POSIXct(breaks,origin='1970-01-01',tz='UTC'))
 
 p + scale_fill_gradient('Timestamp',low = "grey", high = "blue", breaks=breaks, labels=labels)
 
+#use dates with viridis. column is called: date. Need to set trans='date'
+scale_fill_viridis_c(option='plasma',trans='date')
+
 #---- Examples of figures with nice palettes ----#
 
 #https://advances.sciencemag.org/content/6/9/eaax8329?rss=1
