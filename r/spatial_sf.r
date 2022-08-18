@@ -17,6 +17,10 @@ poly <- st_polygon(list(cbind(c(0,3,3,0,0),c(0,0,3,3,0)))) #poly is an sfg objec
 # includes coordiante system
 poly_sfc <- st_sfc(poly)
 
+poly_sf <- st_sf(poly_sfc) #This creates an sf object from an sfc object
+
+c(sfc1, sfc2) #concatenate two sfc objects into one sfc object
+
 #-- sf
 poly_sf = st_sf(st_sfc(poly,poly)) #from sfg objects
 
