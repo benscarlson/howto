@@ -38,6 +38,13 @@ git rev-parse HEAD #5e152f31b4e0d4fe45403d822cd785da888e0431
 git log -1 --format='%H' #5e152f31b4e0d4fe45403d822cd785da888e0431
 git log --pretty --format='%h' -n 1 #5e152f3 (short version?)
 
+#---- SSH Keys ----#
+
+#How to generate an ssh key and add it to github
+#https://gist.github.com/adamjohnson/5682757
+cd ~/.ssh
+ssh-keygen -t rsa -C "your_email@example.com"
+
 # add ssh key to github
 # https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 ls -al ~/.ssh #check ssh director for ssh key
