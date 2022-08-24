@@ -242,7 +242,8 @@ dat0 %>% mutate(across(!!terms,~as.vector(scale(.x)))) #use tidy evaluation to d
 bind_rows(dflist, .id='df_name')
 
 #convert a tibble row to a vector
-dat %>% slice(1) %>% unlist() #can also do unlist(use.names=FALSE) or unlist %>% uname
+dat %>% slice(1) %>% unlist #can also do unlist(use.names=FALSE) or unlist %>% uname
+dat %>% slice(1) %>% {setNames(as.numeric(.),names(.))}
 
 #pull out a column using [] syntax
 dat %>% .[1] #takes column 1, this is the same as `[`(1). can also do e.g. .['event'] if it is a list
