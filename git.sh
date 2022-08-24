@@ -66,6 +66,8 @@ git merge -–no-ff mybranch
 git branch --merged #see which branches have been merged into the current branch
 git branch -d mybranch #delete my branch
 
+#If the current branch does not exist on origin you set an upstream branch and then push
+git push --set-upstream origin mybranch
 
 #---- how to stage a pull request ----
 #note if master branch is selected and you make changes, and you want to commit changes to a local branch
