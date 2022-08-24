@@ -175,6 +175,17 @@ For pkg-config to find sqlite you may need to set:
   export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig"
 */
 
+---- DB Browser ----
+
+-- Settings
+-- Data Broswer
+--  Font: Andale Mono
+--  Font size: 11
+-- SQL
+--  SQL editor font: Lucidia Grande
+--  SQL editor font size: 15
+--  SQL results font size: 15
+
 ---- Loading extensions ----
 
 -- Example includes compiling and loading extension-functions.c, which has median()
