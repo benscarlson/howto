@@ -4,6 +4,11 @@ git clone git@github.com:benscarlson/repo.git
 
 git clone git@github.com:repo.git myrepo #instead of cloning to folder 'repo' this will clone to folder 'myrepo'
 
+#To clone a branch
+#First clone the main repo, as above
+git branch -a #This shows remote branches (e.g. remotes/origin/mybranch)
+git checkout mybranch #This sets up a local branch to track origin's mybranch, and switches to that branch
+
 #--- add non-repo code to a new github repo ---#
 #first, go to github.com and create the repo "anno" on github, don't initialize
 cd ~/projects/anno/src
