@@ -79,24 +79,32 @@ type=factor(c('A','B'), levels=c('B','A'))
 
 dat %>% arrange(desc(category))
 
-#----------------#
-#---- Themes ----#
-#----------------#
-
-#Try this theme font, looks nice
-#https://mattherman.info/blog/fix-facet-width/
-theme_minimal(base_family = "Roboto Condensed")
-
-
-theme_classic(base_family="Helvetica") #this theme usually works fine
-theme_tufte(base_family="Helvetica") #library(ggthemes)
-theme_bw()
-#http://docs.ggplot2.org/dev/vignettes/themes.html
-theme_set(theme_classic(base_family="Helvetica")) #sets theme for every plot in r session
-
-
-
 #---- Guides/legends ----
+
+#--- Breaks
+
+#This is how scale_*_continuous makes default breaks
+#https://stackoverflow.com/questions/38486102/how-does-ggplot-calculate-its-default-breaks
+#But breaks_pretty is mainly used for dates
+labeling::extended(min(x),max(x),m=3,only.loose=FALSE)
+
+#This returns prettier intervals for dates.
+scales::breaks_pretty(n=5)(dayPts$date) #default is n=5
+scale_color_viridis_c(trans='date',breaks = scales::breaks_pretty(12)) #might not work
+
+#Manual breaks using consistently sized intervals
+rng <- range(as.numeric(dayPts$date))
+b <- as.Date(round(seq(rng[1],rng[2],by=(rng[2]-rng[1])/4)),origin='1970-01-01')
+
+scale_color_viridis_c(trans='date',breaks=b)
+
+#Prettier breaks but need to manually set min/max
+b <- scales::breaks_pretty()(dayPts$date) #default is n=5
+b[c(1,length(b))] <- range(dayPts$date) #replace min/max b/c they may not equal min/max of the data
+names(b) <- NULL
+
+scale_color_viridis_c(trans='date',breaks=b)
+
 
 #--- Remove legends
 # Several different methods. See: https://stackoverflow.com/questions/35618260/remove-legend-ggplot-2-2
@@ -147,6 +155,21 @@ theme(legend.position="bottom", legend.direction="vertical")
 strip.text = element_text(size=9) #change font size on facets
 strip.background = element_blank() #remove border around facet labels
 panel.border = element_rect(color = "black", fill=NA) #make a black border around facet panels
+
+#----------------#
+#---- Themes ----#
+#----------------#
+
+#Try this theme font, looks nice
+#https://mattherman.info/blog/fix-facet-width/
+theme_minimal(base_family = "Roboto Condensed")
+
+
+theme_classic(base_family="Helvetica") #this theme usually works fine
+theme_tufte(base_family="Helvetica") #library(ggthemes)
+theme_bw()
+#http://docs.ggplot2.org/dev/vignettes/themes.html
+theme_set(theme_classic(base_family="Helvetica")) #sets theme for every plot in r session
 
 #---- Tidy evaluation ----#
 
