@@ -252,7 +252,7 @@ dat %>% .[1] #takes column 1, this is the same as `[`(1). can also do e.g. .['ev
 #---- tidy evaluation ----#
 #-------------------------#
 
-#-- interactive environment
+#---- interactive environment ----#
 
 #In dplyr and ggplot functions, seems that as.name, and sym are interchangelble
 #This worked in dplyr and ggplot
@@ -285,11 +285,27 @@ dat %>% select(!!envName)
 #--- in map functions ---#
 
 #have to make seperate function. Anonomous functions will fail
+#NOTE: could try new {{}} method
 phist <- function(colname) {
   ggdat %>% ggplot(aes(x=!!sym(colname))) + geom_histogram()
 }
 
 tibble(envts=envts) %>% mutate(phist=map(envts,phist))
+
+#--- in functions ---#
+
+# Example of dynamically passing in a column name
+df <- tibble(
+  g1 = c(1, 1, 2, 2, 2),
+  g2 = c(2,2,1,1,1)
+)
+
+myfun <- function(df,col=g1) {
+  df %>% filter({{col}}==1)
+}
+
+myfun(df,col=g2)
+
 #---------------#
 #---- purrr ----#
 #---------------#
