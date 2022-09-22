@@ -38,6 +38,13 @@ poly <- st_polygon(list(coords)) #Coords need to be in a list to pass to st_poly
 
 polysfc <- st_sfc(poly,crs=4326)
 
+#-- Combine sfc objects that are in a list
+
+#Several different ways. All these create a single sfc object from a list of sfc objects
+do.call(c,sfcs)
+Reduce(c,sfcs)
+purrr::reduce(x,sfcs)
+
 #---- Geometries ----#
 
 #-- Linestring --#
