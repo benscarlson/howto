@@ -340,6 +340,17 @@ var dist = urban
 
 fc.union() //Union/merge all features in a feature collection
 
+//-----------------//
+//---- Modules ----//
+//-----------------//
+
+//users/benscarlson/modules:module.js
+exports.myfun = function(x) {return x};
+
+var mod = require('users/benscarlson/modules:module.js');
+var mod = require('users/benscarlson/modules:ms2/ndvi/module.js'); //Note module can be nested w/in folders
+
+
 //--------------------//
 //---- Visualize -----//
 //--------------------//
