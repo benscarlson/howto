@@ -340,6 +340,10 @@ var dist = urban
 
 fc.union() //Union/merge all features in a feature collection
 
+//--- Random points and integers ---//
+
+//See script: https://code.earthengine.google.com/?scriptPath=users%2Fbenscarlson%2Fdefault%3Asnippets_and_examples%2Frandom_points_and_integers
+
 //-----------------//
 //---- Modules ----//
 //-----------------//
