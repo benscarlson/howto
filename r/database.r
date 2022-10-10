@@ -1,6 +1,16 @@
+#-----------------------#
+#---- Configuration ----#
+#-----------------------#
 
 library(DBI)
 library(RSQLite)
+
+RSQLite::initExtension(db)
+#https://rdrr.io/cran/RSQLite/man/initExtension.html
+
+#-------------------#
+#---- Meta data ----#
+#-------------------#
 
 db <- DBI::dbConnect(RSQLite::SQLite(), "data/database.db")
 
