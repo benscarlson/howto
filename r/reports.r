@@ -2,6 +2,18 @@
 #Bookdown: https://bookdown.org/yihui/rmarkdown/
 #Modeldown: http://smarterpoland.pl/index.php/2019/06/modeldown-is-now-on-cran/
 
+#----------------#
+#---- Quarto ----#
+#----------------#
+
+
+#| eval: !expr (a & b) <!-- Need to have !expr (a & b), not a & b -->
+
+#| eval: NA <!-- If expression is NA, the chunk will be evaluated -->
+
+#Can write to the console using message()
+message('This will write to the console while kniting')
+
 #----------
 # rmarkdown
 #----------
