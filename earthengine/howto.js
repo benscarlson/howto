@@ -17,6 +17,7 @@
 //---- Tutorials and training ----//
 //--------------------------------//
 
+//Online book: Cloud-based remote sensing with GEE. https://www.eefabook.org/go-to-the-book.html
 //Community tutorials. https://developers.google.com/earth-engine/tutorials
 //  *  Has L7 & L8 harmonization example!! 
 
