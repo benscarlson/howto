@@ -155,7 +155,26 @@ where deployment_id in (
 	select deployment_id from deployment d
 	inner join individual i on d.individual_id = i.individual_id
 	where i.taxon_canonical_name = 'Tadorna tadorna')
-	
+
+---------------------
+---- Performance ----
+---------------------
+
+
+-- Using computed year with an index was ~10x faster than dynamically deriving year
+
+---- Indexes ----
+
+-- Some sources say that you need to list conditions in the where clause in the same order as the index in order for sqlite to use the index. 
+--  But that does not appear to be true as of verion 3.12.2
+
+-- Min & Max
+-- Using min(mycol) in the select clause will also use an index if available, but explain query plan won't report that it is being used
+-- Some information warns against using min & max in the same statement. But, this doesn't seem to matter if using group by.
+
+-- Count(*) does not seem to incur any performance costs
+-- median() from the extensions package is extremely slow for large datasets
+
 -------------------------
 ----- configuration -----
 -------------------------
