@@ -86,6 +86,17 @@ alter table hv_set drop my_column
 -- can rename columns as of 3.25 (?)
 alter table hv_set rename my_column to my_column2
 
+--Renaming a table (as of version 3.26.0) will also rename the foreign key constraints in other tables that refer to the renamed table
+--But this can be turned off with legacy_alter_table=ON. Also need to turn foreign keys off
+PRAGMA foreign_keys=OFF
+PRAGMA legacy_alter_table=ON
+
+alter table forage_seg rename to forage_seg_old
+
+--when renaming a table, you need to drop and recreate the indices, since these refer to the old table
+drop index idx_forage_seg_1;
+drop index idx_forage_seg_2;
+
 ------------------------
 ---- Inserting data ----
 ------------------------
