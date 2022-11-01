@@ -119,9 +119,10 @@ scale_color_discrete(name='My legend title') #use this if the legend variable is
 #-- legend labels
 scale_color_discrete(labels=c('label 1', 'label 2'))
 
+#Can also set these in scale_*_*()
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
-
-guide_legend(ncol=2) #make 2 column legend. need to use guides() or scale_*_*() to set guide_legend (see above line).
+guides(fill=guide_legend(reverse=TRUE)) #Reorder the lables in the guide
+guides(fill=guide_legend(ncol=2)) #make 2 column legend.
 
 theme(legend.background = element_rect(color='black',size=0.3)) #put a black box around legend
 
