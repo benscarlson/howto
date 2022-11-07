@@ -6,5 +6,6 @@ In general I think I should use .zshrc for things I will only use within zsh
 * .zshrc - for interactive shells
 
 I have the following
-.zprofile
-.zshrc
+
+* .zprofile
+* .zshrc
