@@ -1,4 +1,7 @@
-zsh profile scripts. Not a lot of agreement on where things should go. https://stackoverflow.com/questions/23090390/is-there-anything-in-zsh-like-bash-profile
+zsh profile scripts. 
+
+Not a lot of agreement on where things should go. https://stackoverflow.com/questions/23090390/is-there-anything-in-zsh-like-bash-profile
+
 In general I think I should use .zshrc for things I will only use within zsh
 
 * .zshenv - all invocations of the shell (login, non-login, interactive, non-interactive). For basic command paths and env variables
