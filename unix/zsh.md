@@ -1,4 +1,4 @@
-zsh profile scripts. 
+## zsh profile scripts
 
 Not a lot of agreement on where things should go. https://stackoverflow.com/questions/23090390/is-there-anything-in-zsh-like-bash-profile
 
