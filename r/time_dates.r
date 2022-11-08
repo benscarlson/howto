@@ -112,7 +112,12 @@ as.Date(365, origin = "2020-01-01") #2020-12-31
 #---- excel ----#
 =TEXT(C2,"yyyy-mm-ddThh:MM:ssZ") #convert excel date to ISO formatted timestamp
 
-#---- lubridate ----
+#-------------------#
+#---- lubridate ----#
+#-------------------#
+
+make_date(2020,month(mydate),day(mydate)) #Change the year in mydate to 2020
+
 # number of months (roughly) between two dates
 interval(as.Date(timestamp1),as.Date(timestamp2)) %/% months(1) #%/% means integer division
 interval(dte1, dte2)/years(1) #number of years between two dates
