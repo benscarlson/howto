@@ -6,13 +6,45 @@
 #---- Quarto ----#
 #----------------#
 
+# Set options using dynamic elements
+# Need to have !expr (a & b), not a & b
+# Need to have a space. !expr (a & b), not !expr(a & b)
 
-#| eval: !expr (a & b) <!-- Need to have !expr (a & b), not a & b -->
+#| eval: !expr (a & b)
 
 #| eval: NA <!-- If expression is NA, the chunk will be evaluated -->
 
 #Can write to the console using message()
 message('This will write to the console while kniting')
+
+#print() will write to seperate lines but will put line numbers [1] at the begining
+print('word')
+
+#cat() plus \n\n will print to it's own line. and does not include [1] at the beginning
+cat('word\n\n') 
+
+#to write strings that are rendered directly as markdown, use asis and cat
+#| output: asis
+cat('this line rendered as markdown\n')
+cat(myvar,'\n')
+
+#---- Figures ----#
+
+# HTML options: https://quarto.org/docs/reference/formats/html.html
+#| fig-height: 2 <!— It seems units are in inches —>
+
+#Can’t set fig-height twice in the same chunk. Here, both plots will have height of 2
+
+#| fig-height: 2 
+plot()
+#| fig-height: 5
+plot()
+
+#Seems I need to set any options before executing any r code. Fig-height will not apply here:
+
+cat(‘output’)
+#| fig-height: 2
+plot()
 
 #----------
 # rmarkdown
