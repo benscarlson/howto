@@ -3,6 +3,12 @@
 #Access using GUI (e.g. browser or rstudio): https://docs.ycrc.yale.edu/clusters-at-yale/access/ood/
 #Some bash functions from Kevin for accessing the hpc: /Users/benc/Documents/people/kevin/Gmail - Acces to the HPC through the portal.pdf
 
+# See this document for how to load hostname shortcuts for the hpc
+# https://docs.ycrc.yale.edu/clusters-at-yale/access/advanced-config/
+
+ssh user@grace.hpc.yale.edu #Instead of this
+ssh grace #Do this
+
 #---- General development workflow ----#
 
 # * Run script sequentially, interactive mode on local machine
