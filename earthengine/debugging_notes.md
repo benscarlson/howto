@@ -1,3 +1,6 @@
+Earth Engine Debugging, presentation by Noel
+https://earthoutreachonair.withgoogle.com/events/geoforgood22?talk=day3-track4-talk2
+
 How to debug an error within a map.
 
 If the error gives you an id, filter then map over the single item returned, see if you get the error
