@@ -195,6 +195,7 @@ dat %>%
   top_n(n=-1,wt=timestamp) %>% #-1 takes the first timestamp in the group
 
 #subsample .npts rows from each group, but take all rows if n() < .npts
+#this function has superseeded sample_n and sample_frac
 dat %>% slice_sample(n=.npts)
 
 #-- Filter w/ Across --#
