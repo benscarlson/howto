@@ -47,11 +47,14 @@ cat(‘output’)
 plot()
 
 #---- Rendering ----#
+
 qmd=$src/poc/segment/reports/seg_counts/seg_counts.qmd
 out=$wd/reports/seg_counts.html
-  
+
+mkdir -p ${out%/*}
+
 quarto render $qmd
-mv $src/poc/segment/reports/seg_counts/seg_counts.html $out
+mv ${qmd%.*}.html $out
 open $out
 
 #----------
