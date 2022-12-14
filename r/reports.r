@@ -46,6 +46,14 @@ cat(‘output’)
 #| fig-height: 2
 plot()
 
+#---- Rendering ----#
+qmd=$src/poc/segment/reports/seg_counts/seg_counts.qmd
+out=$wd/reports/seg_counts.html
+  
+quarto render $qmd
+mv $src/poc/segment/reports/seg_counts/seg_counts.html $out
+open $out
+
 #----------
 # rmarkdown
 #----------
