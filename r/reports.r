@@ -57,6 +57,11 @@ quarto render $qmd
 mv ${qmd%.*}.html $out
 open $out
 
+#---- Tables ----#
+
+#gt package, from posit
+# https://gt.rstudio.com/
+
 #----------
 # rmarkdown
 #----------
