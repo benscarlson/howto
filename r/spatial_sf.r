@@ -110,6 +110,15 @@ pts %>% st_set_crs(3035)
 #change the geometry (if you have another sfc or geom list column)
 pts %>% st_set_geometry(pts$geom2)
 
+#How to convert points to polygon:
+
+poly <- adat$edges %>% 
+  as_tibble %>%
+  arrange(x1) %>%
+  st_as_sf(coords=c('x1','y1')) %>%
+  st_combine %>%
+  st_cast('POLYGON')
+
 #---- Writing to disk ----#
 
 #This should work but is writing an additional comma after the final column name. Strange.
