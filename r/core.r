@@ -88,23 +88,16 @@ typeof(x) #determines the (R internal) type or storage mode of any object
 #---- matrices ----
 matrix(1:6, ncol=2) #make a matrix with two columns
 
-#---- file system ----
-file.choose() #open a file dialog
-file.path(path,to,file) #create a path out of path, to, and file
-read.csv(file.choose()) #use file.choose() to read in a file
-dir.exists('my/path')
-dir.create('my/path',recursive=TRUE)
-basename('my/file/path') #returns 'path'
-dirname('my/file/path') #returns 'my/file'
-fileN <- sub('\\.csv$','', basename('my/file/path.csv'), ignore.case=TRUE) #returns 'path'
+#---- Lists ----#
 
-#Use this to get just the file extension
-fext <- function(filePath){ 
-  ex <- strsplit(basename(filePath), split="\\.")[[1]]
-  return(ex[length(ex)])
-}
+#how to append to a list (e.g. within a for loop)
+#Can use append() or c(). The key is to encapsulate the item you want to append into a list
+lst <- list()
+x1 <- append(lst,list(tibble(x=1:10,y=1:10))) #can use append() or c()
+x1 <- c(lst,list(tibble(x=1:2,y=1:2)))
 
-shell.exec("myfile.txt") #have the operating system open myfile.txt using the default application
+unlist(lapply(mylist,function(item) {item@Name})) #make a vector out of all Name attributes
+
 
 #---- data frames ----
 #create an empty dataframe
@@ -137,11 +130,23 @@ d <- data.frame(a=c(1,2), b=c(3,4))
 class(d[1,]) #'data.frame'
 class(unlist(d[1,])) #'numeric'
 
-#----
-#---- lists ----
-#---- 
+#---- file system ----
+file.choose() #open a file dialog
+file.path(path,to,file) #create a path out of path, to, and file
+read.csv(file.choose()) #use file.choose() to read in a file
+dir.exists('my/path')
+dir.create('my/path',recursive=TRUE)
+basename('my/file/path') #returns 'path'
+dirname('my/file/path') #returns 'my/file'
+fileN <- sub('\\.csv$','', basename('my/file/path.csv'), ignore.case=TRUE) #returns 'path'
 
-unlist(lapply(mylist,function(item) {item@Name})) #make a vector out of all Name attributes
+#Use this to get just the file extension
+fext <- function(filePath){ 
+  ex <- strsplit(basename(filePath), split="\\.")[[1]]
+  return(ex[length(ex)])
+}
+
+shell.exec("myfile.txt") #have the operating system open myfile.txt using the default application
 
 #--- Filtering 
 
@@ -184,6 +189,10 @@ ifelse(is.null(NULL),NULL,'value') #error
 #instead use switch. http://r-addict.com/2017/02/21/switch-ifelse.html
 switch(is.null(NULL)+1,FALSE,TRUE)
 swtich(is.null(NULL)+1,'value',NULL)
+
+#---- Printing ----#
+
+message(paste(layers,'\n')) #If layers is a vector, this will print each element on a new line
 
 #---- save r objects ----
 saveRDS(object,path) #save an object to an RDS file 
