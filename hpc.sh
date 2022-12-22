@@ -108,7 +108,13 @@ srun --pty -p interactive -c 1 -t 0:30:00 --mem-per-cpu=20000 bash #start an int
 sbatch myscript.sh #submit the job. parameters and script defined in myscript.sh
 srun --pty -p interactive -n 4 bash #equest four tasks for an hour, you could use
 
+
+
 #to run an mpi job in interactive shell
+#NOTE: this is the new way
+salloc .... #(look up the rest of the command)
+
+#NOTE: this is the old way
 srun --pty -p interactive -n 4 bash 
 mpirun -n 4 R --slave -f ~/projects/whitestork/src/scripts/hv/nichetest_hpc.r --args $job
 
