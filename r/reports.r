@@ -46,6 +46,18 @@ cat(‘output’)
 #| fig-height: 2
 plot()
 
+#---- Parameters ----#
+
+---
+params:
+  hs_name: "NA"
+---
+.hsName <- params$hs_name
+invisible(assert_that(!is.na(.hsName) & .hsName != "NA"))
+
+#Pass into render using the -P flag. Use another -P flag for a second parameter
+quarto render $qmd -P hs_name:$hs -P another_param:$v2
+
 #---- Rendering ----#
 
 qmd=$src/poc/segment/reports/seg_counts/seg_counts.qmd
