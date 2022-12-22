@@ -119,6 +119,22 @@ poly <- adat$edges %>%
   st_combine %>%
   st_cast('POLYGON')
 
+#-- Turn a tibble with a list-column of polygon objects into as sf object
+
+# Make a tibble with a column of polygon objects. aPoly() returns st_polygon
+x <- tibble(a=c(0.5,1,a,100)) %>%
+  mutate(poly=map(a,~aPoly(ashape(dat0 %>% select(x,y),alpha=.x))))
+
+# Now turn the column of polygons into an st_sfc column, and cast the tibble to an sf object
+y <- x %>% 
+  mutate(geometry=st_sfc(poly)) %>%
+  st_sf
+
+#-- How to plot each polygon to a seperate facet
+ggplot(y) +
+  geom_sf() +
+  facet_wrap(vars(a))
+
 #---- Writing to disk ----#
 
 #This should work but is writing an additional comma after the final column name. Strange.
