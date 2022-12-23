@@ -194,6 +194,11 @@ swtich(is.null(NULL)+1,'value',NULL)
 
 message(paste(layers,'\n')) #If layers is a vector, this will print each element on a new line
 
+#ways to turn off scientific notation
+format(dat$intr_vol[3],scientific=FALSE)
+options(scipen=999) #turn off scientific notation
+options(scipen=0) #Turn it back on
+
 #---- save r objects ----
 saveRDS(object,path) #save an object to an RDS file 
 
