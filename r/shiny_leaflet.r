@@ -43,6 +43,10 @@ $(document).on("shiny:inputchanged", function(event) {
   }
 });
 
+#---- Observer ----#
+
+# Observe Function in R Shiny — How to Implement a Reactive Observer. medium.com
+
 #---- Javascript Events ----#
 
 # event has name, value, and some other properties
