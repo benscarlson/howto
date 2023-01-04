@@ -193,6 +193,18 @@ ggplot(sim.data,aes(x=elev,fill=y,color=y,..scaled..)) +
   geom_density(alpha=0.5) +
   scale_fill_manual(values=cols,aesthetics=c('color','fill'))
 
+#---------------------#
+#---- Programming ----#
+#---------------------#
+
+#How to refer to a dataset passed in through a pipe inside later graphic elements
+#Enclose with {} then refer to the dataset with .
+dat %>%
+  filter(!is.na(spec) & hs_name != 'species') %>%
+{ggplot(data=., aes(x=spec,y=hs_name)) +
+  geom_point() +
+  scale_y_discrete(labels=.$hs_label)}
+
 #---- PCA ----#
 https://github.com/vqv/ggbiplot
 
