@@ -56,6 +56,7 @@ params:
 invisible(assert_that(!is.na(.hsName) & .hsName != "NA"))
 
 #Pass into render using the -P flag. Use another -P flag for a second parameter
+# when using -p parameter in render, the passed in value overrides the value that is set in the qmd header
 quarto render $qmd -P hs_name:$hs -P another_param:$v2
 
 #---- Rendering ----#
