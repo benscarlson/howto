@@ -56,6 +56,8 @@ xlim(0,100) #limit scale from 0 to 100
 scale_x_continuous(limits=c(0,100)) #limit scale from 0 to 100
 scale_x_continuous(expand=c(0,0)) #this removes padding between axis and data
 
+#-- limits and breaks
+scale_x_continuous(limits=c(0,1), breaks=c(0,1)) #using scale_x_continuous() and lims() together doesn't work. Use this instead.
 
 #-- formatting
 scale_x_continuous(labels=number_format(accuracy = 1, big.mark='')) #formats numbers to have no decimal place
@@ -122,6 +124,7 @@ scale_color_discrete(name='My legend title') #use this if the legend variable is
 
 #-- legend labels
 scale_color_discrete(labels=c('label 1', 'label 2'))
+scale_fill_gradientn(colours = pal,name='Niche occupancy', labels=scales::percent) #show labels as percentages
 
 #Can also set these in scale_*_*()
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
