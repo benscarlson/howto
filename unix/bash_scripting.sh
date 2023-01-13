@@ -56,6 +56,13 @@ envs_z="$(IFS=,; echo "${arrenvs_z[*]}")"
 files=`ls`
 echo $files
 
+#extract a column from a csv file, and turn it into a csl. useful for sql statment "in" clauses
+
+phvIds=($(mlr --csv filter '$run==1' then cut -f hv_id ctfs/hypervol_gt15.csv | tail -n +2))
+echo $phvIds #zsh prints all values by default
+csl="$(IFS=,; echo "${phvIds[*]}")"
+echo $csl
+
 #---- path manipulation ----#
 filePF=/path/to/file.txt
 
