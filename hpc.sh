@@ -104,14 +104,23 @@ setRngDoMPI(cl) #set each worker to receive a different stream of random numbers
 #Can also combine commands
 #SBATCH -n 20 -t 60:00
 
-
-
-
+#---- Interactive Shell ----#
 
 #to run an mpi job in interactive shell
 #NOTE: this is the new way
 #https://docs.ycrc.yale.edu/clusters-at-yale/job-scheduling/
 salloc -t 2:00:00 --mem=16G
+
+module load R
+
+#Install packages
+R
+cran <- 'http://lib.stat.cmu.edu/R/CRAN/'
+install.packages('umap',repos=cran)
+q()
+
+#-- Directly run a script
+Rscript --vanilla $src/main/umap/umap.r main $hvs 10 data/umap_10 --db $db -e hypervol -c $ctfs
 
 #NOTE: this is the old way
 srun --pty -p interactive -c 1 -t 0:30:00 --mem-per-cpu=20000 bash #start an interactive session with 20GB of memory
