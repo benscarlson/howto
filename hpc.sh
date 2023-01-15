@@ -104,17 +104,20 @@ setRngDoMPI(cl) #set each worker to receive a different stream of random numbers
 #Can also combine commands
 #SBATCH -n 20 -t 60:00
 
-srun --pty -p interactive -c 1 -t 0:30:00 --mem-per-cpu=20000 bash #start an interactive session with 20GB of memory
-sbatch myscript.sh #submit the job. parameters and script defined in myscript.sh
-srun --pty -p interactive -n 4 bash #equest four tasks for an hour, you could use
+
 
 
 
 #to run an mpi job in interactive shell
 #NOTE: this is the new way
-salloc .... #(look up the rest of the command)
+#https://docs.ycrc.yale.edu/clusters-at-yale/job-scheduling/
+salloc -t 2:00:00 --mem=16G
 
 #NOTE: this is the old way
+srun --pty -p interactive -c 1 -t 0:30:00 --mem-per-cpu=20000 bash #start an interactive session with 20GB of memory
+sbatch myscript.sh #submit the job. parameters and script defined in myscript.sh
+srun --pty -p interactive -n 4 bash #equest four tasks for an hour, you could use
+
 srun --pty -p interactive -n 4 bash 
 mpirun -n 4 R --slave -f ~/projects/whitestork/src/scripts/hv/nichetest_hpc.r --args $job
 
