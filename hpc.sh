@@ -29,6 +29,10 @@ sbatch --export=A=5,b='test' jobscript.sbatch #see link for more examples
 #See email from Kevin, Yanni for more information
 /opt/cisco/anyconnect/bin/vpn connect access.yale.edu
 
+#I created alias 'vpn' to above, so now connect/disconnect like this
+vpn connect access.yale.edu
+vpn disconnect
+
 #---- git configuration ----#
 
 # need to set up key for computer/cluster you want to use to access github
