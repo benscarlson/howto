@@ -90,7 +90,7 @@ setRngDoMPI(cl) #set each worker to receive a different stream of random numbers
 #Documentation
 #https://docs.ycrc.yale.edu/clusters-at-yale/job-scheduling/
 
-# slurm script 
+#-- slurm script 
 
 #Basic commands for slurm:
 #SBATCH -n 20 #use -n for mpi
@@ -107,6 +107,33 @@ setRngDoMPI(cl) #set each worker to receive a different stream of random numbers
 
 #Can also combine commands
 #SBATCH -n 20 -t 60:00
+
+#---- Command line parameters ----#
+
+#-- Workflow script
+
+#Need to export variables used in the sbatch script
+export src=$pd/src
+export sesnm=main
+
+#Slurm variables. Don't need to export.
+t=23:59:59
+p=day
+J=umap4_2k
+mail=NONE
+log=umap4_2k.log
+mem=64G
+
+#Note passed in variable takes precedence over #SLURM variable in a script
+sbatch -p $p -t $t -J $J -e $log -o $log --mail-type $mail --mem-per-cpu $mem $src/main/umap/umap-sbatch.sh 
+
+#-- sbatch script
+
+#!/bin/bash
+
+module load R
+
+Rscript --vanilla $src/main/umap/umap.r $sesnm
 
 #---- Interactive Shell ----#
 
