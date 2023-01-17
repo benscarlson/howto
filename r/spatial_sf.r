@@ -144,6 +144,9 @@ pts %>% st_write(.outPF,layer_options = "GEOMETRY=AS_XY", delete_dsn=TRUE)
 # 11.3190349598152,51.4117821494741,2019-08-09T10:05:44Z
 # 11.6036340773717,51.4811973146424,2019-07-01T17:35:03Z
 
+#write a geopackage. layer can be an arbitrary name. use append=FALSE to overwrite an existing file
+pts %>% st_write(dsn='mypts.gpkg',layer='mypoints', append=FALSE)
+
 #-----------------------#
 #---- Geoprocessing ----#
 #-----------------------#
