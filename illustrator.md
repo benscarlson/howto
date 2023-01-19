@@ -31,3 +31,20 @@ To change elements so that they show up on a black background
 To set the illustrator background to black (note this will not output a black background!)
 * Document setup -> Check Simulate colored paper. Pick black for each box of grid
 * View -> Show transparancy grid
+
+Pen tool
+- Press P as shortcut
+- Enter to finish the line
+- Hold shift to lock horizontal/vertical/45 deg angle
+- Can add new anchor points to existing lines
+- Click on anchor point to delete
+- Click and drag lets you create a curved line
+- Press space on keyboard to move anchor point that you just added
+- Tracing an object (example is a bird)
+  - When tracing, bring opacity down to more easily see 
+  - Remove fill color, 
+
+hold alt and scroll mouse wheel to zoom in/out
+press space and click drag to move canvas
+
+Direct select tool to manually edit nodes
