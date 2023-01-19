@@ -114,7 +114,7 @@ scale_color_viridis_c(trans='date',breaks=b)
 
 #--- Remove legends
 # Several different methods. See: https://stackoverflow.com/questions/35618260/remove-legend-ggplot-2-2
-guides(fill=FALSE)
+guides(fill='none') #prior to ggplot2 3.3.4 it was fill=FALSE. as of 3.3.4 it is fill='none'
 geom_point(..., show.legend=FALSE)
 
 #--- legend title
