@@ -66,6 +66,15 @@ ggsn::scalebar(data=bbdf,
 
 #Try it out: https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html
 
+#---- ggplot and sf ----#
+
+#Color polygon edges with discreet colors with no fill
+polys %>% 
+  select(hv_id) %>%
+  mutate(hv_id=factor(hv_id)) %>%
+ggplot(aes(color=hv_id)) + 
+  geom_sf(fill=NA)
+
 #----
 #---- Labels ----
 #----
