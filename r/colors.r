@@ -49,9 +49,16 @@ hue_pal()(3)
 #can use show_pal to look at colors
 show_col(hue_pal()(3))
 
+
 #----
 
 scale_color_brewer(palette='Dark2') #This is loaded with ggplot no need to load RColorBrewer package
+
+#---- Setting manual colors ----#
+
+#-- Discrete scale --#
+
+scale_color_manual(values=c('#0073C2FF','#FC4E07')) #Passes colors on to scale_color_discrete()
 
 #Note setting manual colors and applying to multiple aesthetics
 cols <- c('random'='#0073C2FF','actual'='#FC4E07')
@@ -59,15 +66,29 @@ ggplot(gdat,aes(x=abs(diff),fill=diff_type,color=diff_type,..scaled..)) +
   geom_density(alpha=0.5) +
   scale_fill_manual(values=cols,aesthetics=c('color','fill'))
 
+#-- Continous scale --#
+
 #create a three part color gradient
 scale_color_gradient2('Legend title',low="red", mid='green', high='blue',
   midpoint=median(x),
   breaks=c(1,2,3,4),
   labels=c('one','two','three','four'))
 
-#-- viridis
+#---- Color Palette Packages ----#
+
+#-- viridis --#
 library(viridis)
+
 scale_color_viridis(discrete=TRUE) #for factor, omit discrete for continuous
+scale_colour_viridis_d() #Use with discrete data
+scale_fill_viridis_c() # Use viridis_c with continous data
+scale_fill_viridis_b() # Use viridis_b to bin continuous data before mapping
+
+#-- wes anderson --#
+# Stretch out a 5 color palette to 20 levels
+# But this still returns a vector of colors so it can be used on a discrete scale
+# if there are 20 levels in the data
+wes_palette("Rushmore1",20,type='continuous')
 
 #figure out breaks and format based on data. 
 #this is how ggplot internally figures out breaks
