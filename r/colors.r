@@ -66,6 +66,7 @@ scale_color_gradient2('Legend title',low="red", mid='green', high='blue',
   labels=c('one','two','three','four'))
 
 #-- viridis
+library(viridis)
 scale_color_viridis(discrete=TRUE) #for factor, omit discrete for continuous
 
 #figure out breaks and format based on data. 
