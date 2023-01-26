@@ -247,19 +247,18 @@ p <- wrap_plots(plots,nrow=3)
 p + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(size = 8))
 p + plot_annotation() & theme_minimal()
 
-#-- Faceting
+#Show a common legend
+plots %>% wrap_plots(nrow=2) + plot_layout(guides = "collect")
+
+#------------------#
+#---- Faceting ----#
+#------------------#
+
 facet_grid(vars(population),vars(term),scales='free_y',switch='y',space='free_y')
 facet_wrap(vars(group)) #one facet per group
 
 #Workaround for common y-axis label
 #https://stackoverflow.com/questions/66778174/how-to-allow-common-central-y-axis-label-to-extend-into-the-bottom-graph/66778622#66778622
-
-#-----
-# color palettes
-#-----
-
-#http://tools.medialab.sciences-po.fr/iwanthue/
-#https://visme.co/blog/color-combinations/
 
 #----------
 # cowplot
