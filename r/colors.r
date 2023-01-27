@@ -35,6 +35,9 @@ viridis::viridis(12)
 pal <- brewer.pal(n = length(hvs), name = "Dark2") #
 pal <- colorRampPalette(brewer.pal(n=12, name = "Paired"))(length(hvs)) #Use color ramp if too many items
 
+display.brewer.all()
+View(brewer.pal.info)
+
 #----------------#
 #---- ggplot ----#
 #----------------#
