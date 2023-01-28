@@ -9,6 +9,8 @@ ca(t|ttle) #would also match either cat or cattle
 \d #match a single digit
 \d{1,2} #(I think) match one or two digits
 
+.+ #match one or more characters
+
 [] #character class, will match one of the characters inside the brackets
 gr[ea]y #matches grey or gray
 gr[^x]y #matches anything but grxy.  eg. gray, grby, grcy
