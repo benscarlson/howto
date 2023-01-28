@@ -13,6 +13,7 @@
 #https://visme.co/blog/color-combinations/
 # Heavy AI: https://www.heavy.ai/blog/12-color-palettes-for-telling-better-stories-with-your-data
 # wpDataTales: https://wpdatatables.com/data-visualization-color-palette/
+#Review of color palette generators: https://iconscout.com/blog/15-classic-color-scheme-generators-to-pick-the-perfect-palette
 
 
 #---- refs ----#
