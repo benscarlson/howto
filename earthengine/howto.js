@@ -21,6 +21,10 @@
 //Community tutorials. https://developers.google.com/earth-engine/tutorials
 //  *  Has L7 & L8 harmonization example!! 
 
+//F4 - Earth Engine Fundamentals and Applications - EEFA - Live Document
+//https://docs.google.com/document/d/11oo1TuvXyEvReoYLDeTcoh16rEN90I8Bf5qp0KxVu7U/edit#heading=h.7fxubhb0q8tn
+//Chapter F4.2: Aggregating Images for Time Series
+
 //---- shortcut keys ---//
 cmd + /  for //
 
