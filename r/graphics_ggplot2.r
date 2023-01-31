@@ -124,7 +124,9 @@ scale_color_discrete(name='My legend title') #use this if the legend variable is
 
 #-- legend labels
 scale_color_discrete(labels=c('label 1', 'label 2'))
-scale_fill_gradientn(colours = pal,name='Niche occupancy', labels=scales::percent) #show labels as percentages
+# show labels as percentages. need to use "1L" to display percentages w/ no decimal places
+# underlying data is proportion (0 < x < 1). note scales::percent is old way. 
+scale_fill_gradientn(colours = pal,name='Niche occupancy', labels=scales::label_percent(accuracy=1L))
 
 #Can also set these in scale_*_*()
 guides(colour = guide_legend(override.aes = list(shape=16,size=3))) #override legend size and shape. 16 is filled circle.
