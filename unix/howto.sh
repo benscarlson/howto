@@ -131,6 +131,10 @@ rename 's/old/new/g' * #replaces 'old' with 'new' for all files. note on osx, ne
 ts=.bash_profile_`date +%Y-%m-%d_%H-%M-%S`
 cp ~/.bash_profile ~/${ts}
 
+#---- Dates ----#
+
+date +%Y-%m-%d #Format today's date as yyyy-mm-dd
+
 #---- manipulate file contents ----
 gsplit -d -l 2 -a 2 myfile.csv myfile #if myfile has 6 lines, this makes myfile00, myfile01, myfile02. two lines each.
 gsplit -d -C 1MB -a 2 myfile.csv myfile #use -C option to limit file sizes to less than 1MB
