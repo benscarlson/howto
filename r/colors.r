@@ -3,17 +3,23 @@
 #---- colors ----#
 #----------------#
 
+#--- Palette generators ---#
+
 #coolors. site to build color palette: https://coolors.co/def2c8-ff101f-7c90db-c5dac1-bcd0c7
-#Color Mind. http://colormind.io/ AI-driven color palettes.
+#Colormind. http://colormind.io/ AI-driven color palettes. Extract color palette from image
 #Canva. https://www.canva.com/ Web-based desktop publishing ?
-#Colormind. http://colormind.io/ Extract color palette from image
-#Met Brewer. https://github.com/BlakeRMills/MetBrewer
-#Wes Anderson Colors. https://github.com/karthik/wesanderson
-#http://tools.medialab.sciences-po.fr/iwanthue/
-#https://visme.co/blog/color-combinations/
+#i want hue. http://tools.medialab.sciences-po.fr/iwanthue/
+# - Can pick the number of colors. Great for categorical color palette with high contrast between colors
+#Blog: 50 Beautiful Color Combinations (each palette is 5 colors). https://visme.co/blog/color-combinations/
 # Heavy AI: https://www.heavy.ai/blog/12-color-palettes-for-telling-better-stories-with-your-data
 # wpDataTales: https://wpdatatables.com/data-visualization-color-palette/
 #Review of color palette generators: https://iconscout.com/blog/15-classic-color-scheme-generators-to-pick-the-perfect-palette
+# Also a nice intro to color theory
+
+#--- R packages ---#
+
+#Met Brewer. https://github.com/BlakeRMills/MetBrewer
+#Wes Anderson Colors. https://github.com/karthik/wesanderson
 
 
 #---- refs ----#
