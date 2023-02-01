@@ -8,10 +8,19 @@
 #Other guides:
 #https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html
 
+#----------------------#
 #---- data sources ----#
+#----------------------#
+
 rnaturalearth
 spData #https://nowosad.github.io/spData/ us states, world borders
 urbnmapr #https://github.com/UrbanInstitute/urbnmapr. Shapefiles for US counties and states
+
+#-- Country borders
+
+#I most recently used ne_countries
+gisco_get_nuts(nuts_level=0)
+ne_countries(scale='medium',returnclass='sf')
 
 #---- Base R Maps ----#
 raster::scalebar(1000, type='bar', divs=4)
