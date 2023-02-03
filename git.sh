@@ -9,6 +9,9 @@ git clone git@github.com:repo.git myrepo #instead of cloning to folder 'repo' th
 git branch -a #This shows remote branches (e.g. remotes/origin/mybranch)
 git checkout mybranch #This sets up a local branch to track origin's mybranch, and switches to that branch
 
+#Execute a git command when not in the directory containing the .git repo
+git -C myrepodir
+
 #--- add non-repo code to a new github repo ---#
 #first, go to github.com and create the repo "anno" on github, don't initialize
 cd ~/projects/anno/src
@@ -42,6 +45,8 @@ git rm --cached your_filename
 git rev-parse HEAD #5e152f31b4e0d4fe45403d822cd785da888e0431
 git log -1 --format='%H' #5e152f31b4e0d4fe45403d822cd785da888e0431
 git log --pretty --format='%h' -n 1 #5e152f3 (short version?)
+
+#To see a repo using a specific hash in github, go to upper right above the file list (e.g "25 commits"). Click on this to see the history.
 
 #---- SSH Keys ----#
 
