@@ -187,8 +187,10 @@ centroid <- st_coordinates(sfc_centroid)[1,] #returns a named vector c(X=<lon>,Y
 #st_union help text is confusing, but seems to work as expected with polygons.
 border <- lkPoly %>% st_union %>% st_sf #note lkPoly is an sf but st_union outputs a geometry set, so need to turn back into sf
 
-#---- spatial filters ----#
+#---- Spatial Filters ----#
+polys[pts,] #returns all polys that contain poins
 
+#---- Spatial Joins ----#
 #select all points that are within a polygon
 pts2 <- pts %>% st_join(poly,left=FALSE) #pts, poly must be sf objects. need to use left=FALSE
 
