@@ -1,3 +1,5 @@
+# Online book "Geocomputation with R". https://geocompr.robinlovelace.net/index.html
+
 #http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html
 
 #-----------------#
