@@ -77,6 +77,14 @@ m$tau['velocity'] * -log(0.05)/60 #now this value is in minutes
 
 #--- plotting ----#
 
+#plot of sampling intervals
+dt.plot(tel) # https://ctmm-initiative.github.io/ctmm/reference/dt.plot.html
+
+#From Chris: dt.plot() shows all of the sampling intervals in order of size. So it looks like your most common interval is 1 minute 
+# (but some are much less) and 1 hour does not appear to be a very common interval, though intervals greater than 1 hour are very 
+# infrequent, so maybe the tag is trying to get at least a fix every hour.
+# See the plot: https://groups.google.com/g/ctmm-user/c/5eXIbLY9Hcw/m/jBgsIUxyAAAJ
+
 #-- to add a vertical line to the plot, need to get the units of the x-axis
 # The x-axis of the plot is dynamic. After plotting, can extract the units from the plot environment
 # The units are given as number of seconds in each plot unit
