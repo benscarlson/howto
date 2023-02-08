@@ -8,6 +8,16 @@
 chmod 755 myscript.sh
 ln -s ~/myscript.sh myscript #make a softlink in ~/bin
 
+#--- Shebang ---#
+
+Shebang: #!
+#!/usr/bin/bash - not as portable, b/c bash might not be in /usr/bin
+#!/usr/bin/env bash - uses env command to automatically load the first occurance of bash bashed on the PATH variable
+
+#--- env ---#
+env # Show all environment variables
+env | grep BZY # Show environment variables containing BZY
+
 #create and use a variable
 MYFOLDER='folder_name'
 ls $MYFOLDER #lists all files in folder_name
