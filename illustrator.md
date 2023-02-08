@@ -49,7 +49,10 @@ press space and click drag to move canvas
 
 Direct select tool to manually edit nodes
 
-### Snap to grid
+### Grid
+
+Change grid lines:
+Preferences -> Guides and Grids -> subdivisions -> 8
 
 View -> Show Grid
 View -> Snap to Grid. Shift-Cmd-' to toggle
