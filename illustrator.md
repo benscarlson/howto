@@ -48,3 +48,12 @@ hold alt and scroll mouse wheel to zoom in/out
 press space and click drag to move canvas
 
 Direct select tool to manually edit nodes
+
+### Snap to grid
+
+View -> Show Grid
+View -> Snap to Grid. Shift-Cmd-' to toggle
+
+### unit conversion
+
+72 pts in one inch
