@@ -48,6 +48,11 @@ git log --pretty --format='%h' -n 1 #5e152f3 (short version?)
 
 #To see a repo using a specific hash in github, go to upper right above the file list (e.g "25 commits"). Click on this to see the history.
 
+#--- Submodules ---#
+
+git submodule add [submodule-repository-url] [path]
+git submodule add git@github.com:bblonder/hypervolume.git
+
 #---- SSH Keys ----#
 
 #How to generate an ssh key and add it to github
