@@ -40,6 +40,12 @@ dat %>%
   ggplot(aes(x=mints,y=local_identifier,color=local_identifier)) +
   geom_linerange(aes(xmin=mints,xmax=maxts),show.legend=FALSE)
 
+#---- Labels ----#
+
+#Used this to add pvalue labels to each facet. See supplemental figure in ms2
+geom_label(data=pvals,mapping=aes(x=-Inf,y=-Inf,label=p_label),hjust=-0.1,vjust=-1) +
+geom_text(...)
+
 #---- colors ----#
 # See colors.r
 
@@ -67,6 +73,11 @@ scale_x_date() #this is prints out dates on axis
 
 #roate axis text
 theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+#Change y axis labels. And reverse the order
+scale_y_discrete(labels=c(b_humod='Human modification',
+  b_habhet='Habitat heterogeneity',
+  b_gpp='Productivity'),limits=rev)
 
 #---- mapping aethetics ----#
 
