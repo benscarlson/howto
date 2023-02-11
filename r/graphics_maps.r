@@ -22,6 +22,16 @@ urbnmapr #https://github.com/UrbanInstitute/urbnmapr. Shapefiles for US counties
 gisco_get_nuts(nuts_level=0)
 ne_countries(scale='medium',returnclass='sf')
 
+#-- US States/Counties
+library(USAboundaries)
+
+# get USA states, filter out Puerto Rico, Alaska, and Hawaii for now
+us <- us_boundaries(type="state", resolution = "low") %>% 
+  filter(!state_abbr %in% c("PR", "AK", "HI"))
+
+# get CA boundary with high definition
+ca <- USAboundaries::us_states(resolution = "high", states = "CA")
+
 #---- Base R Maps ----#
 raster::scalebar(1000, type='bar', divs=4)
 
