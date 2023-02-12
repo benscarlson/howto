@@ -100,6 +100,26 @@ ggplot(aes(color=hv_id)) +
 
 geom_text_repel(aes(x=lon,y=lat,label=study_name),size=2) #ggrepel
 
+#-- Labels for sf objects --#
+
+#https://yutani.rbind.io/post/geom-sf-text-and-geom-sf-label-are-coming/
+
+geom_sf_label(aes(label = NAME), size=2) #size controls font size
+geom_sf_text(aes(label = NAME), colour = "white")
+
+#Use stat_sf_coordinates() with ggrepel
+# stat_sf_coordinates() is the stat underlying geom_sf_label
+ggplot() +
+  geom_sf(data=sa3,fill='#6A8A82') +
+  ggrepel::geom_text_repel(
+    data = sa3,
+    aes(label = NUTS_NAME, geometry = geometry),
+    stat = "sf_coordinates",
+    min.segment.length = 0,
+    colour = "black",
+    segment.colour = "black",
+    size=3
+  )
 #----
 #---- ggmap ----
 #----
