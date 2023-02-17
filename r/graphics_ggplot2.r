@@ -1,14 +1,20 @@
+#---- Resolution and scaling ----#
+
+#Macbook Pro M1 specs: https://support.apple.com/kb/SP858?locale=en_US
+# 16.2-inch (diagonal) Liquid Retina XDR display; 3456-by-2234 native resolution at 254 pixels per inch
+#Taking Control of Plot Scaling: https://www.tidyverse.org/blog/2020/08/taking-control-of-plot-scaling/
+#Understanding text size and resolution in ggplot2. https://www.christophenicault.com/post/understand_size_dimension_ggplot2/
+
+
+
+
+#---- geoms ----#
 
 #nice example of heat map and a bunch of other best practices for ggplot2
 #https://rud.is/projects/facetedheatmaps.html
 
 #Include images almost anywhere in ggplot
 # https://mrcaseb.github.io/ggpath/
-
-
-geom_text_repel(data=dat, aes(x=lon, y=lat,label=study_num),size=3,force=3) + #segment.color = NA (use this to turn off lines) 
-
-#---- geoms ----#
 
 #-- density/histograms
 
@@ -45,6 +51,8 @@ dat %>%
 #Used this to add pvalue labels to each facet. See supplemental figure in ms2
 geom_label(data=pvals,mapping=aes(x=-Inf,y=-Inf,label=p_label),hjust=-0.1,vjust=-1) +
 geom_text(...)
+
+geom_text_repel(data=dat, aes(x=lon, y=lat,label=study_num),size=3,force=3) + #segment.color = NA (use this to turn off lines) 
 
 #---- colors ----#
 # See colors.r
