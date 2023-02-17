@@ -49,6 +49,7 @@ press space and click drag to move canvas
 
 Direct select tool to manually edit nodes
 
+Copy object - 1) click on the object to select it. 2) hold down Opt key. 3) drag to copy
 ### Grid
 
 Change grid lines:
