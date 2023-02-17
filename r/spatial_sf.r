@@ -57,6 +57,15 @@ lines <- dat %>%
   summarize(do_union=FALSE,.groups='drop') %>%
   st_cast('LINESTRING') 
 
+#-- Polygons --#
+
+#Turn a multipolygon sf object into a polygon object
+myMultipoly %>% 
+  st_geometry %>% 
+  st_cast('POLYGON') %>% 
+  st_sf
+
+
 #---- make st_polygon from data frame
 
 # single polygon. last row has to equal first row (i.e. should be closed)
