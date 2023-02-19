@@ -58,6 +58,14 @@ Preferences -> Guides and Grids -> subdivisions -> 8
 View -> Show Grid
 View -> Snap to Grid. Shift-Cmd-' to toggle
 
+### Pathfinder
+
+To make objects out of all intersecting regions of two or more obects
+Window -> Path -> Highlight objects -> Divide
+Note the objects are grouped. To move the individual objects, ungroup first
+
 ### unit conversion
 
 72 pts in one inch
+
+
