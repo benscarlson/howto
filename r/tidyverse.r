@@ -297,6 +297,10 @@ dat %>% select(!!envName)
 envName <- quo(!!sym('dist2forest'))
 dat %>% select(!!envName)
 
+#to use a variable that has the same name as a column, need to use the hug operator
+year <- 2018
+dat %>% filter(year=={{year}})
+
 #--- in map functions ---#
 
 #have to make seperate function. Anonomous functions will fail
