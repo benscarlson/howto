@@ -9,20 +9,18 @@
 
 #-- example going from sfg to sf
 
-#-- sfg
+#---------------------------------#
+#---- Simple geometries (sfg) ----#
+#---------------------------------#
+
 poly <- st_polygon(list(cbind(c(0,3,3,0,0),c(0,0,3,3,0)))) #poly is an sfg object
 
-#-- sfc
-#a list with additional attributes. also referred to as "geometry set"
-# includes coordiante system
-poly_sfc <- st_sfc(poly)
+#-- Make a donut shape
+pt <- st_point(c(0,0))
+outer <- st_buffer(pt,2,nQuadSegs=100)
+inner <- st_buffer(pt,1,nQuadSegs=100)
 
-poly_sf <- st_sf(poly_sfc) #This creates an sf object from an sfc object
-
-c(sfc1, sfc2) #concatenate two sfc objects into one sfc object
-
-#-- sf
-poly_sf = st_sf(st_sfc(poly,poly)) #from sfg objects
+donut <- st_difference(outer,inner)
 
 #-- Make a rectangle sfc from coordinates --
 
@@ -36,14 +34,51 @@ coords <- rbind(
 
 poly <- st_polygon(list(coords)) #Coords need to be in a list to pass to st_polygon
 
-polysfc <- st_sfc(poly,crs=4326)
+#-----------------------------#
+#---- Geometry sets (sfc) ----#
+#-----------------------------#
 
-#-- Combine sfc objects that are in a list
+#a list with additional attributes. also referred to as "geometry set"
+# includes coordiante system
+
+st_sfc(poly)
+st_sfc(poly,crs=4326)
+
+c(sfc1, sfc2) #concatenate two sfc objects into one sfc object
+
+#-- Convert a matrix with x,y columns to a point sfc
+dat %>%
+  st_multipoint %>%
+  st_sfc %>%
+  st_cast('POINT')
+
+#-- Combine sfc objects that are stored as a list of sfc objects
 
 #Several different ways. All these create a single sfc object from a list of sfc objects
+
+#This is the most common approach using tibbles.
+# map returns a list-column of sfc objects. Need to unnest to turn it into a single sfc column
+wedges <- tibble(row=0:7) %>%
+  mutate(
+    degree=start+deg*row,
+    bw=map(degree,~buffer_wedge(pt,radius,.x,deg/2))) %>%
+  unnest(cols=bw)
+
+#These are other method using a list-based (not tibble) approach
 do.call(c,sfcs)
 Reduce(c,sfcs)
 purrr::reduce(x,sfcs)
+
+#------------------------------#
+#---- Simple features (sf) ----#
+#------------------------------#
+
+poly_sf = st_sf(st_sfc(poly,poly)) #from sfg objects
+
+poly_sf <- st_sf(poly_sfc) #This creates an sf object from an sfc object
+
+
+
 
 #---- Geometries ----#
 
@@ -65,8 +100,9 @@ myMultipoly %>%
   st_cast('POLYGON') %>% 
   st_sf
 
+#---- Cast dataframes to sf objects ----#
 
-#---- make st_polygon from data frame
+#-- make st_polygon from data frame
 
 # single polygon. last row has to equal first row (i.e. should be closed)
 dat %>% 
