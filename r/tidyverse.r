@@ -31,6 +31,13 @@ gather(key=env_var,value=env_val,dist2urban,dist2water,pct_bare,pct_tree)
 separate() #splits based on a delimiter
 extract(niche_group1, c("short_name1", "year1"), '([^ ]+)_(\\d{4}$)',remove=FALSE) #uses regular expression to split
 
+#Split a column with "name (type)" to "name","type"
+#First split 'name (type)' into 'name', '(type)'
+#Then extract from parenthesis into 'type'
+dat %>%
+  separate(name, c("name", "type"), sep = "\\s(?=\\()",fill='right') %>%
+  extract(type,'type',regex="^\\((.+)\\)")
+
 #-- nest
 
 #seems these do the same things. nest() will respect group_by
