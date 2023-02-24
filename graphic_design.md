@@ -1,3 +1,8 @@
+# Sources of icons/art/images
+
+Icons: the noun project. https://thenounproject.com
+Images: unspash. https://unsplash.com/
+
 To convert a pdf to bitmap to be used in a publication/report/poster, etc.
 1) Open with preview. Export as png, selecting appropriate dpi.
 2) Open exported png, then resize to correct size.
