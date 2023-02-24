@@ -4,9 +4,7 @@
 # 16.2-inch (diagonal) Liquid Retina XDR display; 3456-by-2234 native resolution at 254 pixels per inch
 #Taking Control of Plot Scaling: https://www.tidyverse.org/blog/2020/08/taking-control-of-plot-scaling/
 #Understanding text size and resolution in ggplot2. https://www.christophenicault.com/post/understand_size_dimension_ggplot2/
-
-
-
+#ggsave scale does not scale text size. https://stackoverflow.com/questions/59218385/ggsave-scale-does-not-scale-text-size
 
 #---- geoms ----#
 
