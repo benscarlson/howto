@@ -32,6 +32,17 @@ us <- us_boundaries(type="state", resolution = "low") %>%
 # get CA boundary with high definition
 ca <- USAboundaries::us_states(resolution = "high", states = "CA")
 
+#Get european countries. Cast down to line string before cropping
+# this is useful for exporting to illustrator
+
+polys <- ne_countries(scale=50,continent='europe',returnclass='sf')
+
+ctry <- polys %>% st_geometry %>% 
+  st_cast('MULTILINESTRING') %>% 
+  st_cast('LINESTRING') %>%
+  st_crop(xmin=-12,ymin=35,xmax=15.5,ymax=55) %>% #xmin, ymin, xmax, ymax
+  st_simplify(dTolerance=3e3)
+
 #---- Base R Maps ----#
 raster::scalebar(1000, type='bar', divs=4)
 
