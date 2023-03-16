@@ -85,6 +85,9 @@ scale_y_discrete(labels=c(b_humod='Human modification',
   b_habhet='Habitat heterogeneity',
   b_gpp='Productivity'),limits=rev)
 
+labs(x = NULL, y = NULL) #does the same as:
+axis.title=element_blank()
+
 #---- mapping aethetics ----#
 
 #to manually set mappings, use scale_*_manual(). This assumes that var1 and var2 are factors with two levels
@@ -202,6 +205,12 @@ theme_set(theme_classic(base_family="Helvetica")) #sets theme for every plot in 
 
 #use the expand parameter to control white space beyond the axis lines
 scale_y_continuous(limits=c(NA,max(sppCoords$Y) + 0.1),expand=expansion(mult=c(0.02,0)))
+
+#Remove all spacing around a plot
+theme(axis.ticks.length = unit(0, "pt"),
+      plot.margin=grid::unit(c(0,0,0,0),"cm"))
+
+Use knitr::plot_crop(file) to crop whitespace from a pdf or png file
 
 #---- Tidy evaluation ----#
 
