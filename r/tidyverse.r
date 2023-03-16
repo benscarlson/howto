@@ -149,6 +149,10 @@ dat %>% mutate(bin=cut(as.Date(timestamp),'7 days'))
 #Supress messages from chatty functions
 dat %>% {suppressMessages(make_track(.,lon,lat,timestamp,id=individual_id,crs=sp::CRS('+proj=longlat +datum=WGS84')))}
 
+#This method superseds Transmute. Note I'm using name like i'm selecting it, and setting a new column match
+#The result only has name,match
+dat %>% mutate(name,match=TRUE,.keep='none')
+
 #---- working with columns ----#
 
 #-- combine columns by taking the first non-na value --#
