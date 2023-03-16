@@ -198,6 +198,11 @@ theme_bw()
 #http://docs.ggplot2.org/dev/vignettes/themes.html
 theme_set(theme_classic(base_family="Helvetica")) #sets theme for every plot in r session
 
+#---- Whitespace ----#
+
+#use the expand parameter to control white space beyond the axis lines
+scale_y_continuous(limits=c(NA,max(sppCoords$Y) + 0.1),expand=expansion(mult=c(0.02,0)))
+
 #---- Tidy evaluation ----#
 
 x <- 'var1'; y <- 'var2'
