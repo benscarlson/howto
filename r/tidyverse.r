@@ -97,18 +97,7 @@ c('ses_id','num','minutes') %>%
 #---- dplyr ----#
 #---------------#
 
-#---- Filtering ----#
 
-#Complete cases for multiple variables
-tibble(a=c(1,NA,1,NA),b=c(1,1,NA,NA),rep(NA,4)) %>%
-  filter(across(c(a,b),~!is.na(.x)))
-
-#---- Selecting rows ----#
-
-#-- Select the row with the min and max values
-dat %>% slice(
-  which.min(hv_vol),
-  which.max(hv_vol))
 
 #-- Renaming columns --#
 dat %>% rename_all(~str_replace_all(., "-", "_")) #replace all instances of '-' with '_'
@@ -118,11 +107,6 @@ dat %>% select(my_col,everything()) #move my_col to the front of the df.
 dat %>% select(-my_col,everything()) #move my_col to the end of the df.
 
 dat %>% summarise_each(funs(sum(is.na(.)))) #see how many na values are in each row
-
-filter(!val %in% c('a','b')) #not in a, b
-dat %>% filter(complete.cases(.)) #only keep complete cases (rows with no NA)
-dat %>% filter(if_all(c(log_vol,habhet,gpp,humod,hpa_dens), complete.cases)) #complete cases for certain rows
-dat %>% distinct(x,y, .keep_all=TRUE) #remove duplicate x,y. take first unique row of x,y, keeping all other columns
 
 #---- Mutating ----#
 
@@ -192,6 +176,15 @@ case_when() #like a switch statement that works inside mutate.
 #---- Filtering ----#
 #-------------------#
 
+#Complete cases for multiple variables
+tibble(a=c(1,NA,1,NA),b=c(1,1,NA,NA),rep(NA,4)) %>%
+  filter(across(c(a,b),~!is.na(.x)))
+
+#-- Select the row with the min and max values
+dat %>% slice(
+  which.min(hv_vol),
+  which.max(hv_vol))
+
 #filter by multiple columns, multiple criteria
 #we only want (1, 'a') and (3, 'b') i.e. don't want (2,'a')
 dat <- data.frame(a=c(1,2,3,4,5), b=c('a','a','b','b','c'))
@@ -227,6 +220,11 @@ vdat %>% filter(across(.fns=~.x > 0)) #note .x==0 returns nothing if there is no
 #https://community.rstudio.com/t/using-filter-with-across-to-keep-all-rows-of-a-data-frame-that-include-a-missing-value-for-any-variable/68442
 rowAny <- function(x) rowSums(x) > 0 
 vdat %>% filter(rowAny(across(.fns = ~ .x==0)))
+
+filter(!val %in% c('a','b')) #not in a, b
+dat %>% filter(complete.cases(.)) #only keep complete cases (rows with no NA). This is the old way
+dat %>% filter(if_all(c(log_vol,habhet,gpp,humod,hpa_dens), complete.cases)) #complete cases for certain rows. This is the new way
+dat %>% distinct(x,y, .keep_all=TRUE) #remove duplicate x,y. take first unique row of x,y, keeping all other columns
 
 #---- group_by/do and group_by/nest/map ----#
 
