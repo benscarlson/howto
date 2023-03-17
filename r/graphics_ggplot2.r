@@ -131,7 +131,19 @@ names(b) <- NULL
 
 scale_color_viridis_c(trans='date',breaks=b)
 
+#Change the breaks on the legend without affecting the plot
+#Adapted from here: https://stackoverflow.com/questions/68968829/is-there-are-a-way-to-change-the-breaks-of-a-ggplot-legend-without-changing-othe
 
+## Find the scales associated with the specifed aesthetic
+sc <- as.list(p$scales)$scales
+all_aesthetics <- sapply(sc, function(x) x[["aesthetics"]][1]) 
+idx <- which('fill' == all_aesthetics) 
+
+## Overwrite the breaks of the specifed aesthetic
+#To remove the legend title, need to set NULL here, labs(fill=NULL) not working when I manually set breaks)
+p$scales$scales[[idx]][["breaks"]] <- c(0,0.25,0.5,0.75,1)
+p$scales$scales[[idx]][["name"]] <- NULL 
+                               
 #--- Remove legends
 # Several different methods. See: https://stackoverflow.com/questions/35618260/remove-legend-ggplot-2-2
 guides(fill='none') #prior to ggplot2 3.3.4 it was fill=FALSE. as of 3.3.4 it is fill='none'
