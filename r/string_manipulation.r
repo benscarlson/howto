@@ -14,3 +14,6 @@ str_split(s,',')
 
 #---- reverse string ----
 stringi::stri_reverse('123ABC') 
+
+# Neustadt a.d.Aisch-Bad Windsheim -> Neustadt a.d. Aisch-Bad Windsheim 
+str_replace('Neustadt a.d.Aisch-Bad Windsheim','(^.+ a\\.d\\.)(.)','\\1 \\2')
