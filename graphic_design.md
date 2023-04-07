@@ -14,3 +14,10 @@ Maps
 Figure 1: https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.5190
 
 Why scientists need to be better at data visualization. https://www.knowablemagazine.org/article/mind/2019/science-data-visualization?utm_campaign=2019-11-17
+
+# Fonts
+
+I can use Myriad Pro in Illustrator, but it seems like it is not available in other programs.
+I downloaded Myriad Pro Regular from Fonts Geek: https://fontsgeek.com/fonts/Myriad-Pro-Regular
+I used the Font Book app on mac. Clicked on My Fonts, then did Add Font to Current User and imported the ttf file
+Now I see Myriad Pro Regular when doing ls -al ~/Library/Fonts
