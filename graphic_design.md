@@ -17,6 +17,12 @@ Why scientists need to be better at data visualization. https://www.knowablemaga
 
 # Fonts
 
+## Locations for fonts
+ls -al /Library/Fonts
+ls -al ~/Library/Fonts
+
+## Install fonts
+
 I can use Myriad Pro in Illustrator, but it seems like it is not available in other programs.
 I downloaded Myriad Pro Regular from Fonts Geek: https://fontsgeek.com/fonts/Myriad-Pro-Regular
 I used the Font Book app on mac. Clicked on My Fonts, then did Add Font to Current User and imported the ttf file
