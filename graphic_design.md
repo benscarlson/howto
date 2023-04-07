@@ -18,8 +18,9 @@ Why scientists need to be better at data visualization. https://www.knowablemaga
 # Fonts
 
 ## Locations for fonts
-ls -al /Library/Fonts
-ls -al ~/Library/Fonts
+
+`/Library/Fonts`
+`~/Library/Fonts`
 
 ## Install fonts
 
