@@ -79,6 +79,17 @@ open $out
 #gt package, from posit
 # https://gt.rstudio.com/
 
+#---- debugging ----#
+
+#Use this to print to the console.
+
+```{r}
+#| message: true
+
+stop(x)
+
+```
+
 #----------
 # rmarkdown
 #----------
