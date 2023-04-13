@@ -59,6 +59,10 @@ invisible(assert_that(!is.na(.hsName) & .hsName != "NA"))
 # when using -p parameter in render, the passed in value overrides the value that is set in the qmd header
 quarto render $qmd -P hs_name:$hs -P another_param:$v2
 
+#To pass in a parameter, you need to put it into the qmd header (like above).
+#If you don't define it there, attempting to pass with -P will results in "params object not found"
+#Note that whatever you sent as the default in the section header will be overwritten by the -P flag
+
 #---- Rendering ----#
 
 qmd=$src/poc/segment/reports/seg_counts/seg_counts.qmd
