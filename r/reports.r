@@ -62,6 +62,7 @@ quarto render $qmd -P hs_name:$hs -P another_param:$v2
 #To pass in a parameter, you need to put it into the qmd header (like above).
 #If you don't define it there, attempting to pass with -P will results in "params object not found"
 #Note that whatever you sent as the default in the section header will be overwritten by the -P flag
+#Params defined in the header but *not* passed in using -P will retain the default value
 
 #---- Rendering ----#
 
@@ -84,7 +85,6 @@ open $out
 #Use this to print to the console.
 
 ```{r}
-#| message: true
 
 stop(x)
 
