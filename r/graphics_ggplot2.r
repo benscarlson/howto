@@ -80,10 +80,13 @@ scale_x_date() #this is prints out dates on axis
 #roate axis text
 theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-#Change y axis labels. And reverse the order
-scale_y_discrete(labels=c(b_humod='Human modification',
-  b_habhet='Habitat heterogeneity',
-  b_gpp='Productivity'),limits=rev)
+#Change y axis labels.
+scale_y_discrete(labels=c(
+  b_humod='Human modification',
+  b_gpp='Productivity'))
+
+#Reverse the order of the y axis (discrete). use limits=rev
+scale_y_discrete(labels=labels,limits=rev)
 
 labs(x = NULL, y = NULL) #does the same as:
 axis.title=element_blank()
