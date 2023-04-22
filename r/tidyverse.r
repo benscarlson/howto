@@ -172,6 +172,14 @@ lead(colname,1); lag(colname,1) #shift column forward or backward by one
 
 case_when() #like a switch statement that works inside mutate.
 
+#---- Combining ----#
+
+#bind_rows will figure will align column names if not in the same order
+#works on a list of named vectors
+#works on a list of names lists
+bind_rows(c(a=1,b=2),c(b=3,a=4)) #works correctly
+
+
 #-------------------#
 #---- Filtering ----#
 #-------------------#
