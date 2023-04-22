@@ -30,6 +30,12 @@ cat(myvar,'\n')
 
 #---- Figures ----#
 
+#Automatic figure numbers. Need to indlude the #fig-label and also include a caption
+![My Caption](myplot.png){#fig-myplot}
+  
+#To add multiple attributes to a quarto image, seperate by spaces.
+![Confidence Intervals](myplot.png){#fig-ci_dens width=5in}
+  
 # HTML options: https://quarto.org/docs/reference/formats/html.html
 #| fig-height: 2 <!— It seems units are in inches —>
 
