@@ -222,8 +222,10 @@ theme_set(theme_classic(base_family="Helvetica")) #sets theme for every plot in 
 scale_y_continuous(limits=c(NA,max(sppCoords$Y) + 0.1),expand=expansion(mult=c(0.02,0)))
 
 #Remove all spacing around a plot
+#These are most relevant when importing eps objects into illustrator
 theme(axis.ticks.length = unit(0, "pt"),
-      plot.margin=grid::unit(c(0,0,0,0),"cm"))
+      plot.margin=grid::unit(c(0,0,0,0),"cm"),
+      plot.background = element_blank()) #Need to use this or there will be an extra white border object bordering the axes
 
 Use knitr::plot_crop(file) to crop whitespace from a pdf or png file
 
