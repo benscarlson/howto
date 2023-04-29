@@ -278,12 +278,15 @@ extract(pctTree,bg)
 #---- distance between two points ----#
 library(geosphere)
 
+#Compute between two lines of latitude. Note use 0 for longitude. I tested that is is the same no matter what longitude you pick
+distHaversine(c(0,lat1),c(0,lat2))
+
 #    x.min     y.min     x.max     y.max 
 # 9.024238 50.202248 14.930488 53.750199
 distGeo(c(bb['x.min'],bb['y.max']),c(bb['x.max'],bb['y.max'])) #389509.7 - note dist at ymax is lower than at ymin, as expected.
 distGeo(c(bb['x.min'],bb['y.min']),c(bb['x.max'],bb['y.min'])) #421563.7
 
-#can also use distm. Not sure what is the difference between distGeo and distm
+#can also use distm. Seems distm is for matrices.
 #https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula/23095329#23095329
 distm(x=c(lon,lat),y=c(lon,lat),fun = distVincentyEllipsoid)
 
