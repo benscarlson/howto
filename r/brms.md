@@ -1,6 +1,7 @@
 * glmm faq (Bolker). http://bbolker.github.io/mixedmodels-misc/glmmFAQ.html#model-definition
 * brmstools: https://mvuorre.github.io/brmstools/index.html
 * brmstools spaghetti plots: https://mvuorre.github.io/brmstools/articles/panel-spaghetti-plots/panel-spaghetti-plots.html
+* Extracting and visualizing tidy draws from brms models https://cran.r-project.org/web/packages/tidybayes/vignettes/tidy-brms.html
 
 ## Warnings
 
@@ -20,3 +21,12 @@ Try thinning. By default, thin = 1
 Rhat should be close to 1, and should be < 1.05
 
 Default warmup is half of iter
+
+### Priors
+
+https://github.com/paul-buerkner/brms/blob/e42e8da64fc48919085fabd6cba40b7b86668f4b/R/priors.R#L1782
+brmsprior does not return a dataframe so can't be run through kable
+`print.brmsprior`
+
+See priors: 
+`prior_summary(fit)`
