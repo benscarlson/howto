@@ -58,6 +58,10 @@ Preferences -> Guides and Grids -> subdivisions -> 8
 View -> Show Grid
 View -> Snap to Grid. Shift-Cmd-' to toggle
 
+### Objects
+
+Combine two lines into one shape - Select both lines, then ctrl + j
+
 ### Pathfinder
 
 To make objects out of all intersecting regions of two or more obects
