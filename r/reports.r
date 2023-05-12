@@ -6,6 +6,9 @@
 #---- Quarto ----#
 #----------------#
 
+#header
+# Can't have more than one blank line at the end of the header, or it seems all header settings are ignored.
+
 # Set options using dynamic elements
 # Need to have !expr (a & b), not a & b
 # Need to have a space. !expr (a & b), not !expr(a & b)
