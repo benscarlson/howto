@@ -14,6 +14,7 @@
 #Include images almost anywhere in ggplot
 # https://mrcaseb.github.io/ggpath/
 
+  
 #-- density/histograms
 
 #to show relative density or relative frequency
@@ -216,6 +217,51 @@ theme_bw()
 #http://docs.ggplot2.org/dev/vignettes/themes.html
 theme_set(theme_classic(base_family="Helvetica")) #sets theme for every plot in r session
 
+#---- Fonts ----#
+
+
+font_add_google() #add a google font
+font_families_google() #see fonts available at google
+
+font_families() #Shows what is in the database
+font_files() #Available fonts on search path
+font_paths() #Current search path for fonts
+
+[1] "/Library/Fonts"                    
+[2] "/System/Library/Fonts"             
+[3] "/System/Library/Fonts/Supplemental" <- has most fonts
+[4] "/Users/benc/Library/Fonts"
+
+
+In FontBook: 
+View: Show Info Pane. Then, go to Details in info pane. Location will have the full path to the font file.
+
+/System/Library/Fonts/Supplemental/PTSans.ttc
+
+# Note that the first argument can by any string. This is how you reference it later in ggplot
+font_add("PT Sans", "/System/Library/Fonts/Supplemental/PTSans.ttc")
+font_add("Myriad Pro", "/Users/benc/Library/Fonts/Myriad Pro Regular.ttf")
+
+# PT Sans differs from Myriad Pro b/c PT has a curl at the bottom of "l" and MP is straight
+
+showtext_auto() # Uses showtext to load fonts in ggplot
+showtext_opts(dpi=300) #Try setting this to the dpi you use in ggsave
+Help says this:
+An integer that gives the resolution of the device. This parameter is only used in bitmap and on-screen graphics devices such as png() and x11(), 
+to determine the pixel size of text from point size. For example, if dpi is set to 96, then a character with 12 point size will have a pixel 
+size of 12 * 96 / 72 = 16
+
+data <- data.frame(x = 1:4, y = 1:4)
+
+ggplot(data) +
+  geom_point(aes(x, y), size = 10, color = "cadetblue4") +
+  geom_label(
+    aes(x, y), 
+    data = data.frame(x = 3, y = 2), 
+    label = "lazy dog in myriad pro",
+    family = "Myriad Pro",
+    size = 7)
+  
 #---- Whitespace ----#
 
 #use the expand parameter to control white space beyond the axis lines
