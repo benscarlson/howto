@@ -227,6 +227,10 @@ theme(axis.ticks.length = unit(0, "pt"),
       plot.margin=grid::unit(c(0,0,0,0),"cm"),
       plot.background = element_blank()) #Need to use this or there will be an extra white border object bordering the axes
 
+#Might need to increase margin b/c the tick labels get cut off
+#the unit has arguments in clockwise order: top, right, bottom, left
+plot.margin=grid::unit(c(.2,0,0,0),"cm") #Increase top margin by 0.2 cm
+  
 Use knitr::plot_crop(file) to crop whitespace from a pdf or png file
 
 #---- Tidy evaluation ----#
@@ -333,6 +337,15 @@ dev.off()
 #--------------------#
 #---- save plots ----#
 #--------------------#
+
+Make ggplot background transparent
+
+theme(
+  panel.background = element_rect(fill='transparent'), #transparent panel bg
+  plot.background = element_rect(fill='transparent', color=NA)
+)
+
+ggsave(.outPF,plot=p,width=w,height=h,type='cairo',units=units,bg='transparent')
 
 #-- cowplot
 save_plot('~/scratch/dualplot.png', dualPlot,
