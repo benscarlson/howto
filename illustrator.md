@@ -6,14 +6,18 @@ See second answer: https://graphicdesign.stackexchange.com/questions/3551/illust
 
 https://community.adobe.com/t5/illustrator/fit-bounding-box-to-text-in-illustrator/m-p/10013336
 
-### Rectangle around text box
+### Rectangle around text box with white background
 
 * Create text then select it
 * Appearance panel. Three dots in Properties/Appearance. Or Window -> Appearance panel
 * Upper right corner (three small lines) -> add stroke
-* Effect -> convert to shape -> rectangle
+* Highlight the stroke entry, then Effect -> convert to shape -> rectangle
+* Add fill
+* Move fill below characters
+* Highlight the fill entry, then Effect -> convert to shape -> rectangle
 
-https://graphicdesign.stackexchange.com/questions/132886/illustrator-auto-sized-text-box-with-a-rectangle-border-no-fill
+Add fill to text box: https://graphicdesign.stackexchange.com/questions/19824/illustrator-auto-sized-text-box-with-shaded-background/19828#19828
+Add stroke to text box: https://graphicdesign.stackexchange.com/questions/132886/illustrator-auto-sized-text-box-with-a-rectangle-border-no-fill
 
 edit the artboard so that just the elements you want are on the artboard. Then you can delete the other elements.
 Try to remove any background rectangles
