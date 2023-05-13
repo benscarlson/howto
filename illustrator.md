@@ -8,8 +8,8 @@ https://community.adobe.com/t5/illustrator/fit-bounding-box-to-text-in-illustrat
 
 ### Rectangle around text box
 
-* Direct select (white) arrow
-* Appearance panel. Window -> Appearance panel
+* Create text then select it
+* Appearance panel. Three dots in Properties/Appearance. Or Window -> Appearance panel
 * Upper right corner (three small lines) -> add stroke
 * Effect -> convert to shape -> rectangle
 
