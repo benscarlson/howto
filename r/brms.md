@@ -22,6 +22,10 @@ Rhat should be close to 1, and should be < 1.05
 
 Default warmup is half of iter
 
+### Model info
+
+ndraws(fit) #Number of draws
+
 ### Priors
 
 https://github.com/paul-buerkner/brms/blob/e42e8da64fc48919085fabd6cba40b7b86668f4b/R/priors.R#L1782
@@ -30,3 +34,8 @@ brmsprior does not return a dataframe so can't be run through kable
 
 See priors: 
 `prior_summary(fit)`
+
+### Effects
+
+fixef(fit) #Only fixed effects
+ranef(fit) #Only random effects
