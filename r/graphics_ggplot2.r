@@ -14,6 +14,13 @@
 #Include images almost anywhere in ggplot
 # https://mrcaseb.github.io/ggpath/
 
+#regession lines with dashed confidence intervals
+  p <- data %>%
+    ggplot(aes(x=lat,y=value)) +
+    geom_point() +
+    stat_smooth(method = "lm", se = FALSE, color=linecol, formula=y~x) + 
+    stat_smooth(method = "lm", colour = ribcol, formula=y~x,
+                geom = "ribbon", fill = NA, fullrange = TRUE, linetype='dashed') + 
   
 #-- density/histograms
 
