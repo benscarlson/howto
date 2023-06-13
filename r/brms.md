@@ -39,3 +39,10 @@ See priors:
 
 fixef(fit) #Only fixed effects
 ranef(fit) #Only random effects
+
+# tidybayes
+
+`get_variables(fit)` Show the variables (and groups) in the model
+
+`fit %>% spread_draws(b_gpp,b_habhet)` Make a dataframe for two variables
+
