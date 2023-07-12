@@ -76,4 +76,8 @@ Note the objects are grouped. To move the individual objects, ungroup first
 
 72 pts in one inch
 
+### Rectangular grid
+
+The rectangular grid tool is with the line segment tool
+After selecting, click once on canvas, and properties panel will pop up. Use this to set the number of cells
 
