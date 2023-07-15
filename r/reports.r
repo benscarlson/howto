@@ -6,6 +6,13 @@
 #---- Quarto ----#
 #----------------#
 
+#---- Output ----#
+
+#if text is output like 'y ~ a*p + b*p' then 'p + b' will be in italics in the output
+#need to replace this with 'y ~ a\\*p + b\\*p'
+
+dat %>% mutate(formula=gsub('*','\\*', dat$formula, fixed=TRUE)) %>% kable
+
 #header
 # Can't have more than one blank line at the end of the header, or it seems all header settings are ignored.
 
