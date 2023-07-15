@@ -75,7 +75,7 @@ params:
   hs_name: NULL
 ---
 .hsName <- params$hs_name
-invisible(assert_that(!is.null(.hsName))
+invisible(assert_that(!is.null(.hsName)))
 
 #Pass into render using the -P flag. Use another -P flag for a second parameter
 # when using -p parameter in render, the passed in value overrides the value that is set in the qmd header
@@ -86,7 +86,16 @@ quarto render $qmd -P hs_name:$hs -P another_param:$v2
 #Note that whatever you sent as the default in the section header will be overwritten by the -P flag
 #Params defined in the header but *not* passed in using -P will retain the default value
 
-#---- Rendering ----#
+#boolean variables need to explicitly pass true
+---
+params:
+  flag: false
+---
+
+quarto render $qmd -P flag #flag will be set to false (unlike docopts)
+quarto render $qmd -P flag:true #flag will be set to true
+
+  #---- Rendering ----#
 
 qmd=$src/poc/segment/reports/seg_counts/seg_counts.qmd
 out=$wd/reports/seg_counts.html
