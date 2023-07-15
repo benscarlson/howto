@@ -67,12 +67,15 @@ plot()
 
 #---- Parameters ----#
 
+#If you don't pass in a parameter x and set the default to null
+# the params$x variable will be appropriately null
+# see ms3/src/poc/reports/test_null.qmd
 ---
 params:
-  hs_name: "NA"
+  hs_name: NULL
 ---
 .hsName <- params$hs_name
-invisible(assert_that(!is.na(.hsName) & .hsName != "NA"))
+invisible(assert_that(!is.null(.hsName))
 
 #Pass into render using the -P flag. Use another -P flag for a second parameter
 # when using -p parameter in render, the passed in value overrides the value that is set in the qmd header
