@@ -28,6 +28,7 @@ mods %>% mutate(formula=escQmdText(formula)) %>% kable
 #| eval: NA <!-- If expression is NA, the chunk will be evaluated -->
 
 #Can write to the console using message()
+#NOTE: This does not seem to work
 message('This will write to the console while kniting')
 
 #print() will write to seperate lines but will put line numbers [1] at the begining
@@ -41,6 +42,37 @@ cat('word\n\n')
 cat('this line rendered as markdown\n')
 cat(myvar,'\n')
 
+# Printing printing multiple elements using asis, w/in a for loop, or both
+# need to always include cat('\n\n') after each element
+
+```{r}
+#| output: asis
+
+cols <- c('log_vol','gpp','habhet')
+
+for(col in cols) {
+  
+  cat(paste0('## ',col))
+  cat('\n\n')
+  
+  summary(dat[[col]]) %>% enframe %>% 
+    mutate(value=round(value,3)) %>%
+    t %>% kable %>% print
+  cat("\n\n")
+  
+  p1 <- dat %>% 
+    ggplot(aes(x=!!sym(col))) +
+    geom_histogram()
+  
+  p2 <- dat %>% 
+    ggplot(aes(x=!!sym(col))) +
+    geom_boxplot()
+  
+  print(p1/p2)
+  cat('\n\n')
+}
+
+```
 #---- Figures ----#
 
 #Automatic figure numbers. Need to indlude the #fig-label and also include a caption
