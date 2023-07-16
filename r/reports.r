@@ -6,6 +6,20 @@
 #---- Quarto ----#
 #----------------#
 
+#---- Header ----#
+# Can't have more than one blank line at the end of the header, or it seems all header settings are ignored.
+
+#---- Chunk options ----#
+
+
+# Set options using dynamic elements
+# Simple boolean variable: eval: !expr .dens
+# Complex expression: eval: !expr (a & b)
+# Need to have !expr (a & b), not a & b
+# Need to have a space. !expr (a & b), not !expr(a & b)
+
+#| eval: NA <!-- If expression is NA, the chunk will be evaluated -->
+
 #---- Output ----#
 
 #if text is output like 'y ~ a*p + b*p' then 'p + b' will be in italics in the output
@@ -15,17 +29,6 @@ dat %>% mutate(formula=gsub('*','\\*', dat$formula, fixed=TRUE)) %>% able
 
 #Or use escQmdText() in funs/quarto_funs.r
 mods %>% mutate(formula=escQmdText(formula)) %>% kable
-
-#header
-# Can't have more than one blank line at the end of the header, or it seems all header settings are ignored.
-
-# Set options using dynamic elements
-# Need to have !expr (a & b), not a & b
-# Need to have a space. !expr (a & b), not !expr(a & b)
-
-#| eval: !expr (a & b)
-
-#| eval: NA <!-- If expression is NA, the chunk will be evaluated -->
 
 #Can write to the console using message()
 #NOTE: This does not seem to work
