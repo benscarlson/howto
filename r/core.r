@@ -139,6 +139,7 @@ dir.create('my/path',recursive=TRUE)
 basename('my/file/path') #returns 'path'
 dirname('my/file/path') #returns 'my/file'
 fileN <- sub('\\.csv$','', basename('my/file/path.csv'), ignore.case=TRUE) #returns 'path'
+paste0(sub('\\.csv$','',.outPF),'_scale.csv') #insert a postfix before the file extension
 
 #Use this to get just the file extension
 fext <- function(filePath){ 
