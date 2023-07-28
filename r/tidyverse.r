@@ -137,6 +137,15 @@ dat %>% {suppressMessages(make_track(.,lon,lat,timestamp,id=individual_id,crs=sp
 #The result only has name,match
 dat %>% mutate(name,match=TRUE,.keep='none')
 
+#Make a table from summarized values on each column
+dat1 %>% 
+  summarize(across(c(habhet,gpp),list(mean=mean,sd=sd))) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = c("variable", ".value"),
+    names_sep = "_"
+  )
+
 #---- working with columns ----#
 
 #-- combine columns by taking the first non-na value --#
