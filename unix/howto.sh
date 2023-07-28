@@ -134,6 +134,7 @@ cp ~/.bash_profile ~/${ts}
 #---- Dates ----#
 
 date +%Y-%m-%d #Format today's date as yyyy-mm-dd
+yd=$(date -v -1d '+%Y-%m-%d') #Get yeserday's date and assign it to yd
 
 #---- manipulate file contents ----
 gsplit -d -l 2 -a 2 myfile.csv myfile #if myfile has 6 lines, this makes myfile00, myfile01, myfile02. two lines each.
