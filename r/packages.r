@@ -10,6 +10,17 @@ library(anno)
 #---- install package from command line, after devtools::build()
 R CMD INSTALL ~/projects/anno_0.1.0.tar.gz #in case package needs to be re-installed
 
+#-- from github
+
+#-- private repo
+# Setup a GitHub token to install R packages from a private repository: https://www.youtube.com/watch?v=LvzljgPrsjg
+
+library(usethis)
+gh_token_help()
+create_github_token()
+gitcreds::gitcreds_set()
+remotes::install_github('my/repo',build_vignettes = T, auth_token=gh::gh_token())
+
 #----
 #---- developing packages
 #----
