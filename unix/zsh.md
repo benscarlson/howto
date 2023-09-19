@@ -12,3 +12,15 @@ I have the following
 
 * .zprofile
 * .zshrc
+
+## Loops
+
+Create an array and loop through it. Can just use $arr, don't need to do "$arr[@]" like in bash
+
+```
+arr=(one two three)
+
+for item in $arr; do
+  echo $item
+done
+```
