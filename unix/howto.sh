@@ -191,6 +191,16 @@ curl -v -u <user>:<pass> -b cookies.txt -o event_data.csv "https://www.movebank.
 #---- wget ----#
 wget -O individuals.csv --user "ben.s.carlson" --password $pass $url
 
+# Download a file from a dropbox folder that someone shared with you.
+# Example link: https://www.dropbox.com/scl/fo/uqs3uf43v7awdhxnv5vuw/h?rlkey=xz3g0eip39jejwmfxm8anrzoi&dl=0
+# Need to add the file name (e.g. myfile.txt) before the query string, also change dl=0 to dl=1
+# The default output name has the query string attached, so use -O
+
+file="myfile.txt"
+url="https://www.dropbox.com/scl/fo/uqs3uf43v7awdhxnv5vuw/h/${file}?rlkey=xz3g0eip39jejwmfxm8anrzoi&dl=1"
+
+wget -O $file $url
+
 #----------
 #   OSX   
 #----------
