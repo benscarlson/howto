@@ -2,6 +2,12 @@
 #---- installation from code ----#
 #----
 
+#-- Build a package
+
+cd $wd # mypackage.tar.gz will go into the cwd
+
+R CMD Build $src/mypackage
+
 #-- from local disk
 library(devtools)
 install_local('~/projects/anno',dependencies=FALSE,quiet=TRUE) #won't install unless code changed
