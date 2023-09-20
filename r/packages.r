@@ -1,5 +1,5 @@
 #----
-#---- installation from code ----#
+#---- installation ----#
 #----
 
 #-- Build a package
@@ -7,6 +7,9 @@
 cd $wd # mypackage.tar.gz will go into the cwd
 
 R CMD Build $src/mypackage
+
+devtools::build()
+devtools::build(vignettes=FALSE)
 
 #-- from local disk
 library(devtools)
