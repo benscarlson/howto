@@ -22,7 +22,7 @@ ag <- docopt(doc, version = '0.1\n')
 print(ag)
 ```
 
-```{zsh}
+```bash
 
 $src/poc/docopt_mpar.r -p A -p B
 
