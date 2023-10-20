@@ -2,7 +2,7 @@
 Pass in multiple instances of the same parameter
 Results in vector of strings
 
-```{r}
+```r
 'Usage:
 docopt_mpar.r [--param=<param>]...
 docopt_mpar.r (-h | --help)
