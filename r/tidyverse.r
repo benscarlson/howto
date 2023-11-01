@@ -303,6 +303,10 @@ mutate(!!envLab := !!as.name(envLab)*0.0001)
 envNames <- c('env1','env2')
 dat %>% select(!!envNames)
 
+#To use this idiom with distinct() you need to use within across()
+envNames <- c('metric','tscale')
+tifs %>% distinct(across(!!envNames))
+
 #it seems like sometimes I can use just !!x and sometimes I have to use !!sym(x)
 
 #Have to use !!sym:
@@ -316,6 +320,8 @@ dat %>% select(!!envName)
 
 envName <- quo(!!sym('dist2forest'))
 dat %>% select(!!envName)
+
+
 
 #to use a variable that has the same name as a column, need to use the hug operator
 year <- 2018
