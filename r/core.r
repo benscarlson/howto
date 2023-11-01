@@ -61,6 +61,10 @@ quantile(c(1,2,3,4),probs=c(0,0.5,1)) # Finds quantile values given the provided
 cut(c(1,2),breaks=c(1,2)) #makes factor level for groups based on breaks.
 # <NA>, (1,2]. First groups is values -inf < x < 1, second group is 1 <= x <= 2. Note groups don't be consistent w/ boundary conditions!
 
+#Sort a vector according to the order of another vector
+fieldOrder <- c('a','b','c','d')
+fieldOrder[sort(match(c('d','b'),fieldOrder))]
+
 #---- factors ----
 
 #creates a factor. order of levels is based on the 'levels' attribute
@@ -125,10 +129,19 @@ round(t(do.call(cbind,
   lapply(dat, summary ))),3) %>%
   View()
 
-#unlist can turn a one row data frame into a vector
+#-- Converting dataframe to vector
+
+#deframe turns a two column data frame into a vector
+
+#unlist turns a one row data frame into a vector
 d <- data.frame(a=c(1,2), b=c(3,4))
 class(d[1,]) #'data.frame'
 class(unlist(d[1,])) #'numeric'
+
+#-- Convert dataframe to list
+
+deframe(x) %>% as.list
+split(x$value,x$name)
 
 #---- file system ----
 file.choose() #open a file dialog
