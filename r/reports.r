@@ -82,7 +82,7 @@ for(col in cols) {
 ![My Caption](myplot.png){#fig-myplot}
   
 #To add multiple attributes to a quarto image, seperate by spaces.
-![Confidence Intervals](myplot.png){#fig-ci_dens width=5in}
+![Confidence Intervals](myplot.png){#fig-ci_dens width=5in } 
   
 # HTML options: https://quarto.org/docs/reference/formats/html.html
 #| fig-height: 2 <!— It seems units are in inches —>
@@ -99,6 +99,9 @@ plot()
 cat(‘output’)
 #| fig-height: 2
 plot()
+
+#This scales the output figure to 100% of the report width
+out-width: 100%
 
 #---- Parameters ----#
 
