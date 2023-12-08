@@ -243,6 +243,13 @@ dat %>% filter(complete.cases(.)) #only keep complete cases (rows with no NA). T
 dat %>% filter(if_all(c(log_vol,habhet,gpp,humod,hpa_dens), complete.cases)) #complete cases for certain rows. This is the new way
 dat %>% distinct(x,y, .keep_all=TRUE) #remove duplicate x,y. take first unique row of x,y, keeping all other columns
 
+#filter can accept a vector of conditions. it applies & to all conditions
+mydat %>% filter(x=1, y=2)
+
+#Can use this to dynamically generate conditions
+conds <- c("x=='a'","y=='b'")
+mydat %>% filter(!!!rlang::parse_exprs(conds))
+
 #---- group_by/do and group_by/nest/map ----#
 
 #operate on a dataframe from group
