@@ -185,11 +185,34 @@ LETTERS, letters, month.abb, month.name, pi
 
 summary(m)$sigma #standard deviation of mean regression value
 
-#---- strange functions ----
+#---- meta programming ----
 x<-5
 eval("x") # --> prints "x"
 as.symbol("x") # --> prints x
 eval(as.symbol("x")) #--> prints 5 
+
+#Creates an expression using text. 
+#Like parsing lines of R code
+#Returns expression
+parse(text="1+1")
+
+ #makes two expressions
+exp1 <- parse(text="1+1; 2*2")
+exp1 <- parse(text="1+1 \n 2*2") #Can also use this to make two expressions
+exp1 <- parse(text="1+1 
+              2*2") #Or this
+
+#Can loop through expressions
+for(ex in exp1) {print(ex)}
+
+#Also creates an expression, not using string. Returns an expression object.
+expression(1+1)
+expression(1+1, 2*2) #Can make muliple expressions
+
+eval(expression(1+1)) #Again use eval to execute
+
+#Quote also make an expression, but only a single expression. Returns a call object
+quote(1+1)
 
 #get() will resolve a string into a function
 sin(pi/2) #--> 1
