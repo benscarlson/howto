@@ -92,6 +92,12 @@ typeof(x) #determines the (R internal) type or storage mode of any object
 #---- matrices ----
 matrix(1:6, ncol=2) #make a matrix with two columns
 
+#-- Converting matrix to vector
+
+m <- matrix(1:6, ncol=1) #matrix with a single column
+as.vector(m) #convert to vector
+c(m) #convert to vector
+
 #---- Lists ----#
 
 #how to append to a list (e.g. within a for loop)
