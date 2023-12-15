@@ -272,7 +272,9 @@ EDA for \Sexpr{indivName} track
 #https://haozhu233.github.io/kableExtra/awesome_table_in_html.html
 
 options(knitr.kable.NA = '') #don't print NA in table
-
+options(scipen=999) #turn off scientific notation
+options(scipen=0) #turn is back on
+  
 kable(x, format.args = list(decimal.mark = '.', big.mark = ","))
 kable(x, digits=2)
 
