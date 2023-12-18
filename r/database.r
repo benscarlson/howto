@@ -67,7 +67,7 @@ glue_sql('select {`cols`* from t') #Using backticks works because it does a quot
 #be careful, sqlite can represent larger integers than R
 # sqlite: 8 bytes, so 64 bit signed integer. 2^63 - 1 == 9223372036854775807
 # r is 32 bit signed so 2e9 == 2147483647
-"select last_insert_rowid() as id" %>% dbGetQuery(db,.) %>% as.integer
+'select last_insert_rowid() as id' %>% dbGetQuery(db,.) %>% as.integer
 
 # use as.integer64 from the bit 64 package
 # not sure if this really works, is RSQLite sending the value as 64 bit or does casting covert correctly?
