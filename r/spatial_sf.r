@@ -78,6 +78,17 @@ poly_sf = st_sf(st_sfc(poly,poly)) #from sfg objects
 poly_sf <- st_sf(poly_sfc) #This creates an sf object from an sfc object
 
 
+#---- Unnest a list column of sf objects into an sf object
+tibble(id=rep(1:2,each=5),
+       lon=sample(1:10,replace=TRUE),
+       lat=sample(1:10,replace=TRUE)) %>%
+  nest(data=c(lon,lat)) %>%
+  mutate(data=map(data,~{
+    st_as_sf(.x,coords=c('lon','lat'),crs=4326)
+  })) %>%               #list column of sf objects
+  unnest(cols=data) %>% #list column of sfc objects
+  st_sf                 #cast to sf 
+
 
 
 #---- Geometries ----#
