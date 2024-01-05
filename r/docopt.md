@@ -1,3 +1,19 @@
+### Debugging
+
+In zsh, the script will fail is you have a comment "#" in the shell script and don't have `setopt interactivecomments` turned on.
+
+This will fail
+
+```bash
+$src/myscript.r $dat # a comment
+```
+
+But this works
+
+```bash
+setopt interactivecomments
+$src/myscript.r $dat # a comment
+```
 
 Pass in multiple instances of the same parameter
 
