@@ -1,4 +1,4 @@
-### Debugging
+## Debugging
 
 In zsh, the script will fail is you have a comment "#" in the shell script and don't have `setopt interactivecomments` turned on.
 
@@ -15,7 +15,9 @@ setopt interactivecomments
 $src/myscript.r $dat # a comment
 ```
 
-Pass in multiple instances of the same parameter
+## Usage
+
+### Pass in multiple instances of the same parameter
 
 Results in vector of strings
 
