@@ -1,5 +1,6 @@
 
 Pass in multiple instances of the same parameter
+
 Results in vector of strings
 
 ```r
