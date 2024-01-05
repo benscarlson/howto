@@ -193,10 +193,6 @@ bind_rows(c(a=1,b=2),c(b=3,a=4)) #works correctly
 #---- Filtering ----#
 #-------------------#
 
-#Complete cases for multiple variables
-tibble(a=c(1,NA,1,NA),b=c(1,1,NA,NA),rep(NA,4)) %>%
-  filter(across(c(a,b),~!is.na(.x)))
-
 #-- Select the row with the min and max values
 dat %>% slice(
   which.min(hv_vol),
@@ -229,12 +225,23 @@ dat %>% slice_sample(n=.npts)
 
 #-- Filter w/ Across --#
 
+#Complete cases for multiple variables
+#NOTE: this may be deprecated. See 
+tibble(a=c(1,NA,1,NA),b=c(1,1,NA,NA),rep(NA,4)) %>%
+  filter(across(c(a,b),~!is.na(.x)))
+
 #This takes a row if ALL rows meet the condition
+#NOTE: this is depredated
 vdat %>% filter(across(.fns=~.x > 0)) #note .x==0 returns nothing if there is not a row that contains all 0
+
+#Currently accepted way to do complete cases. Uses if_all instead of across
+dat %>%
+  filter(if_all(everything(),~!is.na(.x)))
 
 #To take a row if ANY column matches the condition, need to use rowSums trick
 #Works but I'm not sure how
 #https://community.rstudio.com/t/using-filter-with-across-to-keep-all-rows-of-a-data-frame-that-include-a-missing-value-for-any-variable/68442
+#NOTE: maybe use if_all or if_any instead. See above.
 rowAny <- function(x) rowSums(x) > 0 
 vdat %>% filter(rowAny(across(.fns = ~ .x==0)))
 
