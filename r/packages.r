@@ -21,6 +21,10 @@ library(anno)
 R CMD Build ~/projects/anno
 R CMD INSTALL ~/projects/anno_0.1.0.tar.gz
 
+#To put the package tar into output directory, first navigate to that directory
+cd ~/r_pkg_builds
+R CMD build ~/projects/mypackage --no-build-vignettes
+
 #-- from github
 
 #-- private repo
