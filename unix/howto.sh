@@ -30,6 +30,9 @@ du -h myfile.txt #size of file in human-readable units
 ls -d "$PWD"/*
 ls -d "$PWD"/my_folder/*
 
+#show all files and folders below a directory
+find path/to/dir -type f -o -type d
+
 #---- reading file contents ----#
 
 #Two methods for printing the number of lines in a file
