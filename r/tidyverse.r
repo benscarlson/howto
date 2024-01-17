@@ -97,8 +97,6 @@ c('ses_id','num','minutes') %>%
 #---- dplyr ----#
 #---------------#
 
-
-
 #-- Renaming columns --#
 dat %>% rename_all(~str_replace_all(., "-", "_")) #replace all instances of '-' with '_'
 
@@ -281,6 +279,13 @@ terms <- quo(c(x,y,z))
 dat0 %>% mutate(across(!!terms,~as.vector(scale(.x)))) #use tidy evaluation to define columns
 
 #---- Converting ----#
+
+#-- Converting dataframes to lists
+
+#Two column dataframe to list
+tibble(name=c('a','b'),value=c('1','TRUE')) %>% 
+  deframe %>% 
+  as.list
 
 #-- Converting lists to dataframes 
 
