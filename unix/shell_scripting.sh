@@ -1,3 +1,6 @@
+#---- references ----#
+#Zsh cheatsheet: https://gist.github.com/ClementNerma/1dd94cb0f1884b9c20d1ba0037bdcde2
+
 #---- builtins ----#
 
 #Set. Try set -e and set -x
@@ -69,10 +72,19 @@ arrenvs=($(IFS=,; echo $envs))
 arrenvs_z=(${arrenvs[@]/%/_z})
 envs_z="$(IFS=,; echo "${arrenvs_z[*]}")"
 
+#---- Arrays of files
+
 #variable contains a list of files (seperated by space)
 # can be used as input to commands that take a 1 to n file names
-files=`ls`
+#NOTE: You should not 
+#  See: Why you shouldn't parse the output of ls. https://mywiki.wooledge.org/ParsingLs
+#  And: https://unix.stackexchange.com/questions/28854/list-elements-with-spaces-in-zsh
+files=(`ls`) #Or files=($(ls))
 echo $files
+
+#Recommened approach. This also handles file names with spaces in them.
+# (@) tells the result of $(ls) to be an array. @f specifies that it should split at newline (not at each whitespace as is the default)
+files=("${(@f)$(ls)}")
 
 #extract a column from a csv file, and turn it into a csl. useful for sql statment "in" clauses
 
