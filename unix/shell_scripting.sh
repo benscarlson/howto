@@ -97,12 +97,16 @@ echo $csl
 filePF=/path/to/file.txt
 
 #Below uses parameter expansion
+
 # https://opensource.com/article/17/6/bash-parameter-expansion
+# https://linuxgazette.net/18/bash.html
+
 echo ${filePF%.*} #/path/to/file ##full path and file without extention
 echo ${filePF%.txt} #/path/to/file ##same as above full path and file without extention
 echo ${filePF%/*} #/path/to ##full path no file
 echo ${filePF##*/} #file.txt
 
+#does not seem to be possible to do this in a single line
 fn=${filePF##*/} #gets the file name
 echo ${fn%.csv} #strips off file extenstion. useful for getting dsn
 
