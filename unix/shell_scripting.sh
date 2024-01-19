@@ -41,13 +41,21 @@ myvar=${myvar%$'\r'} #this strips \r from the variable
 
 #Look at the IFS
 echo $IFS | cat -et
- 
-#-- lists/arrays 
+
+#----
+#---- lists/arrays 
+#----
+
 lst=("one" "two" "three")
 echo ${lst[0]} # one
 echo ${lst[@]} # prints all elements as seperate words. e.g. "one" "two" "three"
 echo ${lst[*]} # prints all elements as one word. e.g. "one two three"
 printf "%s\n" ${studyIds[@]} # prints all elements on a seperate line
+
+#-- zsh
+echo $lst #zsh will print all elements
+echo $lst[1] # first element
+echo $lst[0] # !! Does not work!! arrays are one indexed !!
 
 ${lst[@]/#/path/to/file/} #prefixes all elements in array. Note return is not an array but a list of elements
 ${lst[@]/%/.pdf} #suffix all values in list
