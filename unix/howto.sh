@@ -53,6 +53,13 @@ mkdir -p path/to/new/dir && cp myfile.csv "$_"
 #move all files, including hidden files, to a new directory
 shopt - s dotglob
 mv dir1/* dir2
+mv path/"including space"/* to_dir #If a path includes a space, need to put it in quotes
+mv "path/including space/*" to_dir #This WON'T work. Need to put * outside of quotes
+mv "path/including space/"* #This WILL work, since * is outside quotes
+
+#Note if you are trying to echo a mv statement with an *, you need to move it inside the quotes.
+echo mv "path/including space/*" to_dir #This WILL work.
+echo mv "path/including space/"* #This WON'T work, since * is outside quotes
 
 #---- deleting files ----#
 
