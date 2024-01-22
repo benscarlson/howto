@@ -168,6 +168,27 @@ fext <- function(filePath){
 
 shell.exec("myfile.txt") #have the operating system open myfile.txt using the default application
 
+#---- Data manipulation ----#
+#----
+
+#--- cut()
+
+x <- 0:10
+
+# Does not include a category for 0
+# (0,3]
+# (3,10]
+tibble(x=x,cut=cut(x,breaks=c(0,3,max(x))))
+
+# Does not include a category for 10
+# [0,3)
+# [3,10)
+tibble(x=x,cut=cut(x,breaks=c(0,3,max(x)),right=FALSE))
+
+#When right=FALSE, then include.lowest=TRUE will make the last category [a,b]
+# instead of [a,b). So it will include the largest value
+tibble(x=x,cut=cut(x,breaks=c(0,3,max(x)),right=FALSE,include.lowest=TRUE))
+
 #--- Filtering 
 
 #filters the lists for objects with @Name attribute = val1 or val2
