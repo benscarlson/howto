@@ -101,14 +101,17 @@ filePF=/path/to/file.txt
 # https://opensource.com/article/17/6/bash-parameter-expansion
 # https://linuxgazette.net/18/bash.html
 
+#Consider filePF=/path/to/file.txt
 echo ${filePF%.*} #/path/to/file ##full path and file without extention
 echo ${filePF%.txt} #/path/to/file ##same as above full path and file without extention
 echo ${filePF%/*} #/path/to ##full path no file
 echo ${filePF##*/} #file.txt
 
-#does not seem to be possible to do this in a single line
-fn=${filePF##*/} #gets the file name
-echo ${fn%.csv} #strips off file extenstion. useful for getting dsn
+#To get file name without extension 
+fn=${filePF##*/} #file.txt #first get the file with extension, as above.
+echo ${fn%.txt} #file #strips off file extenstion
+
+echo ${${filePF##*/}%.txt} #file #does same as above but in one line
 
 #---- pass in arguments ----#
 
