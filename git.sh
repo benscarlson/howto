@@ -24,13 +24,17 @@ git commit -am 'initial commit'
 git push -u origin master
 
 #--- add existing local repo to github ---#
-#first, go to github.com and create the repo "anno" on github, don't initialize
-cd ~/projects/anno
-git remote add origin git@github.com:benscarlson/anno.git
-#make sure that git repo has something in it!
+#first, go to github.com and create the repo "myrepo" on github. don't initialize
+#then, do this on the command line
+
+#Commit changes
 git add .
 git commit -am 'initial commit'
-git push -u origin master
+
+#Set up remote tracking and push to github
+git remote add origin git@github.com:benscarlson/myrepo.git
+git branch -M main
+git push -u origin main
 
 #--- change a repo name ---#
 
