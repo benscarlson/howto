@@ -3,6 +3,7 @@
 
 cat(crs(r1)) #Print crs in WKT format
 crs(r1,proj=TRUE) #Print crs in proj format
+crs(r1,describe=TRUE) #Prints a table that includes ESPG code (if available)
 
 describe('path/to/rast.tif') #GDALinfo. #Sometimes does not print in RStudio but prints when running the report
 
