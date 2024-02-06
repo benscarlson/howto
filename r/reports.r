@@ -78,6 +78,9 @@ for(col in cols) {
 ```
 #---- Figures ----#
 
+#Add a figure caption
+#| fig-cap: Colors indicate percent urban.
+
 #Automatic figure numbers. Need to indlude the #fig-label and also include a caption
 ![My Caption](myplot.png){#fig-myplot}
   
