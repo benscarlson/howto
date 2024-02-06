@@ -299,6 +299,17 @@ ptbb <- c(range(dat$lon),range(dat$lat))[c(1,3,2,4)] %>%
   `names<-`(c('xmin', 'ymin', 'xmax', 'ymax')) %>%
   st_bbox(crs=4326)
 
+#Create a bbox from scratch
+mybbox <- c(-78.442383,37.335224,-66.884766,47.189712) %>%
+  setNames(c('xmin','ymin','xmax','ymax')) %>%
+  st_bbox(crs=4326)
+
+#To transform the bbox, need to convert to sfc first
+ mybbox %>%
+  st_as_sfc %>%
+  st_transform(crs=<a crs>) %>%
+  st_bbox
+
 #--- Convert terra SpatRaster bbox to sf bbox
 #sf raster: xmin, ymin, xmax, ymax
 #terra raster: xmin, xmax, ymin, ymax
