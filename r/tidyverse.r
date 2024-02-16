@@ -232,9 +232,12 @@ tibble(a=c(1,NA,1,NA),b=c(1,1,NA,NA),rep(NA,4)) %>%
 #NOTE: this is depredated
 vdat %>% filter(across(.fns=~.x > 0)) #note .x==0 returns nothing if there is not a row that contains all 0
 
+#-- complete.cases 
+
+dat %>% filter(complete.cases(.)) #only keep complete cases (rows with no NA). This is the OLD way
 #Currently accepted way to do complete cases. Uses if_all instead of across
-dat %>%
-  filter(if_all(everything(),~!is.na(.x)))
+dat %>% filter(if_all(everything(),~!is.na(.x))) #NEW way (could try 'complete.cases' instead of !is.na
+dat %>% filter(if_all(c(log_vol,habhet,gpp,humod,hpa_dens), complete.cases)) #complete cases for certain rows. This is the new way
 
 #To take a row if ANY column matches the condition, need to use rowSums trick
 #Works but I'm not sure how
@@ -244,8 +247,8 @@ rowAny <- function(x) rowSums(x) > 0
 vdat %>% filter(rowAny(across(.fns = ~ .x==0)))
 
 filter(!val %in% c('a','b')) #not in a, b
-dat %>% filter(complete.cases(.)) #only keep complete cases (rows with no NA). This is the old way
-dat %>% filter(if_all(c(log_vol,habhet,gpp,humod,hpa_dens), complete.cases)) #complete cases for certain rows. This is the new way
+
+
 dat %>% distinct(x,y, .keep_all=TRUE) #remove duplicate x,y. take first unique row of x,y, keeping all other columns
 
 #filter can accept a vector of conditions. it applies & to all conditions
