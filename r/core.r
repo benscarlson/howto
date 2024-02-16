@@ -83,6 +83,10 @@ levels(f) <- c('B','A') #change order of factor levels
 treat <- as.factor(rep(c("A","B"),each=2))
 as.numeric(treat) # [1] 1 1 2 2
 
+#Convert a factor with integer labels to integers.
+#Note you need to convert to character first, then integer
+as.integer(as.character(x))
+           
 rm(tmp) #unload object tmp from memory
 missing(x) #in a function, check to see if x has been passed in as a parameter
 
