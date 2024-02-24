@@ -122,8 +122,16 @@ wd=~/path #This will not work, because it will be expanded to /user/benc/path wh
 wd="~/path" #This won't expand, but now you have to expand manually in scp
 scp ${wd/#\~/$HOME}/path/file.csv grace:$wd/path
 
+#--------------
+#---- wget ----
+#--------------
+
 #download multiple files. this will download a total of 12 files, note {1..12} syntax
 wget https://domain/CHELSA_prec_{1..12}_1979-2013_V1_1.zip
+
+wget -O $out $url #specify the output file name (and directory)
+
+wget -c -O $out $url #resume the download
 
 #---- reading file contents ----#
 grep ERROR log.txt | wc -l #count the number of lines in the file log.txt with the word ERROR in it
