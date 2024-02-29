@@ -1,0 +1,1 @@
+-- To use a reserved word as a column defintion when creating a table, enclose the column name with "". eg. 'group'
