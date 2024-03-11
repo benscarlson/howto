@@ -1,3 +1,10 @@
+#----
+#---- Information about a repo
+#----
+
+git remote -v #Show remote repositories, including remote urls
+
+
 #--- clone existing git repo ---#
 cd ~/projects
 git clone git@github.com:benscarlson/repo.git
