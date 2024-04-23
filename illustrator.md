@@ -81,3 +81,7 @@ Note the objects are grouped. To move the individual objects, ungroup first
 The rectangular grid tool is with the line segment tool
 After selecting, click once on canvas, and properties panel will pop up. Use this to set the number of cells
 
+### Colors
+
+Change hex color: Double click on the background or stroke box. Put the hex code into the textbox.
+
