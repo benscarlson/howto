@@ -74,12 +74,12 @@ scale_color_brewer(palette='Dark2') #This is loaded with ggplot no need to load 
 #-- Discrete scale --#
 
 #-- Two color palettes --#
-blueish: '#0073C2FF', redish: '#FC4E07'
+blueish: '#0073C2', redish: '#FC4E07'
 
-scale_color_manual(values=c('#0073C2FF','#FC4E07')) #Passes colors on to scale_color_discrete()
+scale_color_manual(values=c('#0073C2','#FC4E07')) #Passes colors on to scale_color_discrete()
 
 #Note setting manual colors and applying to multiple aesthetics
-cols <- c('random'='#0073C2FF','actual'='#FC4E07')
+cols <- c('random'='#0073C2','actual'='#FC4E07')
 ggplot(gdat,aes(x=abs(diff),fill=diff_type,color=diff_type,..scaled..)) +
   geom_density(alpha=0.5) +
   scale_fill_manual(values=cols,aesthetics=c('color','fill'))
