@@ -54,6 +54,7 @@ press space and click drag to move canvas
 Direct select tool to manually edit nodes
 
 Copy object - 1) click on the object to select it. 2) hold down Opt key. 3) drag to copy
+
 ### Grid
 
 Change grid lines:
@@ -61,6 +62,14 @@ Preferences -> Guides and Grids -> subdivisions -> 8
 
 View -> Show Grid
 View -> Snap to Grid. Shift-Cmd-' to toggle
+
+### Grid of shapes
+
+https://www.youtube.com/watch?v=jO93WAPeS2o
+Make one shape, apply transforms to repeat rows and columns
+* Effect -> Distort and Transform -> Transform
+Turn repeated shapes into objects
+* Object -> Expand apperance (ungroup to select individual shapes)
 
 ### Objects
 
