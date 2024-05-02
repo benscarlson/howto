@@ -76,6 +76,9 @@ scale_color_brewer(palette='Dark2') #This is loaded with ggplot no need to load 
 #-- Two color palettes --#
 blueish: '#0073C2', redish: '#FC4E07'
 
+Blue: #00537a
+Yellow/Gold: #f5a201
+
 scale_color_manual(values=c('#0073C2','#FC4E07')) #Passes colors on to scale_color_discrete()
 
 #Note setting manual colors and applying to multiple aesthetics
