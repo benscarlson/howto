@@ -1,15 +1,7 @@
 
 ### Connect to Yale Secure
 
-EAP method: PEAP
-Phase 2 authentication: MSCHAPV2
-CA certificate: Do no validate
-Identity: netid
-Anonymous identity: blank
-Password: password
-
-CA certificate will give the message "No certificate specified. Your connection will not be private." 
-Note sure what this means but they told me don't worry about it.
+** Moved this content to Obsidian **
 
 ### Connect Duo
 
